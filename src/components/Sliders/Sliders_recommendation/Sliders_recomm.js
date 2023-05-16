@@ -20,13 +20,24 @@ const Sliders_recomm = ({postsList, slidesToShow}) => {
     nextArrow: <ButtonArrow classes={styles.next}/>,
 };
 
-  return (
-  <div className={styles.slider}>
-    <Slider {...settings}>
-        {postsList.map(item => <SliderRecommBlock postInfo={item} key={item.id}/>)}
-    </Slider>
-  </div>
-)
+  if(slidesToShow === 1 ) {
+    return (
+      <div className={styles.slider}>
+        <Slider {...settings}>
+            {postsList.map(item => <SliderRecommBlock postInfo={item} key={item.id} slidesToShow={slidesToShow}/>)}
+        </Slider>
+      </div>
+  
+    )
+  } else {
+    return (
+    <div>
+      <Slider {...settings}>
+          {postsList.map(item => <SliderRecommBlock postInfo={item} key={item.id} slidesToShow={slidesToShow}/>)}
+      </Slider>
+    </div>
+    )
+  }
 };
 
 export default Sliders_recomm;

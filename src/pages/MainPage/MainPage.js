@@ -4,12 +4,14 @@ import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import ManasPart from "../../components/ManasPart/ManasPart";
 import Footer from "../../components/Footer/Footer";
+import AuthorsRecommendation from "../../components/AuthorsRecommendation/AuthorsRecommendation";
 const MainPage = () => {
   return (
     <div>
       <HeaderMain />
       <Recommendation />
       <ManasPart />
+      <AuthorsRecommendation/>
     </div>
   );
 };

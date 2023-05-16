@@ -2,6 +2,7 @@
   height: 657px;
   background-image: url("../../assests/images/MainPage/ManasPart/manas.jpg");
   background-size: cover;
+  margin-bottom: 100px;
 }
 
 .parent_manasPart_shadow {
