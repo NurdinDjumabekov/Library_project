@@ -8,8 +8,6 @@ import NotFound from "./pages/NotFound/NotFound";
 import NewsPage from "./pages/NewsPage/NewsPage";
 
 function App() {
-  const dispatch = useDispatch();
-  const { start } = useSelector((state) => state.sendRequestSlice);
   return (
     <div>
       <Routes>
@@ -19,6 +17,8 @@ function App() {
           <Route path="/news" element={<NewsPage/>}/>
         </Route>
         <Route path="*" element={<NotFound />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
       </Routes>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './NewsPage.module.css'
-import News from '../../components/News'
+import News from '../../components/News/News'
 
 function NewsPage() {
     const newsList = [{name:"Hoвость 1", date: '01-04-2023', time: "17:46"},

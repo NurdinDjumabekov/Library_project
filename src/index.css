@@ -8,7 +8,7 @@ html {
   font-style: normal;
   font-weight: 400;
   align-items: center;
-  color: white;
+  color: #fff;
 }
 
 li {
@@ -16,4 +16,5 @@ li {
 }
 a {
   text-decoration: none;
+  color: #fff;
 }
