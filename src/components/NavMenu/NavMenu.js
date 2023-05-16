@@ -26,7 +26,7 @@ const NavMenu = () => {
                   <NavLink to="/library">Библиотека</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">Читаю сейчас</NavLink>
+                  <NavLink to="/readNow">Читаю сейчас</NavLink>
                 </li>
                 <li>
                   <NavLink to="/">Профиль</NavLink>

@@ -1,0 +1,194 @@
+.parent_read{
+    padding: 150px 0px;
+}
+.read_inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.all_info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.read_text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 125.3%;
+    color: #000000;
+    margin-bottom: 78px;
+}
+.profile_user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user_avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.user_name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    width: 173px;
+    height: 68px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    opacity: 0.7;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.info_book{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.book_name{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    margin-bottom: 16px;
+}
+.this_book{
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.heart_img{
+    position: absolute;
+    right: 4px;
+    top: 29px;
+}
+.navigation_book{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+.page_info{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.page_warning{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    opacity: 0.6;
+}
+
+/*++++*/
+
+.regis_read_inner{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.regis_info{
+    width: 642px;
+    height: 200px;
+
+}
+.regis_text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 125.3%;
+    color: #2A2A2A;
+    /* margin-bottom: 50px; */
+}
+.books_svg{
+    width: 463px;
+    height: 484px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.regis_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    width: 190px;
+    height: 45px;
+    background: #E73700;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 125.3%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.mobile_parent{
+    background-image: url('../../assests/images/readNowImages/Rectangle\ 57.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.mobile_inner{
+    width: 1073px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 0;
+}
+.mobile_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.beauty_book{
+    width: 520px;
+    height: 288px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+.text_mobile{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 125.3%;
+    color: #FFFFFF;
+}
