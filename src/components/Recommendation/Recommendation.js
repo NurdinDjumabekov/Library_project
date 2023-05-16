@@ -32,7 +32,7 @@ const Recommendation = () => {
             <span>Р</span>
             <h2>екомендуемые книги</h2>
           </div>
-          <Sliders_recomm recommendPosts={recommendPosts}/>
+          <Sliders_recomm postsList={recommendPosts} slidesToShow={2}/>
         </div>
       </div>
     </div>

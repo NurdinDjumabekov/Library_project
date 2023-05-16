@@ -6,13 +6,13 @@ import "slick-carousel/slick/slick-theme.css";
 import ButtonArrow from "./ButtonArrow";
 import styles from "./Sliders_recomm.module.css"
 
-const Sliders_recomm = ({recommendPosts}) => {
+const Sliders_recomm = ({postsList, slidesToShow}) => {
   const settings = {
     dots: false,
     buttuns: true,
     infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToShow,
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: false,
@@ -23,7 +23,7 @@ const Sliders_recomm = ({recommendPosts}) => {
   return (
   <div className={styles.slider}>
     <Slider {...settings}>
-        {recommendPosts.map(item => <SliderRecommBlock postInfo={item} key={item.id}/>)}
+        {postsList.map(item => <SliderRecommBlock postInfo={item} key={item.id}/>)}
     </Slider>
   </div>
 )
