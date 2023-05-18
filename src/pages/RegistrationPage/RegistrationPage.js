@@ -19,12 +19,18 @@ export const RegistrationPage = () => {
       <div className="container">
         <div className={styles.child_login}>
           <div className={styles.child_login_left}>
-            {/* <div className={styles.block_logo}>
+            <div className={styles.block_logo}>
               <div>
                 <img src={logo} alt="" />
               </div>
               <h1>Muras</h1>
-            </div> */}
+            </div>
+            <div className={styles.block_logo}>
+              <div>
+                <img src={logo} alt="" />
+              </div>
+              <h1>Muras</h1>
+            </div>
             <h2>Регистрация </h2>
             <p>
               Зарегистрируйтесь, чтобы бесплатно читать книги ваших любимых
@@ -45,7 +51,7 @@ export const RegistrationPage = () => {
               </label>
               <label>
                 <img src={key} alt="" />
-                <input placeholder="Пароль " />
+                <input type="password" placeholder="Пароль " />
               </label>
               <label>
                 <img src={key} alt="" />
