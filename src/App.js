@@ -5,8 +5,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import Layout from "./components/HOC/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
-import { LoginPage } from "./pages/LoginPage/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import NewsPage from "./pages/NewsPage/NewsPage";
 
 function App() {
   return (
@@ -15,6 +14,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<MainPage />} />
           <Route path="/library" element={<LibraryPage />} />
+          <Route path="/news" element={<NewsPage/>}/>
         </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<LoginPage />} />

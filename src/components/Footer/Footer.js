@@ -4,6 +4,7 @@ import telega from "../../assests/images/MainPage/footer/telega.svg";
 import youTube from "../../assests/images/MainPage/footer/youTube.svg";
 import insta from "../../assests/images/MainPage/footer/instagram.svg";
 import whatsApp from "../../assests/images/MainPage/footer/whatsApp.svg";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -28,7 +29,7 @@ const Footer = () => {
                 <a href="">Галерея</a>
               </li>
               <li>
-                <a href="">Новости</a>
+                <NavLink to='/news'>Новости</NavLink>
               </li>
             </ul>
           </div>
