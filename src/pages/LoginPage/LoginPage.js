@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
 import library from "../../assests/images/windows/library_photo.jpg";
@@ -6,6 +6,7 @@ import playMarket from "../../assests/images/windows/playMarket.png";
 import { NavLink } from "react-router-dom";
 
 export const LoginPage = () => {
+  const [restore, setRestore] = useState(false);
   return (
     <div className={styles.parent_login}>
       <div className={styles.inner_login_left}></div>
@@ -34,16 +35,35 @@ export const LoginPage = () => {
                 <NavLink to={"/login"}>Вход</NavLink>
               </button>
             </div>
-            <form action="">
-              <label>
-                {/* <img src={key} alt="key" /> */}
-                <input placeholder="E-mail " />
-              </label>
-              <input placeholder="Пароль " />
-              <button type="submit">Войти</button>
-            </form>
-            <span>Вы забыли пароль?</span>
-            <button>Восстановить</button>
+            {restore ? (
+              <>
+                <form action="">
+                  <input placeholder="E-mail " className={styles.input_email} />
+                  <input
+                    placeholder="---- ---- ---- ----"
+                    className={styles.input_numbers}
+                  />
+                  <p>Введите код из 4 цифр</p>
+                  <button onClick={() => setRestore(false)}>
+                    Восстановить
+                  </button>
+                </form>
+              </>
+            ) : (
+              <>
+                <form action="">
+                  <input className={styles.input_email} placeholder="E-mail " />
+                  <input
+                    className={styles.input_password}
+                    type="password"
+                    placeholder="Пароль "
+                  />
+                  <button type="submit">Войти</button>
+                </form>
+                <span>Вы забыли пароль?</span>
+                <button onClick={() => setRestore(true)}>Восстановить</button>
+              </>
+            )}
           </div>
           <div className={styles.child_login_right}>
             <p>
