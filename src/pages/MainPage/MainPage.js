@@ -4,6 +4,7 @@ import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import ManasPart from "../../components/ManasPart/ManasPart";
 import Footer from "../../components/Footer/Footer";
+import MobileVersion from "../../components/MobileVersion/MobileVersion";
 const MainPage = () => {
   return (
     <div>

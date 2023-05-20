@@ -1,0 +1,21 @@
+.parentBlock_search {
+  text-align: right;
+  margin-top: 115px;
+}
+.parentBlock_search input {
+  width: 400px;
+  height: 46px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 125.3%;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background: url("../../assests/images/library/search_Img.svg");
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-position: 15px;
+  cursor: pointer;
+  padding: 0 0 0 50px;
+}
