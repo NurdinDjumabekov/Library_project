@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ReadingNow from "./pages/ReadingNow/ReadingNow";
+import DetailedBookPage from "./pages/DetailedBookPage/DetailedBookPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/reading_now" element={<ReadingNow />} />
+          <Route path="/detailedpage" element={<DetailedBookPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<LoginPage />} />

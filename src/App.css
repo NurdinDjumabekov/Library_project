@@ -4,7 +4,8 @@
 }
 .standart_headers {
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .standart_headers_h4 {
   font-family: "Pacifico";
@@ -12,6 +13,8 @@
   font-weight: 400;
   font-size: 36px;
   line-height: 125.3%;
+  color: #ff4004;
+  margin-right: 5px;
 }
 .standart_headers_span {
   font-family: "Roboto";
@@ -19,5 +22,16 @@
   font-weight: 400;
   font-size: 36px;
   line-height: 125.3%;
-  color: #ff4004;
+  color: black;
+}
+.standart_headers_p_text {
+  width: 820px;
+  margin: 38px auto;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;  
+  line-height: 125.3%;
+  color: #000000;
+  text-align: center;
 }

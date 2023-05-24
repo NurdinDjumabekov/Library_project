@@ -2,6 +2,10 @@ import React from "react";
 import styles from "./LibraryPage.module.css";
 import books from "../../assests/images/library/books.png";
 import InputSearch from "../../components/InputSearch/InputSearch";
+import KyrgyzWriters from "../../components/KyrgyzWriters/KyrgyzWriters";
+import { TheBestWorks } from "../../components/TheBestWorks/TheBestWorks";
+import Novelties from "../../components/Novelties/Novelties";
+import { AboutManas } from "../../components/AboutManas/AboutManas";
 
 const LibraryPage = () => {
   return (
@@ -16,7 +20,10 @@ const LibraryPage = () => {
           <img src={books} alt="" />
         </div>
       </div>
-      
+      <TheBestWorks />
+      <Novelties />
+      <AboutManas />
+      <KyrgyzWriters />
     </div>
   );
 };
