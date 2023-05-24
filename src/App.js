@@ -6,6 +6,8 @@ import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import Layout from "./components/HOC/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
 import NewsPage from "./pages/NewsPage/NewsPage";
+import { LoginPage } from './pages/LoginPage/LoginPage'
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage'
 
 function App() {
   return (
