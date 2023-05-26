@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import Layout from "./components/HOC/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
+import AboutBookDetailed from "./pages/AboutBookDetailed/AboutBookDetailed";
 
 function App() {
   const dispatch = useDispatch();
