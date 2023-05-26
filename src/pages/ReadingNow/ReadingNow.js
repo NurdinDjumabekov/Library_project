@@ -21,7 +21,7 @@ const ReadingNow = () => {
             </div>
           </div>
           <div>
-            <img src={books} alt=""></img>
+            <img src={books} alt="books" />
           </div>
         </div>
       </div>

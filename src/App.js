@@ -12,19 +12,17 @@ import DetailedBookPage from "./pages/DetailedBookPage/DetailedBookPage";
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/library" element={<LibraryPage />} />
-          <Route path="/reading_now" element={<ReadingNow />} />
-          <Route path="/detailedpage" element={<DetailedBookPage />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/registration" element={<RegistrationPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/library" element={<LibraryPage />} />
+        <Route path="/reading_now" element={<ReadingNow />} />
+        <Route path="/detailedpage" element={<DetailedBookPage />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/registration" element={<RegistrationPage />} />
+    </Routes>
   );
 }
 

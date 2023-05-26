@@ -21,10 +21,10 @@
           align-items: center;
   height: 650px;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_header_inner div:nth-child(1) {
+.parent_detailed .child_detailed .detailed_header .detailed_header_inner div {
   width: 500px;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_header_inner div:nth-child(2) {
+.parent_detailed .child_detailed .detailed_header .detailed_header_inner section {
   max-width: 600px;
   background: linear-gradient(104.04deg, #E8D9BA 0%, rgba(217, 217, 217, 0.53) 100%);
   -webkit-backdrop-filter: blur(5px);
@@ -32,7 +32,7 @@
   border-radius: 10px;
   padding: 24px 24px 40px 24px;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_header_inner div:nth-child(2) h1 {
+.parent_detailed .child_detailed .detailed_header .detailed_header_inner section h1 {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -41,7 +41,7 @@
   color: #000000;
   margin-bottom: 38px;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_header_inner div:nth-child(2) p {
+.parent_detailed .child_detailed .detailed_header .detailed_header_inner section p {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -50,11 +50,11 @@
   letter-spacing: 0.05em;
   color: #000000;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_header_inner div:nth-child(2) div {
+.parent_detailed .child_detailed .detailed_header .detailed_header_inner section div {
   text-align: right;
   padding-top: 18px;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_header_inner div:nth-child(2) div button {
+.parent_detailed .child_detailed .detailed_header .detailed_header_inner section div button {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -66,14 +66,18 @@
   border: none;
   background-color: #FF4004;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_text h2 {
+.parent_detailed .child_detailed .detailed_text {
+  width: 100%;
+  background: red;
+}
+.parent_detailed .child_detailed .detailed_text h2 {
   margin: 32px 0 24px;
   font-weight: 500;
   font-size: 28px;
   line-height: 33px;
   color: #000000;
 }
-.parent_detailed .child_detailed .detailed_header .detailed_text p {
+.parent_detailed .child_detailed .detailed_text p {
   margin-top: 65px;
   font-weight: 400;
   font-size: 20px;
