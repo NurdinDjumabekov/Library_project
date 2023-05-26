@@ -1,4 +1,4 @@
-.parent_NavMenu {
+.parent_navMenu {
   background-color: #fff;
   padding: 18px 0;
   position: fixed;
@@ -6,7 +6,7 @@
   -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
 }
-.parent_NavMenu .child_NavMenu {
+.parent_navMenu .child_navMenu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,7 +17,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.parent_NavMenu .child_NavMenu .mainLogo {
+.parent_navMenu .child_navMenu .mainLogo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,15 +25,15 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.parent_NavMenu .child_NavMenu .mainLogo div {
+.parent_navMenu .child_navMenu .mainLogo div {
   width: 63px;
   height: 42px;
 }
-.parent_NavMenu .child_NavMenu .mainLogo div img {
+.parent_navMenu .child_navMenu .mainLogo div img {
   width: 100%;
   height: 100%;
 }
-.parent_NavMenu .child_NavMenu .mainLogo h1 {
+.parent_navMenu .child_navMenu .mainLogo h1 {
   font-weight: 600;
   font-size: 29.44px;
   line-height: 5px;
@@ -41,7 +41,7 @@
   font-family: "Roboto";
   font-style: normal;
 }
-.parent_NavMenu .child_NavMenu .mainMenu ul {
+.parent_navMenu .child_navMenu .mainMenu ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,16 +53,33 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.parent_NavMenu .child_NavMenu .mainMenu ul li a {
+.parent_navMenu .child_navMenu .mainMenu ul li {
+  position: relative;
+  height: 30px;
+}
+.parent_navMenu .child_navMenu .mainMenu ul li a {
   font-weight: 500;
   font-size: 18px;
   line-height: 125.3%;
   color: #7C7C7C;
 }
-.parent_NavMenu .child_NavMenu .mainMenu ul li .activeMenu {
-  color: red;
+.parent_navMenu .child_navMenu .mainMenu ul li .activeNavMenu {
+  color: #FF4004;
 }
-.parent_NavMenu .child_NavMenu .otherMenu_btn button {
+.parent_navMenu .child_navMenu .mainMenu ul li .activeNavMenu::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  height: 2px;
+  width: 100%;
+  background-color: #FF4004;
+}
+.parent_navMenu .child_navMenu .otherMenu_btn {
+  width: 150px;
+  text-align: right;
+}
+.parent_navMenu .child_navMenu .otherMenu_btn button {
   background-color: transparent;
   border: none;
 }

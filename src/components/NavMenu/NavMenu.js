@@ -5,12 +5,30 @@ import btn_nav from "../../assests/images/navMenu/nav_btn.svg";
 import { NavLink } from "react-router-dom";
 
 const NavMenu = () => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(0);
+  const pagesArr = [
+    {
+      page: "Главная",
+      to: "/",
+    },
+    {
+      page: "Библиотека",
+      to: "/library",
+    },
+    {
+      page: "Читаю сейчас",
+      to: "reading_now",
+    },
+    {
+      page: "Профиль",
+      to: "/pro",
+    },
+  ];
   return (
     <>
-      <div className={styles.parent_NavMenu}>
+      <div className={styles.parent_navMenu}>
         <div className="container">
-          <div className={styles.child_NavMenu}>
+          <div className={styles.child_navMenu}>
             <div className={styles.mainLogo}>
               <div>
                 <img src={navLogo} alt="" />
@@ -19,18 +37,17 @@ const NavMenu = () => {
             </div>
             <div className={styles.mainMenu}>
               <ul>
-                <li>
-                  <NavLink to="/">Главная</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/library">Библиотека</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">Читаю сейчас</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">Профиль</NavLink>
-                </li>
+                {pagesArr.map((item, index) => (
+                  <li key={index}>
+                    <NavLink
+                      to={item.to}
+                      onClick={() => setActive(index)}
+                      className={active === index && styles.activeNavMenu}
+                    >
+                      {item.page}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className={styles.otherMenu_btn}>
@@ -46,3 +63,18 @@ const NavMenu = () => {
 };
 
 export default NavMenu;
+
+{
+  /* <li>
+<NavLink to="/">Главная</NavLink>
+</li>
+<li>
+<NavLink to="/library">Библиотека</NavLink>
+</li>
+<li>
+<NavLink to="/reading_now">Читаю сейчас</NavLink>
+</li>
+<li>
+<NavLink to="/pro">Профиль</NavLink>
+</li> */
+}
