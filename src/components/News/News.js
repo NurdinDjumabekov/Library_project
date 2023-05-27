@@ -4,8 +4,7 @@ import { NavLink } from 'react-router-dom'
 function News({newsList,styles}) {
     let sortedNewList = newsList.sort((a,b) => b.time.localeCompare(a.time) )
     sortedNewList = sortedNewList.sort((a,b) => new Date(...b.date.split('-').reverse()) - new Date(...a.date.split('-').reverse()))
-    let time = new Date()
-    console. log(time)
+    let time = new Date() 
     useEffect(() => {
         window.scrollTo(0,0)},[NavLink])
 return (
