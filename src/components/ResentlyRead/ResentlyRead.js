@@ -24,6 +24,40 @@ const ResentlyRead = () => {
           </div>
         </div>
       </div>
+      {/* ///////////////////// */}
+      <div className={styles.child_resently}>
+        <div className={styles.inner_resently}>
+          <div className={styles.inner_resently_author}>
+            <div>
+              <img src="" alt="" />
+            </div>
+            <section>
+              <p>Maximillian Antonov</p>
+              <p>Писатель, Художник</p>
+            </section>
+          </div>
+          <div className={styles.inner_resently_infoBook}>
+            <h5>“Эпос Манас”</h5>
+          </div>
+        </div>
+      </div>
+      {/* ///////////////////// */}
+      <div className={styles.child_resently}>
+        <div className={styles.inner_resently}>
+          <div className={styles.inner_resently_author}>
+            <div>
+              <img src="" alt="" />
+            </div>
+            <section>
+              <p>Maximillian Antonov</p>
+              <p>Писатель, Художник</p>
+            </section>
+          </div>
+          <div className={styles.inner_resently_infoBook}>
+            <h5>“Эпос Манас”</h5>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
