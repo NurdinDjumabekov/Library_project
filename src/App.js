@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import Layout from "./components/HOC/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
+import Singup from "./pages/Registration/Singup";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/library" element={<LibraryPage />} />
         </Route>
+        <Route path="/login" element={<Singup />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
