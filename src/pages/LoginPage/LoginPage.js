@@ -38,10 +38,17 @@ export const LoginPage = () => {
             {restore ? (
               <>
                 <form action="">
-                  <input placeholder="E-mail " className={styles.input_email} />
                   <input
-                    placeholder="---- ---- ---- ----"
+                    placeholder="E-mail "
+                    className={styles.input_email}
+                    required
+                  />
+                  <input
+                    placeholder="-- -- -- --"
                     className={styles.input_numbers}
+                    pattern="\d{4}"
+                    maxlength="4"
+                    required
                   />
                   <p>Введите код из 4 цифр</p>
                   <button onClick={() => setRestore(false)}>
@@ -52,10 +59,15 @@ export const LoginPage = () => {
             ) : (
               <>
                 <form action="">
-                  <input className={styles.input_email} placeholder="E-mail " />
+                  <input
+                    className={styles.input_email}
+                    placeholder="E-mail "
+                    required
+                  />
                   <input
                     className={styles.input_password}
                     type="password"
+                    required
                     placeholder="Пароль "
                   />
                   <button type="submit">Войти</button>

@@ -1,0 +1,9 @@
+input {
+  background: #FFFFFF;
+  -webkit-box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  padding-left: 16px;
+  width: 950px;
+  height: 50px;
+}

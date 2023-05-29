@@ -1,0 +1,10 @@
+.parent_sortBtn .inner_sortBtn_choice div {
+  width: 174px;
+  padding: 7px 26px;
+  margin-bottom: 1px;
+  background: red;
+}
+.parent_sortBtn .inner_sortBtn_choice div button {
+  border: none;
+  background-color: transparent;
+}
