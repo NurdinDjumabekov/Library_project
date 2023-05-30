@@ -10,6 +10,8 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ReadingNow from "./pages/ReadingNow/ReadingNow";
 import DetailedBookPage from "./pages/DetailedBookPage/DetailedBookPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
+import BasketBook from "./pages/BasketBook/BasketBook";
+import AboutSite from "./pages/AboutSite/AboutSite";
 
 function App() {
   return (
@@ -20,10 +22,12 @@ function App() {
         <Route path="/reading_now" element={<ReadingNow />} />
         <Route path="/detailedpage" element={<DetailedBookPage />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
-      <Route path="/users" element={<UsersPage />} />
+      <Route path="/profile" element={<UsersPage />} />
+      <Route path="/basket" element={<BasketBook />} />
+      <Route path="/aboutsite" element={<AboutSite />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

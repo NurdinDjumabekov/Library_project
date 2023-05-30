@@ -1,10 +1,49 @@
+.parent_sortBtn .inner_sortBtn_choice {
+  padding: 20px 25px 8px 5px;
+}
 .parent_sortBtn .inner_sortBtn_choice div {
   width: 174px;
   padding: 7px 26px;
-  margin-bottom: 1px;
-  background: red;
+  margin-bottom: 3px;
 }
 .parent_sortBtn .inner_sortBtn_choice div button {
   border: none;
   background-color: transparent;
+}
+.parent_sortBtn .inner_sortBtn_choice .acrive_choice {
+  background: white;
+  -webkit-box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.parent_sortBtn .inner_sortBtn_choice p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 125.3%;
+  color: #868E96;
+  padding: 7px 26px;
+}
+.parent_sortBtn .inner_sortBtn_view section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  padding: 3px 26px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.parent_sortBtn .inner_sortBtn_view section div {
+  width: 15px;
+  height: 15px;
+}
+.parent_sortBtn .inner_sortBtn_view section div img {
+  width: 100%;
+  height: 100%;
+}
+.parent_sortBtn .inner_sortBtn_view section p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 125.3%;
+  color: #212529;
 }
