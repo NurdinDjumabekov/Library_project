@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Recommendation.module.css";
-import Sliders_recomm from "../Sliders/Sliders_recommendation/Sliders_recomm";
+// import Sliders_recomm from "../Sliders/Sliders_recommendation/Sliders_recomm";
 const Recommendation = () => {
   return (
     <div className={styles.parent_recommendation}>
@@ -10,7 +10,7 @@ const Recommendation = () => {
             <span>Р</span>
             <h2>екомендуемые книги</h2>
           </div>
-          <Sliders_recomm />
+          {/* <Sliders_recomm /> */}
         </div>
       </div>
     </div>

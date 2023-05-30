@@ -6,3 +6,6 @@ const sendRequestSlice = createSlice({
   initialState,
   reducers: {},
 });
+
+export const {} = sendRequestSlice.actions;
+export default sendRequestSlice.reducer;
