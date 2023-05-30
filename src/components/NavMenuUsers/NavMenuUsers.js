@@ -1,40 +1,38 @@
 import React, { useState } from "react";
-import styles from "./NavMenu.module.css";
+import styles from "./NavMenuUsers.module.css";
 import navLogo from "../../assests/images/navMenu/navLogo.svg";
 import btn_nav from "../../assests/images/navMenu/nav_btn.svg";
 import { NavLink } from "react-router-dom";
 
-const NavMenu = () => {
-  // const [active, setActive] = useState(0);
+const NavMenuUsers = () => {
   const [active, setActive] = useState(
-    localStorage.getItem("statePage_main")
-      ? +localStorage.getItem("statePage_main")
+    localStorage.getItem("statePage_user")
+      ? +localStorage.getItem("statePage_user")
       : 0
   );
-  localStorage.setItem("statePage_main", active);
-
+  localStorage.setItem("statePage_user", active);
   const pagesArr = [
     {
       page: "Главная",
-      to: "/",
+      to: "/profile",
+    },
+    {
+      page: "О нас",
+      to: "/aboutsite",
     },
     {
       page: "Библиотека",
       to: "/library",
     },
     {
-      page: "Читаю сейчас",
-      to: "reading_now",
-    },
-    {
-      page: "Профиль",
-      to: "/profile",
+      page: "Корзина",
+      to: "/basket",
     },
   ];
   return (
-    <div className={styles.parent_navMenu}>
+    <div className={styles.parent_navUser}>
       <div className="container">
-        <div className={styles.child_navMenu}>
+        <div className={styles.child_navUser}>
           <div className={styles.mainLogo}>
             <div>
               <img src={navLogo} alt="navLogo" />
@@ -67,4 +65,4 @@ const NavMenu = () => {
   );
 };
 
-export default NavMenu;
+export default NavMenuUsers;

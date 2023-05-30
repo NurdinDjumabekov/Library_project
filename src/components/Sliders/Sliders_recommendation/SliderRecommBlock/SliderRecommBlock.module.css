@@ -1,4 +1,4 @@
-.sliderBlockDouble {
+.sliderBlock {
   width: 552px;
   height: 379px;
   border-radius: 10px;
@@ -9,11 +9,7 @@
   position: relative;
   color: black;
 }
-.sliderBlockDouble a {
-  color: black;
-  text-decoration: none;
-}
-.sliderBlockDouble .postImage {
+.sliderBlock .postImage {
   width: 200px;
   height: 300px;
   margin-left: 20px;
@@ -21,24 +17,36 @@
   border-radius: 10px;
   background-color: grey;
 }
-.sliderBlockDouble .postText {
+.sliderBlock .postImage a {
+  color: black;
+  text-decoration: none;
+}
+.sliderBlock .postImage a div {
+  width: 200px;
+  height: 300px;
+}
+.sliderBlock .postImage a div img {
+  width: 100%;
+  height: 100%;
+}
+.sliderBlock .postText {
   margin-left: 23px;
   margin-top: 40px;
   width: 280px;
 }
-.sliderBlockDouble .postText h2 {
+.sliderBlock .postText h2 {
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 36px;
   line-height: 45px;
 }
-.sliderBlockDouble .postText p {
+.sliderBlock .postText p {
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   width: 244px;
 }
-.sliderBlockDouble .continueRead {
+.sliderBlock .continueRead {
   position: absolute;
   width: 164px;
   height: 40px;
@@ -54,110 +62,4 @@
   cursor: pointer;
   color: black;
   text-align: center;
-}
-
-.mainText_authorRecommendation {
-  margin-bottom: 100px;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
-}
-.mainText_authorRecommendation span {
-  font-family: "Pacifico";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 96px;
-  line-height: 125.3%;
-  color: #FF4004;
-}
-.mainText_authorRecommendation h2 {
-  font-weight: 700;
-  font-size: 60px;
-  line-height: 125.3%;
-  color: #000000;
-  margin-left: -8px;
-}
-
-.sliderBlockSingle {
-  width: 1140px;
-  height: 520px;
-  border-radius: 10px;
-  border: 1px solid black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  color: black;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  gap: 33px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: 0 auto;
-}
-.sliderBlockSingle a {
-  color: black;
-  text-decoration: none;
-}
-.sliderBlockSingle .postImage {
-  width: 400px;
-  height: 400px;
-  border-radius: 10px;
-  background-color: grey;
-  margin-top: 50px;
-  margin-left: 50px;
-}
-.sliderBlockSingle .postText {
-  margin-top: 60px;
-  width: 621px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 20px;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 125.3%;
-}
-.sliderBlockSingle .postText .textBlockChild {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.sliderBlockSingle .postText .textBlockChild p {
-  width: 400px;
-}
-.sliderBlockSingle .postText .textBlockChild span {
-  font-weight: 500;
-}
-.sliderBlockSingle .detailedBtn {
-  position: absolute;
-  width: 164px;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  padding: 10px 24px;
-  background: #FF4004;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  cursor: pointer;
-  color: white;
-  text-align: center;
-  bottom: 25px;
-  right: 36px;
 }

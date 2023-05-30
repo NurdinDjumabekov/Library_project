@@ -3,53 +3,55 @@ import SliderRecommBlock from "./SliderRecommBlock/SliderRecommBlock";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ButtonArrow from "./ButtonArrow";
 import styles from "./Sliders_recomm.module.css";
 
-const Sliders_recomm = ({ postsList, slidesToShow }) => {
+const Sliders_recomm = () => {
+  const recommendPosts = [
+    {
+      name: "Название книги",
+      discription:
+        "«Плаха» - это роман советского писателя Чингиза Айтматова, опубликованный в 1986 году в журнале «Новый мир». Роман рассказывает о судьбах двух людей — Авдия Каллистратова и Бостона Бейшеналиева, которые встречаются на берегу Иссык-Куля и отправляются вместе на поиски своих корней",
+      id: 1,
+    },
+    {
+      name: "Название книги",
+      discription:
+        "«Плаха» - это роман советского писателя Чингиза Айтматова, опубликованный в 1986 году в журнале «Новый мир». Роман рассказывает о судьбах двух людей — Авдия Каллистратова и Бостона Бейшеналиева, которые встречаются на берегу Иссык-Куля и отправляются вместе на поиски своих корней",
+      id: 2,
+    },
+    {
+      name: "Название книги",
+      discription:
+        "«Плаха» - это роман советского писателя Чингиза Айтматова, опубликованный в 1986 году в журнале «Новый мир». Роман рассказывает о судьбах двух людей — Авдия Каллистратова и Бостона Бейшеналиева, которые встречаются на берегу Иссык-Куля и отправляются вместе на поиски своих корней",
+      id: 3,
+    },
+    {
+      name: "Название книги",
+      discription:
+        "«Плаха» - это роман советского писателя Чингиза Айтматова, опубликованный в 1986 году в журнале «Новый мир». Роман рассказывает о судьбах двух людей — Авдия Каллистратова и Бостона Бейшеналиева, которые встречаются на берегу Иссык-Куля и отправляются вместе на поиски своих корней",
+      id: 4,
+    },
+  ];
   const settings = {
     dots: false,
     buttuns: true,
     infinite: true,
-    slidesToShow: slidesToShow,
-    slidesToScroll: slidesToShow,
+    slidesToShow: 2,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: false,
-    prevArrow: <ButtonArrow classes={styles.prev} />,
-    nextArrow: <ButtonArrow classes={styles.next} />,
   };
-  return <></>
 
-//   if (slidesToShow === 1) {
-//     return (
-//       <div className={styles.slider}>
-//         <Slider {...settings}>
-//           {postsList.map((item) => (
-//             <SliderRecommBlock
-//               postInfo={item}
-//               key={item.id}
-//               slidesToShow={slidesToShow}
-//             />
-//           ))}
-//         </Slider>
-//       </div>
-//     );
-//   } else {
-//     return (
-//       <div>
-//         <Slider {...settings}>
-//           {postsList.map((item) => (
-//             <SliderRecommBlock
-//               postInfo={item}
-//               key={item.id}
-//               slidesToShow={slidesToShow}
-//             />
-//           ))}
-//         </Slider>
-//       </div>
-//     );
-//   }
+  return (
+    <div className={styles.slider}>
+      <Slider {...settings}>
+        {recommendPosts.map((slide) => (
+          <SliderRecommBlock slide={slide} key={slide.id} />
+        ))}
+      </Slider>
+    </div>
+  );
 };
 
 export default Sliders_recomm;
