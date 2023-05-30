@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import sendRequestSlice from "./reducers/sendRequestSlice";
+import sendRequestLibraryPageSlice from "./reducers/sendRequestLibraryPageSlice";
 import windowsSlice from "./reducers/windowsSlice";
 import adminStateSlice from "./reducers/adminStateSlice";
 import usersStateSlice from "./reducers/usersStateSlice";
 const reducer = combineReducers({
-  sendRequestSlice,
+  sendRequestLibraryPageSlice,
   windowsSlice,
   adminStateSlice,
   usersStateSlice,

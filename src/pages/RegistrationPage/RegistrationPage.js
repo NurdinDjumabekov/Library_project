@@ -69,9 +69,14 @@ export const RegistrationPage = () => {
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="E-mail "
+                required
               />
-              <input type="password" placeholder="Пароль " />
-              <input type="password" placeholder="Введите пароль еще раз " />
+              <input type="password" placeholder="Пароль " required />
+              <input
+                type="password"
+                placeholder="Введите пароль еще раз "
+                required
+              />
               <div>
                 <input type="checkbox" onClick={() => setDisable(!disable)} />
                 <div>
