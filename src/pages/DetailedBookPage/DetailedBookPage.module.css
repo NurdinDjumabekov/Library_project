@@ -1,6 +1,9 @@
 .parent_detailed {
   padding-top: 80px;
 }
+.parent_detailed p {
+  font-size: 21px;
+}
 .parent_detailed .child_detailed .detailed_header {
   background-image: url("../../assests/images/Detailed/page_book.png");
   width: 100%;
@@ -67,8 +70,10 @@
   background-color: #FF4004;
 }
 .parent_detailed .child_detailed .detailed_text {
-  width: 100%;
-  background: red;
+  width: 1137px;
+  height: 407px;
+  margin: 0 auto 65px;
+  text-align: center;
 }
 .parent_detailed .child_detailed .detailed_text h2 {
   margin: 32px 0 24px;
@@ -78,10 +83,43 @@
   color: #000000;
 }
 .parent_detailed .child_detailed .detailed_text p {
-  margin-top: 65px;
   font-weight: 400;
   font-size: 20px;
   line-height: 25px;
   letter-spacing: 0.03em;
   color: #000000;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.book_about {
+  width: 1134px;
+  height: 515px;
+  color: black;
+  margin: 0 auto 18px;
+}
+.book_about h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.book_about .inner_about {
+  display: flex;
+  justify-content: space-between;
+}
+.book_about .inner_about .left .line {
+  width: 739px;
+  height: 25px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.book_about .inner_about .left .about_desc {
+  width: 729px;
+  height: 125px;
+}
+.book_about .inner_about .right {
+  width: 300px;
+  height: 450px;
+  margin-left: 98px;
 }
