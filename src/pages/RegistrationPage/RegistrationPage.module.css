@@ -180,6 +180,8 @@
   height: 30px;
   margin-top: 5px;
   border: 5px solid #FF4004;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .parent_login .child_login .child_login_left form > div div {
   text-align: left;

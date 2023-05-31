@@ -9,7 +9,7 @@ const BasketBook = () => {
       <NavMenuUsers />
       <div className="container">
         <div className={styles.child_aboutSite}>
-          <p>корзина error</p>
+          <p>корзина пока что нету</p>
         </div>
       </div>
       <Footer />

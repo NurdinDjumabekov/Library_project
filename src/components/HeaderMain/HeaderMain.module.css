@@ -38,7 +38,7 @@
 .parent_header .child_header div {
   text-align: right;
 }
-.parent_header .child_header div button {
+.parent_header .child_header div a button {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -48,4 +48,5 @@
   background-color: #FF4004;
   padding: 10px 11px;
   border-radius: 10px;
+  border: none;
 }
