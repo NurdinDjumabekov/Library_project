@@ -40,9 +40,7 @@
 .parent_header .child_header div {
   text-align: right;
 }
-.parent_header .child_header div a {
-  display: inline-block;
-  height: 45px;
+.parent_header .child_header div a button {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;

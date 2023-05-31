@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeaderMain.module.css";
+import { NavLink } from "react-router-dom";
 
 const HeaderMain = () => {
   return (
@@ -18,7 +19,9 @@ const HeaderMain = () => {
             bibendum nulla porta volutpat.
           </span>
           <div>
-            <Link to={"/"}>Смотреть все книги</Link>
+            <NavLink to={"/library"}>
+              <button>Смотреть все книги</button>
+            </NavLink>
           </div>
         </div>
       </div>

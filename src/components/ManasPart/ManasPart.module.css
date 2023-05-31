@@ -1,12 +1,12 @@
 .parent_manasPart {
-  height: 657px;
+  height: 80vh;
   background-image: url("../../assests/images/MainPage/ManasPart/manas.jpg");
   background-size: cover;
   margin-bottom: 100px;
 }
 
 .parent_manasPart_shadow {
-  height: 657px;
+  height: 80vh;
   background-color: rgba(0, 0, 0, 0.6);
 }
 .parent_manasPart_shadow .child_manasPart {
@@ -19,7 +19,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 657px;
+  height: 80vh;
 }
 .parent_manasPart_shadow .child_manasPart_right {
   text-align: center;

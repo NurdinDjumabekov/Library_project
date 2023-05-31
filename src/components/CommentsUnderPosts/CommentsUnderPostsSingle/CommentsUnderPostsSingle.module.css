@@ -37,6 +37,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .commentBlockSingle .commentHeader .raiting img {
   height: 20px;

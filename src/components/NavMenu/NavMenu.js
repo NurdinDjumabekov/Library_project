@@ -3,8 +3,13 @@ import styles from "./NavMenu.module.css";
 import navLogo from "../../assests/images/navMenu/navLogo.svg";
 import btn_nav from "../../assests/images/navMenu/nav_btn.svg";
 import { NavLink } from "react-router-dom";
+import MainIconMenu from "../MainIconMenu/MainIconMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { changeMainIconState } from "../../store/reducers/windowsSlice";
 
 const NavMenu = () => {
+  const { mainIconState } = useSelector((state) => state.windowsSlice);
+  const dispatch = useDispatch();
   // const [active, setActive] = useState(0);
   const [active, setActive] = useState(
     localStorage.getItem("statePage_main")
@@ -31,6 +36,7 @@ const NavMenu = () => {
       to: "/profile",
     },
   ];
+
   return (
     <div className={styles.parent_navMenu}>
       <div className="container">
@@ -57,11 +63,12 @@ const NavMenu = () => {
             </ul>
           </div>
           <div className={styles.otherMenu_btn}>
-            <button>
+            <button onClick={() => dispatch(changeMainIconState(true))}>
               <img src={btn_nav} alt="logo" />
             </button>
           </div>
         </div>
+        {mainIconState && <MainIconMenu />}
       </div>
     </div>
   );
