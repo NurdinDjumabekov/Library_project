@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./DetailedBookPage.module.css";
 import page_book from "../../assests/images/Detailed/page_book.png";
 import info_book from "../../assests/images/Detailed/info_book.png";
-import CommentsUnderPosts from "../../components/CommentsUnderPosts/CommentsUnderPosts";
+import CommentsUnderPostsMain from "../../components/CommentsUnderPosts/CommentsUnderPostsMain/CommentsUnderPostsMain";
 import InfoAboutBook from "../../components/InfoAboutBook/InfoAboutBook";
 
 const DetailedBookPage = () => {
@@ -57,7 +57,7 @@ const DetailedBookPage = () => {
             </div>
           </div>
           <InfoAboutBook />
-          <CommentsUnderPosts />
+          <CommentsUnderPostsMain />
         </div>
       </div>
     </>

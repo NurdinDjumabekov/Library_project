@@ -4,7 +4,6 @@
 .parent_detailed .child_detailed .detailed_header {
   background-image: url("../../assests/images/Detailed/page_book.png");
   width: 100%;
-  height: 650px;
   background-repeat: no-repeat;
   background-size: cover;
 }

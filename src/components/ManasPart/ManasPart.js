@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ManasPart.module.css";
 import bookImg from "../../assests/images/MainPage/ManasPart/book_manas.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ManasPart = () => {
   return (
