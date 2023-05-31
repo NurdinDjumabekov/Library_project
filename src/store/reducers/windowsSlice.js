@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
-const sendRequestSlice = createSlice({
-  name: "sendRequestSlice",
+const initialState = {
+  mainIconState: false,
+};
+const windowsSlice = createSlice({
+  name: "windowsSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    changeMainIconState: (state, action) => {
+      state.mainIconState = action.payload;
+    },
+  },
 });
 
-export const {} = sendRequestSlice.actions;
-export default sendRequestSlice.reducer;
+export const { changeMainIconState } = windowsSlice.actions;
+export default windowsSlice.reducer;

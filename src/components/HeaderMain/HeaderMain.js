@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./HeaderMain.module.css";
+import { NavLink } from "react-router-dom";
 
 const HeaderMain = () => {
   return (
@@ -17,7 +18,9 @@ const HeaderMain = () => {
             bibendum nulla porta volutpat.
           </span>
           <div>
-            <button>Смотреть все книги</button>
+            <NavLink to={"/library"}>
+              <button>Смотреть все книги</button>
+            </NavLink>
           </div>
         </div>
       </div>
