@@ -1,0 +1,17 @@
+.parent_userBlock {
+  background-color: #f4f2f2;
+  padding: 100px 0 150px;
+}
+.parent_userBlock .child_userBlock {
+  padding: 0px 20px;
+}
+.parent_userBlock .child_userBlock .block_for_sorts {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 23px;
+}

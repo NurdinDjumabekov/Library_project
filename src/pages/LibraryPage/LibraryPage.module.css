@@ -1,1 +1,36 @@
+<<<<<<< HEAD
 /*# sourceMappingURL=LibraryPage.module.css.map */
+=======
+.library_header {
+  height: 100vh;
+  padding-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.library_header .library_mainText {
+  width: 650px;
+  text-align: left;
+}
+.library_header .library_mainText h1 {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 125.3%;
+  color: #2A2A2A;
+}
+.library_header .library_mainText p {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 125.3%;
+  color: #2A2A2A;
+  text-align: right;
+}
+>>>>>>> 70b41f4c2c5cff2fc64c502f11383936a2e09725

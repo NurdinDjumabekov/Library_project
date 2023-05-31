@@ -5,43 +5,65 @@ import btn_nav from "../../assests/images/navMenu/nav_btn.svg";
 import { NavLink } from "react-router-dom";
 
 const NavMenu = () => {
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(0);
+  const [active, setActive] = useState(
+    localStorage.getItem("statePage_main")
+      ? +localStorage.getItem("statePage_main")
+      : 0
+  );
+  localStorage.setItem("statePage_main", active);
+
+  const pagesArr = [
+    {
+      page: "Главная",
+      to: "/",
+    },
+    {
+      page: "Библиотека",
+      to: "/library",
+    },
+    {
+      page: "Читаю сейчас",
+      to: "reading_now",
+    },
+    {
+      page: "Профиль",
+      to: "/profile",
+    },
+  ];
   return (
-    <>
-      <div className={styles.parent_NavMenu}>
-        <div className="container">
-          <div className={styles.child_NavMenu}>
-            <div className={styles.mainLogo}>
-              <div>
-                <img src={navLogo} alt="" />
-              </div>
-              <h1>Muras</h1>
+    <div className={styles.parent_navMenu}>
+      <div className="container">
+        <div className={styles.child_navMenu}>
+          <div className={styles.mainLogo}>
+            <div>
+              <img src={navLogo} alt="navLogo" />
             </div>
-            <div className={styles.mainMenu}>
-              <ul>
-                <li>
-                  <NavLink to="/">Главная</NavLink>
+            <h1>Muras</h1>
+          </div>
+          <div className={styles.mainMenu}>
+            <ul>
+              {pagesArr.map((item, index) => (
+                <li key={index}>
+                  <NavLink
+                    to={item.to}
+                    onClick={() => setActive(index)}
+                    className={active === index && styles.activeNavMenu}
+                  >
+                    {item.page}
+                  </NavLink>
                 </li>
-                <li>
-                  <NavLink to="/library">Библиотека</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">Читаю сейчас</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">Профиль</NavLink>
-                </li>
-              </ul>
-            </div>
-            <div className={styles.otherMenu_btn}>
-              <button>
-                <img src={btn_nav} alt="logo" />
-              </button>
-            </div>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.otherMenu_btn}>
+            <button>
+              <img src={btn_nav} alt="logo" />
+            </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

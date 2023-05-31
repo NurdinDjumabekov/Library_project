@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Recommendation.module.css";
 import Sliders_recomm from "../Sliders/Sliders_recommendation/Sliders_recomm";
+
 const Recommendation = () => {
   const recommendPosts = [
     {

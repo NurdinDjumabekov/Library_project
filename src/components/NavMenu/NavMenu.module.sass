@@ -1,19 +1,18 @@
-.parent_NavMenu
+.parent_navMenu
     background-color: #fff
-    padding: 18px 0
+    padding: 18px 0px
     position: fixed
     top: 0
     width: 100%
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
-    z-index: 1
-    .child_NavMenu
+    z-index: 10
+    .child_navMenu
         display: flex
         justify-content: space-between
         align-items: center
         .mainLogo
             display: flex
             align-items: center
-            // background: red
             div
                 width: 63px
                 height: 42px
@@ -34,14 +33,27 @@
                 gap: 50px
                 align-items: center
                 li
+                    position: relative
+                    height: 30px
                     a
                         font-weight: 500
                         font-size: 18px
                         line-height: 125.3%
                         color: #7C7C7C
-                    .activeMenu
-                        color: red
+                    .activeNavMenu
+                        color: #FF4004
+                    .activeNavMenu:after
+                        content: ""
+                        // display: inline-block
+                        position: absolute
+                        bottom: 0
+                        left: 0px
+                        height: 2px
+                        width: 100%
+                        background-color: #FF4004
         .otherMenu_btn
+            width: 150px
+            text-align: right
             button
                 background-color: transparent
                 border: none
