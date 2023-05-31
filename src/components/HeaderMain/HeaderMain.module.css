@@ -1,13 +1,14 @@
 .parent_header {
-  height: 100vh;
+  height: 583px;
   background-image: url("../../assests/images/MainPage/Header/main_back-d.jpg");
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  font-family: "Roboto", sans-serif;
 }
 .parent_header .child_header {
   width: 500px;
@@ -17,6 +18,7 @@
   font-weight: 700;
   font-size: 60px;
   line-height: 125.3%;
+  margin-top: 90px;
 }
 .parent_header .child_header p {
   font-style: normal;
