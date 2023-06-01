@@ -19,7 +19,7 @@ export const RegistrationPage = () => {
     }
   }, [email]);
 
-  console.log(email);
+  // console.log(email);
   return (
     <div className={styles.parent_login}>
       <div className={styles.inner_login_left}></div>

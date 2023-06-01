@@ -39,8 +39,9 @@ const Sliders_recomm = () => {
     slidesToShow: 2,
     slidesToScroll: 2,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     pauseOnHover: false,
+    pauseOnHover: true,
   };
 
   return (
