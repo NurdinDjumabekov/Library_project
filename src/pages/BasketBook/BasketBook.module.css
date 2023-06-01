@@ -1,16 +1,61 @@
 .parent_aboutSite .child_aboutSite {
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    margin-top: 100px;
 }
-.parent_aboutSite .child_aboutSite p {
-  font-size: 25px;
-  color: #000;
+.parent_aboutSite .child_aboutSite .basket_line {
+    width: 1200px;
+    height: 100px;
+    color:  black;
+    display: flex;
+    -webkit-box-pack: center;
+      -ms-flex-pack: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.parent_aboutSite .child_aboutSite .basket_line h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.parent_aboutSite .child_aboutSite .basket_line p {
+    font-size: 16px;
+}
+.parent_aboutSite .child_aboutSite .basket_line .left {
+    display: flex;
+    -webkit-box-pack: center;
+      -ms-flex-pack: center;
+}
+.parent_aboutSite .child_aboutSite .basket_line .left .book img {
+    width: 70px;
+    height: 100px;
+    margin-right: 35px;
+}
+.parent_aboutSite .child_aboutSite .basket_line .right {
+    display: flex;
+    -webkit-box-pack: center;
+      -ms-flex-pack: center;
+}
+.parent_aboutSite .child_aboutSite .basket_line .right h3 {
+    font-size: 16px;
+    color: #8A8A8A;
+    margin-bottom: 5px;
+}
+.parent_aboutSite .child_aboutSite .basket_line .right p {
+    font-size: 16px;
+}
+.parent_aboutSite .child_aboutSite .basket_line .right .buttons {
+    width: 200px;
+}
+.parent_aboutSite .child_aboutSite .basket_line .right button {
+    display: block;
+    width: 140px;
+    height: 40px;
+    margin: 5px auto;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.parent_aboutSite .child_aboutSite .basket_line .right .button1 {
+    background: #FF4004;
+    color: white;
 }

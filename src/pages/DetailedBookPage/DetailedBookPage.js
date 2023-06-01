@@ -6,6 +6,7 @@ import CommentsUnderPosts from "../../components/CommentsUnderPosts/CommentsUnde
 import InfoAboutBook from "../../components/InfoAboutBook/InfoAboutBook";
 
 const DetailedBookPage = () => {
+
   return (
     <>
       <div className={styles.parent_detailed}>
