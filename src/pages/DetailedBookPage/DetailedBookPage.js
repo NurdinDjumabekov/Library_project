@@ -1,11 +1,37 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./DetailedBookPage.module.css";
 import page_book from "../../assests/images/Detailed/page_book.png";
 import info_book from "../../assests/images/Detailed/info_book.png";
 import CommentsUnderPosts from "../../components/CommentsUnderPosts/CommentsUnderPosts";
 import InfoAboutBook from "../../components/InfoAboutBook/InfoAboutBook";
+import axios from "axios";
 
 const DetailedBookPage = () => {
+
+  const [authors, setAuthors] = useState([]);
+  const [books, setBooks] = useState([]);
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+  axios.get('https://647a2b1ea455e257fa6469e5.mockapi.io/authors_books_and_genres')
+    .then(response => {
+      const data = response.data;
+
+      const authors = data.map(item => item.authors)
+      const books = data.map(item => item.books)
+      const genres = data.map(item => item.genres)
+      const id = data.map(item => item.id)
+      console.log(id)
+
+      setAuthors(authors);
+      setBooks(books);
+      setGenres(genres);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }, []);
+
 
   return (
     <>
@@ -66,9 +92,9 @@ const DetailedBookPage = () => {
               <div className={styles.inner_about}>
                 <div className={styles.left}>
                   <div className="lines">
-                    <div className={styles.line}><p>Автор:</p> <p>Чингиз Айтматов</p></div>
+                    <div className={styles.line}><p>Автор:</p> <p></p></div>
                     <div className={styles.line}><p>Год публикации:</p> <p>1962 г.</p></div>
-                    <div className={styles.line}><p>Жанр:</p> <p>Роман</p></div>
+                    <div className={styles.line}><p>Жанр:</p> <p></p></div>
                     <div className={styles.line}><p>Рейтинг:</p></div>
                     <div className={styles.line}><p>Количество страниц:</p> <p>250</p></div>
                   </div>

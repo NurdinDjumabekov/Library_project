@@ -1,11 +1,34 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./BasketBook.module.css";
 import NavMenuUsers from "../../components/NavMenuUsers/NavMenuUsers";
 import Footer from "../../components/Footer/Footer";
 import info_book from "../../assests/images/Detailed/info_book.png";
+import axios from "axios";
 
 
 const BasketBook = () => {
+
+  const [authors, setAuthors] = useState([]);
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+  axios.get('https://647a2b1ea455e257fa6469e5.mockapi.io/authors_books_and_genres')
+    .then(response => {
+      const data = response.data;
+
+      const authors = data.map(item => item.authors)
+      const books = data.map(item => item.books)
+      const id = data.map(item => item.id)
+      console.log(id)
+
+      setAuthors(authors);
+      setBooks(books);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }, []);
+
   return (
     <div className={styles.parent_aboutSite}>
       <NavMenuUsers />
