@@ -1,8 +1,8 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./Sliders_writers.module.css";
 import Slider from "react-slick";
+import styles from "./Sliders_writers.module.css";
 
 const Sliders_writers = () => {
   const sliderWriters = [
@@ -50,13 +50,13 @@ const Sliders_writers = () => {
 
   const settings = {
     dots: false,
-    buttuns: true,
+    arrows: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 4000,
-    pauseOnHover: false,
+    pauseOnHover: true,
   };
 
   return (
@@ -68,7 +68,7 @@ const Sliders_writers = () => {
             <h2>ингиз Айтматов</h2>
           </div> */}
           <div className={styles.parent_sliderWriters}>
-            <Slider {...settings}>
+            <Slider className={styles.slider} {...settings}>
               {sliderWriters.map((slide) => (
                 <div key={slide.id}>
                   <h3>{slide.writer}</h3>
@@ -78,15 +78,15 @@ const Sliders_writers = () => {
                     </div>
                     <section className={styles.moreText_Slider}>
                       <div>
-                        <h3>Краткая история: </h3>
+                        <h4>Краткая история: </h4>
                         <p>{slide.history}</p>
                       </div>
                       <div>
-                        <h3>Награды: </h3>
+                        <h4>Награды: </h4>
                         <p>{slide.discription}</p>
                       </div>
                       <div>
-                        <h3>Произведения: </h3>
+                        <h4>Произведения: </h4>
                         <p>{slide.discription}</p>
                       </div>
                     </section>

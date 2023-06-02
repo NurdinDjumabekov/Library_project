@@ -13,17 +13,18 @@
       -ms-flex-align: end;
           align-items: end;
 }
-.parent_recommendation .child_recommendation .mainText_recommendation span {
-  font-family: "Pacifico";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 96px;
-  line-height: 125.3%;
-  color: #FF4004;
-}
 .parent_recommendation .child_recommendation .mainText_recommendation h2 {
   font-weight: 700;
   font-size: 60px;
   line-height: 125.3%;
   color: #000000;
+}
+.parent_recommendation .child_recommendation .mainText_recommendation h2::first-letter {
+  font-family: "Pacifico";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 125.3%;
+  letter-spacing: -20px;
+  color: #FF4004;
 }

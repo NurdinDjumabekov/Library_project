@@ -8,8 +8,7 @@ const Recommendation = () => {
       <div className="container">
         <div className={styles.child_recommendation}>
           <div className={styles.mainText_recommendation}>
-            <span>Р</span>
-            <h2>екомендуемые книги</h2>
+            <h2>Рекомендуемые книги</h2>
           </div>
           <Sliders_recomm />
         </div>

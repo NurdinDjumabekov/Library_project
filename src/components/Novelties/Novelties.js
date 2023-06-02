@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./Novelties.module.css";
 import { requestBestWorks } from "../../store/reducers/sendRequestLibraryPageSlice";
 import { useDispatch, useSelector } from "react-redux";
+import GradeRetingHeart from "../GradeRetingHeart/GradeRetingHeart";
 
 const Novelties = () => {
   const { dataBestWork } = useSelector(
@@ -30,11 +31,13 @@ const Novelties = () => {
           {dataBestWork?.map((book) => (
             <li key={book.id}>
               <div>
-                <img src={book.url} alt="" />
+                <img src={book.url} alt="book.url" />
               </div>
               <h3>{book.title}</h3>
               <p>{book.author}</p>
-              <section></section>
+              <section>
+                <GradeRetingHeart grade={book.grade} />
+              </section>
             </li>
           ))}
         </ul>

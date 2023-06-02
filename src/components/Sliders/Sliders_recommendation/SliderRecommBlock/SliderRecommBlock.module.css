@@ -8,6 +8,7 @@
   display: flex;
   position: relative;
   color: black;
+  cursor: pointer;
 }
 .sliderBlock .postImage {
   width: 200px;
