@@ -10,6 +10,7 @@ const SortBooksBTN = () => {
     { id: 2, view: "Плитка", img: plitaImg },
   ];
   const [choice, setChoice] = useState(0);
+  const [viewOfList,setViewOfList] = useState(1);
   return (
     <div className={styles.parent_sortBtn}>
       <div className={styles.inner_sortBtn_choice}>
@@ -26,12 +27,15 @@ const SortBooksBTN = () => {
       </div>
       <div className={styles.inner_sortBtn_view}>
         {view.map((item) => (
-          <section key={item.id}>
+          <button 
+            key={item.id} 
+            onClick={() => setViewOfList(item.id)}
+            className={item.id === viewOfList ? styles.acrive_choice : ""}>
             <div>
               <img src={item.img} alt="" />
             </div>
             <p>{item.view}</p>
-          </section>
+          </button>
         ))}
       </div>
     </div>

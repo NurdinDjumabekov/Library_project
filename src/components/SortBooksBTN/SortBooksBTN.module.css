@@ -23,7 +23,8 @@
   color: #868E96;
   padding: 7px 26px;
 }
-.parent_sortBtn .inner_sortBtn_view section {
+.parent_sortBtn .inner_sortBtn_view button {
+  width: 174px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,16 +33,24 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border: none;
+  background-color: transparent;
 }
-.parent_sortBtn .inner_sortBtn_view section div {
+.parent_sortBtn .inner_sortBtn_view .acrive_choice {
+  background: white;
+  -webkit-box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.parent_sortBtn .inner_sortBtn_view .acrive_choice div {
   width: 15px;
   height: 15px;
 }
-.parent_sortBtn .inner_sortBtn_view section div img {
+.parent_sortBtn .inner_sortBtn_view .acrive_choice div img {
   width: 100%;
   height: 100%;
 }
-.parent_sortBtn .inner_sortBtn_view section p {
+.parent_sortBtn .inner_sortBtn_view .acrive_choice p {
   font-weight: 500;
   font-size: 18px;
   line-height: 125.3%;
