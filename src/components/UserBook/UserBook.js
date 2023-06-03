@@ -1,11 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
 import styles from "./UserBook.module.css";
 import userBook_dots from '../../assests/images/UserBook/userBook_dots.svg';
 import userBook_tileDots from '../../assests/images/UserBook/userBook_tileDots.svg'
+import UserBookDropMenu from "../UserBookDropMenu/UserBookDropMenu";
 
 const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
   console.log(viewOfList)
   listOfBooks =  choiceFilter === 'Все' ? listOfBooks : listOfBooks.filter(item => item.choice === choiceFilter)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedBookIndex, setSelectedBookIndex] = useState(null);
+
+  const handleDropdownToggle = (index) => {
+    setSelectedBookIndex(index);
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  const closeMenu = () =>{
+    setIsDropdownOpen(!isDropdownOpen);
+  }
   return (
     <div className={styles.parent_userBook}>
       {Object.keys(listOfBooks).length === 0 ? (
@@ -16,7 +27,7 @@ const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
             {listOfBooks.map((item, index) => (
               <li key={index}>
                 <div className={styles.bookCont}>
-                  <img alt="" src={item.linkImg}/>
+                  <img alt="" src={item.linkImg} className={styles.bookCover}/>
                   <div className={styles.bookMainInfo}>
                     <h3>{item.title}</h3>
                     <p>{item.author}</p>
@@ -26,7 +37,10 @@ const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
                       <p>Добавлено</p>
                       <p>Дата</p>
                     </div>
-                    <img src={userBook_dots} className={styles.bookFunc} alt="" />
+                    <button className={styles.bookFunc} onClick={() => handleDropdownToggle(index)}><img src={userBook_dots} alt="" /></button>
+                    {isDropdownOpen && selectedBookIndex === index && (
+                      <UserBookDropMenu bookmark={item.choice} isOpen={closeMenu}/>
+                    )}
                   </div>
                 </div>
               </li>
@@ -39,8 +53,11 @@ const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
                 <div className={styles.bookCont}>
                   <div className={styles.imgCont}>
                     <img src={item.linkImg} className={styles.bookCover}></img>
-                    <img src={userBook_tileDots} className={styles.bookFunc} alt="" />
+                    <button className={styles.bookFunc} onClick={() => handleDropdownToggle(index)}><img src={userBook_tileDots}alt="" /></button>
                   </div>
+                  {isDropdownOpen && selectedBookIndex === index && (
+                      <UserBookDropMenu bookmark={item.choice}/>
+                    )}
                   <h3>{item.title}</h3>
                 </div>
               </li>

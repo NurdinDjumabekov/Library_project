@@ -32,7 +32,7 @@
           align-items: center;
   position: relative;
 }
-.parent_userBook .list li .bookCont img {
+.parent_userBook .list li .bookCont .bookCover {
   height: 91px;
   width: 61px;
 }
@@ -76,6 +76,16 @@
   width: 18px;
   height: 4px;
   margin-left: 44px;
+  border: none;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+.parent_userBook .list li .bookCont .bookOther .bookFunc img {
+  width: 18px;
+  height: 4px;
 }
 .parent_userBook .tile {
   display: -webkit-box;
@@ -96,7 +106,10 @@
   margin-right: 10px;
   margin-bottom: 31px;
 }
-.parent_userBook .tile li h3 {
+.parent_userBook .tile li .bookCont {
+  position: relative;
+}
+.parent_userBook .tile li .bookCont h3 {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -121,6 +134,20 @@
   position: absolute;
   bottom: 25px;
   left: 18px;
+  width: 18px;
+  height: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
 }
 .parent_userBook .tile li:nth-child(5n) {
   margin-right: 0;

@@ -22,7 +22,7 @@
                 display: flex
                 align-items: center
                 position: relative
-                img
+                .bookCover
                     height: 91px
                     width: 61px
                 .bookMainInfo
@@ -55,6 +55,13 @@
                         width: 18px
                         height: 4px
                         margin-left: 44px
+                        border: none
+                        background-color: transparent
+                        display: flex
+                        cursor: pointer
+                        img
+                            width: 18px
+                            height: 4px
     .tile
         display: flex
         flex-direction: row
@@ -66,13 +73,15 @@
             height: 287px
             margin-right: 10px
             margin-bottom: 31px
-            h3
-                font-family: 'Roboto'
-                font-style: normal
-                font-weight: 500
-                font-size: 20px
-                line-height: 25px
-                color: rgba(33, 37, 41, 0.84)
+            .bookCont
+                position: relative
+                h3
+                    font-family: 'Roboto'
+                    font-style: normal
+                    font-weight: 500
+                    font-size: 20px
+                    line-height: 25px
+                    color: rgba(33, 37, 41, 0.84)
             .imgCont
                 width: 174px
                 height: 251px
@@ -87,5 +96,13 @@
                     position: absolute
                     bottom: 25px
                     left: 18px
+                    width: 18px
+                    height: 4px
+                    display: flex
+                    border: none
+                    align-items: center
+                    justify-content: center
+                    background-color: transparent
+                    cursor: pointer
         li:nth-child(5n)
             margin-right: 0
