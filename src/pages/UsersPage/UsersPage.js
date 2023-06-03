@@ -8,16 +8,38 @@ import NavMenuUsers from "../../components/NavMenuUsers/NavMenuUsers";
 import Footer from "../../components/Footer/Footer";
 
 const UsersPage = () => {
-  const list = [{name:"Новость 1", date: '01-04-2023', time: "17:46"},
-    {name:"Новость 2", date: '15-04-2023', time: "17:12"},
-    {name:"Новость 3", date: '15-04-2023', time: "17:13"},
-    {name:"Новость 4", date: '12-04-2023', time: "11:45"},
-    {name:"Новость 5", date: '10-04-2023', time: "12:26"},
-    {name:"Новость 6", date: '01-04-2023', time: "17:46"},
-    {name:"Новость 7", date: '15-04-2023', time: "17:12"},
-    // {name:"Новость 8", date: '15-04-2023', time: "17:13"},
-    // {name:"Новость 9", date: '12-04-2023', time: "11:45"},
-    // {name:"Новость 10", date: '10-04-2023', time: "12:26"}
+  const list = [
+    {
+      title: 'Алхимик',
+      author:'Пауло Коэльо',
+      linkImg:
+        'https://cache3.youla.io/files/images/720_720_out/5b/f7/5bf7a372f695762eb8717f74.jpg',
+    },{
+      title: '451 по фаренгейту',
+      author:'Рэй Бредбери',
+      linkImg:
+        'https://sun9-16.userapi.com/impg/KQousNkB82_eRQi940nlWW9JirfQkX5yNcSj7A/Te58by5g5pg.jpg?size=427x604&quality=95&sign=2ff8a3a9f5c41a70bf1379ac580d343a&c_uniq_tag=lZSI5-JtBzhA2qgKtHvmtg3duCKHDIJVTazg4E0HlEU&type=album',
+    },{
+      title: 'Маленький принц',
+      author:'Антуан де Сент-Экзюпери',
+      linkImg:
+        'https://ourboox-media-prod.s3.eu-west-1.amazonaws.com/wp-content/uploads/2019/05/10104850/ПРИНЦ.jpg',
+    },{
+      title: 'Ведьмак. Кровь эльфов',
+      author:'Анджей Сапковский',
+      linkImg:
+        'https://cdn1.ozone.ru/s3/multimedia-9/6244611261.jpg',
+    },{
+      title: '11/22/63',
+      author:'Стивен Кинг',
+      linkImg:
+        'https://edvisrb.ru/images/uploads/6411.jpg',
+    },{
+      title: '1984',
+      author:'Джордж Оруэлл ',
+      linkImg:
+        'https://pbs.twimg.com/media/FRq1MZoXsAA-4-O?format=jpg&name=large',
+    },
   ]
   const [choiceFilter,setChoiceFilter] = useState(0)
   const [viewOfList,setViewOfList] = useState(1)

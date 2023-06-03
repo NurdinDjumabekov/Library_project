@@ -3,7 +3,7 @@ import styles from "./SortBookSearchInput.module.css";
 
 const SortBookSearchInput = ({listOfBook,updateFiteredList}) => {
   const [searchInput,setSearchInput] = useState('');
-  const filteredListOfBook = listOfBook.filter(book =>  {return book.name.toLowerCase().includes(searchInput.toLowerCase())});
+  const filteredListOfBook = listOfBook.filter(book =>  {return book.title.toLowerCase().includes(searchInput.toLowerCase())});
   useEffect(()=>{
     updateFiteredList(filteredListOfBook)
   },[searchInput])

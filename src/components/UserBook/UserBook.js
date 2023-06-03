@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./UserBook.module.css";
 import userBook_dots from '../../assests/images/UserBook/userBook_dots.svg';
+import userBook_tileDots from '../../assests/images/UserBook/userBook_tileDots.svg'
 
 const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
   console.log(viewOfList)
@@ -14,15 +15,15 @@ const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
             {listOfBooks.map((item, index) => (
               <li key={index}>
                 <div className={styles.bookCont}>
-                  <img alt="" />
+                  <img alt="" src={item.linkImg}/>
                   <div className={styles.bookMainInfo}>
-                    <h3>{item.name}</h3>
-                    <p>Имя Автора</p>
+                    <h3>{item.title}</h3>
+                    <p>{item.author}</p>
                   </div>
                   <div className={styles.bookOther}>
                     <div className={styles.bookDate}>
                       <p>Добавлено</p>
-                      <p>{item.date}</p>
+                      <p>Дата</p>
                     </div>
                     <img src={userBook_dots} className={styles.bookFunc} alt="" />
                   </div>
@@ -35,8 +36,11 @@ const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
             {listOfBooks.map((item, index) => (
               <li key={index}>
                 <div className={styles.bookCont}>
-                  <div className={styles.imgCont}><img src={userBook_dots} className={styles.bookFunc} alt="" /></div>
-                  <h3>{item.name}</h3>
+                  <div className={styles.imgCont}>
+                    <img src={item.linkImg} className={styles.bookCover}></img>
+                    <img src={userBook_tileDots} className={styles.bookFunc} alt="" />
+                  </div>
+                  <h3>{item.title}</h3>
                 </div>
               </li>
             ))}
