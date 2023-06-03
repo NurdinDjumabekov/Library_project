@@ -1,46 +1,30 @@
 import React, { useEffect } from "react";
 import styles from "./Novelties.module.css";
-import { requestBestWorks } from "../../store/reducers/sendRequestLibraryPageSlice";
 import { useDispatch, useSelector } from "react-redux";
-import GradeRetingHeart from "../GradeRetingHeart/GradeRetingHeart";
+import SlidersMainPage from "../Sliders/SlidersMainPage/SlidersMainPage";
+import { requestNovetlyWorks } from "../../store/reducers/sendRequestMainPageSlice";
 
 const Novelties = () => {
-  const { dataBestWork } = useSelector(
-    (state) => state.sendRequestLibraryPageSlice
+  const { dataNoveltyWork } = useSelector(
+    (state) => state.sendRequestMainPageSlice
   );
+  // console.log(dataNoveltyWork);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(requestBestWorks());
+    dispatch(requestNovetlyWorks());
   }, []);
 
   return (
-    <div className="container">
-      <div className={styles.parent_noveltyWork}>
-        <div className="standart_headers">
-          <h4 className="standart_headers_h4">Н</h4>
-          <span className="standart_headers_span">овинки</span>
+    <div className={styles.parent_novelties}>
+      <div className="container">
+        <div className={styles.child_novelties}>
+          <div className={styles.mainText_novelties}>
+            <h2>НОВИНКИ</h2>
+          </div>
+          <SlidersMainPage data={dataNoveltyWork} />
         </div>
-        <p className="standart_headers_p_text">
-          Lorem ipsum dolor sit amet consectetur. Viverra nunc vulputate
-          vestibulum vitae eget tellus bibendum commodo sed. Cursus mauris
-          bibendum nulla porta volutpat.
-        </p>
-        <ul>
-          {dataBestWork?.map((book) => (
-            <li key={book.id}>
-              <div>
-                <img src={book.url} alt="book.url" />
-              </div>
-              <h3>{book.title}</h3>
-              <p>{book.author}</p>
-              <section>
-                <GradeRetingHeart grade={book.grade} />
-              </section>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );

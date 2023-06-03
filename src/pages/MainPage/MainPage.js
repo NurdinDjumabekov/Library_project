@@ -5,14 +5,16 @@ import Recommendation from "../../components/Recommendation/Recommendation";
 import ManasPart from "../../components/ManasPart/ManasPart";
 import Sliders_writers from "../../components/Sliders/Sliders_writers/Sliders_writers";
 import Novelties from "../../components/Novelties/Novelties";
+import TheBestWorks from "../../components/TheBestWorks/TheBestWorks";
 const MainPage = () => {
   return (
     <div>
       <HeaderMain />
-      <Recommendation />
-      <ManasPart />
       <Novelties />
+      <ManasPart />
+      <Recommendation />
       <Sliders_writers />
+      <TheBestWorks />
     </div>
   );
 };

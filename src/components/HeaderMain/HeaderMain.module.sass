@@ -1,42 +1,34 @@
 .parent_header
-    height: 100vh
-    background-image: url("../../assests/images/MainPage/Header/main_back-d.jpg")
-    background-size: contain
+    height: 90vh
+    background: #E2E2E2
     display: flex
+    justify-content: center
     align-items: center
+    position: relative
     .child_header
-        width: 500px
-        h1
-            font-style: normal
-            font-weight: 700
-            font-size: 60px
-            line-height: 125.3%
-        p
-            font-style: normal
-            font-weight: 400
-            font-size: 18px
-            line-height: 125.3%
-            width: 441px
-            margin: 6px 0 16px 0
-        span
-            font-weight: 500
-            font-size: 22px
-            line-height: 125.3%
-            display: block
-            width: 482px
-            display: block
-            margin-bottom: 40px
-        div
-            text-align: right
-            a
-                button
-                    font-family: 'Roboto'
-                    font-style: normal
-                    font-weight: 500
-                    font-size: 18px
-                    line-height: 125.3%
-                    color: #FFFFFF
-                    background-color: #FF4004
-                    padding: 10px 11px
-                    border-radius: 10px
-                    border: none
+        width: 100%
+        height: 100%
+        .none
+            display: none
+        
+        .btn_slider
+            display: flex
+            justify-content: center
+            gap: 30px
+            position: absolute
+            bottom : 20px
+            margin: auto
+            left: 50%
+            transform: translateX(-50%)
+            margin: auto
+            > button
+                width: 22px
+                height: 22px
+                background: #7C7C7C
+                border-radius: 50%
+                border: none
+                color: #7C7C7C
+            .active_btn
+                background: #FF4004
+                color: #FF4004
+                scale: 1.15

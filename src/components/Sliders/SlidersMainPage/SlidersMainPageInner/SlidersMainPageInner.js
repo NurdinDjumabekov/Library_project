@@ -1,9 +1,10 @@
 import React from "react";
-import styles from "./SliderRecommBlock.module.css";
+import styles from "./SlidersMainPageInner.module.css";
 import postImage from "../../../../assests/images/Sliders/book_slider.png";
 import { Link } from "react-router-dom";
+import Rating_Star from "../Rating_Star/Rating_Star";
 
-const SliderRecommBlock = ({ slide }) => {
+const SlidersMainPageInner = ({ slide }) => {
   return (
     <div className={styles.sliderBlock}>
       <div className={styles.postImage}>
@@ -14,7 +15,7 @@ const SliderRecommBlock = ({ slide }) => {
           <h2>{slide.title}</h2>
           <p>{slide.writer}</p>
         </div>
-        <div className={styles.rating_star}></div>
+        <Rating_Star grade_star={slide.grade_star} grade={slide.grade} />
         <button>
           <Link to={"/"}>Читать</Link>
         </button>
@@ -23,4 +24,4 @@ const SliderRecommBlock = ({ slide }) => {
   );
 };
 
-export default SliderRecommBlock;
+export default SlidersMainPageInner;

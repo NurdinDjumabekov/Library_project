@@ -1,51 +1,30 @@
-.parent_noveltyWork {
-  background-color: #F4EEEE;
-  border-radius: 10px;
-  padding: 30px 50px 40px;
-  margin: 0 0 114px 0;
+.parent_novelties {
+  padding: 60px 0px;
 }
-.parent_noveltyWork ul {
-  width: 100%;
+.parent_novelties .child_novelties .mainText_novelties {
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 67px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
-.parent_noveltyWork ul li {
-  padding: 18px 22px;
-  background: #F5F5F5;
-  -webkit-box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(123, 123, 123, 0.5), inset 2px -2px 4px rgba(123, 123, 123, 0.2), inset -2px 2px 4px rgba(123, 123, 123, 0.2), inset 2px 2px 4px rgba(255, 255, 255, 0.9), inset -2px -2px 5px rgba(123, 123, 123, 0.9);
-          box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(123, 123, 123, 0.5), inset 2px -2px 4px rgba(123, 123, 123, 0.2), inset -2px 2px 4px rgba(123, 123, 123, 0.2), inset 2px 2px 4px rgba(255, 255, 255, 0.9), inset -2px -2px 5px rgba(123, 123, 123, 0.9);
-  border-radius: 10px;
-}
-.parent_noveltyWork ul li div {
-  max-width: 150px;
-  height: 200px;
-}
-.parent_noveltyWork ul li div img {
-  width: 100%;
-  height: 100%;
-}
-.parent_noveltyWork ul li h3 {
-  font-weight: 500;
-  font-size: 22px;
+.parent_novelties .child_novelties .mainText_novelties h2 {
+  font-weight: 700;
+  font-size: 60px;
   line-height: 125.3%;
   color: #000000;
-  text-align: center;
-  margin: 8px 0px;
 }
-.parent_noveltyWork ul li p {
+.parent_novelties .child_novelties .mainText_novelties h2::first-letter {
+  font-family: "Pacifico";
+  font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 96px;
   line-height: 125.3%;
-  color: #000000;
-  text-align: center;
-}
-.parent_noveltyWork ul li section {
-  width: 100%;
-  height: 20px;
-  margin-top: 10px;
+  letter-spacing: 15px;
+  color: #FF4004;
 }
