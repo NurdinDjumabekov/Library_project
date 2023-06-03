@@ -1,23 +1,59 @@
 .parent_manasPart
-    height: 80vh
-    background-image: url("../../assests/images/MainPage/ManasPart/manas.jpg")
-    background-size: cover
-.parent_manasPart_shadow
-    height: 80vh
-    background-color: rgba(0, 0, 0, 0.6 )
-    .child_manasPart
-        display: flex
-        justify-content: space-between
-        align-items: center
-        height: 80vh
-    .child_manasPart_right
+    h4
+        font-weight: 400
+        font-size: 96px
+        line-height: 125.3%
+        letter-spacing: 0.19em
+        color: #000
         text-align: center
-        h3
-            font-weight: 500
-            font-size: 36px
-            line-height: 125.3%
-        a
-            font-weight: 500
-            font-size: 22px
-            line-height: 125.3%
-            color: #fff
+        margin-bottom: 40px
+    h4::first-letter
+        color: #FF4004
+        font-family: 'Pacifico'
+        font-style: normal
+    .child_manasPart
+        background-color: #E2E2E2
+        display: flex
+        justify-content: center
+        gap: 50px
+        padding: 0 50px
+        align-items: center
+        .child_manasPart_left , .child_manasPart_right
+            width: 440px
+            height: 500px
+            img
+                width: 100%
+                height: 100%
+        .child_manasPart_center
+            > div
+                display: flex
+                justify-content: center
+                align-items: center
+                gap: 20px
+                > div
+                    width: 200px
+                    height: 270px
+                    img
+                        width: 100%
+                        height: 100%
+                p
+                    font-weight: 500
+                    font-size: 24px
+                    line-height: 125.3%
+                    width: 245px
+                    color: #000000
+                    span
+                        color: #FF4004
+                        font-weight: 500
+                        font-size: 24px
+                        line-height: 125.3%
+                        width: 279px
+            button
+                border: none
+                background: #FF4004
+                padding: 13px 82px
+                border-radius: 10px
+                display: block
+                margin: 43px auto 0
+
+     
