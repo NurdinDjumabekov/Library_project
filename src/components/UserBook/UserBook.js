@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./UserBook.module.css";
 import userBook_dots from '../../assests/images/UserBook/userBook_dots.svg';
 import userBook_tileDots from '../../assests/images/UserBook/userBook_tileDots.svg'
 
 const UserBook = ({ listOfBooks, viewOfList, choiceFilter }) => {
   console.log(viewOfList)
+  listOfBooks =  choiceFilter === 'Все' ? listOfBooks : listOfBooks.filter(item => item.choice === choiceFilter)
   return (
     <div className={styles.parent_userBook}>
       {Object.keys(listOfBooks).length === 0 ? (

@@ -12,7 +12,7 @@ const SortBooksBTN = ({updateChoiceFilter,updateViewOfList}) => {
   const [choice, setChoice] = useState(0);
   const [viewOfList,setViewOfList] = useState(1);
   useEffect(()=>{
-    updateChoiceFilter(choice);
+    updateChoiceFilter(sorts[choice]);
     updateViewOfList(viewOfList);
   },[choice,viewOfList])
   return (
