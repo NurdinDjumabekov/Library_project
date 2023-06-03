@@ -15,12 +15,22 @@ const UsersPage = () => {
     {name:"Новость 5", date: '10-04-2023', time: "12:26"},
     {name:"Новость 6", date: '01-04-2023', time: "17:46"},
     {name:"Новость 7", date: '15-04-2023', time: "17:12"},
-    {name:"Новость 8", date: '15-04-2023', time: "17:13"},
-    {name:"Новость 9", date: '12-04-2023', time: "11:45"},
-    {name:"Новость 10", date: '10-04-2023', time: "12:26"}]
+    // {name:"Новость 8", date: '15-04-2023', time: "17:13"},
+    // {name:"Новость 9", date: '12-04-2023', time: "11:45"},
+    // {name:"Новость 10", date: '10-04-2023', time: "12:26"}
+  ]
+  const [choiceFilter,setChoiceFilter] = useState(0)
+  const [viewOfList,setViewOfList] = useState(1)
+
   const [filteredList, setFilteredList] = useState(list)
   const updatefilteredList = (list)=> {
     setFilteredList(list);
+  }
+  const updateViewOfList = (view) => {
+    setViewOfList(view);
+  }
+  const updateChoiceFilter = (choice) =>{
+    setChoiceFilter(choice);
   }
   return (
     <>
@@ -30,10 +40,10 @@ const UsersPage = () => {
           <div className={styles.child_userBlock}>
             <AboutUser />
             <div className={styles.block_for_sorts}>
-              <SortBooksBTN />
+              <SortBooksBTN updateChoiceFilter={updateChoiceFilter} updateViewOfList={updateViewOfList}/>
               <div>
                 <SortBookSearchInput updateFiteredList={updatefilteredList} listOfBook={list}/>
-                <UserBook listOfBooks={filteredList}/>
+                <UserBook listOfBooks={filteredList} viewOfList={viewOfList} choiceFilter={choiceFilter}/>
               </div>
             </div>s
           </div>

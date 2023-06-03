@@ -77,3 +77,38 @@
   height: 4px;
   margin-left: 44px;
 }
+.parent_userBook .tile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  width: 948px;
+}
+.parent_userBook .tile li {
+  width: 174px;
+  height: 287px;
+  margin-right: 10px;
+  margin-bottom: 31px;
+  background: #213141;
+}
+.parent_userBook .tile li .imgCont {
+  width: 174px;
+  height: 251px;
+  position: relative;
+}
+.parent_userBook .tile li .imgCont img {
+  position: absolute;
+  bottom: 25px;
+  left: 18px;
+}
+.parent_userBook .tile li:nth-child(5n) {
+  margin-right: 0;
+}

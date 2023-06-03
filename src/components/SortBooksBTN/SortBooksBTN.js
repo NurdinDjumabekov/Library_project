@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SortBooksBTN.module.css";
 import listImg from "../../assests/images/user/list.svg";
 import plitaImg from "../../assests/images/user/plita.svg";
 
-const SortBooksBTN = () => {
+const SortBooksBTN = ({updateChoiceFilter,updateViewOfList}) => {
   const sorts = ["Все", "Читаю", "Прочитано", "Брошено"];
   const view = [
     { id: 1, view: "Список", img: listImg },
@@ -11,6 +11,10 @@ const SortBooksBTN = () => {
   ];
   const [choice, setChoice] = useState(0);
   const [viewOfList,setViewOfList] = useState(1);
+  useEffect(()=>{
+    updateChoiceFilter(choice);
+    updateViewOfList(viewOfList);
+  },[choice,viewOfList])
   return (
     <div className={styles.parent_sortBtn}>
       <div className={styles.inner_sortBtn_choice}>
