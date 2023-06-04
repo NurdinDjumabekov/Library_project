@@ -5,6 +5,7 @@ const initialState = {
   recommedationBookInfo: [],
   dataBestWork: [],
   kyrgyzWriters: [],
+  coordinatesSlider: [],
 };
 
 export const requestNovetlyWorks = createAsyncThunk(
@@ -78,6 +79,9 @@ const sendRequestMainPageSlice = createSlice({
     changeDateBestWork: (state, action) => {
       state.dataBestWork = action.payload;
     },
+    addCoordinatesSlider: (state, action) => {
+      state.coordinatesSlider.push(action.payload);
+    },
   },
 });
 export const {
@@ -85,5 +89,6 @@ export const {
   changeRecommedationBookInfo,
   changeDatekyrgyzWriters,
   changeDateBestWork,
+  addCoordinatesSlider,
 } = sendRequestMainPageSlice.actions;
 export default sendRequestMainPageSlice.reducer;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HeaderMain.module.css";
 import { NavLink } from "react-router-dom";
 import NoveltiesSlider from "../Sliders/HeaderSliders/NoveltiesSlider/NoveltiesSlider";

@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ManasPartSlider.module.css";
 import manas from "../../../../assests/images/MainPage/ManasPart/manasPart_left.png";
+import { useSelector } from "react-redux";
 
 const ManasPartSlider = () => {
+  const { coordinatesSlider } = useSelector(
+    (state) => state.sendRequestMainPageSlice
+  );
+  console.log(coordinatesSlider[0], "coordinatesSlider");
+  const [disabledBtn, setDisabledBtn] = useState(false);
+  let count = 0;
+  const startScroll = (addCoordinates) => {
+    setDisabledBtn(true);
+    if (count < addCoordinates) {
+      setTimeout(() => {
+        count = count + 20;
+        window.scrollTo({
+          top: count,
+        });
+        // console.log(count);
+        startScroll(addCoordinates);
+      }, 1);
+    }
+    setTimeout(() => {
+      count = 0;
+      setDisabledBtn(false);
+    }, 1000);
+  };
+
   return (
     <div className={styles.parent_sliderManas}>
       <div>
@@ -21,7 +46,12 @@ const ManasPartSlider = () => {
         </div>
       </div>
       <div className={styles.btn_more}>
-        <button>Подробнее</button>
+        <button
+          onClick={() => startScroll(coordinatesSlider[0])}
+          disabled={disabledBtn}
+        >
+          Подробнее
+        </button>
       </div>
     </div>
   );

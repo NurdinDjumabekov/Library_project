@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./ManasPart.module.css";
 import { NavLink } from "react-router-dom";
 import manas_left from "../../assests/images/MainPage/ManasPart/manasPart_left.png";
 import manas_right from "../../assests/images/MainPage/ManasPart/manasPart_right.png";
 import manas_book from "../../assests/images/MainPage/ManasPart/manas_book.png";
+import { useDispatch } from "react-redux";
+import { addCoordinatesSlider } from "../../store/reducers/sendRequestMainPageSlice";
 
 const ManasPart = () => {
+  const dispatch = useDispatch();
+  const data_Ref = useRef(null);
+  useEffect(() => {
+    const { top } = data_Ref.current.getBoundingClientRect();
+    console.log(top);
+    dispatch(addCoordinatesSlider(top + 150));
+  }, []);
+
   return (
-    <div className={styles.parent_manasPart}>
+    <div className={styles.parent_manasPart} ref={data_Ref}>
       <h4>Манас</h4>
       <div className={styles.child_manasPart}>
         <div className={styles.child_manasPart_left}>
