@@ -6,6 +6,7 @@ import ManasPart from "../../components/ManasPart/ManasPart";
 import Sliders_writers from "../../components/Sliders/Sliders_writers/Sliders_writers";
 import Novelties from "../../components/Novelties/Novelties";
 import TheBestWorks from "../../components/TheBestWorks/TheBestWorks";
+import DownloadSlide from "../../components/Sliders/HeaderSliders/DownloadSlide/DownloadSlide";
 const MainPage = () => {
   return (
     <div>
@@ -15,6 +16,9 @@ const MainPage = () => {
       <Recommendation />
       <Sliders_writers />
       <TheBestWorks />
+      <div className={styles.parent_downloadSlide}>
+        <DownloadSlide />,
+      </div>
     </div>
   );
 };

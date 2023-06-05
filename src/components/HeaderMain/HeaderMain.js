@@ -16,7 +16,13 @@ const HeaderMain = () => {
     <TheBestWorksSlider />,
     <DownloadSlide />,
   ];
-  // console.log(slide);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlide(slide === arrSlide.length - 1 ? 0 : slide + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [slide]);
+
   return (
     <div className={styles.parent_header}>
       <div className="container">

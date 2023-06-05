@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className={styles.parent_footer}>
       <div className="container">
-        <div className={styles.child_footer}>
+        {/* <div className={styles.child_footer}>
           <div className={styles.footer_thanks}>
             <h6>Благодарим за внимание!</h6>
             <p>
@@ -56,6 +56,19 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
+        </div> */}
+        <div className={styles.child_footer}>
+          <div>
+            <a href="">О нас </a>
+            <div className={styles.vertical_line}></div>
+            <a href="">Политика конфиденциальности</a>
+            <div className={styles.vertical_line}></div>
+            <a href="">Условия использования</a>
+          </div>
+          <div>
+            <span>© 2023 ООО "Электронные книги".</span>
+            <span> Все права защищены.</span>
           </div>
         </div>
       </div>

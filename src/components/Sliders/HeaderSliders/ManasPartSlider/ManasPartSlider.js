@@ -7,7 +7,7 @@ const ManasPartSlider = () => {
   const { coordinatesSlider } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
-  console.log(coordinatesSlider[0], "coordinatesSlider");
+  // console.log(coordinatesSlider[0], "coordinatesSlider");
   const [disabledBtn, setDisabledBtn] = useState(false);
   let count = 0;
   const startScroll = (addCoordinates) => {
@@ -46,10 +46,7 @@ const ManasPartSlider = () => {
         </div>
       </div>
       <div className={styles.btn_more}>
-        <button
-          onClick={() => startScroll(coordinatesSlider[0])}
-          disabled={disabledBtn}
-        >
+        <button onClick={() => startScroll(1200)} disabled={disabledBtn}>
           Подробнее
         </button>
       </div>

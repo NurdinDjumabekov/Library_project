@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./WritersSlider.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { requestKyrgyzWriters } from "../../../../store/reducers/sendRequestMainPageSlice";
@@ -11,6 +11,32 @@ const WritersSlider = () => {
   useEffect(() => {
     dispatch(requestKyrgyzWriters());
   }, []);
+  //////////////////////////////////////////
+  const { coordinatesSlider } = useSelector(
+    (state) => state.sendRequestMainPageSlice
+  );
+  // console.log(coordinatesSlider[0], "coordinatesSlider");
+  const [disabledBtn, setDisabledBtn] = useState(false);
+  let count = 0;
+  const startScroll = (addCoordinates) => {
+    setDisabledBtn(true);
+    if (count < addCoordinates) {
+      setTimeout(() => {
+        count = count + 20;
+        window.scrollTo({
+          top: count,
+        });
+        // console.log(count);
+        startScroll(addCoordinates);
+      }, 1);
+    }
+    setTimeout(() => {
+      count = 0;
+      setDisabledBtn(false);
+    }, 2000);
+  };
+
+  //////////////////////////////////////////
   return (
     <div className={styles.parent_ourWriters}>
       <div>
@@ -33,7 +59,7 @@ const WritersSlider = () => {
           ))}
         </div>
         <div className={styles.btn_more}>
-          <button>Подробнее</button>
+          <button onClick={() => startScroll(2615)}>Подробнее</button>
         </div>
       </div>
     </div>

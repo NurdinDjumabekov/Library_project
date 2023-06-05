@@ -1,5 +1,5 @@
 .parent_writers {
-  padding: 100px 0px;
+  padding: 10px 0px;
 }
 .parent_writers .child_writers {
   cursor: pointer;
@@ -9,11 +9,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .parent_writers .child_writers .header_text_writers span {
   font-family: "Pacifico";
@@ -21,7 +21,7 @@
   font-weight: 400;
   font-size: 96px;
   line-height: 125.3%;
-  color: #ff4004;
+  color: #FF4004;
 }
 .parent_writers .child_writers .header_text_writers h2 {
   font-family: "Roboto";
@@ -34,7 +34,7 @@
 .parent_writers .child_writers .parent_sliderWriters {
   margin-top: 80px;
   background: #e2dddd;
-  padding: 80px 100px;
+  padding: 50px 100px;
   border-radius: 15px;
 }
 .parent_writers .child_writers .parent_sliderWriters h3 {
@@ -54,7 +54,7 @@
   font-size: 96px;
   line-height: 125.3%;
   letter-spacing: -5px;
-  color: #ff4004;
+  color: #FF4004;
 }
 .parent_writers .child_writers .parent_sliderWriters .child_sliderWriters {
   width: 75%;
@@ -64,25 +64,16 @@
   display: flex;
   gap: 20px;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 auto;
 }
-.parent_writers
-  .child_writers
-  .parent_sliderWriters
-  .child_sliderWriters
-  > div {
+.parent_writers .child_writers .parent_sliderWriters .child_sliderWriters > div {
   width: 300px;
   height: 300px;
   border-radius: 10px;
 }
-.parent_writers
-  .child_writers
-  .parent_sliderWriters
-  .child_sliderWriters
-  > div
-  img {
+.parent_writers .child_writers .parent_sliderWriters .child_sliderWriters > div img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -95,8 +86,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-bottom: 20px;
 }
 .parent_writers .child_writers .parent_sliderWriters .moreText_Slider h4 {
@@ -118,7 +109,7 @@
 }
 .parent_writers .child_writers .block_for_btnSlider button {
   color: white;
-  background: #ff4004;
+  background: #FF4004;
   padding: 11px 31px;
   border: none;
   border-radius: 10px;

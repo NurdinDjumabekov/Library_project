@@ -12,8 +12,10 @@ const ManasPart = () => {
   const data_Ref = useRef(null);
   useEffect(() => {
     const { top } = data_Ref.current.getBoundingClientRect();
-    console.log(top);
-    dispatch(addCoordinatesSlider(top + 150));
+    // console.log(top,"top");
+    setTimeout(() => {
+      dispatch(addCoordinatesSlider(top + 150));
+    }, 100);
   }, []);
 
   return (

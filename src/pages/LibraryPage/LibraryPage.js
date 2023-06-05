@@ -1,29 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./LibraryPage.module.css";
-import books from "../../assests/images/library/books.png";
-import InputSearch from "../../components/InputSearch/InputSearch";
-import KyrgyzWriters from "../../components/KyrgyzWriters/KyrgyzWriters";
-import Novelties from "../../components/Novelties/Novelties";
-import { AboutManas } from "../../components/AboutManas/AboutManas";
-import TheBestWorks from "../../components/TheBestWorks/TheBestWorks";
+import InputSearch from "../../components/Library/InputSearch/InputSearch";
+import Filtration from "../../components/Library/Filtration/Filtration";
+import { requestAllData } from "../../store/reducers/sendRequestLibraryPageSlice";
+import { useDispatch, useSelector } from "react-redux";
+import InfoEveryBook from "../../components/Library/InfoEveryBook/InfoEveryBook";
 
 const LibraryPage = () => {
+  const dispatch = useDispatch();
+  const { allData } = useSelector((state) => state.sendRequestLibraryPageSlice);
+  useEffect(() => {
+    dispatch(requestAllData());
+  }, []);
   return (
-    <div>
-      <div className={styles.library_header}>
-        <div className={styles.library_mainText}>
-          <h1>Книга - это уникальная протативная магия</h1>
-          <p>Стивен Кинг</p>
-          <InputSearch />
-        </div>
-        <div className={styles.library_mainImg}>
-          <img src={books} alt="books" />
+    <div className={styles.library_parentBlock}>
+      <div className="container">
+        <InputSearch />
+        <div className={styles.library_childBlock}>
+          <div className={styles.library_info}>
+            <Filtration />
+            <div className={styles.library_mainContent}>
+              {allData?.map((book) => (
+                <InfoEveryBook book={book} key={book.id} />
+              ))}
+            </div>
+          </div>
+          <div className={styles.library_sortBlock}></div>
         </div>
       </div>
-      <TheBestWorks />
-      <Novelties />
-      <AboutManas />
-      <KyrgyzWriters />
     </div>
   );
 };

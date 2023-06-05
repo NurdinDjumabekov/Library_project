@@ -1,0 +1,25 @@
+.parent_filtered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 35px;
+}
+.parent_filtered h4 {
+  font-weight: 600;
+  font-size: 29.44px;
+  line-height: 125.3%;
+  color: #000000;
+}
+.parent_filtered button {
+  width: 187px;
+  height: 44px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 134%;
+  color: #FF4004;
+  border-radius: 10px;
+  border: 1px solid #FF4004;
+  background: #fff;
+}
