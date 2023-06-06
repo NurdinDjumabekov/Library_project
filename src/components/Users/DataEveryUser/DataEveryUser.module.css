@@ -1,0 +1,46 @@
+.parent_veryUser {
+  text-align: center;
+  position: sticky;
+  top: 30%;
+}
+.parent_veryUser h5 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 38px;
+  color: #000000;
+}
+.parent_veryUser span {
+  color: #FF4004;
+  font-weight: 700;
+}
+.parent_veryUser > div {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  margin: 40px 0;
+}
+.parent_veryUser > div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.parent_veryUser p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+.parent_veryUser span {
+  display: block;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #7C7C7C;
+}

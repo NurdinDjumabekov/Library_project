@@ -16,6 +16,7 @@ const WritersSlider = () => {
     (state) => state.sendRequestMainPageSlice
   );
   // console.log(coordinatesSlider[0], "coordinatesSlider");
+
   const [disabledBtn, setDisabledBtn] = useState(false);
   let count = 0;
   const startScroll = (addCoordinates) => {

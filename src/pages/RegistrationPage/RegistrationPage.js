@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./RegistrationPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
-import library from "../../assests/images/windows/library_photo.jpg";
+import library from "../../assests/images/login_registration/registration_page.jpg";
 import playMarket from "../../assests/images/windows/playMarket.png";
 import krest from "../../assests/images/windows/krestik.svg";
 import galochka from "../../assests/images/windows/check_mark.svg";
@@ -29,12 +29,12 @@ export const RegistrationPage = () => {
       <div className="container">
         <div className={styles.child_login}>
           <div className={styles.child_login_left}>
-            {/* <div className={styles.block_logo}>
+            <div className={styles.block_logo}>
               <div>
                 <img src={logo} alt="" />
               </div>
               <h1>Muras</h1>
-            </div> */}
+            </div>
             <h2>Регистрация </h2>
             <p>
               Зарегистрируйтесь, чтобы бесплатно читать книги ваших любимых
@@ -100,11 +100,6 @@ export const RegistrationPage = () => {
               Читайте книги великих кыргызских писателей на нашем сайте или
               скачайте приложение “Мурас” в Google Play бесплатно.
             </p>
-            <div>
-              <button>
-                <img src={playMarket} alt="" />
-              </button>
-            </div>
           </div>
         </div>
       </div>

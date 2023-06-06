@@ -20,11 +20,11 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/reading_now" element={<ReadingNow />} />
+        <Route path="/profile" element={<UsersPage />} />
         <Route path="/detailedpage" element={<DetailedBookPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
-      <Route path="/profile" element={<UsersPage />} />
       <Route path="/basket" element={<BasketBook />} />
       <Route path="/aboutsite" element={<AboutSite />} />
       <Route path="*" element={<NotFound />} />

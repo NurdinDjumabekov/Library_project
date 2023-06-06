@@ -1,32 +1,24 @@
 import React from "react";
 import styles from "./UsersPage.module.css";
-import AboutUser from "../../components/AboutUser/AboutUser";
-import SortBooksBTN from "../../components/SortBooksBTN/SortBooksBTN";
-import SortBookSearchInput from "../../components/SortBookSearchInput/SortBookSearchInput";
-import UserBook from "../../components/UserBook/UserBook";
-import NavMenuUsers from "../../components/NavMenuUsers/NavMenuUsers";
-import Footer from "../../components/Footer/Footer";
+import SortUsersBook from "../../components/Users/SortUsersBook/SortUsersBook";
+import FavoritesBookUsers from "../../components/Users/FavoritesBookUsers/FavoritesBookUsers";
+import SettingsUsers from "../../components/Users/SettingsUsers/SettingsUsers";
+import DataEveryUser from "../../components/Users/DataEveryUser/DataEveryUser";
 
 const UsersPage = () => {
   return (
-    <>
+    <div className="container">
       <div className={styles.parent_userBlock}>
-        <NavMenuUsers />
-        <div className="container">
-          <div className={styles.child_userBlock}>
-            <AboutUser />
-            <div className={styles.block_for_sorts}>
-              <SortBooksBTN />
-              <div>
-                <SortBookSearchInput />
-                <UserBook />
-              </div>
-            </div>
-          </div>
+        <div className={styles.child_books_userBlock}>
+          <SortUsersBook />
+          <FavoritesBookUsers />
+        </div>
+        <div className={styles.child_user_userBlock}>
+          <SettingsUsers />
+          <DataEveryUser />
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 };
 

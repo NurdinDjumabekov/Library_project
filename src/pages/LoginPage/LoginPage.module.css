@@ -25,7 +25,7 @@
   position: absolute;
   height: 100%;
   width: 1200px;
-  padding: 0 50px;
+  padding: 0 0 0 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,6 +47,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 30px;
+}
+.parent_login .child_login .child_login_left .block_logo div {
+  width: 50px;
+  height: 34px;
+}
+.parent_login .child_login .child_login_left .block_logo div img {
+  width: 100%;
+  height: 100%;
 }
 .parent_login .child_login .child_login_left .block_logo h1 {
   font-weight: 600;

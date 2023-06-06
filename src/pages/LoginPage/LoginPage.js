@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
-import library from "../../assests/images/windows/library_photo.jpg";
+import library from "../../assests/images/login_registration/login_page.jpg";
 import playMarket from "../../assests/images/windows/playMarket.png";
 import { NavLink } from "react-router-dom";
 
@@ -16,12 +16,12 @@ export const LoginPage = () => {
       <div className="container">
         <div className={styles.child_login}>
           <div className={styles.child_login_left}>
-            {/* <div className={styles.block_logo}>
+            <div className={styles.block_logo}>
               <div>
                 <img src={logo} alt="" />
               </div>
               <h1>Muras</h1>
-            </div> */}
+            </div>
             <h2>Добро пожаловать! </h2>
             <p>
               Войдите, что бы бесплатно читать великие произведения кыргызских
@@ -82,11 +82,6 @@ export const LoginPage = () => {
               Читайте книги великих кыргызских писателей на нашем сайте или
               скачайте приложение “Мурас” в Google Play бесплатно.
             </p>
-            <div>
-              <button>
-                <img src={playMarket} alt="" />
-              </button>
-            </div>
           </div>
         </div>
       </div>

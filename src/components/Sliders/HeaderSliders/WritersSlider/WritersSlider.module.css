@@ -25,6 +25,11 @@
           align-items: center;
   gap: 30px;
 }
+.parent_ourWriters > div:nth-child(2) > div > div {
+  background: #fff;
+  border-radius: 15px;
+  padding: 10px 25px;
+}
 .parent_ourWriters > div:nth-child(2) > div > div .inner_img_ourWriters {
   width: 200px;
   height: 200px;

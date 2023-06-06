@@ -5,6 +5,7 @@ import Filtration from "../../components/Library/Filtration/Filtration";
 import { requestAllData } from "../../store/reducers/sendRequestLibraryPageSlice";
 import { useDispatch, useSelector } from "react-redux";
 import InfoEveryBook from "../../components/Library/InfoEveryBook/InfoEveryBook";
+import SortBtns from "../../components/Library/SortBtns/SortBtns";
 
 const LibraryPage = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,10 @@ const LibraryPage = () => {
               ))}
             </div>
           </div>
-          <div className={styles.library_sortBlock}></div>
+          <div className={styles.library_sortBlock}>
+            <h5>По жанрам</h5>
+            <SortBtns />
+          </div>
         </div>
       </div>
     </div>

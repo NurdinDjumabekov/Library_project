@@ -1,22 +1,19 @@
-.parent_filtered {
+.parent_sortBook {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 35px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 75px 0;
 }
-.parent_filtered h4 {
-  font-weight: 600;
-  font-size: 29.44px;
-  line-height: 125.3%;
-  color: #000000;
-}
-.parent_filtered button {
-  width: 187px;
-  height: 44px;
+.parent_sortBook button {
+  width: 230px;
+  height: 50px;
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 24px;
   line-height: 134%;
   color: #FF4004;
   border-radius: 10px;
@@ -24,7 +21,7 @@
   background: #fff;
   cursor: pointer;
 }
-.parent_filtered .active_filtered {
+.parent_sortBook .active_usersBook {
   background: #FF4004;
   color: #fff;
 }

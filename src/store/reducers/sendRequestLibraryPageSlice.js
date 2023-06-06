@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
   stateForFiltered: "",
   allData: [],
+  sortBtn: "",
 };
 
 export const requestAllData = createAsyncThunk(
@@ -31,9 +32,12 @@ const sendRequestLibraryPageSlice = createSlice({
     toTakeAllData: (state, action) => {
       state.allData = action.payload;
     },
+    changeSortBtn: (state, action) => {
+      state.sortBtn = action.payload;
+    },
   },
 });
 
-export const { changeStateForFiltered, toTakeAllData } =
+export const { changeStateForFiltered, toTakeAllData, changeSortBtn } =
   sendRequestLibraryPageSlice.actions;
 export default sendRequestLibraryPageSlice.reducer;
