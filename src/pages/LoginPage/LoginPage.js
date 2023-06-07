@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
 import library from "../../assests/images/login_registration/login_page.jpg";
-import playMarket from "../../assests/images/windows/playMarket.png";
 import { NavLink } from "react-router-dom";
+import MainLogin from "../../components/Authorization/MainLogin/MainLogin";
+import RecoveryAccount from "../../components/Authorization/RecoveryAccount/RecoveryAccount";
 
 export const LoginPage = () => {
   const [restore, setRestore] = useState(false);
@@ -11,14 +12,14 @@ export const LoginPage = () => {
     <div className={styles.parent_login}>
       <div className={styles.inner_login_left}></div>
       <div className={styles.inner_login_right}>
-        <img src={library} alt="" />
+        <img src={library} alt="library" />
       </div>
       <div className="container">
         <div className={styles.child_login}>
           <div className={styles.child_login_left}>
             <div className={styles.block_logo}>
               <div>
-                <img src={logo} alt="" />
+                <img src={logo} alt="logo" />
               </div>
               <h1>Muras</h1>
             </div>
@@ -36,45 +37,9 @@ export const LoginPage = () => {
               </button>
             </div>
             {restore ? (
-              <>
-                <form action="">
-                  <input
-                    placeholder="E-mail "
-                    className={styles.input_email}
-                    required
-                  />
-                  <input
-                    placeholder="-- -- -- --"
-                    className={styles.input_numbers}
-                    pattern="\d{4}"
-                    maxlength="4"
-                    required
-                  />
-                  <p>Введите код из 4 цифр</p>
-                  <button onClick={() => setRestore(false)}>
-                    Восстановить
-                  </button>
-                </form>
-              </>
+              <RecoveryAccount setRestore={setRestore} />
             ) : (
-              <>
-                <form action="">
-                  <input
-                    className={styles.input_email}
-                    placeholder="E-mail "
-                    required
-                  />
-                  <input
-                    className={styles.input_password}
-                    type="password"
-                    required
-                    placeholder="Пароль "
-                  />
-                  <button type="submit">Войти</button>
-                </form>
-                <span>Вы забыли пароль?</span>
-                <button onClick={() => setRestore(true)}>Восстановить</button>
-              </>
+              <MainLogin setRestore={setRestore} />
             )}
           </div>
           <div className={styles.child_login_right}>

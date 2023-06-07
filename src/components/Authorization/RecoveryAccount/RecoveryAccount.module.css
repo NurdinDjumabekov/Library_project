@@ -1,0 +1,54 @@
+.parentBlock_recovery form {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.parentBlock_recovery form .input_email_recover {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  padding-left: 50px;
+  border: 1px solid #2A2A2A;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 15px;
+  background: url("../../../assests/images/windows/email.svg");
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-position: 15px;
+  cursor: pointer;
+}
+.parentBlock_recovery form .input_numbers_recover {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid #2A2A2A;
+  font-weight: 400;
+  font-size: 30px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 35px;
+  letter-spacing: 8px;
+}
+.parentBlock_recovery form p {
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 44px;
+  color: #2A2A2A;
+}
+.parentBlock_recovery form button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 125.3%;
+  color: #FFFFFF;
+  width: 100%;
+  height: 50px;
+  background-color: #FF4004;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}

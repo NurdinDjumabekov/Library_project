@@ -1,0 +1,30 @@
+.parent_detailed {
+  padding: 80px 0 0 0;
+}
+.parent_detailed .short_description h2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 33px;
+  color: #000000;
+  text-align: center;
+  padding: 50px 0 30px;
+}
+.parent_detailed .short_description p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 150%;
+  color: #000000;
+  text-indent: 35px;
+  width: 80%;
+  margin: 0 auto;
+}
+.parent_detailed .comments_parent h3 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+  color: #000000;
+  padding: 40px 0 55px;
+}

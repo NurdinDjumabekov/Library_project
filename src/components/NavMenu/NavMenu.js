@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./NavMenu.module.css";
 import navLogo from "../../assests/images/navMenu/navLogo.svg";
 import btn_nav from "../../assests/images/navMenu/nav_btn.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import MainIconMenu from "../MainIconMenu/MainIconMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { changeMainIconState } from "../../store/reducers/windowsSlice";
@@ -16,6 +16,7 @@ const NavMenu = () => {
       ? +localStorage.getItem("statePage_main")
       : 0
   );
+
   localStorage.setItem("statePage_main", active);
 
   const pagesArr = [
@@ -36,6 +37,19 @@ const NavMenu = () => {
       to: "/profile",
     },
   ];
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setActive(0);
+    } else if (location.pathname === "/library") {
+      setActive(1);
+    } else if (location.pathname === "/reading_now") {
+      setActive(2);
+    } else if (location.pathname === "/profile") {
+      setActive(3);
+    }
+  }, [active]);
 
   return (
     <div className={styles.parent_navMenu}>
