@@ -1,12 +1,10 @@
 import React from "react";
 import styles from "./AboutSite.module.css";
-import NavMenuUsers from "../../components/NavMenuUsers/NavMenuUsers";
 import Footer from "../../components/Footer/Footer";
 
 const AboutSite = () => {
   return (
     <div className={styles.parent_aboutSite}>
-      <NavMenuUsers />
       <div className="container">
         <div className={styles.child_aboutSite}>
           <div className={styles.inner_aboutSite}>

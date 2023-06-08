@@ -7,6 +7,7 @@ const initialState = {
   dataBestWork: [],
   kyrgyzWriters: [],
   coordinatesSlider: [],
+  preloader: true,
 };
 
 export const requestNovetlyWorks = createAsyncThunk(
@@ -17,6 +18,7 @@ export const requestNovetlyWorks = createAsyncThunk(
         "https://6443c7ca90738aa7c0778850.mockapi.io/infoportal"
       );
       dispatch(changeDateNoveltyWork(data));
+      dispatch(changePreloader(false));
     } catch {
       console.log("error requestNovetlyWorks");
     }
@@ -83,6 +85,9 @@ const sendRequestMainPageSlice = createSlice({
     addCoordinatesSlider: (state, action) => {
       state.coordinatesSlider.push(action.payload);
     },
+    changePreloader: (state, action) => {
+      state.preloader = action.payload;
+    },
   },
 });
 export const {
@@ -91,5 +96,6 @@ export const {
   changeDatekyrgyzWriters,
   changeDateBestWork,
   addCoordinatesSlider,
+  changePreloader,
 } = sendRequestMainPageSlice.actions;
 export default sendRequestMainPageSlice.reducer;
