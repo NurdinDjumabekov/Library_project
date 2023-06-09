@@ -3,18 +3,10 @@ import styles from "./FavoritesBookUsers.module.css";
 import { sendRequestFavotitesData } from "../../../store/reducers/usersStateSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const FavoritesBookUsers = () => {
-  const dispatch = useDispatch();
-  const { dataFavotitesBook } = useSelector((state) => state.usersStateSlice);
-  //   console.log(dataFavotitesBook, "dataFavotitesBook");
-
-  useEffect(() => {
-    dispatch(sendRequestFavotitesData());
-  }, []);
-
+const FavoritesBookUsers = ({ dataFavotitesBook }) => {
   return (
     <div className={styles.parent_favoritesBook}>
-      {dataFavotitesBook.map((book) => (
+      {dataFavotitesBook?.map((book) => (
         <div className={styles.child_favorites} key={book.id}>
           <div className={styles.child_img_favorites}>
             <img src={book.url} alt="url" />

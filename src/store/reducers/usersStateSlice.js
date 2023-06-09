@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
   favoriteBooks: "Избранное",
   dataFavotitesBook: [],
+  preloader: true,
 };
 
 export const sendRequestFavotitesData = createAsyncThunk(
@@ -14,6 +15,7 @@ export const sendRequestFavotitesData = createAsyncThunk(
         "https://6443c7ca90738aa7c0778850.mockapi.io/infoportal"
       );
       dispatch(toTakeDataFavotitesBook(data));
+      dispatch(changePreloader(false));
     } catch {
       console.log("error sendRequestFavotitesData");
     }
@@ -24,6 +26,9 @@ const usersStateSlice = createSlice({
   name: "usersStateSlice",
   initialState,
   reducers: {
+    changePreloader: (state, action) => {
+      state.preloader = action.payload;
+    },
     changeFavoriteBooks: (state, action) => {
       state.favoriteBooks = action.payload;
     },
@@ -33,6 +38,6 @@ const usersStateSlice = createSlice({
   },
 });
 
-export const { changeFavoriteBooks, toTakeDataFavotitesBook } =
+export const { changeFavoriteBooks, toTakeDataFavotitesBook, changePreloader } =
   usersStateSlice.actions;
 export default usersStateSlice.reducer;

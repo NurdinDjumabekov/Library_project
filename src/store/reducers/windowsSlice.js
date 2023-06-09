@@ -1,22 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  // textsRegistration: {
-  //   login: "nur",
-  //   password: "",
-  //   repeatpassword: "",
-  // },
-  textLogin: "",
+  difficultPassword: {
+    width: 70,
+    color: "red",
+  },
 };
 const windowsSlice = createSlice({
   name: "windowsSlice",
   initialState,
   reducers: {
-    changeTextLogin: (state, action) => {
-      state.textLogin = action.payload;
+    changeDifficultPassword: (state, action) => {
+      state.difficultPassword.width = action.payload.width;
+      state.difficultPassword.color = action.payload.color;
+      // console.log(state.difficultPassword);
     },
   },
 });
 
-export const { changeTextLogin } = windowsSlice.actions;
+export const { changeDifficultPassword } = windowsSlice.actions;
 export default windowsSlice.reducer;
