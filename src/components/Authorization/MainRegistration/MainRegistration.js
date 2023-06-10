@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./MainRegistration.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import LevelPassword from "../LevelPassword/LevelPassword";
-import { changeDifficultPassword } from "../../../store/reducers/windowsSlice";
+import {
+  changeDifficultPassword,
+  changeDifficultPassword_text,
+} from "../../../store/reducers/windowsSlice";
 
 const MainRegistration = () => {
   const dispatch = useDispatch();
@@ -11,37 +14,58 @@ const MainRegistration = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [password, setPassword] = useState("");
-  const [passwordHave, setPasswordHave] = useState(false);
+  const [passwordHave, setPasswordHave] = useState({
+    level: false,
+    descriptionLevel: false,
+  });
   const [passwordRepeat, setPasswordRepeat] = useState("");
   const [passwordRepeatError, setPasswordRepeatError] = useState("");
 
   // console.log(difficultPassword, "difficultPassword");
-  const textRegExp = /[A-Za-z]/;
+  const textRegExp = /[a-zA-Z]/;
   const numRegExp = /[0-9]/;
-  const symboltRegExp = /^[A-Za-z]/;
+  const symboltRegExp = /[!@#$%+^/()?\-&.,_*]/;
   useEffect(() => {
-    // if (password.length < 6 && password !== "") {
-    //   dispatch(changeDifficultPassword());
-    // } else if (password.length < 6) {
-    //   dispatch(changeDifficultPassword(""));
-    // }
     if (password === "") {
-      setPasswordHave(false);
-    } else if (password !== "") {
-      setPasswordHave(true);
-      if (password.length >= 8) {
+      setPasswordHave({ level: false });
+    } else if (password.length !== 0) {
+      setPasswordHave({ level: true });
+      if (
+        password.length >= 8 &&
+        numRegExp.test(password) &&
+        textRegExp.test(password)
+      ) {
         dispatch(changeDifficultPassword({ width: 140, color: "yellow" }));
-        if (password.length >= 12) {
+        dispatch(changeDifficultPassword_text("Хороший пароль"));
+        if (
+          password.length >= 8 &&
+          symboltRegExp.test(password) &&
+          numRegExp.test(password) &&
+          textRegExp.test(password)
+        ) {
           dispatch(changeDifficultPassword({ width: 210, color: "green" }));
-
-          // console.log("Лёгкий");
-        } // console.log("Сложный");
-      } else if (password.length < 6) {
+          dispatch(changeDifficultPassword_text("Сложный пароль"));
+        }
+      } else if (password.length < 8) {
         dispatch(changeDifficultPassword({ width: 70, color: "red" }));
+        dispatch(changeDifficultPassword_text("Слабый пароль"));
+      } else if (
+        password.length >= 8 &&
+        numRegExp.test(password) &&
+        symboltRegExp.test(password)
+      ) {
+        dispatch(changeDifficultPassword({ width: 140, color: "yellow" }));
+        dispatch(changeDifficultPassword_text("Хороший пароль"));
+      } else if (
+        password.length >= 8 &&
+        textRegExp.test(password) &&
+        symboltRegExp.test(password)
+      ) {
+        dispatch(changeDifficultPassword({ width: 140, color: "yellow" }));
+        dispatch(changeDifficultPassword_text("Хороший пароль"));
       }
     }
   }, [password]);
-  // numRegExp.test(password) && textRegExp.test(password)
 
   const gmailRegExp_1 = /^[A-Za-z0-9_\-\.\-]+\@[gmail]+\.com$/;
   const regExpCheckFN = (e) => {
@@ -56,6 +80,21 @@ const MainRegistration = () => {
       }, 2000);
     }
   };
+
+  const descriptionLevelFN = () => {
+    if (password.length === 0) {
+      setPasswordHave({ descriptionLevel: true });
+    } else if (password.length !== 0) {
+      setPasswordHave({ descriptionLevel: false });
+      setPasswordHave({ level: true });
+    }
+  };
+  const descriptionLevelFN_revers = (e) => {
+    if (e.target.tagName !== "INPUT") {
+      setPasswordHave({ descriptionLevel: false });
+    }
+  };
+  document.body.addEventListener("click",   );
   return (
     <div className={styles.parent_refistration}>
       <form action="" onSubmit={regExpCheckFN}>
@@ -80,8 +119,9 @@ const MainRegistration = () => {
           required
           className={styles.registration_Password}
           onChange={(e) => setPassword(e.target.value)}
+          onClick={() => descriptionLevelFN()}
         />
-        {passwordHave && <LevelPassword />}
+        <LevelPassword passwordHave={passwordHave} />
 
         <input
           type="password"

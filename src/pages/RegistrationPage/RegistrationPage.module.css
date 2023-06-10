@@ -73,7 +73,7 @@
   color: #000000;
   margin-bottom: 10px;
 }
-.parent_login .child_login .child_login_left p {
+.parent_login .child_login .child_login_left > p {
   font-weight: 300;
   font-size: 16px;
   line-height: 125.3%;
