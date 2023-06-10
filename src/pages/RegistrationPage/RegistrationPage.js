@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./RegistrationPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
 import library from "../../assests/images/login_registration/registration_page.jpg";
-import krest from "../../assests/images/windows/krestik.svg";
-import galochka from "../../assests/images/windows/check_mark.svg";
 import { NavLink } from "react-router-dom";
 import MainRegistration from "../../components/Authorization/MainRegistration/MainRegistration";
 
