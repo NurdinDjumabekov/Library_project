@@ -25,7 +25,7 @@
   width: 100%;
   margin: 10px 0 5px;
 }
-.parent_refistration form > .block_password_look > .registration_Password {
+.parent_refistration form > .block_password_look input {
   width: 100%;
   height: 100%;
   border-radius: 8px;
@@ -39,15 +39,21 @@
   background-position: 15px;
   cursor: pointer;
 }
-.parent_refistration form > .registration_repeatPassword {
-  width: 100%;
+.parent_refistration form > .block_passwordRepeat_look {
+  display: block;
+  position: relative;
   height: 50px;
+  width: 100%;
+  margin: 20px 0 25px;
+}
+.parent_refistration form > .block_passwordRepeat_look input {
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   padding: 0 30px 0 50px;
   border: 1px solid #2A2A2A;
   font-weight: 600;
   font-size: 16px;
-  margin: 10px 0;
   background: url("../../../assests/images/windows/key.svg");
   background-repeat: no-repeat;
   background-position-y: 50%;
@@ -55,7 +61,7 @@
   cursor: pointer;
 }
 .parent_refistration form > .label_emailError {
-  position: relative;
+  position: absolute;
   display: block;
   width: 280px;
   background: #fff;
@@ -67,6 +73,7 @@
   padding: 2px 30px;
   letter-spacing: 3px;
   margin: -8px 0 0 35px;
+  z-index: 1;
 }
 .parent_refistration form > .label_passwordError {
   display: block;
@@ -78,6 +85,7 @@
   border-radius: 10px;
   padding: 5px 20px;
   position: absolute;
+  z-index: 1;
   letter-spacing: 1px;
   margin: -8px 0 0 35px;
 }
@@ -92,7 +100,7 @@
   padding: 5px 20px;
   position: absolute;
   letter-spacing: 1px;
-  margin: -8px 0 0 55px;
+  margin: -25px 0 0 55px;
 }
 .parent_refistration form .block_checkbox {
   width: 280px;

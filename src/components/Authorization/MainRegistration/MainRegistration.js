@@ -14,8 +14,11 @@ const MainRegistration = () => {
   const [disable, setDisable] = useState({
     checkOutBtn: false,
     lookPassword: false,
+    lookPasswordPepeat: false,
     lookBtnEye: false,
+    lookBtnEyeRepeat: false,
   });
+  console.log(disable.lookBtnEyeRepeat, "ftygjhukj");
   const [sendError, setSendError] = useState({
     sendErrorEmail: false,
     sendErrorPassword: false,
@@ -43,6 +46,7 @@ const MainRegistration = () => {
     } else if (password.passwordMain.length !== 0) {
       setPasswordHave({ level: true });
       setDisable((info) => ({ ...info, lookBtnEye: true }));
+
       if (
         password.passwordMain.length >= 8 &&
         numRegExp.test(password.passwordMain) &&
@@ -78,7 +82,12 @@ const MainRegistration = () => {
         dispatch(changeDifficultPassword_text("Хороший пароль"));
       }
     }
-  }, [password.passwordMain]);
+    if (password.passwordRepeat === "") {
+      setDisable((info) => ({ ...info, lookBtnEyeRepeat: false }));
+    } else if (password.passwordRepeat.length !== 0) {
+      setDisable((info) => ({ ...info, lookBtnEyeRepeat: true }));
+    }
+  }, [password]);
 
   const regExpCheckFN = (e) => {
     e.preventDefault();
@@ -116,22 +125,28 @@ const MainRegistration = () => {
     }
   };
 
-  const descriptionLevelFN = () => {
-    if (password.passwordMain.length === 0) {
-      setPasswordHave({ descriptionLevel: true });
-    } else if (password.passwordMain.length !== 0) {
-      setPasswordHave({ descriptionLevel: false });
-      setPasswordHave({ level: true });
-      setDisable((info) => ({ ...info, lookBtnEye: true }));
+  const appearanceLevelInfo = (type) => {
+    if (type === "passwordMain") {
+      if (password.passwordMain.length === 0) {
+        setPasswordHave({ descriptionLevel: true });
+      } else if (password.passwordMain.length !== 0) {
+        setPasswordHave({ descriptionLevel: false });
+        setPasswordHave({ level: true });
+        setDisable((info) => ({ ...info, lookBtnEye: true }));
+      }
+    } else if (type === "passwordRepeat") {
+      if (password.passwordRepeat.length !== 0) {
+        setDisable((info) => ({ ...info, lookBtnEyeRepeat: true }));
+      }
     }
   };
-  const descriptionLevelFN_revers = (e) => {
+  const removeLevelInfo = (e) => {
     if (e.target.tagName !== "INPUT") {
       setPasswordHave({ descriptionLevel: false });
     }
   };
   useEffect(() => {
-    document.body.addEventListener("click", descriptionLevelFN_revers);
+    document.body.addEventListener("click", removeLevelInfo);
   }, []);
   useEffect(() => {
     if (password.passwordMain === password.passwordRepeat) {
@@ -163,19 +178,19 @@ const MainRegistration = () => {
             type={disable.lookPassword ? "text" : "password"}
             placeholder="Пароль "
             required
-            className={styles.registration_Password}
             onChange={(e) =>
               setPassword((info) => ({
                 ...info,
                 passwordMain: e.target.value,
               }))
             }
-            onClick={() => descriptionLevelFN()}
+            onClick={() => appearanceLevelInfo("passwordMain")}
           />
           {disable.lookBtnEye && (
             <EyePassword
               lookPassword={disable.lookPassword}
               setDisable={setDisable}
+              type={"passwordMain"}
             />
           )}
         </label>
@@ -188,18 +203,28 @@ const MainRegistration = () => {
           </label>
         )}
         <LevelPassword passwordHave={passwordHave} />
-        <input
-          type="password"
-          placeholder="Введите пароль еще раз"
-          required
-          className={styles.registration_repeatPassword}
-          onChange={(e) =>
-            setPassword((info) => ({
-              ...info,
-              passwordRepeat: e.target.value,
-            }))
-          }
-        />
+        <label className={styles.block_passwordRepeat_look}>
+          <input
+            type={disable.lookPasswordPepeat ? "text" : "password"}
+            placeholder="Введите пароль еще раз"
+            required
+            onChange={(e) =>
+              setPassword((info) => ({
+                ...info,
+                passwordRepeat: e.target.value,
+              }))
+            }
+            onClick={() => appearanceLevelInfo("passwordRepeat")}
+          />
+          {disable.lookBtnEyeRepeat && (
+            <EyePassword
+              lookPassword={disable.lookPasswordPepeat}
+              setDisable={setDisable}
+              type={"passwordRepeat"}
+            />
+          )}
+        </label>
+
         {sendError.sendErrorPassword_repeat && (
           <label
             className={styles.label_passwordError_repeat}
