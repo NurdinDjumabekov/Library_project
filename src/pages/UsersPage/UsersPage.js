@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./UsersPage.module.css";
 import SortUsersBook from "../../components/Users/SortUsersBook/SortUsersBook";
 import FavoritesBookUsers from "../../components/Users/FavoritesBookUsers/FavoritesBookUsers";
@@ -14,6 +14,7 @@ const UsersPage = () => {
     (state) => state.usersStateSlice
   );
   //   console.log(dataFavotitesBook, "dataFavotitesBook");
+  const [userData, setUserData] = useState(false);
 
   useEffect(() => {
     dispatch(sendRequestFavotitesData());
@@ -31,7 +32,10 @@ const UsersPage = () => {
               <FavoritesBookUsers dataFavotitesBook={dataFavotitesBook} />
             </div>
             <div className={styles.child_user_userBlock}>
-              <SettingsUsers />
+              <div className={styles.parent_settingBlock}>
+                <button onClick={() => setUserData(true)}>Настройки</button>
+              </div>
+              {userData && <SettingsUsers />}
               <DataEveryUser />
             </div>
           </div>

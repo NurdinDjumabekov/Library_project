@@ -1,12 +1,16 @@
+.parent_UserLogin {
+  text-align: left;
+}
 .parent_UserLogin > button {
   background-color: transparent;
   padding: 5px 35px;
   border: none;
   border-radius: 15px;
+  cursor: pointer;
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 600;
-  font-size: 25px;
-  color: #000;
-  cursor: pointer;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 125.3%;
+  color: #7C7C7C;
 }

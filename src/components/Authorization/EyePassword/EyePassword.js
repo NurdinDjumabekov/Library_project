@@ -48,6 +48,24 @@ const EyePassword = ({ lookPassword, setDisable, type }) => {
         )}
       </label>
     );
+  } else if (type === "password_loginPage") {
+    return (
+      <label className={styles.parent_eyeBtn}>
+        {lookPassword ? (
+          <div
+            onClick={() => setDisable((info) => ({ ...info, disable: false }))}
+          >
+            <img src={eye_on} alt="eye" />
+          </div>
+        ) : (
+          <div
+            onClick={() => setDisable((info) => ({ ...info, disable: true }))}
+          >
+            <img src={eye_off} alt="eye" />
+          </div>
+        )}
+      </label>
+    );
   }
 };
 

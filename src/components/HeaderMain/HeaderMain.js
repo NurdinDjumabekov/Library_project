@@ -19,7 +19,7 @@ const HeaderMain = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setSlide(slide === arrSlide.length - 1 ? 0 : slide + 1);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [slide]);
 
