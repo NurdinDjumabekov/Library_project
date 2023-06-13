@@ -35,11 +35,24 @@
   line-height: 20px;
   color: #FF4004;
 }
-.parent_infoBook .textInfoBlock_infoBook span {
+.parent_infoBook .textInfoBlock_infoBook > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+.parent_infoBook .textInfoBlock_infoBook > div span {
   font-weight: 400;
   font-size: 20px;
   line-height: 125.3%;
   color: #000000;
+}
+.parent_infoBook .textInfoBlock_infoBook > div img {
+  width: 24px;
+  height: 24px;
 }
 .parent_infoBook .textInfoBlock_infoBook p {
   font-weight: 400;

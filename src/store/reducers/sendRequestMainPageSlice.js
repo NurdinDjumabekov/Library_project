@@ -29,7 +29,9 @@ export const requestRecomBook = createAsyncThunk(
   "requestRecomBook",
   async (recommedationBookInfo, { dispatch }) => {
     try {
-      const { data } = await axios.get("");
+      const { data } = await axios.get(
+        "https://kitepkana1.pythonanywhere.com/recommended_books/"
+      );
       dispatch(changeRecommedationBookInfo(data));
     } catch {
       console.log("error requestRecomBook");
@@ -42,7 +44,7 @@ export const requestKyrgyzWriters = createAsyncThunk(
   async (kyrgyzWriters, { dispatch }) => {
     try {
       const { data } = await axios.get(
-        "https://6474802d7de100807b1b126a.mockapi.io/manasApi/manas"
+        "https://kitepkana1.pythonanywhere.com/authors/"
       );
       dispatch(changeDatekyrgyzWriters(data));
     } catch {

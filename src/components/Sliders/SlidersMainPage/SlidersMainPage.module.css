@@ -1,3 +1,9 @@
 .slider {
-  padding: 60px 100px;
+  padding: 10px 100px;
+  width: 100%;
+}
+.slider > div {
+  width: 120%;
+  margin-left: -5%;
+  padding: 20px 0;
 }

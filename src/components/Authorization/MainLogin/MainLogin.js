@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./MainLogin.module.css";
 import EyePassword from "../EyePassword/EyePassword";
+import axios from "axios";
 
 const MainLogin = ({ setRestore }) => {
   const [data, setDate] = useState({
@@ -17,7 +18,7 @@ const MainLogin = ({ setRestore }) => {
 
   const gmailRegExp = /^[A-Za-z0-9_\-\.\-]+\@[gmail]+\.com$/;
 
-  const sendDataLgin = (e) => {
+  const sendDataLgin = async (e) => {
     e.preventDefault();
     if (gmailRegExp.test(data.login)) {
       setWrong((info) => ({
@@ -26,6 +27,10 @@ const MainLogin = ({ setRestore }) => {
       }));
       setDate((info) => ({ ...info, login: "", password: "" }));
       // console.log(wrong.errorlogin);
+      const data = axios({
+        method:"POST",
+        url:"g"
+      })
     } else {
       setWrong((info) => ({
         ...info,

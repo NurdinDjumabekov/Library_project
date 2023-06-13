@@ -7,6 +7,7 @@ import {
   changeDifficultPassword_text,
 } from "../../../store/reducers/windowsSlice";
 import EyePassword from "../EyePassword/EyePassword";
+import axios from "axios";
 
 const MainRegistration = () => {
   const dispatch = useDispatch();
@@ -88,6 +89,23 @@ const MainRegistration = () => {
       setDisable((info) => ({ ...info, lookBtnEyeRepeat: true }));
     }
   }, [password]);
+  const sendRequestRegistration = async () => {
+    try {
+      const a = await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/users/",
+        data: {
+          username: "nurdinbek",
+          email: email,
+          password: password.passwordMain,
+          re_password: password.passwordRepeat,
+        },
+      });
+      console.log(a);
+    } catch {
+      console.log("error send registration");
+    }
+  };
 
   const regExpCheckFN = (e) => {
     e.preventDefault();
@@ -102,6 +120,7 @@ const MainRegistration = () => {
         console.log(password.passwordMain);
         if (password.passwordMain === password.passwordRepeat) {
           console.log("Пароли похожи");
+          sendRequestRegistration();
         } else {
           console.log("Пароли не похожи");
           setSendError({ sendErrorPassword_repeat: true });

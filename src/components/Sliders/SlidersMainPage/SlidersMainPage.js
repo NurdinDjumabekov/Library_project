@@ -20,7 +20,7 @@ const SlidersMainPage = ({ data }) => {
   return (
     <div className={styles.slider}>
       <Slider {...settings}>
-        {data.map((slide) => (
+        {data?.map((slide) => (
           <SlidersMainPageInner slide={slide} key={slide.id} />
         ))}
       </Slider>

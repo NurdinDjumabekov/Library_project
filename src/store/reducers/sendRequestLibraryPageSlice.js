@@ -13,7 +13,7 @@ export const requestAllData = createAsyncThunk(
   async (allData, { dispatch }) => {
     try {
       const { data } = await axios.get(
-        "https://6443c7ca90738aa7c0778850.mockapi.io/infoportal"
+        "https://kitepkana1.pythonanywhere.com/books/"
       );
       dispatch(toTakeAllData(data));
       // console.log(data);

@@ -13,6 +13,7 @@ const LibraryPage = () => {
   const { preloader, allData } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
+  // console.log(allData, "allData");
 
   useEffect(() => {
     dispatch(requestAllData());
