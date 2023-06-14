@@ -1,36 +1,82 @@
 .parent_settingUser
-    height: 100vh
     width: 100%
+    // height: 120vh
     position: fixed
+    z-index: 15
     top: 0
-    right: 0
-    z-index: 99 
+    left: 0
     background-color: #fff
-    padding: 60px 0 0 0 
-    > div:nth-child(1)
-        display: flex
-        justify-content: center
-        align-items: center
-        gap: 13px
-        width: 100%
-        margin-bottom: 40px
-        h5
-            font-family: 'Roboto'
-            font-style: normal
-            font-weight: 500
-            font-size: 24px
-            line-height: 125.3%
-            color: #000000
-        > div
-            width: 40px
-            height: 40px
-            img
-                width: 100%
-                height: 100%
+    padding: 0 0 62px
+    > section
+        display: block
+        background: #C0C0C0
+        height: 135px
     .child_settingUser
-        display: flex
-        justify-content: center
-        gap: 40px
+        // position: relative
+        margin: -70px 0px 22px
+        .nameUser_settingUser
+            display: flex
+            align-items: center
+            gap: 40px
+            div:nth-child(1)
+                width: 200px
+                height: 200px
+                border-radius: 50%
+                background: gray
+                img
+                    width: 99%
+                    height: 99%
+                    border-radius: 50%
+            div:nth-child(2)
+                span
+                    font-family: 'Roboto'
+                    font-style: normal
+                    font-weight: 500
+                    font-size: 36px
+                    line-height: 125.3%
+                    color: #000000
+        .infoUser_settingUser
+            margin:  20px 0 0 0 
+            padding: 20px 30px
+            border-radius: 10px     
+            box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25)
+            > div
+                padding: 16px 0px
+                // background: red
+                display: flex
+                justify-content: space-between
+                align-items: center
+                border-bottom: 2px solid gray
+                > div
+                    p
+                        font-family: 'Roboto'
+                        font-style: normal
+                        font-weight: 400
+                        font-size: 18px
+                        line-height: 125%
+                        color: #7C7C7C
+                    h6
+                        font-family: 'Roboto'
+                        font-style: normal
+                        font-weight: 500
+                        font-size: 36px
+                        line-height: 125.3%
+                        color: #2A2A2A
+                        margin-top: 15px
+                button
+                    border: 3px solid #FF4004
+                    border-radius: 10px
+                    font-family: 'Roboto'
+                    font-style: normal
+                    font-weight: 500
+                    font-size: 24px
+                    line-height: 125.3%
+                    color: #FF4004
+                    padding: 10px 100px
+            > div:last-child
+                border: none
+
+
 
 
 

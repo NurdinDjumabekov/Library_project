@@ -28,6 +28,9 @@ const Sliders_writers = () => {
     pauseOnHover: true,
   };
 
+  const url =
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu75kQs-UENNytPqqV760OQOeoj-5BqEgqxw&usqp=CAU";
+
   return (
     <div className={styles.parent_writers}>
       <div className="container">
@@ -39,20 +42,33 @@ const Sliders_writers = () => {
                   <h3>{slide.fullname}</h3>
                   <div className={styles.child_sliderWriters}>
                     <div>
-                      <img src={slide.url} alt="slide" />
+                      <img src={url} alt="slide" />
                     </div>
                     <section className={styles.moreText_Slider}>
                       <div>
                         <h4>Краткая история: </h4>
-                        <p>{slide.history}</p>
+                        <p>
+                          Родился 12 декабря 1928 г. в посёлке Шекер Таласской
+                          области Киргизской ССР в семье учительницы и
+                          партийного работника.
+                        </p>
                       </div>
                       <div>
                         <h4>Награды: </h4>
-                        <p>{slide.discription}</p>
+                        <p>
+                          Герой Социалистического Труда (1978), Герой Киргизской
+                          Республики (1997), народный писатель Киргизской ССР
+                          (1968), академик АН Киргизской ССР (1974), лауреат
+                          Ленинской (1963) и трёх Государственных премий СССР
+                          (1968, 1977, 1983).
+                        </p>
                       </div>
                       <div>
                         <h4>Произведения: </h4>
-                        <p>{slide.discription}</p>
+                        <p>
+                          Материнское поле ,Тополёк мой в красной косынке ,
+                          Лицом к лицу Верблюжий глаз , Белый пароход Пегий пёс.
+                        </p>
                       </div>
                     </section>
                   </div>

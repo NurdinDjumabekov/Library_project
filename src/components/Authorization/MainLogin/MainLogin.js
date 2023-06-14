@@ -25,12 +25,23 @@ const MainLogin = ({ setRestore }) => {
         ...info,
         errorlogin: false,
       }));
-      setDate((info) => ({ ...info, login: "", password: "" }));
+      // setDate((info) => ({ ...info, login: "", password: "" }));
       // console.log(wrong.errorlogin);
-      const data = axios({
-        method:"POST",
-        url:"g"
-      })
+      try {
+        const info = await axios({
+          method: "POST",
+          url: "http://kitepkana1.pythonanywhere.com/auth/jwt/create/",
+          data: {
+            email: data.login,
+            password: data.password,
+          },
+        });
+        console.log(info);
+      } catch {
+        console.log(
+          "error - https://kitepkana1.pythonanywhere.com/auth/jwt/create/"
+        );
+      }
     } else {
       setWrong((info) => ({
         ...info,

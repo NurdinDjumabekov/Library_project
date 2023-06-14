@@ -47,7 +47,7 @@ const NavMenu = () => {
     } else if (location.pathname === "/profile") {
       setActive(3);
     }
-  }, [active]);
+  }, [location]);
 
   return (
     <div className={styles.parent_navMenu}>

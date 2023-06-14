@@ -10,6 +10,24 @@
           align-items: center;
   gap: 60px;
   padding-top: 50px;
+  -webkit-animation: sliders 1.5s forwards;
+          animation: sliders 1.5s forwards;
+}
+@-webkit-keyframes sliders {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+@keyframes sliders {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
 }
 .parent_download .child_imgs_download {
   display: -webkit-box;

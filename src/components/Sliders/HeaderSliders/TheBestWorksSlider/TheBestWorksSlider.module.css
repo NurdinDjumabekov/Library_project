@@ -1,3 +1,23 @@
+.parent_bestWork {
+  -webkit-animation: sliders 1.5s forwards;
+          animation: sliders 1.5s forwards;
+}
+@-webkit-keyframes sliders {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+@keyframes sliders {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
 .parent_bestWork > div:nth-child(1) {
   text-align: center;
   margin: 0 0 45px;

@@ -95,7 +95,7 @@ const MainRegistration = () => {
         method: "POST",
         url: "https://kitepkana1.pythonanywhere.com/auth/users/",
         data: {
-          username: "nurdinbek",
+          username: "user",
           email: email,
           password: password.passwordMain,
           re_password: password.passwordRepeat,
