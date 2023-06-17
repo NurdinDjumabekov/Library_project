@@ -15,7 +15,7 @@ export const requestNovetlyWorks = createAsyncThunk(
   async (dataNoveltyWork, { dispatch }) => {
     try {
       const { data } = await axios.get(
-        "https://6443c7ca90738aa7c0778850.mockapi.io/infoportal"
+        "https://kitepkana1.pythonanywhere.com/recommended_books/"
       );
       dispatch(changeDateNoveltyWork(data));
       dispatch(changePreloader(false));
@@ -33,6 +33,7 @@ export const requestRecomBook = createAsyncThunk(
         "https://kitepkana1.pythonanywhere.com/recommended_books/"
       );
       dispatch(changeRecommedationBookInfo(data));
+      // console.log(data, "da");
     } catch {
       console.log("error requestRecomBook");
     }
@@ -47,6 +48,7 @@ export const requestKyrgyzWriters = createAsyncThunk(
         "https://kitepkana1.pythonanywhere.com/authors/"
       );
       dispatch(changeDatekyrgyzWriters(data));
+      // console.log(data, "writers");
     } catch {
       console.log("error requestKyrgyzWriters");
     }
@@ -58,10 +60,10 @@ export const requestBestWorks = createAsyncThunk(
   async (dataBestWork, { dispatch }) => {
     try {
       const { data } = await axios.get(
-        "https://6443c7ca90738aa7c0778850.mockapi.io/infoportal"
+        "https://kitepkana1.pythonanywhere.com/recommended_books/"
       );
       dispatch(changeDateBestWork(data));
-      // console.log(data);
+      // console.log(data, "bestWork");
     } catch {
       console.log("error requestBestWorks");
     }

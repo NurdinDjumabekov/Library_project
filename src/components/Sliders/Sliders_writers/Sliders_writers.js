@@ -11,7 +11,7 @@ const Sliders_writers = () => {
   const { kyrgyzWriters } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
-  console.log(kyrgyzWriters, "kyrgyzWriters");
+  // console.log(kyrgyzWriters, "kyrgyzWriters");
 
   useEffect(() => {
     dispatch(requestKyrgyzWriters());

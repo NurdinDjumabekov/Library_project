@@ -35,12 +35,20 @@
   font-size: 30px;
   line-height: 125.3%;
   color: #000000;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .sliderBlock section .postText p {
   font-weight: 500;
   font-size: 24px;
   line-height: 125.3%;
   color: #FF4004;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .sliderBlock section > button {
   display: block;

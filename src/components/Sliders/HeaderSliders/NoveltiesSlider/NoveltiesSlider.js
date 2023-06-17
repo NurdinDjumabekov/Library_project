@@ -54,7 +54,7 @@ const NoveltiesSlider = () => {
         <div>
           {data?.map((book) => (
             <div key={book.id}>
-              <img src={book.url} alt="book" />
+              <img src={book.cover} alt="book" />
             </div>
           ))}
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./MainLogin.module.css";
 import EyePassword from "../EyePassword/EyePassword";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const MainLogin = ({ setRestore }) => {
   const [data, setDate] = useState({
@@ -15,10 +16,11 @@ const MainLogin = ({ setRestore }) => {
     lookPassword: false,
     lookBtnEye: false,
   });
+  const navigate = useNavigate();
 
   const gmailRegExp = /^[A-Za-z0-9_\-\.\-]+\@[gmail]+\.com$/;
 
-  const sendDataLgin = async (e) => {
+  const sendDataLogin = async (e) => {
     e.preventDefault();
     if (gmailRegExp.test(data.login)) {
       setWrong((info) => ({
@@ -36,7 +38,12 @@ const MainLogin = ({ setRestore }) => {
             password: data.password,
           },
         });
-        console.log(info);
+        // console.log(info.data, "data");
+        localStorage.setItem("access", info.data.access);
+        localStorage.setItem("refresh", info.data.refresh);
+        if (info.data.access && info.data.refresh) {
+          navigate("/");
+        }
       } catch {
         console.log(
           "error - https://kitepkana1.pythonanywhere.com/auth/jwt/create/"
@@ -72,7 +79,7 @@ const MainLogin = ({ setRestore }) => {
   }, [data]);
   return (
     <div className={styles.parentBlock_mainLogin}>
-      <form action="" onSubmit={sendDataLgin} className={styles.form_login}>
+      <form action="" onSubmit={sendDataLogin} className={styles.form_login}>
         <label className={styles.login_block}>
           <input
             className={styles.input_email}

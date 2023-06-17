@@ -14,6 +14,7 @@ const ChangeDataUser = ({ setUser, user }) => {
     // console.log(type);
     if (type === 1) {
       changeDataUser(change);
+      /////helpers/////
     }
   };
 

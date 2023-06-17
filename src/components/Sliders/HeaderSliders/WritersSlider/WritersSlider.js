@@ -47,7 +47,7 @@ const WritersSlider = () => {
       </div>
       <div className="container">
         <div>
-          {kyrgyzWriters?.map((man) => (
+          {/* {kyrgyzWriters?.map((man) => (
             <div key={man.id}>
               <div className={styles.inner_img_ourWriters}>
                 <img src={man.url} alt="book" />
@@ -57,7 +57,7 @@ const WritersSlider = () => {
                 <p>{man.year}</p>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
         <div className={styles.btn_more}>
           <button onClick={() => startScroll(2615)}>Подробнее</button>
