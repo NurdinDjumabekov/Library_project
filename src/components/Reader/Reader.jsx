@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Reader = ({data}) => {
 
-  const currentItemsState = useSelector((state) => state.readerStateSlice.currentShow)
+  const currentItemsState = useSelector((state) => state.sendRequestEveryBookSlice.readerCurrentShow)
 
 
   return (

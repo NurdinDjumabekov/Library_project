@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeText } from '../../store/reducers/readerStateSlice';
+import { changeReaderCurrentShow } from '../../store/reducers/sendRequestEveryBookSlice';
 
 
 const ReadBook = ({itemsPerPage, data, styles, nextLabel, previousLabel, pageRangeDisplayed, marginPagesDisplayed, needScroll}) => {
@@ -14,7 +14,7 @@ const ReadBook = ({itemsPerPage, data, styles, nextLabel, previousLabel, pageRan
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   useEffect(() => {
-    dispatch(changeText(currentItems))
+    dispatch(changeReaderCurrentShow(currentItems))
   }, [currentItems])
 
   const handlePageClick = (event) => {
