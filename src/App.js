@@ -10,6 +10,7 @@ import ReadingNow from "./pages/ReadingNow/ReadingNow";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import AboutSite from "./pages/AboutSite/AboutSite";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
+import ReaderPage from "./pages/ReaderPage/ReaderPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/reading_now" element={<ReadingNow />} />
         <Route path="/profile" element={<UsersPage />} />
         <Route path="/detailed" element={<DetailedPage />} />
+        <Route path="/reader" element={<ReaderPage/>}/>
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
