@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./SlidersMainPageInner.module.css";
 // import postImage from "../../../../assests/images/Sliders/book_slider.png";
 import { Link } from "react-router-dom";
 import Rating_Star from "../Rating_Star/Rating_Star";
+import { detailedData } from "../../../../store/reducers/sendRequestMainPageSlice";
+import { useDispatch } from "react-redux";
 
 const SlidersMainPageInner = ({ slide }) => {
+  // console.log(slide.url);
   return (
     <div className={styles.sliderBlock}>
       <div className={styles.postImage}>
@@ -17,7 +20,7 @@ const SlidersMainPageInner = ({ slide }) => {
         </div>
         <Rating_Star grade_star={slide.grade_star} grade={slide.grade} />
         <button>
-          <Link to={"/"}>Читать</Link>
+          <Link to={`/detailed/${slide.id}`}>Читать</Link>
         </button>
       </section>
     </div>

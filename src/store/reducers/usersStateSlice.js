@@ -5,7 +5,7 @@ const initialState = {
   favoriteBooks: "Избранное",
   dataFavotitesBook: [],
   preloader: true,
-  dataEveryUser: [],
+  checkedUser: false,
 };
 
 export const sendRequestFavotitesData = createAsyncThunk(
@@ -26,19 +26,40 @@ export const sendRequestDataEveryUser = createAsyncThunk(
   "sendRequestDataEveryUser",
   async (info, { dispatch }) => {
     try {
-      const data = await axios({
+      const { data } = await axios({
         method: "GET",
         url: "https://kitepkana1.pythonanywhere.com/profile/",
         headers: {
-          Authorization: `${info}`,
+          Authorization: `JWT ${info}`,
         },
       });
-      console.log(info);
-      // dispatch(toTakeDataEveryUser(data));
+      localStorage.setItem("dataUser", JSON.stringify(data));
       console.log(data);
     } catch {
       console.log("error sendRequestDataEveryUser");
+      localStorage.removeItem("access");
+      localStorage.removeItem("refresh");
+      localStorage.removeItem("dataUser");
+      dispatch(changeCheckedUser(false));
       // console.log(info);
+    }
+  }
+);
+export const updateTokens = createAsyncThunk(
+  "updateTokens",
+  async (info, { dispatch }) => {
+    try {
+      const { data } = await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/jwt/refresh/",
+        data: {
+          refresh: localStorage.getItem("refresh"),
+        },
+      });
+      // console.log(data.access);
+      localStorage.setItem("access", data.access);
+    } catch {
+      console.log("error updateTokens");
     }
   }
 );
@@ -56,8 +77,8 @@ const usersStateSlice = createSlice({
     toTakeDataFavotitesBook: (state, action) => {
       state.dataFavotitesBook = action.payload;
     },
-    toTakeDataEveryUser: (state, action) => {
-      state.dataEveryUser = action.payload;
+    changeCheckedUser: (state, action) => {
+      state.checkedUser = action.payload;
     },
   },
 });
@@ -66,6 +87,6 @@ export const {
   changeFavoriteBooks,
   toTakeDataFavotitesBook,
   changePreloader,
-  toTakeDataEveryUser,
+  changeCheckedUser,
 } = usersStateSlice.actions;
 export default usersStateSlice.reducer;

@@ -10,8 +10,21 @@ import ReadingNow from "./pages/ReadingNow/ReadingNow";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import AboutSite from "./pages/AboutSite/AboutSite";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateTokens } from "./store/reducers/usersStateSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(updateTokens());
+      console.log("Функция срабатывает каждые 9 минут");
+    }, 9.5 * 60 * 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -19,7 +32,7 @@ function App() {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/reading_now" element={<ReadingNow />} />
         <Route path="/profile" element={<UsersPage />} />
-        <Route path="/detailed" element={<DetailedPage />} />
+        <Route path="/detailed:id" element={<DetailedPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />

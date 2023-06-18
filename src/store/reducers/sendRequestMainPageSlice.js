@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 import axios from "axios";
+
 const initialState = {
   dataNoveltyWork: [],
   recommedationBookInfo: [],
@@ -19,6 +19,7 @@ export const requestNovetlyWorks = createAsyncThunk(
       );
       dispatch(changeDateNoveltyWork(data));
       dispatch(changePreloader(false));
+      // console.log(data);
     } catch {
       console.log("error requestNovetlyWorks");
     }
@@ -66,6 +67,24 @@ export const requestBestWorks = createAsyncThunk(
       // console.log(data, "bestWork");
     } catch {
       console.log("error requestBestWorks");
+    }
+  }
+);
+
+export const detailedData = createAsyncThunk(
+  "detailedData",
+  async (id, { dispatch }) => {
+    try {
+      const data = await axios({
+        method: "GET",
+        url: `https://kitepkana1.pythonanywhere.com/books/11`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+      console.log(data, "rrr");
+    } catch (error) {
+      console.log("error detailedData", error);
     }
   }
 );

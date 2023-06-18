@@ -4,14 +4,21 @@ import HeaderDetailed from "../../components/Detailed/HeaderDetailed/HeaderDetai
 import Comments from "../../components/Detailed/Comments/Comments";
 import { useDispatch, useSelector } from "react-redux";
 import { requestAllData } from "../../store/reducers/sendRequestLibraryPageSlice";
+import { useParams } from "react-router-dom";
+import { detailedData } from "../../store/reducers/sendRequestMainPageSlice";
 
 const DetailedPage = () => {
   const dispatch = useDispatch();
   const { allData } = useSelector((state) => state.sendRequestLibraryPageSlice);
   //   console.log(allData, "allData detailedPage");
+  // useEffect(() => {
+  //   dispatch(requestAllData());
+  // }, []);
+  const { id } = useParams();
   useEffect(() => {
-    dispatch(requestAllData());
+    dispatch(detailedData());
   }, []);
+
   return (
     <div className={styles.parent_detailed}>
       <HeaderDetailed />

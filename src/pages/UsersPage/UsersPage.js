@@ -10,7 +10,7 @@ import Preloader from "../../components/Preloader/Preloader";
 
 const UsersPage = () => {
   const dispatch = useDispatch();
-  const { preloader, dataFavotitesBook } = useSelector(
+  const { preloader, dataFavotitesBook, checkedUser } = useSelector(
     (state) => state.usersStateSlice
   );
   //   console.log(dataFavotitesBook, "dataFavotitesBook");
@@ -25,21 +25,29 @@ const UsersPage = () => {
       {preloader ? (
         <Preloader />
       ) : (
-        <div className="container">
-          <div className={styles.parent_userBlock}>
-            <div className={styles.child_books_userBlock}>
-              <SortUsersBook />
-              <FavoritesBookUsers dataFavotitesBook={dataFavotitesBook} />
-            </div>
-            <div className={styles.child_user_userBlock}>
-              <div className={styles.parent_settingBlock}>
-                <button onClick={() => setUserData(true)}>Настройки</button>
+        <>
+          {checkedUser ? (
+            <div className="container">
+              <div className={styles.parent_userBlock}>
+                <div className={styles.child_books_userBlock}>
+                  <SortUsersBook />
+                  <FavoritesBookUsers dataFavotitesBook={dataFavotitesBook} />
+                </div>
+                <div className={styles.child_user_userBlock}>
+                  <div className={styles.parent_settingBlock}>
+                    <button onClick={() => setUserData(true)}>Настройки</button>
+                  </div>
+                  {userData && <SettingsUsers />}
+                  <DataEveryUser />
+                </div>
               </div>
-              {userData && <SettingsUsers />}
-              <DataEveryUser />
             </div>
-          </div>
-        </div>
+          ) : (
+            <div className={styles.not_user}>
+              <h1>Вы не зареганы! будь добрб зарегайся чудила!</h1>
+            </div>
+          )}
+        </>
       )}
     </>
   );
