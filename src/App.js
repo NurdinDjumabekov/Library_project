@@ -20,7 +20,7 @@ function App() {
     const interval = setInterval(() => {
       dispatch(updateTokens());
       console.log("Функция срабатывает каждые 9 минут");
-    }, 9.5 * 60 * 1000);
+    }, 9 * 60 * 1000);
     return () => {
       clearInterval(interval);
     };
@@ -32,7 +32,7 @@ function App() {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/reading_now" element={<ReadingNow />} />
         <Route path="/profile" element={<UsersPage />} />
-        <Route path="/detailed:id" element={<DetailedPage />} />
+        <Route path="/detailed/:id" element={<DetailedPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />

@@ -19,9 +19,9 @@ const SlidersMainPageInner = ({ slide }) => {
           <p>{slide.author_name}</p>
         </div>
         <Rating_Star grade_star={slide.grade_star} grade={slide.grade} />
-        <button>
-          <Link to={`/detailed/${slide.id}`}>Читать</Link>
-        </button>
+        <Link to={`/detailed/${slide.id}`}>
+          <button>Читать</button>
+        </Link>
       </section>
     </div>
   );

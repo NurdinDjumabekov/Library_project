@@ -2,22 +2,22 @@ import React from "react";
 import styles from "./HeaderDetailed.module.css";
 import book from "../../../assests/images/Detailed/info_book.png";
 
-const HeaderDetailed = () => {
+const HeaderDetailed = ({ dataDetailedPage }) => {
   return (
     <div className={styles.parent_deaderDetailed}>
       <div className="container">
         <div className={styles.child_detailed}>
           <div className={styles.child_img_detailed}>
-            <img src={book} alt="book" />
+            <img src={dataDetailedPage.cover} alt="book" />
           </div>
           <ul className={styles.child_info_detailed}>
             <li>
               <h3>Название книги</h3>
-              <span>И Дольше века длится день</span>
+              <span>{dataDetailedPage.title}</span>
             </li>
             <li>
               <h3>Автор</h3>
-              <span>Чингиз Айтматов </span>
+              <span>{dataDetailedPage.author_name}</span>
             </li>
             <li>
               <h3>Год публикации</h3>
@@ -25,13 +25,17 @@ const HeaderDetailed = () => {
             </li>
             <li>
               <h3>Жанр</h3>
-              <span>Роман</span>
+              <>
+                {dataDetailedPage.genre?.map((i, index) => (
+                  <span key={index}>{i.genre_name}</span>
+                ))}
+              </>
             </li>
             <li>
               <h3>Рейтинг</h3>
               <span>
-                <p></p>
-                <p>4.8</p>
+                {/* <p></p> */}
+                <p>{dataDetailedPage.middle_star}</p>
               </span>
             </li>
             <li>

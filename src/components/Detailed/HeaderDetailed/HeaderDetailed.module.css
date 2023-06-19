@@ -20,10 +20,12 @@
 .parent_deaderDetailed .child_detailed .child_img_detailed {
   width: 250px;
   height: 375px;
+  border-radius: 10px;
 }
 .parent_deaderDetailed .child_detailed .child_img_detailed img {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 .parent_deaderDetailed .child_info_detailed {
   width: 480px;
@@ -48,12 +50,19 @@
   font-size: 18px;
   line-height: 125%;
   color: #000000;
+  width: 30%;
 }
 .parent_deaderDetailed .child_info_detailed li span {
+  display: block;
   font-weight: 600;
   font-size: 22px;
   line-height: 125.3%;
   color: #2A2A2A;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 70%;
+  text-align: right;
 }
 .parent_deaderDetailed .child_info_detailed li:last-child {
   text-align: center;

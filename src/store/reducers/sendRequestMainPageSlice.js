@@ -8,6 +8,7 @@ const initialState = {
   kyrgyzWriters: [],
   coordinatesSlider: [],
   preloader: true,
+  dataDetailedPage: {},
 };
 
 export const requestNovetlyWorks = createAsyncThunk(
@@ -75,14 +76,15 @@ export const detailedData = createAsyncThunk(
   "detailedData",
   async (id, { dispatch }) => {
     try {
-      const data = await axios({
+      const { data } = await axios({
         method: "GET",
-        url: `https://kitepkana1.pythonanywhere.com/books/11`,
+        url: `https://kitepkana1.pythonanywhere.com/books/${id}`,
         headers: {
           Authorization: `JWT ${localStorage.getItem("access")}`,
         },
       });
-      console.log(data, "rrr");
+      dispatch(toTakeDataDetailedPage(data));
+      // console.log(data, "rrr");
     } catch (error) {
       console.log("error detailedData", error);
     }
@@ -111,6 +113,9 @@ const sendRequestMainPageSlice = createSlice({
     changePreloader: (state, action) => {
       state.preloader = action.payload;
     },
+    toTakeDataDetailedPage: (state, action) => {
+      state.dataDetailedPage = action.payload;
+    },
   },
 });
 export const {
@@ -120,5 +125,6 @@ export const {
   changeDateBestWork,
   addCoordinatesSlider,
   changePreloader,
+  toTakeDataDetailedPage,
 } = sendRequestMainPageSlice.actions;
 export default sendRequestMainPageSlice.reducer;

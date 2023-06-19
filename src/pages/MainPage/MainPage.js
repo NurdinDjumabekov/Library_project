@@ -10,7 +10,6 @@ import DownloadSlide from "../../components/Sliders/HeaderSliders/DownloadSlide/
 import Preloader from "../../components/Preloader/Preloader";
 import { useDispatch, useSelector } from "react-redux";
 import { requestNovetlyWorks } from "../../store/reducers/sendRequestMainPageSlice";
-import { updateTokens } from "../../store/reducers/usersStateSlice";
 const MainPage = () => {
   const { preloader } = useSelector((state) => state.sendRequestMainPageSlice);
   const dispatch = useDispatch();
@@ -25,7 +24,6 @@ const MainPage = () => {
       ) : (
         <div>
           <HeaderMain />
-          <button onClick={() => dispatch(updateTokens())}>refresh</button>
           <Novelties />
           <ManasPart />
           <Recommendation />
