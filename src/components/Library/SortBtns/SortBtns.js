@@ -5,9 +5,7 @@ import { changeSortBtn } from "../../../store/reducers/sendRequestLibraryPageSli
 
 const SortBtns = () => {
   const [sortState, setSortState] = useState(1);
-  const { sortBtn } = useSelector((state) => state.sendRequestLibraryPageSlice);
   const dispatch = useDispatch();
-  //   console.log(sortBtn, "sortBtn");
 
   const sortArr = [
     { id: 1, text: "Все", sort: "all" },

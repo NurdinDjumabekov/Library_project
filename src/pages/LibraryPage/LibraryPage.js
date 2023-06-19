@@ -10,14 +10,20 @@ import Preloader from "../../components/Preloader/Preloader";
 
 const LibraryPage = () => {
   const dispatch = useDispatch();
-  const { preloader, allData } = useSelector(
+  const { preloader, allData, search, sortBtn, filteredBtn } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
   // console.log(allData, "allData");
 
   useEffect(() => {
-    dispatch(requestAllData());
-  }, []);
+    dispatch(
+      requestAllData({
+        search: search,
+        sortBtn: sortBtn,
+        filteredBtn: filteredBtn,
+      })
+    );
+  }, [search, sortBtn, filteredBtn]);
 
   return (
     <>
