@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./HeaderDetailed.module.css";
 import book from "../../../assests/images/Detailed/info_book.png";
+import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
 
 const HeaderDetailed = ({ dataDetailedPage }) => {
+  console.log(dataDetailedPage);
   return (
     <div className={styles.parent_deaderDetailed}>
       <div className="container">
@@ -33,10 +35,9 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
             </li>
             <li>
               <h3>Рейтинг</h3>
-              <span>
-                {/* <p></p> */}
-                <p>{dataDetailedPage.middle_star}</p>
-              </span>
+              <div className={styles.star_reting}>
+                <Rating_Star grade_star={2} grade={2.6} />
+              </div>
             </li>
             <li>
               <button>Читать</button>

@@ -1,32 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./InfoEveryBook.module.css";
 import star from "../../../assests/images/Sliders/Star_grade.svg";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 
 const InfoEveryBook = ({ book }) => {
-  // console.log(book);
-  // const requestSend = async () => {
-  //   console.log(book.url);
-  //   try {
-  //     const { data } = await axios.get(`${book.url}`);
-  //     console.log(data);
-  //   } catch {
-  //     console.log("error");
-  //   }
-  // };
+  const [numRating, setNumRating] = useState(0);
+  useEffect(() => {
+    setNumRating(book?.middle_star);
+    setNumRating((prev) =>
+      prev % 1 === 0 ? prev.toString() + "." + "0" : prev
+    );
+  }, [book]);
+
   return (
-    <NavLink>
+    <NavLink to={`/detailed/${book.id}`}>
       <div className={styles.parent_infoBook}>
         <div className={styles.imgBlock_infoBook}>
           <img src={book.cover} alt="url" />
         </div>
         <div className={styles.textInfoBlock_infoBook}>
           <h4>«{book.title}»</h4>
-          <h5>{book.writer}</h5>
+          <h5>Чынгыз Айтматов</h5>
           <div>
             <img src={star} alt="star" />
-            <span>{book.middle_star}</span>
+            <span>{numRating}</span>
           </div>
           <p>
             Данная книга раскрывает Вам, уважаемый читатель, пошаговые действия

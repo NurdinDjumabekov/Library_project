@@ -64,6 +64,9 @@
   width: 70%;
   text-align: right;
 }
+.parent_deaderDetailed .child_info_detailed li .star_reting {
+  width: 250px;
+}
 .parent_deaderDetailed .child_info_detailed li:last-child {
   text-align: center;
 }

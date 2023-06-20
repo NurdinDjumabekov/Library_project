@@ -3,30 +3,27 @@ import books from "../../assests/images/readingNow/books_many.png";
 import styles from "./ReadingNow.module.css";
 import { useNavigate } from "react-router-dom";
 import ResentlyRead from "../../components/ResentlyRead/ResentlyRead";
+import { useSelector } from "react-redux";
 
 const ReadingNow = () => {
   const navigate = useNavigate();
+  const { checkedUser } = useSelector((state) => state.usersStateSlice);
   return (
     <>
-      {true ? (
+      {false ? (
         <ResentlyRead />
       ) : (
         <div className={styles.parent_reading}>
           <div className="container">
             <div className={styles.child_reading}>
               <div>
+                <h1>
+                  Добро пожаловать , <span>Nurdin</span>
+                </h1>
                 <p>
-                  Чтобы иметь доступ к богатому наследию литературы и культуры
-                  нашей страны, пожалуйста, зарегистрируйтесь
+                  <button>Нажмите сюда,</button> чтобы перейти в раздел
+                  библиотеки
                 </p>
-                <div>
-                  <button onClick={() => navigate("/registration")}>
-                    Регистрация
-                  </button>
-                </div>
-              </div>
-              <div>
-                <img src={books} alt="books" />
               </div>
             </div>
           </div>

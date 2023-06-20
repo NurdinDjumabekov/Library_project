@@ -84,7 +84,6 @@ export const detailedData = createAsyncThunk(
         },
       });
       dispatch(toTakeDataDetailedPage(data));
-      // console.log(data, "rrr");
     } catch (error) {
       console.log("error detailedData", error);
     }

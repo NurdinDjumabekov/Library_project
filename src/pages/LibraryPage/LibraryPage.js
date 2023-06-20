@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InfoEveryBook from "../../components/Library/InfoEveryBook/InfoEveryBook";
 import SortBtns from "../../components/Library/SortBtns/SortBtns";
 import Preloader from "../../components/Preloader/Preloader";
+import NoData from "../../components/Library/NoData/NoData";
 
 const LibraryPage = () => {
   const dispatch = useDispatch();
@@ -37,9 +38,15 @@ const LibraryPage = () => {
               <div className={styles.library_info}>
                 <Filtration />
                 <div className={styles.library_mainContent}>
-                  {allData?.map((book) => (
-                    <InfoEveryBook book={book} key={book.id} />
-                  ))}
+                  <>
+                    {allData.length === 0 ? (
+                      <NoData />
+                    ) : (
+                      allData?.map((book) => (
+                        <InfoEveryBook book={book} key={book.id} />
+                      ))
+                    )}
+                  </>
                 </div>
               </div>
               <div className={styles.library_sortBlock}>

@@ -1,35 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SortBtns.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSortBtn } from "../../../store/reducers/sendRequestLibraryPageSlice";
+import {
+  changeSortBtn,
+  requestSortBtn,
+} from "../../../store/reducers/sendRequestLibraryPageSlice";
 
 const SortBtns = () => {
   const [sortState, setSortState] = useState(1);
+  const { allsortBtn } = useSelector(
+    (state) => state.sendRequestLibraryPageSlice
+  );
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(requestSortBtn());
+  }, []);
 
-  const sortArr = [
-    { id: 1, text: "Все", sort: "all" },
-    { id: 2, text: "Драма", sort: "Драма" },
-    { id: 3, text: "Эпосы", sort: "Эпосы" },
-    { id: 4, text: "Роман", sort: "Роман" },
-    { id: 5, text: "Мифы", sort: "Мифы" },
-    { id: 6, text: "Повесть", sort: "Повесть" },
-  ];
+  // const sortArr = [
+  //   { id: 1, text: "Все", sort: "all" },
+  //   { id: 2, text: "Драма" },
+  //   { id: 3, text: "Эпосы" },
+  //   { id: 4, text: "Роман" },
+  //   { id: 5, text: "Мифы" },
+  //   { id: 6, text: "Повесть" },
+  // ];
 
-  const changeSortBtnFn = (id, sort) => {
+  const changeSortBtnFn = (id) => {
     setSortState(id);
-    dispatch(changeSortBtn(sort));
+    dispatch(changeSortBtn(id));
   };
 
   return (
     <div className={styles.parent_SortBtns}>
-      {sortArr.map((choice) => (
+      {allsortBtn?.map((choice) => (
         <button
           key={choice.id}
-          onClick={() => changeSortBtnFn(choice.id, choice.sort)}
+          onClick={() => changeSortBtnFn(choice.id)}
           className={choice.id === sortState ? styles.active_sort : ""}
         >
-          {choice.text}
+          {choice.genre_name}
         </button>
       ))}
     </div>

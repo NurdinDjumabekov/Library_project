@@ -11,6 +11,10 @@
   border-radius: 10px;
   position: sticky;
   top: 33%;
+  overflow: auto;
+  height: 328px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
 }
 .parent_SortBtns button {
   padding: 15px 20px;
@@ -36,4 +40,8 @@
 .parent_SortBtns .active_sort {
   color: white;
   background-color: #FF4004;
+}
+
+.parent_SortBtns::-webkit-scrollbar {
+  width: 0;
 }

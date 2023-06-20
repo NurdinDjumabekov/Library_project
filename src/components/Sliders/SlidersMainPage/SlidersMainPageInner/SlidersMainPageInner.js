@@ -7,7 +7,6 @@ import { detailedData } from "../../../../store/reducers/sendRequestMainPageSlic
 import { useDispatch } from "react-redux";
 
 const SlidersMainPageInner = ({ slide }) => {
-  // console.log(slide.url);
   return (
     <div className={styles.sliderBlock}>
       <div className={styles.postImage}>
@@ -18,7 +17,7 @@ const SlidersMainPageInner = ({ slide }) => {
           <h2>{slide.title}</h2>
           <p>{slide.author_name}</p>
         </div>
-        <Rating_Star grade_star={slide.grade_star} grade={slide.grade} />
+        <Rating_Star grade_star={3.5} grade={3.5} />
         <Link to={`/detailed/${slide.id}`}>
           <button>Читать</button>
         </Link>

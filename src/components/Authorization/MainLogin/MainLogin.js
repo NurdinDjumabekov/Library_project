@@ -27,7 +27,7 @@ const MainLogin = ({ setRestore }) => {
         ...info,
         errorlogin: false,
       }));
-      // setDate((info) => ({ ...info, login: "", password: "" }));
+      setDate((info) => ({ ...info, login: "", password: "" }));
       // console.log(wrong.errorlogin);
       try {
         const info = await axios({
@@ -44,6 +44,9 @@ const MainLogin = ({ setRestore }) => {
         if (info.data.access && info.data.refresh) {
           navigate("/");
         }
+        // if (localStorage.getItem("access") && localStorage.getItem("refresh")) {
+        //   navigate("/");
+        // }
       } catch {
         console.log(
           "error - https://kitepkana1.pythonanywhere.com/auth/jwt/create/"
