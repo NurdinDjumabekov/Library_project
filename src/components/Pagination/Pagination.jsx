@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeReaderCurrentShow } from '../../store/reducers/sendRequestEveryBookSlice';
+import { changeReaderCurrentPage } from '../../store/reducers/sendRequestEveryBookSlice';
+import usePagination from '@mui/material/usePagination';
 
 
-const ReadBook = ({itemsPerPage, data, styles, nextLabel, previousLabel, pageRangeDisplayed, marginPagesDisplayed, needScroll}) => {
+
+const ReadBook = ({styles, nextLabel, previousLabel, pageRangeDisplayed, marginPagesDisplayed, needScroll, pageCount}) => {
 
   const dispatch = useDispatch()
   const [itemOffset, setItemOffset] = useState(0);
 
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = data.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(data.length / itemsPerPage);
+  useEffect(() => {
+    dispatch(changeReaderCurrentPage(itemOffset+1))
+  }, [itemOffset])
 
   useEffect(() => {
-    dispatch(changeReaderCurrentShow(currentItems))
-  }, [currentItems])
+    console.log(itemOffset+1);
+  }, [itemOffset])
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
+    const newOffset = (event.selected)
     setItemOffset(newOffset);
     if(needScroll) {
       window.scrollTo({
@@ -26,7 +28,6 @@ const ReadBook = ({itemsPerPage, data, styles, nextLabel, previousLabel, pageRan
         behavior: 'smooth'
       })
     }
-    
   };
 
   return ( 

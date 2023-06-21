@@ -11,6 +11,7 @@ import UsersPage from "./pages/UsersPage/UsersPage";
 import AboutSite from "./pages/AboutSite/AboutSite";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
 import ReaderPage from "./pages/ReaderPage/ReaderPage";
+import ReaderCopy from "./components/Reader/ReaderCopy";
 
 function App() {
   return (

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   commentsData: [],
-  readerCurrentShow: ""
+  readerCurrentPage: 1
 };
 
 const sendRequestEveryBookSlice = createSlice({
@@ -13,11 +13,11 @@ const sendRequestEveryBookSlice = createSlice({
     changeCommentsData: (state, action) => {
       state.commentsData = action.payload;
     },
-    changeReaderCurrentShow: (state, action) => {
-      state.readerCurrentShow = action.payload
+    changeReaderCurrentPage: (state, action) => {
+      state.readerCurrentPage = action.payload
     }
   },
 });
 
-export const { changeCommentsData, changeReaderCurrentShow } = sendRequestEveryBookSlice.actions;
+export const { changeCommentsData, changeReaderCurrentPage } = sendRequestEveryBookSlice.actions;
 export default sendRequestEveryBookSlice.reducer;
