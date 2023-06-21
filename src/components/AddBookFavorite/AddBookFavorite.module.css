@@ -1,0 +1,12 @@
+.parent_addFavorite {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+.parent_addFavorite button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 70px;
+  height: 50px;
+}

@@ -1,4 +1,7 @@
-.parent_infoBook {
+section {
+  position: relative;
+}
+section .parent_infoBook {
   width: 100%;
   padding: 16px 20px;
   display: -webkit-box;
@@ -11,33 +14,42 @@
   border-radius: 12px;
   margin-bottom: 30px;
 }
-.parent_infoBook .imgBlock_infoBook {
+section .parent_infoBook .imgBlock_infoBook {
   width: 112px;
   height: 167px;
   background: red;
   border-radius: 8px;
 }
-.parent_infoBook .imgBlock_infoBook img {
+section .parent_infoBook .imgBlock_infoBook img {
   width: 100%;
   height: 100%;
   border-radius: 8px;
 }
-.parent_infoBook .textInfoBlock_infoBook {
+section .parent_infoBook .textInfoBlock_infoBook {
   width: 85%;
 }
-.parent_infoBook .textInfoBlock_infoBook h4 {
+section .parent_infoBook .textInfoBlock_infoBook > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h4 {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
   color: #262626;
 }
-.parent_infoBook .textInfoBlock_infoBook h5 {
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h5 {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   color: #FF4004;
 }
-.parent_infoBook .textInfoBlock_infoBook > div {
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,17 +59,17 @@
   gap: 5px;
   margin: 10px 0;
 }
-.parent_infoBook .textInfoBlock_infoBook > div span {
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div span {
   font-weight: 400;
   font-size: 20px;
   line-height: 125.3%;
   color: #000000;
 }
-.parent_infoBook .textInfoBlock_infoBook > div img {
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div img {
   width: 24px;
   height: 24px;
 }
-.parent_infoBook .textInfoBlock_infoBook p {
+section .parent_infoBook .textInfoBlock_infoBook p {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;

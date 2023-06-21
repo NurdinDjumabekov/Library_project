@@ -1,6 +1,5 @@
-.child_reading {
-  padding: 100px 0 0 0;
-  height: 76vh;
+.parent_noAuth {
+  height: 78vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,32 +9,27 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 100px 0 0 0;
 }
-.child_reading div {
-  display: block;
+.parent_noAuth h1 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 125.3%;
+  color: #7C7C7C;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+.parent_noAuth p {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 36px;
   line-height: 125.3%;
   color: #7C7C7C;
-  padding: 0px 0px 40px 0px;
 }
-.child_reading div p {
-  display: block;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 125.3%;
-  color: #7C7C7C;
-}
-.child_reading div span {
-  color: #FF4004;
-  font-family: "Pacifico";
-  font-weight: 500;
-}
-.child_reading div button {
+.parent_noAuth p button {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;

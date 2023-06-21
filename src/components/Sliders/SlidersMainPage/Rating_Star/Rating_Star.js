@@ -21,7 +21,7 @@ const Rating_Star = ({ grade_star, grade }) => {
             key={index}
             width="32"
             height="30"
-            viewBox="0 0 32 30"
+            viewBox="0 0 32 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -33,8 +33,8 @@ const Rating_Star = ({ grade_star, grade }) => {
         ) : (
           <svg
             key={index}
-            width="32"
-            height="30"
+            width="28"
+            height="26"
             viewBox="0 0 32 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

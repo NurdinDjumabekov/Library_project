@@ -27,7 +27,7 @@ const MainLogin = ({ setRestore }) => {
         ...info,
         errorlogin: false,
       }));
-      setDate((info) => ({ ...info, login: "", password: "" }));
+
       // console.log(wrong.errorlogin);
       try {
         const info = await axios({
@@ -38,12 +38,13 @@ const MainLogin = ({ setRestore }) => {
             password: data.password,
           },
         });
-        // console.log(info.data, "data");
+        // console.log(info, "data");
         localStorage.setItem("access", info.data.access);
         localStorage.setItem("refresh", info.data.refresh);
         if (info.data.access && info.data.refresh) {
           navigate("/");
         }
+        setDate((info) => ({ ...info, login: "", password: "" }));
         // if (localStorage.getItem("access") && localStorage.getItem("refresh")) {
         //   navigate("/");
         // }
@@ -88,6 +89,7 @@ const MainLogin = ({ setRestore }) => {
             className={styles.input_email}
             placeholder="E-mail "
             required
+            name="email"
             // type="email"
             value={data.login}
             onChange={(e) =>
@@ -105,6 +107,7 @@ const MainLogin = ({ setRestore }) => {
             required
             placeholder="Пароль"
             value={data.password}
+            name="password"
             onChange={(e) =>
               setDate((info) => ({ ...info, password: e.target.value }))
             }

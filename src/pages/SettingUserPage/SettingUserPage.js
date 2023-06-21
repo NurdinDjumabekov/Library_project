@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from "./SettingsUsers.module.css";
+import styles from "./SettingUserPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { toTakeDataUsers } from "../../../store/reducers/windowsSlice";
-import ChangeDataUser from "../ChangeDataUser/ChangeDataUser";
+import ChangeDataUser from "../../components/Users/ChangeDataUser/ChangeDataUser";
+import { toTakeDataUsers } from "../../store/reducers/windowsSlice";
 
-const SettingsUsers = () => {
+const SettingUserPage = () => {
   const { dataUsers } = useSelector((state) => state.windowsSlice);
   const [user, setUser] = useState({
     choiceData: 0,
@@ -87,4 +87,4 @@ const SettingsUsers = () => {
   );
 };
 
-export default SettingsUsers;
+export default SettingUserPage;

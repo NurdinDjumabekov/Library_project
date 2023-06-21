@@ -2,23 +2,23 @@ import React, { useEffect, useState } from "react";
 import styles from "./UsersPage.module.css";
 import SortUsersBook from "../../components/Users/SortUsersBook/SortUsersBook";
 import FavoritesBookUsers from "../../components/Users/FavoritesBookUsers/FavoritesBookUsers";
-import SettingsUsers from "../../components/Users/SettingsUsers/SettingsUsers";
 import DataEveryUser from "../../components/Users/DataEveryUser/DataEveryUser";
 import { useDispatch, useSelector } from "react-redux";
-import { sendRequestFavotitesData } from "../../store/reducers/usersStateSlice";
+import { sendRequestAllDataUser } from "../../store/reducers/usersStateSlice";
 import Preloader from "../../components/Preloader/Preloader";
+import NoAuth from "../../components/NoAuth/NoAuth";
+import { useNavigate } from "react-router-dom";
 
 const UsersPage = () => {
   const dispatch = useDispatch();
-  const { preloader, dataFavotitesBook, checkedUser } = useSelector(
-    (state) => state.usersStateSlice
-  );
+  const navigate = useNavigate();
+  const { preloader, dataFavotitesBook, checkedUser, favoriteBooks } =
+    useSelector((state) => state.usersStateSlice);
   //   console.log(dataFavotitesBook, "dataFavotitesBook");
-  const [userData, setUserData] = useState(false);
 
   useEffect(() => {
-    dispatch(sendRequestFavotitesData());
-  }, []);
+    dispatch(sendRequestAllDataUser(favoriteBooks));
+  }, [favoriteBooks]);
 
   return (
     <>
@@ -35,17 +35,16 @@ const UsersPage = () => {
                 </div>
                 <div className={styles.child_user_userBlock}>
                   <div className={styles.parent_settingBlock}>
-                    <button onClick={() => setUserData(true)}>Настройки</button>
+                    <button onClick={() => navigate("/setting_users")}>
+                      Настройки
+                    </button>
                   </div>
-                  {userData && <SettingsUsers />}
                   <DataEveryUser />
                 </div>
               </div>
             </div>
           ) : (
-            <div className={styles.not_user}>
-              <h1>Вы не зареганы! будь добрб зарегайся чудила!</h1>
-            </div>
+            <NoAuth />
           )}
         </>
       )}

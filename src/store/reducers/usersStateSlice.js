@@ -2,23 +2,32 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  favoriteBooks: "Избранное",
+  favoriteBooks: "favorite",
   dataFavotitesBook: [],
   preloader: true,
   checkedUser: false,
+  dataEveryUser: [],
+  readingNowBookUser: [],
 };
 
-export const sendRequestFavotitesData = createAsyncThunk(
-  "sendRequestFavotitesData",
-  async (data, { dispatch }) => {
+export const sendRequestAllDataUser = createAsyncThunk(
+  "sendRequestAllDataUser",
+  async (state, { dispatch }) => {
+    dispatch(changePreloader(true));
     try {
-      const { data } = await axios.get(
-        "https://6443c7ca90738aa7c0778850.mockapi.io/infoportal"
-      );
+      const { data } = await axios({
+        method: "GET",
+        url: `https://kitepkana1.pythonanywhere.com/${state}/`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
       dispatch(toTakeDataFavotitesBook(data));
+      console.log(data, "rtyg");
       dispatch(changePreloader(false));
-    } catch {
-      console.log("error sendRequestFavotitesData");
+    } catch (error) {
+      console.log(error, "error sendRequestAllDataUser");
+      dispatch(changePreloader(false));
     }
   }
 );
@@ -34,7 +43,8 @@ export const sendRequestDataEveryUser = createAsyncThunk(
         },
       });
       localStorage.setItem("dataUser", JSON.stringify(data));
-      console.log(data);
+      dispatch(toTakeDataEveryUser(data));
+      // console.log(data);
     } catch {
       console.log("error sendRequestDataEveryUser");
       localStorage.removeItem("access");
@@ -64,6 +74,24 @@ export const updateTokens = createAsyncThunk(
   }
 );
 
+export const toTakeReadingNowBooks = createAsyncThunk(
+  "toTakeReadingNowBooks",
+  async (info, { dispatch }) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: "https://kitepkana1.pythonanywhere.com/finish_bookmark/",
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+      dispatch(changeReadingNowBookUser(data));
+    } catch (error) {
+      console.log(error, "error toTakeReadingNowBooks");
+    }
+  }
+);
+
 const usersStateSlice = createSlice({
   name: "usersStateSlice",
   initialState,
@@ -80,6 +108,12 @@ const usersStateSlice = createSlice({
     changeCheckedUser: (state, action) => {
       state.checkedUser = action.payload;
     },
+    toTakeDataEveryUser: (state, action) => {
+      state.dataEveryUser = action.payload;
+    },
+    changeReadingNowBookUser: (state, action) => {
+      state.readingNowBookUser = action.payload;
+    },
   },
 });
 
@@ -88,5 +122,7 @@ export const {
   toTakeDataFavotitesBook,
   changePreloader,
   changeCheckedUser,
+  toTakeDataEveryUser,
+  changeReadingNowBookUser,
 } = usersStateSlice.actions;
 export default usersStateSlice.reducer;

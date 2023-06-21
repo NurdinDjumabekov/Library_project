@@ -8,6 +8,7 @@ import {
 } from "../../../store/reducers/windowsSlice";
 import EyePassword from "../EyePassword/EyePassword";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const MainRegistration = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const MainRegistration = () => {
     lookBtnEye: false,
     lookBtnEyeRepeat: false,
   });
-  console.log(disable.lookBtnEyeRepeat, "ftygjhukj");
+  console.log(disable.lookBtnEyeRepeat, "lookBtnEyeRepeat");
   const [sendError, setSendError] = useState({
     sendErrorEmail: false,
     sendErrorPassword: false,
@@ -34,6 +35,7 @@ const MainRegistration = () => {
     descriptionLevel: false,
     repeatPassword: true,
   });
+  const navigate = useNavigate();
 
   const textRegExp = /[a-zA-Z]/;
   const numRegExp = /[0-9]/;
@@ -95,15 +97,16 @@ const MainRegistration = () => {
         method: "POST",
         url: "https://kitepkana1.pythonanywhere.com/auth/users/",
         data: {
-          username: "user",
+          username: "users",
           email: email,
           password: password.passwordMain,
           re_password: password.passwordRepeat,
         },
       });
       console.log(a);
-    } catch {
-      console.log("error send registration");
+      navigate("/registration_active");
+    } catch (error) {
+      console.log(error, "error send registration");
     }
   };
 

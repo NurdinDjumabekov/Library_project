@@ -13,6 +13,7 @@
   height: 135px;
 }
 .parent_settingUser .child_settingUser {
+  position: relative;
   margin: -70px 0px 22px;
 }
 .parent_settingUser .child_settingUser .nameUser_settingUser {

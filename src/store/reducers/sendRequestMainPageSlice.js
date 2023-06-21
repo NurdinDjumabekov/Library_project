@@ -9,6 +9,7 @@ const initialState = {
   coordinatesSlider: [],
   preloader: true,
   dataDetailedPage: {},
+  ifSendRequestError: true,
 };
 
 export const requestNovetlyWorks = createAsyncThunk(
@@ -75,6 +76,7 @@ export const requestBestWorks = createAsyncThunk(
 export const detailedData = createAsyncThunk(
   "detailedData",
   async (id, { dispatch }) => {
+    dispatch(changePreloader(true));
     try {
       const { data } = await axios({
         method: "GET",
@@ -84,8 +86,13 @@ export const detailedData = createAsyncThunk(
         },
       });
       dispatch(toTakeDataDetailedPage(data));
+      dispatch(changePreloader(false));
     } catch (error) {
+      if (error.message.includes("Request failed with status code 401")) {
+        dispatch(changeSendRequestError(false));
+      }
       console.log("error detailedData", error);
+      dispatch(changePreloader(false));
     }
   }
 );
@@ -115,6 +122,9 @@ const sendRequestMainPageSlice = createSlice({
     toTakeDataDetailedPage: (state, action) => {
       state.dataDetailedPage = action.payload;
     },
+    changeSendRequestError: (state, action) => {
+      state.ifSendRequestError = action.payload;
+    },
   },
 });
 export const {
@@ -125,5 +135,6 @@ export const {
   addCoordinatesSlider,
   changePreloader,
   toTakeDataDetailedPage,
+  changeSendRequestError,
 } = sendRequestMainPageSlice.actions;
 export default sendRequestMainPageSlice.reducer;

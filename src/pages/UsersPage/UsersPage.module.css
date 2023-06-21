@@ -39,11 +39,3 @@
           box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
   border-radius: 10px;
 }
-
-.not_user {
-  height: 80xh;
-  width: 100%;
-  background: red;
-  text-align: center;
-  padding: 200px 0 0 0;
-}

@@ -40,6 +40,7 @@ export const requestAllData = createAsyncThunk(
       });
       dispatch(toTakeAllData(data));
       // console.log(allData);
+      console.log(data, "ALLDATA");
       dispatch(changePreloader(false));
     } catch {
       console.log("error requestBestWorks");
