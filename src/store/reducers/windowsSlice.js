@@ -10,6 +10,8 @@ const initialState = {
   dataUsers: [],
 };
 
+
+///////////////////////////////////////////////////////
 export const toTakeDataUsers = createAsyncThunk(
   "toTakeDataUsers",
   async (dataUsers, { dispatch }) => {
@@ -20,6 +22,27 @@ export const toTakeDataUsers = createAsyncThunk(
       dispatch(toTakeDataUsersRd(data));
     } catch {
       console.log("error toTakeDataUsers");
+    }
+  }
+);
+///////////////////////////////////////////////////////
+
+
+export const repeatSendRequestMessageEmail = createAsyncThunk(
+  "repeatSendRequestMessageEmail",
+  async (email, { dispatch }) => {
+    try {
+      const { data } = await axios({
+        method:
+          "https://kitepkana1.pythonanywhere.com/auth/users/resend_activation/",
+        data: {
+          email: email,
+        },
+      });
+
+      // dispatch(toTakeDataUsersRd(data));
+    } catch {
+      console.log("error repeatSendRequestMessageEmail");
     }
   }
 );

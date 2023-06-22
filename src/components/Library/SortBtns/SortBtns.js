@@ -11,6 +11,7 @@ const SortBtns = () => {
   const { allsortBtn } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
+  // console.log(allsortBtn, "allsortBtn");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(requestSortBtn());
@@ -32,15 +33,21 @@ const SortBtns = () => {
 
   return (
     <div className={styles.parent_SortBtns}>
-      {allsortBtn?.map((choice) => (
-        <button
-          key={choice.id}
-          onClick={() => changeSortBtnFn(choice.id)}
-          className={choice.id === sortState ? styles.active_sort : ""}
-        >
-          {choice.genre_name}
-        </button>
-      ))}
+      {allsortBtn.length !== 0 ? (
+        <>
+          {allsortBtn?.map((choice) => (
+            <button
+              key={choice.id}
+              onClick={() => changeSortBtnFn(choice.id)}
+              className={choice.id === sortState ? styles.active_sort : ""}
+            >
+              {choice.genre_name}
+            </button>
+          ))}
+        </>
+      ) : (
+        <button className={styles.active_sort}>Все</button>
+      )}
     </div>
   );
 };

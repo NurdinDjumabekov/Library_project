@@ -35,7 +35,7 @@ const DetailedPage = () => {
                 </div>
                 <div className={styles.comments_parent}>
                   <h3>Отзывы</h3>
-                  {/* <Comments comments={allData[0]?.comments} /> */}
+                  {/* <Comments dataDetailedPage={dataDetailedPage} /> */}
                 </div>
               </div>
             </div>

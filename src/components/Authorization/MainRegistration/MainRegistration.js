@@ -5,6 +5,7 @@ import LevelPassword from "../LevelPassword/LevelPassword";
 import {
   changeDifficultPassword,
   changeDifficultPassword_text,
+  repeatSendRequestMessageEmail,
 } from "../../../store/reducers/windowsSlice";
 import EyePassword from "../EyePassword/EyePassword";
 import axios from "axios";
@@ -93,21 +94,29 @@ const MainRegistration = () => {
   }, [password]);
   const sendRequestRegistration = async () => {
     try {
-      const a = await axios({
+      const data = await axios({
         method: "POST",
         url: "https://kitepkana1.pythonanywhere.com/auth/users/",
         data: {
-          username: "users",
+          username: "user_nub ",
           email: email,
           password: password.passwordMain,
           re_password: password.passwordRepeat,
         },
       });
-      console.log(a);
+      console.log(data, "sendRequestRegistration");
       navigate("/registration_active");
     } catch (error) {
-      console.log(error, "error send registration");
-    }
+      if (
+        error.response.data.email &&
+        error.response.data.email[0] === "user with this email already exists."
+      ) {
+        navigate("/registration_active");
+        dispatch(repeatSendRequestMessageEmail(email));
+      } else {
+        console.log(error, "error send registration");
+      }
+    } //error.response.data.email
   };
 
   const regExpCheckFN = (e) => {

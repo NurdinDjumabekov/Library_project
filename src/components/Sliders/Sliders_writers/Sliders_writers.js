@@ -22,14 +22,11 @@ const Sliders_writers = () => {
     arrows: true,
     infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
   };
-
-  const url =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu75kQs-UENNytPqqV760OQOeoj-5BqEgqxw&usqp=CAU";
 
   return (
     <div className={styles.parent_writers}>
@@ -42,33 +39,23 @@ const Sliders_writers = () => {
                   <h3>{slide.fullname}</h3>
                   <div className={styles.child_sliderWriters}>
                     <div>
-                      <img src={url} alt="slide" />
+                      <img src={slide.image} alt="slide" />
                     </div>
                     <section className={styles.moreText_Slider}>
                       <div>
                         <h4>Краткая история: </h4>
-                        <p>
-                          Родился 12 декабря 1928 г. в посёлке Шекер Таласской
-                          области Киргизской ССР в семье учительницы и
-                          партийного работника.
-                        </p>
+                        <p>{slide.short_story}</p>
                       </div>
                       <div>
                         <h4>Награды: </h4>
-                        <p>
-                          Герой Социалистического Труда (1978), Герой Киргизской
-                          Республики (1997), народный писатель Киргизской ССР
-                          (1968), академик АН Киргизской ССР (1974), лауреат
-                          Ленинской (1963) и трёх Государственных премий СССР
-                          (1968, 1977, 1983).
-                        </p>
+                        <p>{slide.awards}</p>
                       </div>
                       <div>
                         <h4>Произведения: </h4>
-                        <p>
-                          Материнское поле ,Тополёк мой в красной косынке ,
-                          Лицом к лицу Верблюжий глаз , Белый пароход Пегий пёс.
-                        </p>
+                        {/* <p>{slide.works[0].title}</p> */}
+                        {slide?.works?.map((item, index) => (
+                          <span key={index}>{item.title}</span>
+                        ))}
                       </div>
                     </section>
                   </div>

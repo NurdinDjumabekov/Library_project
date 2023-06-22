@@ -1,0 +1,105 @@
+.parent_addComments .child_addComments {
+  background: #fff;
+  -webkit-box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
+          box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
+  border-radius: 10px;
+  padding: 47px 94px;
+}
+.parent_addComments .child_addComments > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.parent_addComments .child_addComments > div div:nth-child(1) {
+  max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.parent_addComments .child_addComments > div div:nth-child(1) div:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.parent_addComments .child_addComments > div div:nth-child(1) div:nth-child(1) img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.parent_addComments .child_addComments > div div:nth-child(1) div:nth-child(2) p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 15px;
+  color: #2A2A2A;
+}
+.parent_addComments .child_addComments > div div:nth-child(1) div:nth-child(2) span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 5px;
+  color: #7C7C7C;
+}
+.parent_addComments .child_addComments > div div:nth-child(2) p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 125.3%;
+  color: #2A2A2A;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+.parent_addComments .child_addComments > div div:nth-child(2) > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.parent_addComments .child_addComments > div div:nth-child(2) > div button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.parent_addComments .child_addComments form {
+  margin: 30px 0 0 0;
+  width: 100%;
+}
+.parent_addComments .child_addComments form textarea {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  font-size: 30px;
+  padding: 10px 10px;
+  resize: none;
+}
+.parent_addComments .child_addComments form textarea::-webkit-input-placeholder {
+  font-size: 36px;
+}
+.parent_addComments .child_addComments form textarea::-moz-placeholder {
+  font-size: 36px;
+}
+.parent_addComments .child_addComments form textarea:-ms-input-placeholder {
+  font-size: 36px;
+}
+.parent_addComments .child_addComments form textarea::-ms-input-placeholder {
+  font-size: 36px;
+}
+.parent_addComments .child_addComments form textarea::placeholder {
+  font-size: 36px;
+}

@@ -40,14 +40,14 @@ const UserLogin = () => {
             <div>
               <p>{data?.username}</p>
               <div>
-                <img src={imgUSER} alt="user" />
+                <img src={data?.user_photo} alt="user" />
               </div>
             </div>
           ) : (
             <div>
               <p>{dataEveryUser?.username}</p>
               <div>
-                <img src={imgUSER} alt="user" />
+                <img src={dataEveryUser?.user_photo} alt="user" />
               </div>
             </div>
           )}

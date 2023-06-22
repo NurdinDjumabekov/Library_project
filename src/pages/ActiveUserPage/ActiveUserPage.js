@@ -2,22 +2,36 @@ import React, { useState } from "react";
 import styles from "./ActiveUserPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
 import library from "../../assests/images/login_registration/registration_page.jpg";
-import { NavLink } from "react-router-dom";
-import MainRegistration from "../../components/Authorization/MainRegistration/MainRegistration";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { changePreloader } from "../../store/reducers/sendRequestMainPageSlice";
+import { useDispatch } from "react-redux";
 
 const ActiveUserPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [activeCode, setActiveCode] = useState("");
   const sendRequestLogin = async (e) => {
     e.preventDefault();
     try {
-        const data = axios({
-            method:"POST",
-            url:"",
-            
-        })
+      const info = axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/users/activation/",
+        data: {
+          code: activeCode,
+        },
+      });
+      console.log(info, "ActiveUserPage");
+      navigate("/");
+      dispatch(changePreloader(true)); 
+      //   localStorage.setItem("access", info.data.access);
+      //   localStorage.setItem("refresh", info.data.refresh);
+      //   if (info.data.access && info.data.refresh) {
+      //     navigate("/");
+      //   }
+      //   setDate((info) => ({ ...info, login: "", password: "" }));
     } catch (error) {
-      console.log(error, "error sendRequestLogin");
+      console.log(error, "error ActiveUserPage");
     }
   };
   return (

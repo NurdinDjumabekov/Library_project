@@ -23,7 +23,7 @@ export const sendRequestAllDataUser = createAsyncThunk(
         },
       });
       dispatch(toTakeDataFavotitesBook(data));
-      console.log(data, "rtyg");
+      // console.log(data, "rtyg");
       dispatch(changePreloader(false));
     } catch (error) {
       console.log(error, "error sendRequestAllDataUser");
@@ -37,19 +37,18 @@ export const sendRequestDataEveryUser = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: "https://kitepkana1.pythonanywhere.com/profile/",
+        url: "https://kitepkana1.pythonanywhere.com/auth/profile/",
         headers: {
           Authorization: `JWT ${info}`,
         },
       });
       localStorage.setItem("dataUser", JSON.stringify(data));
       dispatch(toTakeDataEveryUser(data));
-      // console.log(data);
-    } catch {
-      console.log("error sendRequestDataEveryUser");
-      localStorage.removeItem("access");
-      localStorage.removeItem("refresh");
-      localStorage.removeItem("dataUser");
+    } catch (error) {
+      console.log(error, "error sendRequestDataEveryUser");
+      // localStorage.removeItem("access");
+      // localStorage.removeItem("refresh");
+      // localStorage.removeItem("dataUser");
       dispatch(changeCheckedUser(false));
       // console.log(info);
     }

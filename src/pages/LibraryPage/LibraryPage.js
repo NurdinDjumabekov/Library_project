@@ -42,9 +42,11 @@ const LibraryPage = () => {
                     {allData.length === 0 ? (
                       <NoData />
                     ) : (
-                      allData?.map((book) => (
-                        <InfoEveryBook book={book} key={book.id} />
-                      ))
+                      <>
+                        {allData?.map((book) => (
+                          <InfoEveryBook book={book} key={book.id} />
+                        ))}
+                      </>
                     )}
                   </>
                 </div>

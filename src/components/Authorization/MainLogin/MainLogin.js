@@ -3,6 +3,8 @@ import styles from "./MainLogin.module.css";
 import EyePassword from "../EyePassword/EyePassword";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { changeCheckedUser } from "../../../store/reducers/usersStateSlice";
+import { useDispatch } from "react-redux";
 
 const MainLogin = ({ setRestore }) => {
   const [data, setDate] = useState({
@@ -17,6 +19,7 @@ const MainLogin = ({ setRestore }) => {
     lookBtnEye: false,
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const gmailRegExp = /^[A-Za-z0-9_\-\.\-]+\@[gmail]+\.com$/;
 
@@ -41,6 +44,8 @@ const MainLogin = ({ setRestore }) => {
         // console.log(info, "data");
         localStorage.setItem("access", info.data.access);
         localStorage.setItem("refresh", info.data.refresh);
+        dispatch(changeCheckedUser(true));
+
         if (info.data.access && info.data.refresh) {
           navigate("/");
         }

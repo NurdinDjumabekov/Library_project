@@ -52,7 +52,9 @@ const ReadingNow = () => {
           )}
         </>
       ) : (
-        <NoAuth />
+        <>
+          <NoAuth />
+        </>
       )}
     </>
   );

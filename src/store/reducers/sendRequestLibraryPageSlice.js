@@ -16,13 +16,14 @@ export const requestSortBtn = createAsyncThunk(
       const { data } = await axios({
         method: "GET",
         url: "https://kitepkana1.pythonanywhere.com/genres/",
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("access")}`,
-        },
+        // headers: {
+        //   Authorization: `JWT ${localStorage.getItem("access")}`,
+        // },
       });
       dispatch(toTakeAllsortBtn(data));
-    } catch (e) {
-      console.log(e.error);
+      // console.log(data, "requestSortBtn");
+    } catch (error) {
+      console.log(error, requestSortBtn);
     }
   }
 );
@@ -34,9 +35,9 @@ export const requestAllData = createAsyncThunk(
       const { data } = await axios({
         method: "GET",
         url: `https://kitepkana1.pythonanywhere.com/books/`,
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("access")}`,
-        },
+        // headers: {
+        //   Authorization: `JWT ${localStorage.getItem("access")}`,
+        // },
       });
       dispatch(toTakeAllData(data));
       // console.log(allData);

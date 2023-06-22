@@ -3,9 +3,11 @@ import styles from "./InfoEveryBook.module.css";
 import star from "../../../assests/images/Sliders/Star_grade.svg";
 import { NavLink } from "react-router-dom";
 import AddBookFavorite from "../../AddBookFavorite/AddBookFavorite";
+import { useSelector } from "react-redux";
 
 const InfoEveryBook = ({ book }) => {
   const [numRating, setNumRating] = useState(0);
+  const { checkedUser } = useSelector((state) => state.usersStateSlice);
   useEffect(() => {
     setNumRating(book?.middle_star);
     setNumRating((prev) =>
@@ -18,13 +20,13 @@ const InfoEveryBook = ({ book }) => {
       <NavLink to={`/detailed/${book.id}`}>
         <div className={styles.parent_infoBook}>
           <div className={styles.imgBlock_infoBook}>
-            <img src={book.cover} alt="url" />
+            <img src={book?.cover} alt="url" />
           </div>
           <div className={styles.textInfoBlock_infoBook}>
             <div>
               <div className={styles.textInfoBlock_infoBook_inner}>
-                <h4>«{book.title}»</h4>
-                <h5>Чынгыз Айтматов</h5>
+                <h4>«{book?.title}»</h4>
+                <h5>{book?.author_name}</h5>
                 <div>
                   <img src={star} alt="star" />
                   <span>{numRating}</span>
@@ -41,7 +43,7 @@ const InfoEveryBook = ({ book }) => {
           </div>
         </div>
       </NavLink>
-      <AddBookFavorite id={book.id} />
+      {checkedUser && <AddBookFavorite id={book.id} />}
     </section>
   );
 };
