@@ -51,7 +51,8 @@ function App() {
   }, []);
 
   return (
-    <Routes>
+    <div>
+      <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/library" element={<LibraryPage />} />
@@ -66,6 +67,7 @@ function App() {
       <Route path="/registration_active" element={<ActiveUserPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    </div>
   );
 }
 
