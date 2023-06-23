@@ -12,13 +12,16 @@ import { useNavigate } from "react-router-dom";
 const UsersPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { preloader, dataFavotitesBook, checkedUser, favoriteBooks } =
+  const { preloader, dataFavotitesBook, checkedUser, choiceUserBook } =
     useSelector((state) => state.usersStateSlice);
   //   console.log(dataFavotitesBook, "dataFavotitesBook");
+  const { search, sortBtn, filteredBtn } = useSelector(
+    (state) => state.sendRequestLibraryPageSlice
+  );
 
   useEffect(() => {
-    dispatch(sendRequestAllDataUser(favoriteBooks));
-  }, [favoriteBooks]);
+    dispatch(sendRequestAllDataUser(choiceUserBook));
+  }, [choiceUserBook, search, sortBtn, filteredBtn]);
 
   return (
     <>

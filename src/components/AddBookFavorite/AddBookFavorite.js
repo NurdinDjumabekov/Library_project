@@ -3,29 +3,25 @@ import styles from "./AddBookFavorite.module.css";
 import { useDispatch } from "react-redux";
 import { sendFavotiteBookUsers } from "../../store/reducers/sendRequestEveryBookSlice";
 
-const AddBookFavorite = ({ id }) => {
+const AddBookFavorite = ({ id, fakeId }) => {
   const [btn, setbtn] = useState(false);
   const dispatch = useDispatch();
-
-  //   useEffect(() => {
-  //   if (btn) {
-  //     dispatch(sendFavotiteBookUsers({ btn, id }));
-  //   } else {
-  //     dispatch(sendFavotiteBookUsers({ btn, id }));
-  //   }
-  //   }, [btn]);
+  // console.log(fakeId);
   const sendRequestFavoriteBook = (state) => {
-    setbtn(state);
-    if (btn) {
-      dispatch(sendFavotiteBookUsers({ btn, id }));
-    } else {
-      dispatch(sendFavotiteBookUsers({ btn, id }));
+    switch (state) {
+      case "DELETE":
+        dispatch(sendFavotiteBookUsers({ choice: "DELETE", id }));
+      case "POST":
+        dispatch(sendFavotiteBookUsers({ choice: "POST", id }));
+        break;
+      default:
+        break;
     }
   };
   return (
     <div className={styles.parent_addFavorite}>
-      {btn ? (
-        <button onClick={() => sendRequestFavoriteBook(false)}>
+      {id === fakeId ? (
+        <button onClick={() => sendRequestFavoriteBook("DELETE")}>
           <svg
             width="37"
             height="34"
@@ -62,7 +58,7 @@ const AddBookFavorite = ({ id }) => {
           </svg>
         </button>
       ) : (
-        <button onClick={() => sendRequestFavoriteBook(true)}>
+        <button onClick={() => sendRequestFavoriteBook("POST")}>
           <svg
             width="37"
             height="34"

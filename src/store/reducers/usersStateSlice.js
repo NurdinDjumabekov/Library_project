@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  favoriteBooks: "favorite",
+  choiceUserBook: "favorite",
   dataFavotitesBook: [],
   preloader: true,
   checkedUser: false,
@@ -98,8 +98,8 @@ const usersStateSlice = createSlice({
     changePreloader: (state, action) => {
       state.preloader = action.payload;
     },
-    changeFavoriteBooks: (state, action) => {
-      state.favoriteBooks = action.payload;
+    changeChoiceUserBook: (state, action) => {
+      state.choiceUserBook = action.payload;
     },
     toTakeDataFavotitesBook: (state, action) => {
       state.dataFavotitesBook = action.payload;
@@ -117,7 +117,7 @@ const usersStateSlice = createSlice({
 });
 
 export const {
-  changeFavoriteBooks,
+  changeChoiceUserBook,
   toTakeDataFavotitesBook,
   changePreloader,
   changeCheckedUser,

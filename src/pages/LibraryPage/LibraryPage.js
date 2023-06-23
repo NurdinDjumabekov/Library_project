@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./LibraryPage.module.css";
 import InputSearch from "../../components/Library/InputSearch/InputSearch";
 import Filtration from "../../components/Library/Filtration/Filtration";
@@ -8,13 +8,18 @@ import InfoEveryBook from "../../components/Library/InfoEveryBook/InfoEveryBook"
 import SortBtns from "../../components/Library/SortBtns/SortBtns";
 import Preloader from "../../components/Preloader/Preloader";
 import NoData from "../../components/Library/NoData/NoData";
+import { sendRequestAllDataUser } from "../../store/reducers/usersStateSlice";
 
 const LibraryPage = () => {
   const dispatch = useDispatch();
   const { preloader, allData, search, sortBtn, filteredBtn } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
+  // const { dataFavotitesBook } = useSelector((state) => state.usersStateSlice);
   // console.log(allData, "allData");
+  // console.log(dataFavotitesBook, "dataFavotitesBook");
+
+  const dataFavotitesBook = [{ id: 2 }, { id: 3 }];
 
   useEffect(() => {
     dispatch(
@@ -24,6 +29,7 @@ const LibraryPage = () => {
         filteredBtn: filteredBtn,
       })
     );
+    dispatch(sendRequestAllDataUser("favorite"));
   }, [search, sortBtn, filteredBtn]);
 
   return (
@@ -38,17 +44,26 @@ const LibraryPage = () => {
               <div className={styles.library_info}>
                 <Filtration />
                 <div className={styles.library_mainContent}>
-                  <>
-                    {allData.length === 0 ? (
-                      <NoData />
-                    ) : (
-                      <>
-                        {allData?.map((book) => (
-                          <InfoEveryBook book={book} key={book.id} />
-                        ))}
-                      </>
-                    )}
-                  </>
+                  {allData.length === 0 ? (
+                    <NoData />
+                  ) : (
+                    <>
+                      {allData.map((book) => {
+                        if (
+                          dataFavotitesBook.some((item) => item.id === book.id)
+                        ) {
+                          return (
+                            <InfoEveryBook
+                              fakeId={book.id}
+                              book={book}
+                              key={book.id}
+                            />
+                          );
+                        }
+                        return <InfoEveryBook book={book} key={book.id} />;
+                      })}
+                    </>
+                  )}
                 </div>
               </div>
               <div className={styles.library_sortBlock}>

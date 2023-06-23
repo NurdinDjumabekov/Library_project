@@ -1,0 +1,7 @@
+.parent_logOut {
+  width: 200px;
+  height: 200px;
+}
+.parent_logOut button {
+  background: red;
+}

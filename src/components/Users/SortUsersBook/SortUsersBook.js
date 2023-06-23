@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./SortUsersBook.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFavoriteBooks } from "../../../store/reducers/usersStateSlice";
+import { changeChoiceUserBook } from "../../../store/reducers/usersStateSlice";
 
 const SortUsersBook = () => {
   const { favoriteBooks } = useSelector((state) => state.usersStateSlice);
@@ -22,7 +22,7 @@ const SortUsersBook = () => {
 
   const sortFavoriteBook = (id, dataApi) => {
     localStorage.setItem("activeBtnSort", id);
-    dispatch(changeFavoriteBooks(dataApi));
+    dispatch(changeChoiceUserBook(dataApi));
     setFavorites(id);
   };
 

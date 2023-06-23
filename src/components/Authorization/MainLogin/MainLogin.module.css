@@ -3,24 +3,25 @@
   margin-bottom: 20px;
 }
 .parentBlock_mainLogin form .login_block {
-  display: block;
-  width: 100%;
-  height: 50px;
-  margin-bottom: 15px;
+  display: block !important;
+  width: 100% !important;
+  height: 50px !important;
+  margin-bottom: 15px !important;
 }
-.parentBlock_mainLogin form .login_block input {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  padding: 0px 40px 0 50px;
-  border: 1px solid #2A2A2A;
-  font-weight: 600;
-  font-size: 16px;
-  background: url("../../../assests/images/windows/email.svg");
-  background-repeat: no-repeat;
-  background-position-y: 50%;
-  background-position: 15px;
-  cursor: pointer;
+.parentBlock_mainLogin form .login_block > .input_email {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px !important;
+  padding: 0px 40px 0 50px !important;
+  border: 1px solid #2a2a2a !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  background: url("../../../assests/images/windows/email.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position-y: 50% !important;
+  background-position: 15px !important;
+  cursor: pointer !important;
+  background: white !important;
 }
 .parentBlock_mainLogin form .password_block {
   position: relative;
@@ -29,7 +30,7 @@
   width: 100%;
   height: 50px;
   border-radius: 8px;
-  border: 1px solid #2A2A2A;
+  border: 1px solid #2a2a2a;
   font-weight: 600;
   font-size: 16px;
   padding: 0px 40px 0 50px;
@@ -47,7 +48,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 125%;
-  color: #DC7A07;
+  color: #dc7a07;
   text-align: left;
   padding: 5px 0 10px 10px;
   margin-top: -10px;
@@ -60,7 +61,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 125%;
-  color: #FF0404;
+  color: #ff0404;
   padding: 5px 0 10px 10px;
   margin-top: -10px;
 }
@@ -70,10 +71,10 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 125.3%;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 100%;
   height: 50px;
-  background-color: #FF4004;
+  background-color: #ff4004;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -82,7 +83,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 14px;
-  color: #2A2A2A;
+  color: #2a2a2a;
 }
 .parentBlock_mainLogin > button {
   font-family: "Roboto";
@@ -90,7 +91,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 14px;
-  color: #FF4004;
+  color: #ff4004;
   border: none;
   background-color: transparent;
   margin-left: 5px;

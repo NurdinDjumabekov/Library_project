@@ -61,7 +61,7 @@ const sendRequestLibraryPageSlice = createSlice({
     },
     toTakeAllsortBtn: (state, action) => {
       state.allsortBtn = action.payload;
-      console.log(state.allsortBtn);
+      // console.log(state.allsortBtn);
     },
     changeSearch: (state, action) => {
       state.search = action.payload;

@@ -9,13 +9,19 @@ import TheBestWorks from "../../components/TheBestWorks/TheBestWorks";
 import DownloadSlide from "../../components/Sliders/HeaderSliders/DownloadSlide/DownloadSlide";
 import Preloader from "../../components/Preloader/Preloader";
 import { useDispatch, useSelector } from "react-redux";
-import { requestNovetlyWorks } from "../../store/reducers/sendRequestMainPageSlice";
+import {
+  changePreloader,
+  requestNovetlyWorks,
+} from "../../store/reducers/sendRequestMainPageSlice";
+import LogOut from "../../components/Authorization/LogOut/LogOut";
 const MainPage = () => {
   const { preloader } = useSelector((state) => state.sendRequestMainPageSlice);
   const dispatch = useDispatch();
   // console.log(preloader);
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(requestNovetlyWorks());
+    dispatch(changePreloader(false));
   }, []);
   return (
     <>
@@ -24,6 +30,7 @@ const MainPage = () => {
       ) : (
         <div>
           <HeaderMain />
+          <LogOut />
           <Novelties />
           <ManasPart />
           <Recommendation />

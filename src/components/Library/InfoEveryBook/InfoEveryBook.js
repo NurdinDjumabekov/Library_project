@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import AddBookFavorite from "../../AddBookFavorite/AddBookFavorite";
 import { useSelector } from "react-redux";
 
-const InfoEveryBook = ({ book }) => {
+const InfoEveryBook = ({ book, dataFavotitesBook, fakeId }) => {
   const [numRating, setNumRating] = useState(0);
   const { checkedUser } = useSelector((state) => state.usersStateSlice);
   useEffect(() => {
@@ -14,7 +14,7 @@ const InfoEveryBook = ({ book }) => {
       prev % 1 === 0 ? prev.toString() + "." + "0" : prev
     );
   }, [book]);
-
+  // console.log(fakeId);
   return (
     <section>
       <NavLink to={`/detailed/${book.id}`}>
@@ -43,9 +43,10 @@ const InfoEveryBook = ({ book }) => {
           </div>
         </div>
       </NavLink>
-      {checkedUser && <AddBookFavorite id={book.id} />}
+      {checkedUser && <AddBookFavorite id={book.id} fakeId={fakeId} />}
     </section>
   );
+  // console.log(dataFavotitesBook);
 };
 
 export default InfoEveryBook;

@@ -8,8 +8,8 @@ const initialState = {
   },
   difficultPassword_text: "Слабый пароль",
   dataUsers: [],
+  preloader: false,
 };
-
 
 ///////////////////////////////////////////////////////
 export const toTakeDataUsers = createAsyncThunk(
@@ -26,7 +26,6 @@ export const toTakeDataUsers = createAsyncThunk(
   }
 );
 ///////////////////////////////////////////////////////
-
 
 export const repeatSendRequestMessageEmail = createAsyncThunk(
   "repeatSendRequestMessageEmail",
@@ -46,6 +45,26 @@ export const repeatSendRequestMessageEmail = createAsyncThunk(
     }
   }
 );
+export const sendRequestOnToTakeTokens = createAsyncThunk(
+  "sendRequestOnToTakeTokens",
+  async (info, { dispatch }) => {
+    try {
+      const { data } = await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/jwt/create",
+        data: {
+          email: localStorage.getItem("temporaryEmail"),
+          password: localStorage.getItem("temporaryPassword"),
+        },
+      });
+      // console.log(data, "sendRequestOnToTakeTokens");
+      localStorage.setItem("access", data.access);
+      localStorage.setItem("refresh", data.refresh);
+    } catch (error) {
+      console.log(error, "error sendRequestOnToTakeTokens");
+    }
+  }
+);
 
 const windowsSlice = createSlice({
   name: "windowsSlice",
@@ -61,6 +80,9 @@ const windowsSlice = createSlice({
     toTakeDataUsersRd: (state, action) => {
       state.dataUsers = action.payload;
     },
+    changePreloader: (state, action) => {
+      state.preloader = action.payload;
+    },
   },
 });
 
@@ -68,5 +90,6 @@ export const {
   changeDifficultPassword,
   changeDifficultPassword_text,
   toTakeDataUsersRd,
+  changePreloader,
 } = windowsSlice.actions;
 export default windowsSlice.reducer;

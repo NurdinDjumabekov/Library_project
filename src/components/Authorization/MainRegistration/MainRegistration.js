@@ -5,13 +5,16 @@ import LevelPassword from "../LevelPassword/LevelPassword";
 import {
   changeDifficultPassword,
   changeDifficultPassword_text,
+  changePreloader,
   repeatSendRequestMessageEmail,
 } from "../../../store/reducers/windowsSlice";
 import EyePassword from "../EyePassword/EyePassword";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Preloader from "../../Preloader/Preloader";
 
 const MainRegistration = () => {
+  const { preloader } = useSelector((state) => state.windowsSlice);
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [disable, setDisable] = useState({
@@ -93,12 +96,13 @@ const MainRegistration = () => {
     }
   }, [password]);
   const sendRequestRegistration = async () => {
+    dispatch(changePreloader(true));
     try {
       const data = await axios({
         method: "POST",
         url: "https://kitepkana1.pythonanywhere.com/auth/users/",
         data: {
-          username: "user_nub ",
+          username: "user",
           email: email,
           password: password.passwordMain,
           re_password: password.passwordRepeat,
@@ -106,7 +110,14 @@ const MainRegistration = () => {
       });
       console.log(data, "sendRequestRegistration");
       navigate("/registration_active");
+      localStorage.setItem("temporaryEmail", email);
+      localStorage.setItem("temporaryPassword", password.passwordMain);
+      setTimeout(() => {
+        dispatch(changePreloader(false));
+      }, 1500);
     } catch (error) {
+      dispatch(changePreloader(false));
+
       if (
         error.response.data.email &&
         error.response.data.email[0] === "user with this email already exists."
@@ -187,103 +198,113 @@ const MainRegistration = () => {
     }
   }, [password.passwordRepeat]);
   return (
-    <div className={styles.parent_refistration}>
-      <form action="" onSubmit={regExpCheckFN}>
-        <input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail"
-          required
-          className={styles.registration_Email}
-        />
-        {sendError.sendErrorEmail && (
-          <label
-            className={styles.label_emailError}
-            onClick={() => setSendError({ sendErrorEmail: false })}
-          >
-            Некорректный Email !
-          </label>
-        )}
-        <label className={styles.block_password_look}>
-          <input
-            type={disable.lookPassword ? "text" : "password"}
-            placeholder="Пароль "
-            required
-            onChange={(e) =>
-              setPassword((info) => ({
-                ...info,
-                passwordMain: e.target.value,
-              }))
-            }
-            onClick={() => appearanceLevelInfo("passwordMain")}
-          />
-          {disable.lookBtnEye && (
-            <EyePassword
-              lookPassword={disable.lookPassword}
-              setDisable={setDisable}
-              type={"passwordMain"}
+    <>
+      {preloader ? (
+        <Preloader />
+      ) : (
+        <div className={styles.parent_refistration}>
+          <form action="" onSubmit={regExpCheckFN}>
+            <input
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail"
+              required
+              className={styles.registration_Email}
             />
-          )}
-        </label>
-        {sendError.sendErrorPassword && (
-          <label
-            className={styles.label_passwordError}
-            onClick={() => setSendError({ sendErrorPassword: false })}
-          >
-            Придумайте сложный пароль!!!
-          </label>
-        )}
-        <LevelPassword passwordHave={passwordHave} />
-        <label className={styles.block_passwordRepeat_look}>
-          <input
-            type={disable.lookPasswordPepeat ? "text" : "password"}
-            placeholder="Введите пароль еще раз"
-            required
-            onChange={(e) =>
-              setPassword((info) => ({
-                ...info,
-                passwordRepeat: e.target.value,
-              }))
-            }
-            onClick={() => appearanceLevelInfo("passwordRepeat")}
-          />
-          {disable.lookBtnEyeRepeat && (
-            <EyePassword
-              lookPassword={disable.lookPasswordPepeat}
-              setDisable={setDisable}
-              type={"passwordRepeat"}
-            />
-          )}
-        </label>
+            {sendError.sendErrorEmail && (
+              <label
+                className={styles.label_emailError}
+                onClick={() => setSendError({ sendErrorEmail: false })}
+              >
+                Некорректный Email !
+              </label>
+            )}
+            <label className={styles.block_password_look}>
+              <input
+                type={disable.lookPassword ? "text" : "password"}
+                placeholder="Пароль "
+                required
+                onChange={(e) =>
+                  setPassword((info) => ({
+                    ...info,
+                    passwordMain: e.target.value,
+                  }))
+                }
+                onClick={() => appearanceLevelInfo("passwordMain")}
+              />
+              {disable.lookBtnEye && (
+                <EyePassword
+                  lookPassword={disable.lookPassword}
+                  setDisable={setDisable}
+                  type={"passwordMain"}
+                />
+              )}
+            </label>
+            {sendError.sendErrorPassword && (
+              <label
+                className={styles.label_passwordError}
+                onClick={() => setSendError({ sendErrorPassword: false })}
+              >
+                Придумайте сложный пароль!!!
+              </label>
+            )}
+            <LevelPassword passwordHave={passwordHave} />
+            <label className={styles.block_passwordRepeat_look}>
+              <input
+                type={disable.lookPasswordPepeat ? "text" : "password"}
+                placeholder="Введите пароль еще раз"
+                required
+                onChange={(e) =>
+                  setPassword((info) => ({
+                    ...info,
+                    passwordRepeat: e.target.value,
+                  }))
+                }
+                onClick={() => appearanceLevelInfo("passwordRepeat")}
+              />
+              {disable.lookBtnEyeRepeat && (
+                <EyePassword
+                  lookPassword={disable.lookPasswordPepeat}
+                  setDisable={setDisable}
+                  type={"passwordRepeat"}
+                />
+              )}
+            </label>
 
-        {sendError.sendErrorPassword_repeat && (
-          <label
-            className={styles.label_passwordError_repeat}
-            onClick={() => setSendError({ sendErrorPassword_repeat: false })}
-          >
-            Пароли не совпадают!!!
-          </label>
-        )}
-        <label className={styles.block_checkbox}>
-          <input
-            type="checkbox"
-            onClick={() => setDisable({ checkOutBtn: !disable.checkOutBtn })}
-          />
-          <label>
-            <span>я прочитал и согласен с</span>
-            <span>Правилами Пользования и Политикой Конфидециальности</span>
-          </label>
-        </label>
-        <button
-          disabled={!disable.checkOutBtn}
-          className={disable.checkOutBtn ? "" : styles.shadow_btn}
-          onClick={(e) => regExpCheckFN(e)}
-          type="submit"
-        >
-          Зарегестрироваться
-        </button>
-      </form>
-    </div>
+            {sendError.sendErrorPassword_repeat && (
+              <label
+                className={styles.label_passwordError_repeat}
+                onClick={() =>
+                  setSendError({ sendErrorPassword_repeat: false })
+                }
+              >
+                Пароли не совпадают!!!
+              </label>
+            )}
+            <label className={styles.block_checkbox}>
+              <input
+                type="checkbox"
+                onClick={() =>
+                  setDisable({ checkOutBtn: !disable.checkOutBtn })
+                }
+              />
+              <label>
+                <span>я прочитал и согласен с</span>
+                <span>Правилами Пользования и Политикой Конфидециальности</span>
+              </label>
+            </label>
+            <button
+              disabled={!disable.checkOutBtn}
+              className={disable.checkOutBtn ? "" : styles.shadow_btn}
+              onClick={(e) => regExpCheckFN(e)}
+              type="submit"
+            >
+              Зарегестрироваться
+            </button>
+          </form>
+        </div>
+      )}
+    </>
   );
 };
 

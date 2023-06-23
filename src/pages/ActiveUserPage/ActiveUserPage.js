@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ActiveUserPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
 import library from "../../assests/images/login_registration/registration_page.jpg";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { changePreloader } from "../../store/reducers/sendRequestMainPageSlice";
 import { useDispatch } from "react-redux";
+import {
+  changePreloader,
+  sendRequestOnToTakeTokens,
+} from "../../store/reducers/windowsSlice";
+import { changeCheckedUser } from "../../store/reducers/usersStateSlice";
 
 const ActiveUserPage = () => {
   const dispatch = useDispatch();
@@ -14,26 +18,25 @@ const ActiveUserPage = () => {
   const sendRequestLogin = async (e) => {
     e.preventDefault();
     try {
-      const info = axios({
+      const { data } = await axios({
         method: "POST",
         url: "https://kitepkana1.pythonanywhere.com/auth/users/activation/",
         data: {
           code: activeCode,
         },
       });
-      console.log(info, "ActiveUserPage");
+      console.log(data, "ActiveUserPage");
+      dispatch(changePreloader(true));
+      await dispatch(sendRequestOnToTakeTokens());
+      dispatch(changeCheckedUser(true));
       navigate("/");
-      dispatch(changePreloader(true)); 
-      //   localStorage.setItem("access", info.data.access);
-      //   localStorage.setItem("refresh", info.data.refresh);
-      //   if (info.data.access && info.data.refresh) {
-      //     navigate("/");
-      //   }
-      //   setDate((info) => ({ ...info, login: "", password: "" }));
     } catch (error) {
       console.log(error, "error ActiveUserPage");
     }
   };
+  useEffect(() => {
+    dispatch(changePreloader(false));
+  }, []);
   return (
     <div className={styles.parent_login}>
       <div className={styles.inner_login_left}></div>

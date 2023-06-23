@@ -4,7 +4,9 @@ import EyePassword from "../EyePassword/EyePassword";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { changeCheckedUser } from "../../../store/reducers/usersStateSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Preloader from "../../Preloader/Preloader";
+import { changePreloader } from "../../../store/reducers/sendRequestMainPageSlice";
 
 const MainLogin = ({ setRestore }) => {
   const [data, setDate] = useState({
@@ -45,19 +47,23 @@ const MainLogin = ({ setRestore }) => {
         localStorage.setItem("access", info.data.access);
         localStorage.setItem("refresh", info.data.refresh);
         dispatch(changeCheckedUser(true));
-
         if (info.data.access && info.data.refresh) {
           navigate("/");
         }
         setDate((info) => ({ ...info, login: "", password: "" }));
-        // if (localStorage.getItem("access") && localStorage.getItem("refresh")) {
-        //   navigate("/");
-        // }
-      } catch {
-        console.log(
-          "error - https://kitepkana1.pythonanywhere.com/auth/jwt/create/"
-        );
+      } catch (error) {
+        setWrong((info) => ({
+          ...info,
+          errorlogin_password: true,
+        }));
+        console.log(error, "auth/jwt/create/");
       }
+      setTimeout(() => {
+        setWrong((info) => ({
+          ...info,
+          errorlogin_password: false,
+        }));
+      }, 1500);
     } else {
       setWrong((info) => ({
         ...info,
@@ -86,7 +92,15 @@ const MainLogin = ({ setRestore }) => {
       }));
     }
   }, [data]);
+
   return (
+    // <>
+    //   {preloader ? (
+    //     <Preloader />
+    //   ) : (
+
+    //   )}
+    // </>
     <div className={styles.parentBlock_mainLogin}>
       <form action="" onSubmit={sendDataLogin} className={styles.form_login}>
         <label className={styles.login_block}>
@@ -127,7 +141,7 @@ const MainLogin = ({ setRestore }) => {
         </label>
         {wrong.errorlogin_password && (
           <label className={styles.errorlogin_password}>
-            Неправильный пароль!
+            Неправильный логин или пароль
           </label>
         )}
         <button type="submit">Войти</button>
