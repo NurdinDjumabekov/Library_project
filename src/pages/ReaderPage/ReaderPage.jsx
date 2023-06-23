@@ -14,7 +14,9 @@ const ReaderPage = () => {
   return (
     <div className={styles.parentReader}>
         <HeaderDetailed/>
-        <Reader />
+        <div className="container">
+          <Reader />
+        </div>
     </div>
   )
 }

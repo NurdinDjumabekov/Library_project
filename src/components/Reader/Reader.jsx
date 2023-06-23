@@ -22,10 +22,8 @@ const Reader = ({data}) => {
     setPageCount(numPages);
   }
 
-
   return (
-    <>
-    <div className="container">
+    <div className={styles.readerComponent}>
       {/* <div className={styles.bookText}>
         {currentPageState}
       </div> */}
@@ -36,7 +34,6 @@ const Reader = ({data}) => {
       </div>
       <Pagination styles={styles} nextLabel={"Вперед"} previousLabel={"Назад"} pageRangeDisplayed={5} marginPagesDisplayed={3} needScroll={true} pageCount={pageCount}/>
     </div>
-    </>
   );
 }
 
