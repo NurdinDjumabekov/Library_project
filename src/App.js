@@ -11,7 +11,7 @@ import UsersPage from "./pages/UsersPage/UsersPage";
 import AboutSite from "./pages/AboutSite/AboutSite";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
 import ReaderPage from "./pages/ReaderPage/ReaderPage";
-import ReaderCopy from "./components/Reader/ReaderCopy";
+import SettingsUsersPage from "./pages/SettingsUsersPage/SettingsUsersPage";
 
 function App() {
   return (
@@ -20,7 +20,10 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/reading_now" element={<ReadingNow />} />
-        <Route path="/profile" element={<UsersPage />} />
+        <Route path="/profile">
+          <Route index element={<UsersPage/>}/>
+          <Route path="edit" element={<SettingsUsersPage/>}/>
+        </Route>
         <Route path="/detailed" element={<DetailedPage />} />
         <Route path="/reader" element={<ReaderPage/>}/>
       </Route>
