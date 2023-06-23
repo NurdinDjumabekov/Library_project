@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./ActiveUserPage.module.css";
 import logo from "../../assests/images/logo/logo_library.svg";
 import library from "../../assests/images/login_registration/registration_page.jpg";
@@ -6,8 +6,19 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { changePreloader } from "../../store/reducers/sendRequestMainPageSlice";
 import { useDispatch } from "react-redux";
+import InputFourDigits from "../../components/InputFourDigits/InputFourDigits";
 
+const initialDigits = ['','','','']
 const ActiveUserPage = () => {
+  const [digits,setDigits] = useState(initialDigits)
+  const ref = useRef()
+  const focus = () =>{
+    ref.current?.focus()
+  }
+  useEffect(()=>{
+    setActiveCode(digits.join('')) 
+  },[digits])
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [activeCode, setActiveCode] = useState("");
@@ -64,14 +75,9 @@ const ActiveUserPage = () => {
             </div>
             <div className={styles.parentBlock_activation}>
               <form action="" onSubmit={sendRequestLogin}>
-                <input
-                  placeholder="- - - -"
-                  className={styles.input_numbers_recover}
-                  pattern="\d{4}"
-                  maxLength="4"
-                  required
-                  onChange={(e) => setActiveCode(e.target.value)}
-                />
+                <div className={styles.input_numbers_recover}>
+                  <InputFourDigits ref={ref} digits={digits} onChange={setDigits}/>
+                </div>
                 <p>Введите код из 4 цифр</p>
                 <button type="submit">Активировать</button>
               </form>

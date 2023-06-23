@@ -139,18 +139,26 @@
   width: 100%;
   margin-bottom: 20px;
 }
-.parent_login .child_login .child_login_left form input {
+.parent_login .child_login .child_login_left form .input_numbers_recover {
   text-align: center;
   width: 100%;
   height: 50px;
   border-radius: 8px;
   border: 1px solid #2A2A2A;
   font-weight: 400;
+  font-size: 30px;
   padding: 0 15px;
   margin-bottom: 15px;
   cursor: pointer;
-  font-size: 45px;
+  font-size: 35px;
   letter-spacing: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 0;
 }
 .parent_login .child_login .child_login_left form p {
   text-align: left;
