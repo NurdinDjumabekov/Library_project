@@ -44,10 +44,10 @@ export const LoginPage = () => {
                     required
                   />
                   <input
-                    placeholder="-- -- -- --"
                     className={styles.input_numbers}
                     pattern="\d{4}"
                     maxlength="4"
+                    rows="5"
                     required
                   />
                   <p>Введите код из 4 цифр</p>

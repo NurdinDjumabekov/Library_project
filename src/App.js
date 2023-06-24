@@ -12,6 +12,7 @@ import DetailedBookPage from "./pages/DetailedBookPage/DetailedBookPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import BasketBook from "./pages/BasketBook/BasketBook";
 import AboutSite from "./pages/AboutSite/AboutSite";
+import AuthorPage from "./pages/AuthorPage/AuthorPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/reading_now" element={<ReadingNow />} />
         <Route path="/detailedpage" element={<DetailedBookPage />} />
+        <Route path="/author" element={<AuthorPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
