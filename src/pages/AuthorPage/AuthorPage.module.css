@@ -8,12 +8,24 @@
     margin-bottom: 63px;
     padding-top: 160px;
 }
-.AuthorPage h1 {
+.main_text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.main_text h1 {
     color: #FF4004;
     text-align: center;
     font-size: 60px;
-    font-family: Roboto;
+    font-family: Pacifico;
     margin-bottom: 37px;
+    margin-right: 5px;
+}
+.main_text h4 {
+    font-size: 50px;
+    padding-top: 30px;
+    margin-right: 10px;
+    font-weight: 400;
 }
 .about_inner {
     width: 1400px;
@@ -45,6 +57,7 @@
 }
 .text span {
     font-size: 22px;
+    font-weight: 400;
 }
 
 .books {
@@ -59,11 +72,14 @@
     display: flex;
     justify-content: center;
     margin-right: 50px;
+    box-shadow: 2px 2px 50px 0px rgba(104, 104, 104, 0.25);
+    width: 474px;
+    height: 285px;
 }
 .book .left {
     width: 170px;
     height: 245px;
-    margin-right: 20px;
+    margin: 20px 20px 0;
 }
 .book .right h2 {
     font-size: 25px;
@@ -112,7 +128,7 @@
 
 }
 .biography p {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 150%;
 }
