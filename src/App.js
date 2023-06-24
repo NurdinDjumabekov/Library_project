@@ -58,7 +58,7 @@ function App() {
         <Route path="/reading_now" element={<ReadingNow />} />
         <Route path="/profile">
           <Route index element={<UsersPage />} />
-          <Route path="/profile/settings" element={<SettingUserPage/>}/>
+          <Route path="settings" element={<SettingUserPage/>}/>
         </Route>
         <Route path="/detailed/:id" element={<DetailedPage />} />
       </Route>

@@ -69,21 +69,23 @@ export const sendRequestOnToTakeTokens = createAsyncThunk(
 export const patchRequestToDataUsers = createAsyncThunk(
   "patchRequestToDataUsers",
   async(changedDataUser, {dispatch}) => {
+    dispatch(changePreloader(true));
     try {
-      const {data} = await axios.patch({
+      const resp = await axios({
         method: "PATCH",
-        url: "",
-        // url: "https://kitepkana1.pythonanywhere.com/profile/"
+        url: "https://jsonplaceholder.typicode.com/posts/1",
         data: {
           username: changedDataUser.name,
           email: changedDataUser.email,
           password: changedDataUser.password,
           language: changedDataUser.language
         }
-      }).then((resp) => {
-        console.log(resp);
       })
-    } catch(error) {
+      console.log(resp);
+      dispatch(changePreloader(false));
+      return resp.status
+    } catch (error) {
+      dispatch(changePreloader(false));
       console.log(error);
     }
   }

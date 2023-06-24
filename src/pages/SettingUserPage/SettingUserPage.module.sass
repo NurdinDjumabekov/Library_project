@@ -7,6 +7,25 @@
     left: 0
     background-color: #fff
     padding: 0 0 62px
+    position: relative
+    .popUpWindow 
+        transition: 500ms
+        width: 360px
+        height: 150px
+        border-radius: 10px
+        position: absolute
+        top: 120px
+        left: 50%
+        transform: translate(-50%, -50%)
+        background-color: #fff
+        z-index: 20
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 30px
+        color: #2a2a2a
+        font-size: 22px
+        box-shadow: 0 0 100px #00000030
     > section
         display: block
         background: #C0C0C0
@@ -73,6 +92,8 @@
                     line-height: 125.3%
                     color: #FF4004
                     padding: 10px 100px
+                    background-color: rgba(0, 0, 0, 0)
+                    cursor: pointer
             > div:last-child
                 border: none
 
