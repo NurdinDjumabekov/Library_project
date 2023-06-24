@@ -1,103 +1,129 @@
 * {
-    color: black;
-    font-family: Roboto;
+  color: black;
+  font-family: Roboto;
 }
+
 .main {
-    margin-bottom: 200px;
+  margin-bottom: 200px;
 }
+
 .author_about {
-    width: 1030px;
-    height: 388px;
-    margin: 0 auto 100px;
-    padding-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 1030px;
+  height: 388px;
+  margin: 0 auto 100px;
+  padding-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .left {
-    width: 200px;
-    height: 288px;
-    margin-right: 60px;
+  width: 200px;
+  height: 288px;
+  margin-right: 60px;
 }
+
 .portrait {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
+
 .author_name {
-    width: 173px;
-    height: 68px;
-    border-radius: 10px;
-    border: 2px solid #000;
-    text-align: center;
-    margin: 20px auto 0;
+  width: 173px;
+  height: 68px;
+  border-radius: 10px;
+  border: 2px solid #000;
+  text-align: center;
+  margin: 20px auto 0;
 }
 .author_name p {
-    font-size: 16px;
-    margin-bottom: 12px;
-    margin-top: 5px;
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: 5px;
 }
 .author_name span {
-    color: #8D8D8D;
-    font-size: 14px;
+  color: #8D8D8D;
+  font-size: 14px;
 }
+
 .right {
-    text-align: center;
-    width: 770px;
-    height: 249px;
+  text-align: center;
+  width: 770px;
+  height: 249px;
 }
 .right h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 .right p {
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 125.303%;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 125.303%;
 }
+
 .author_books {
-    text-align: center;
-    width: 711px;
-    height: 541px;
-    margin: 0 auto;
+  text-align: center;
+  width: 711px;
+  height: 541px;
+  margin: 0 auto;
 }
 .author_books h1 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 80px;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 80px;
 }
+
 .books {
-    display: flex;
-    justify-content: space-around;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
+
 .book {
-    width: 197px;
-    height: 414px;
-    border-radius: 10px;
-    background: #F5F5F5;
-    box-shadow: -2px -2px 5px 0 rgba(123, 123, 123, 0.90)
+  width: 197px;
+  height: 414px;
+  border-radius: 10px;
+  background: #F5F5F5;
+  -webkit-box-shadow: -2px -2px 5px 0 rgba(123, 123, 123, 0.9);
+          box-shadow: -2px -2px 5px 0 rgba(123, 123, 123, 0.9);
 }
 .book img {
-    width: 165px;
-    height: 258px;
-    margin-top: 24px;
+  width: 165px;
+  height: 258px;
+  margin-top: 24px;
 }
 .book h2 {
-    margin: 10px 0;
-    font-size: 22px;
-    font-weight: 500;
+  margin: 10px 0;
+  font-size: 22px;
+  font-weight: 500;
 }
 .book p {
-    font-size: 16px;
+  font-size: 16px;
 }
+
 .hearts {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 24px;
 }
 .hearts img {
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
 }
