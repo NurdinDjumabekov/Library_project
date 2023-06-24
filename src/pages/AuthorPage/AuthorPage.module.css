@@ -1,0 +1,118 @@
+* {
+    color: black;
+    font-family: Roboto;
+    font-weight: 500;
+
+}
+.about_author {
+    margin-bottom: 63px;
+    padding-top: 160px;
+}
+.AuthorPage h1 {
+    color: #FF4004;
+    text-align: center;
+    font-size: 60px;
+    font-family: Roboto;
+    margin-bottom: 37px;
+}
+.about_inner {
+    width: 1400px;
+    height: 560px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 2px 2px 50px 0 rgba(104, 104, 104, 0.25);
+}
+.about_inner .left {
+    width: 400px;
+    height: 480px;
+    margin-right: 100px;
+}
+.about_inner .right {
+    width: 612px;
+    height: 333px;
+}
+.text {
+    display: flex;
+    margin-bottom: 33px;
+}
+.text p {
+    font-size: 22px;
+    margin-right: 5px;
+}
+.text span {
+    font-size: 22px;
+}
+
+.books {
+    margin-bottom: 60px;
+}
+.inner_books {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.book {
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+}
+.book .left {
+    width: 170px;
+    height: 245px;
+    margin-right: 20px;
+}
+.book .right h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px 10px 0 0;
+}
+.book .right p {
+    color: #FF4004;
+    font-size: 24px;
+    margin-bottom: 28px;
+}
+.book .right .stars {
+    display: flex;
+    height: 32px;
+    text-align: center;
+    margin-bottom: 29px;
+}
+.book .right .stars p {
+    color: #FFC700;
+    font-size: 24px;
+    padding-top: 2px;
+}
+.book .right .stars img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+.book .right button {
+    width: 244px;
+    height: 51px;
+    color: #FF4004;
+    font-size: 24px;
+    border-radius: 10px;
+    border: 2px solid #FF4004;
+    background-color: white;
+    cursor: pointer;
+}
+
+.biography {
+    width: 1140px;
+    margin: 0 auto;
+}
+.biography h3 {
+    font-size: 30px;
+    margin: 40px 0;
+
+}
+.biography p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+}
