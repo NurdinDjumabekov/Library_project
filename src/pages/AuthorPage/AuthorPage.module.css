@@ -2,7 +2,7 @@
     color: black;
     font-family: Roboto;
     font-weight: 500;
-
+    overflow: hidden;
 }
 .about_author {
     margin-bottom: 63px;
@@ -128,7 +128,8 @@
 
 }
 .biography p {
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 150%;
+    width: 1140px;
 }
