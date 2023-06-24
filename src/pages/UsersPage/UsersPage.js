@@ -15,17 +15,13 @@ const UsersPage = () => {
   const { preloader, dataFavotitesBook, checkedUser, choiceUserBook } =
     useSelector((state) => state.usersStateSlice);
   //   console.log(dataFavotitesBook, "dataFavotitesBook");
-  const { search, sortBtn, filteredBtn } = useSelector(
-    (state) => state.sendRequestLibraryPageSlice
-  );
-
+  // console.log(choiceUserBook);
   useEffect(() => {
     dispatch(sendRequestAllDataUser(choiceUserBook));
-  }, [choiceUserBook, search, sortBtn, filteredBtn]);
-
+  }, [choiceUserBook]);
   return (
     <>
-      {preloader ? (
+      {false ? (
         <Preloader />
       ) : (
         <>

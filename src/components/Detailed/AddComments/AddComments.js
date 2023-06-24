@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AddComments.module.css";
 import imgs from "../../../assests/images/login_registration/registration_page.jpg";
 
 const AddComments = () => {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    setData(JSON.parse(localStorage.getItem("dataUser")));
+  }, []);
   const [star, setStar] = useState(0);
   const starArr = [1, 2, 3, 4, 5];
   const [addComment, setAddComment] = useState(false);
+  console.log(data);
   return (
     <div className={styles.parent_addComments}>
       <div className="container">
@@ -13,19 +18,19 @@ const AddComments = () => {
           <div onClick={() => setAddComment(true)}>
             <div>
               <div>
-                <img src={imgs} alt="user" />
+                <img src={data?.user_photo} alt="user" />
               </div>
               <div>
-                <p>Asanov Azat</p>
-                <span>03.05.2023</span>
+                <p>{data?.username}</p>
+                <span>{data?.email}</span>
               </div>
             </div>
             <div>
               <p>Оцените книгу</p>
               <div>
-                {starArr.map((btnStar) => {
+                {starArr.map((btnStar, index) => {
                   return (
-                    <button onClick={() => setStar(btnStar)}>
+                    <button key={index} onClick={() => setStar(btnStar)}>
                       {btnStar <= star ? (
                         <svg
                           width="50"

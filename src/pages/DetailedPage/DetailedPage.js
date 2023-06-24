@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { detailedData } from "../../store/reducers/sendRequestMainPageSlice";
 import Preloader from "../../components/Preloader/Preloader";
 import NoAuth from "../../components/NoAuth/NoAuth";
+import AddComments from "../../components/Detailed/AddComments/AddComments";
 
 const DetailedPage = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,8 @@ const DetailedPage = () => {
                 </div>
                 <div className={styles.comments_parent}>
                   <h3>Отзывы</h3>
-                  {/* <Comments dataDetailedPage={dataDetailedPage} /> */}
+                  <AddComments />
+                  <Comments />
                 </div>
               </div>
             </div>

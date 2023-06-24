@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AddBookFavorite.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sendFavotiteBookUsers } from "../../store/reducers/sendRequestEveryBookSlice";
+import { sendRequestDataEveryUser } from "../../store/reducers/usersStateSlice";
 
-const AddBookFavorite = ({ id, fakeId }) => {
-  const [btn, setbtn] = useState(false);
+const AddBookFavorite = ({ id, fakeId, setRestartData, restartData }) => {
   const dispatch = useDispatch();
-  // console.log(fakeId);
+  // console.log(fakeId, "fakeId");
+  // console.log(id, "id");
   const sendRequestFavoriteBook = (state) => {
-    switch (state) {
-      case "DELETE":
-        dispatch(sendFavotiteBookUsers({ choice: "DELETE", id }));
-      case "POST":
-        dispatch(sendFavotiteBookUsers({ choice: "POST", id }));
-        break;
-      default:
-        break;
+    setRestartData(!restartData);
+    if (state === "DELETE") {
+      dispatch(sendFavotiteBookUsers({ choice: "DELETE", id: id }));
+    } else if (state === "POST") {
+      dispatch(sendFavotiteBookUsers({ choice: "POST", id: id }));
     }
   };
   return (

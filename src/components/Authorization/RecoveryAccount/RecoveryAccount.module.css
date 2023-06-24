@@ -30,6 +30,13 @@
   cursor: pointer;
   font-size: 35px;
   letter-spacing: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 0;
 }
 .parentBlock_recovery form p {
   text-align: left;

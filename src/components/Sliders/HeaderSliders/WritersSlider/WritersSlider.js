@@ -47,17 +47,19 @@ const WritersSlider = () => {
       </div>
       <div className="container">
         <div>
-          {/* {kyrgyzWriters?.map((man) => (
+          {kyrgyzWriters?.map((man) => (
             <div key={man.id}>
               <div className={styles.inner_img_ourWriters}>
-                <img src={man.url} alt="book" />
+                <img src={man.image} alt="book" />
               </div>
               <div className={styles.inner_text_ourWriters}>
-                <h4>{man.writer}</h4>
-                <p>{man.year}</p>
+                {/* <h4>{man.writer}</h4>
+                <p>{man.year}</p> */}
+                <h4>Чынгыз Айтматов</h4>
+                <p>1928-2008</p>
               </div>
             </div>
-          ))} */}
+          ))}
         </div>
         <div className={styles.btn_more}>
           <button onClick={() => startScroll(2615)}>Подробнее</button>

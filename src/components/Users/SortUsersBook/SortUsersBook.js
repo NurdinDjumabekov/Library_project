@@ -4,15 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeChoiceUserBook } from "../../../store/reducers/usersStateSlice";
 
 const SortUsersBook = () => {
-  const { favoriteBooks } = useSelector((state) => state.usersStateSlice);
   const dispatch = useDispatch();
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("activeBtnSort"))
       ? JSON.parse(localStorage.getItem("activeBtnSort"))
       : 1
   );
-  // console.log(favoriteBooks);
-  // console.log(typeof favorites, "tygjuhkijlo");
 
   const favoriteBook = [
     { id: 1, text: "Избранное", dataApi: "favorite" },

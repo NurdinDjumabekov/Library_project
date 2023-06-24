@@ -113,6 +113,14 @@ const usersStateSlice = createSlice({
     changeReadingNowBookUser: (state, action) => {
       state.readingNowBookUser = action.payload;
     },
+    deleteBooksFavorites: (state, action) => {
+      return {
+        ...state,
+        dataFavotitesBook: state.dataFavotitesBook.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
+    },
   },
 });
 
@@ -123,5 +131,6 @@ export const {
   changeCheckedUser,
   toTakeDataEveryUser,
   changeReadingNowBookUser,
+  deleteBooksFavorites,
 } = usersStateSlice.actions;
 export default usersStateSlice.reducer;

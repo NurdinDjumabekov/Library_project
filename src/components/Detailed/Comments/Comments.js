@@ -1,38 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Comments.module.css";
 import AddComments from "../AddComments/AddComments";
+import { useDispatch } from "react-redux";
+import { sendRequestComments } from "../../../store/reducers/sendRequestEveryBookSlice";
 
-const Comments = ({ dataDetailedPage }) => {
-  console.log(dataDetailedPage, "comments");
+const Comments = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(sendRequestComments());
+  }, []);
   return (
     <>
-      <div className="container">
+      {/* <div className="container">
         <div className={styles.parent_comments}>
           {dataDetailedPage.lenght === 0 ? (
             <div className={styles.noComment}>
-              <p>Комментарий пока что нет...</p>
+              <button>Комментарий пока что нет...</button>
             </div>
           ) : (
             <>
               <AddComments />
-              {dataDetailedPage?.map((comment) => (
-                <div key={comment.id}>
+              <div key={dataDetailedPage.id}>
+                <div>
                   <div>
-                    <div>
-                      <img src={comment.url} alt="img" />
-                    </div>
-                    <div>
-                      <p>{comment.name}</p>
-                      <span>{comment.time}</span>
-                    </div>
+                    <img src={dataDetailedPage.url} alt="img" />
                   </div>
-                  <p>{comment.text}</p>
+                  <div>
+                    <p>{dataDetailedPage.name}</p>
+                    <span>{dataDetailedPage.time}</span>
+                  </div>
                 </div>
-              ))}
+                <p>{dataDetailedPage.text}</p>
+              </div>
             </>
           )}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

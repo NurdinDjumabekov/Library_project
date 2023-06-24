@@ -12,14 +12,15 @@ import { sendRequestAllDataUser } from "../../store/reducers/usersStateSlice";
 
 const LibraryPage = () => {
   const dispatch = useDispatch();
+  const [restartData, setRestartData] = useState(true);
   const { preloader, allData, search, sortBtn, filteredBtn } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
-  // const { dataFavotitesBook } = useSelector((state) => state.usersStateSlice);
-  // console.log(allData, "allData");
-  // console.log(dataFavotitesBook, "dataFavotitesBook");
+  const { dataFavotitesBook } = useSelector((state) => state.usersStateSlice);
+  console.log(allData, "allData");
+  console.log(dataFavotitesBook, "dataFavotitesBook");
 
-  const dataFavotitesBook = [{ id: 2 }, { id: 3 }];
+  // console.log(data, "dataUSER");
 
   useEffect(() => {
     dispatch(
@@ -29,9 +30,9 @@ const LibraryPage = () => {
         filteredBtn: filteredBtn,
       })
     );
+    // console.log("restart35as1d51as5d15as3d5asDASD5asd5AS");
     dispatch(sendRequestAllDataUser("favorite"));
-  }, [search, sortBtn, filteredBtn]);
-
+  }, [search, sortBtn, filteredBtn, restartData]);
   return (
     <>
       {preloader ? (
@@ -50,17 +51,28 @@ const LibraryPage = () => {
                     <>
                       {allData.map((book) => {
                         if (
-                          dataFavotitesBook.some((item) => item.id === book.id)
+                          dataFavotitesBook?.some(
+                            (item) => item?.id === book?.id
+                          )
                         ) {
                           return (
                             <InfoEveryBook
+                              setRestartData={setRestartData}
+                              restartData={restartData}
                               fakeId={book.id}
                               book={book}
                               key={book.id}
                             />
                           );
                         }
-                        return <InfoEveryBook book={book} key={book.id} />;
+                        return (
+                          <InfoEveryBook
+                            book={book}
+                            key={book.id}
+                            setRestartData={setRestartData}
+                            restartData={restartData}
+                          />
+                        );
                       })}
                     </>
                   )}

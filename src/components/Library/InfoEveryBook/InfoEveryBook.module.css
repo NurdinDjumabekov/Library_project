@@ -17,7 +17,6 @@ section .parent_infoBook {
 section .parent_infoBook .imgBlock_infoBook {
   width: 112px;
   height: 167px;
-  background: red;
   border-radius: 8px;
 }
 section .parent_infoBook .imgBlock_infoBook img {

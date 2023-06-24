@@ -19,7 +19,7 @@ const UserLogin = () => {
   const addBtnLogin = () => {
     navigate("/login");
   };
-
+  // console.log(data);
   useEffect(() => {
     if (access) {
       dispatch(sendRequestDataEveryUser(access));
@@ -30,7 +30,6 @@ const UserLogin = () => {
     }
     // console.log(localStorage.getItem("dataUser"));
   }, [preloader]);
-  // console.log(data.username, "json-parse");
   return (
     <div className={styles.parent_UserLogin}>
       {checkedUser ? (
