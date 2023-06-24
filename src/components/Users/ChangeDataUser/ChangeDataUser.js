@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import styles from "./ChangeDataUser.module.css";
 import { changeDataUser } from "../../helpers/helpers";
+import { useDispatch } from "react-redux";
+import { patchRequestToDataUsers } from "../../../store/reducers/windowsSlice";
 
 const ChangeDataUser = ({ setUser, user }) => {
+  const dispatch = useDispatch()
   const [change, setChange] = useState({
-    password: "",
-    name: "",
-    language: "",
-    email: "",
+    // password: "",
+    // name: "",
+    // language: "",
+    // email: "",
   });
 
   const sendRequest = (type) => {
     // console.log(type);
-    if (type === 1) {
-      changeDataUser(change);
+    // if (type === 1) {
+    //   changeDataUser(change);
       /////helpers/////
-    }
+      // }
+    dispatch(patchRequestToDataUsers(change))
+    console.log(change);
   };
 
   if (user.choiceData === 1) {
@@ -36,7 +41,7 @@ const ChangeDataUser = ({ setUser, user }) => {
           <input
             onChange={(e) =>
               setChange((info) => ({
-                ...info,
+                // ...info,
                 name: e.target.value,
               }))
             }
@@ -79,7 +84,7 @@ const ChangeDataUser = ({ setUser, user }) => {
           <input
             onChange={(e) =>
               setChange((info) => ({
-                ...info,
+                // ...info,
                 email: e.target.value,
               }))
             }
@@ -122,7 +127,7 @@ const ChangeDataUser = ({ setUser, user }) => {
           <input
             onChange={(e) =>
               setChange((info) => ({
-                ...info,
+                // ...info,
                 password: e.target.value,
               }))
             }

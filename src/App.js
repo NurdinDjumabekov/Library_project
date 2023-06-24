@@ -56,7 +56,10 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/reading_now" element={<ReadingNow />} />
-        <Route path="/profile" element={<UsersPage />} />
+        <Route path="/profile">
+          <Route index element={<UsersPage />} />
+          <Route path="/profile/settings" element={<SettingUserPage/>}/>
+        </Route>
         <Route path="/detailed/:id" element={<DetailedPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />

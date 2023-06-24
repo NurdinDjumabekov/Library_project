@@ -66,6 +66,29 @@ export const sendRequestOnToTakeTokens = createAsyncThunk(
   }
 );
 
+export const patchRequestToDataUsers = createAsyncThunk(
+  "patchRequestToDataUsers",
+  async(changedDataUser, {dispatch}) => {
+    try {
+      const {data} = await axios.patch({
+        method: "PATCH",
+        url: "",
+        // url: "https://kitepkana1.pythonanywhere.com/profile/"
+        data: {
+          username: changedDataUser.name,
+          email: changedDataUser.email,
+          password: changedDataUser.password,
+          language: changedDataUser.language
+        }
+      }).then((resp) => {
+        console.log(resp);
+      })
+    } catch(error) {
+      console.log(error);
+    }
+  }
+)
+
 const windowsSlice = createSlice({
   name: "windowsSlice",
   initialState,

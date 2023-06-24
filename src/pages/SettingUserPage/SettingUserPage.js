@@ -38,7 +38,7 @@ const SettingUserPage = () => {
     {
       id: 4,
       title: "Пароль",
-      content: "***********09",
+      content: "glebasik22_09",
       btn: "Изменить",
     },
   ];
