@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import styles from "./Sliders_writers.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { requestKyrgyzWriters } from "../../../store/reducers/sendRequestMainPageSlice";
+import { NavLink } from "react-router-dom";
 
 const Sliders_writers = () => {
   const dispatch = useDispatch();
@@ -60,7 +61,9 @@ const Sliders_writers = () => {
                     </section>
                   </div>
                   <div className={styles.block_for_btnSlider}>
-                    <button>Подробнее</button>
+                    <NavLink to={`/detailedwriter/${slide.id}`}>
+                      <button>Подробнее</button>
+                    </NavLink>
                   </div>
                 </div>
               ))}

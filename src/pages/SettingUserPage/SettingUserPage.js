@@ -2,25 +2,35 @@ import React, { useEffect, useState } from "react";
 import styles from "./SettingUserPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import ChangeDataUser from "../../components/Users/ChangeDataUser/ChangeDataUser";
-import { toTakeDataUsers } from "../../store/reducers/windowsSlice";
 
 const SettingUserPage = () => {
-  const { dataUsers } = useSelector((state) => state.windowsSlice);
   const [user, setUser] = useState({
     choiceData: 0,
     windowsChange: false,
   });
-  const dispatch = useDispatch();
+  const [data, setData] = useState(
+    JSON.parse(localStorage.getItem("dataUser"))
+  );
+  const [password, setPassword] = useState(data.password);
+
+  // console.log(data);
+
   useEffect(() => {
-    dispatch(toTakeDataUsers());
+    const password = "nurdin___545454";
+    const arr = Array(password.length - 2).fill("*");
+    arr.unshift(...Array(8).fill("*"));
+    const result = [...arr, ...password.slice(-2)].join("");
+    setPassword(result);
   }, []);
+
+  const dispatch = useDispatch();
   const userImg =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToK_-LT9HmxfBNTsC0A8wfvjtfxKh3GjexbQ&usqp=CAU";
   const userInfo = [
     {
       id: 1,
       title: "Отображаемое имя",
-      content: "Asanov Azat",
+      content: data.username,
       btn: "Изменить",
     },
     {
@@ -32,13 +42,13 @@ const SettingUserPage = () => {
     {
       id: 3,
       title: "Электронная почта",
-      content: "asanovazat@gmail.com",
+      content: data.email,
       btn: "Изменить",
     },
     {
       id: 4,
       title: "Пароль",
-      content: "***********09",
+      content: password,
       btn: "Изменить",
     },
   ];
@@ -60,8 +70,7 @@ const SettingUserPage = () => {
                 <img src={userImg} alt="userImg" />
               </div>
               <div>
-                <span>Asanov</span>
-                <span>Azat</span>
+                <span>{data.username}</span>
               </div>
             </div>
             <div className={styles.infoUser_settingUser}>

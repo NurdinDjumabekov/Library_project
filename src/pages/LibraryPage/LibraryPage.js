@@ -12,17 +12,16 @@ import { sendRequestAllDataUser } from "../../store/reducers/usersStateSlice";
 
 const LibraryPage = () => {
   const dispatch = useDispatch();
-  const [restartData, setRestartData] = useState(true);
-  const { preloader, allData, search, sortBtn, filteredBtn } = useSelector(
-    (state) => state.sendRequestLibraryPageSlice
-  );
-  const { dataFavotitesBook } = useSelector((state) => state.usersStateSlice);
-  console.log(allData, "allData");
-  console.log(dataFavotitesBook, "dataFavotitesBook");
+  const { preloader, allData, search, sortBtn, filteredBtn, stateBtn } =
+    useSelector((state) => state.sendRequestLibraryPageSlice);
 
+  const { dataFavotitesBook } = useSelector((state) => state.usersStateSlice);
+  // console.log(allData, "allData");
+  // console.log(dataFavotitesBook, "dataFavotitesBook");
   // console.log(data, "dataUSER");
 
   useEffect(() => {
+    dispatch(sendRequestAllDataUser("favorite"));
     dispatch(
       requestAllData({
         search: search,
@@ -31,8 +30,10 @@ const LibraryPage = () => {
       })
     );
     // console.log("restart35as1d51as5d15as3d5asDASD5asd5AS");
-    dispatch(sendRequestAllDataUser("favorite"));
-  }, [search, sortBtn, filteredBtn, restartData]);
+    // console.log("rdftyghukijlok;f");
+  }, [search, sortBtn, filteredBtn, stateBtn]);
+  // const arr = [];
+  const [arr, setArr] = useState([]);
   return (
     <>
       {preloader ? (
@@ -55,13 +56,17 @@ const LibraryPage = () => {
                             (item) => item?.id === book?.id
                           )
                         ) {
+                          arr.push(book.id);
+                          // setArr([...arr, book.id]);
+
+                          // setArr((prev) => [...prev, book.id]);
                           return (
                             <InfoEveryBook
-                              setRestartData={setRestartData}
-                              restartData={restartData}
                               fakeId={book.id}
                               book={book}
                               key={book.id}
+                              arr={arr}
+                              setArr={setArr}
                             />
                           );
                         }
@@ -69,8 +74,8 @@ const LibraryPage = () => {
                           <InfoEveryBook
                             book={book}
                             key={book.id}
-                            setRestartData={setRestartData}
-                            restartData={restartData}
+                            arr={arr}
+                            setArr={setArr}
                           />
                         );
                       })}

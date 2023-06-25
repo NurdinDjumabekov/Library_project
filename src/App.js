@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { updateTokens } from "./store/reducers/usersStateSlice";
 import SettingUserPage from "./pages/SettingUserPage/SettingUserPage";
 import ActiveUserPage from "./pages/ActiveUserPage/ActiveUserPage";
+import DetailedWritersPage from "./pages/DetailedWritersPage/DetailedWritersPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,10 +59,11 @@ function App() {
         <Route path="/reading_now" element={<ReadingNow />} />
         <Route path="/profile" element={<UsersPage />} />
         <Route path="/detailed/:id" element={<DetailedPage />} />
+        <Route path="/detailedwriter/:id" element={<DetailedWritersPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
-      <Route path="/aboutsite" element={<AboutSite />} />
+      {/* <Route path="/aboutsite" element={<AboutSite />} /> */}
       <Route path="/setting_users" element={<SettingUserPage />} />
       <Route path="/registration_active" element={<ActiveUserPage />} />
       <Route path="*" element={<NotFound />} />

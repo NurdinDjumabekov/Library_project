@@ -32,12 +32,12 @@ const DetailedPage = () => {
               <div className="container">
                 <div className={styles.short_description}>
                   <h2>Краткое содержание </h2>
-                  <p>{dataDetailedPage.summary}</p>
+                  <p>{dataDetailedPage?.summary}</p>
                 </div>
                 <div className={styles.comments_parent}>
                   <h3>Отзывы</h3>
-                  <AddComments />
-                  <Comments />
+                  <AddComments dataDetailedPage={dataDetailedPage} />
+                  <Comments dataDetailedPage={dataDetailedPage} />
                 </div>
               </div>
             </div>

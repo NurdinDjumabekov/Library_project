@@ -8,6 +8,7 @@ const initialState = {
   search: "",
   sortBtn: "",
   filteredBtn: "",
+  stateBtn: false,
 };
 export const requestSortBtn = createAsyncThunk(
   "requestSortBtn",
@@ -75,6 +76,10 @@ const sendRequestLibraryPageSlice = createSlice({
       state.filteredBtn = action.payload;
       // console.log(state.filteredBtn);
     },
+    changeStateBtns: (state, action) => {
+      state.stateBtn = action.payload;
+      // console.log(state.filteredBtn);
+    },
   },
 });
 
@@ -85,5 +90,6 @@ export const {
   toTakeAllsortBtn,
   changeSortBtn,
   changeSearch,
+  changeStateBtns,
 } = sendRequestLibraryPageSlice.actions;
 export default sendRequestLibraryPageSlice.reducer;

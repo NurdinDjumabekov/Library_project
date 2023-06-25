@@ -91,6 +91,7 @@
   line-height: 125.3%;
   color: #FF4004;
   padding: 10px 100px;
+  cursor: pointer;
 }
 .parent_settingUser .child_settingUser .infoUser_settingUser > div:last-child {
   border: none;

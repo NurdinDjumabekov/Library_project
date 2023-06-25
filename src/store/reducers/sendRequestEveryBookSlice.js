@@ -3,6 +3,9 @@ import axios from "axios";
 
 const initialState = {
   commentsData: [],
+  infoEveryWriters: {},
+  preloader: true,
+  ifSendRequestError: true,
 };
 export const sendFavotiteBookUsers = createAsyncThunk(
   "sendFavotiteBookUsers",
@@ -41,19 +44,69 @@ export const sendFavotiteBookUsers = createAsyncThunk(
   }
 );
 
-export const sendRequestComments = createAsyncThunk(
-  "sendRequestComments",
+// export const sendRequestComments = createAsyncThunk(
+//   "sendRequestComments",
+//   async (info, { dispatch }) => {
+//     try {
+//       const data = await axios({
+//         method: "GET",
+//         url: `https://kitepkana1.pythonanywhere.com/favorite/`,
+//         headers: {
+//           Authorization: `JWT ${localStorage.getItem("access")}`,
+//         },
+//       });
+//     } catch (error) {
+//       console.log(error, "error sendRequestComments");
+//     }
+//   }
+// );
+
+export const sendRequestAddCommetns = createAsyncThunk(
+  "sendRequestAddCommetns",
   async (info, { dispatch }) => {
     try {
-      const data = await axios({
+      await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/reviews/",
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+        data: {
+          book: 1,
+          text: "info.input",
+          star: 2,
+        },
+      });
+      // console.log(info);
+    } catch (error) {
+      console.log(error, "error sendRequestAddCommetns");
+    }
+  }
+);
+
+export const sendRequestDetailedWriters = createAsyncThunk(
+  "sendRequestDetailedWriters",
+  async (id, { dispatch }) => {
+    dispatch(changePreloader(true));
+    try {
+      const { data } = await axios({
         method: "GET",
-        url: `https://kitepkana1.pythonanywhere.com/favorite/`,
+        url: `https://kitepkana1.pythonanywhere.com/authors/${id}/`,
         headers: {
           Authorization: `JWT ${localStorage.getItem("access")}`,
         },
       });
+      dispatch(toTakeEveryWriters(data));
+      dispatch(changePreloader(false));
+      dispatch(changeSendRequestError(true));
+
+      // console.log(data);
     } catch (error) {
-      console.log(error, "error sendRequestComments");
+      if (error.message.includes("Request failed with status code 401")) {
+        dispatch(changeSendRequestError(false));
+      }
+      console.log(error, "error sendRequestDetailedWriters");
+      dispatch(changePreloader(false));
     }
   }
 );
@@ -64,8 +117,22 @@ const sendRequestEveryBookSlice = createSlice({
     toTakeCommets: (state, action) => {
       state.commentsData = action.payload;
     },
+    toTakeEveryWriters: (state, action) => {
+      state.infoEveryWriters = action.payload;
+    },
+    changePreloader: (state, action) => {
+      state.preloader = action.payload;
+    },
+    changeSendRequestError: (state, action) => {
+      state.ifSendRequestError = action.payload;
+    },
   },
 });
 
-export const { toTakeCommets } = sendRequestEveryBookSlice.actions;
+export const {
+  toTakeCommets,
+  toTakeEveryWriters,
+  changePreloader,
+  changeSendRequestError,
+} = sendRequestEveryBookSlice.actions;
 export default sendRequestEveryBookSlice.reducer;

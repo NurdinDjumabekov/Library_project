@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AddComments.module.css";
-import imgs from "../../../assests/images/login_registration/registration_page.jpg";
+import { useDispatch } from "react-redux";
+import { sendRequestAddCommetns } from "../../../store/reducers/sendRequestEveryBookSlice";
 
-const AddComments = () => {
+const AddComments = ({ dataDetailedPage }) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({});
   useEffect(() => {
     setData(JSON.parse(localStorage.getItem("dataUser")));
   }, []);
-  const [star, setStar] = useState(0);
+  const [star, setStar] = useState(1);
   const starArr = [1, 2, 3, 4, 5];
   const [addComment, setAddComment] = useState(false);
-  console.log(data);
+  // console.log(data);
+  // console.log(star);
+  const [input, setInput] = useState("");
+  const sendAddCommetns = (e) => {
+    e.preventDefault();
+    dispatch(
+      sendRequestAddCommetns({
+        input: input,
+        star: star,
+        id: dataDetailedPage.id,
+      })
+    );
+  };
   return (
     <div className={styles.parent_addComments}>
       <div className="container">
@@ -68,8 +82,11 @@ const AddComments = () => {
           </div>
 
           {addComment && (
-            <form>
-              <textarea placeholder="Поделитесь впечатлениями о книге"></textarea>
+            <form onSubmit={sendAddCommetns}>
+              <textarea
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Поделитесь впечатлениями о книге"
+              ></textarea>
               <button type="submit">Отправить</button>
             </form>
           )}

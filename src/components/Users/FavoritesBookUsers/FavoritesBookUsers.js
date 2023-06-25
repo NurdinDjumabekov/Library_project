@@ -3,23 +3,27 @@ import styles from "./FavoritesBookUsers.module.css";
 import { NavLink } from "react-router-dom";
 import star from "../../../assests/images/Sliders/Star_grade.svg";
 import { useDispatch } from "react-redux";
-import { deleteBooksFavorites } from "../../../store/reducers/usersStateSlice";
+import {
+  deleteBooksFavorites,
+  sendRequestdeleteBooks,
+} from "../../../store/reducers/usersStateSlice";
 
 const FavoritesBookUsers = ({ dataFavotitesBook }) => {
   const dispatch = useDispatch();
   const deleteBooks = (id) => {
     dispatch(deleteBooksFavorites(id));
+    dispatch(sendRequestdeleteBooks(id));
   };
+  console.log(dataFavotitesBook);
   return (
     <div className={styles.parent_favoritesBook}>
       {dataFavotitesBook.length !== 0 ? (
         <>
           {dataFavotitesBook?.map((book) => (
             <div key={book?.id}>
-              <NavLink to={"/"}>
+              <NavLink to={`/detailed/${book.id}`}>
                 <div className={styles.child_favorites}>
                   <div className={styles.child_img_favorites}>
-                    {/* <img src={book?.book_cover} alt="url" /> */}
                     <img src={book?.cover} alt="url" />
                   </div>
                   <div className={styles.child_text_favorites}>

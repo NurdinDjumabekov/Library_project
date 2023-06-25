@@ -72,7 +72,6 @@ export const updateTokens = createAsyncThunk(
     }
   }
 );
-
 export const toTakeReadingNowBooks = createAsyncThunk(
   "toTakeReadingNowBooks",
   async (info, { dispatch }) => {
@@ -87,6 +86,22 @@ export const toTakeReadingNowBooks = createAsyncThunk(
       dispatch(changeReadingNowBookUser(data));
     } catch (error) {
       console.log(error, "error toTakeReadingNowBooks");
+    }
+  }
+);
+export const sendRequestdeleteBooks = createAsyncThunk(
+  "sendRequestdeleteBooks",
+  async (id, { dispatch }) => {
+    try {
+      const { data } = await axios({
+        method: "DELETE",
+        url: `https://kitepkana1.pythonanywhere.com/favorite/${id}/`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+    } catch (error) {
+      console.log(error, "error sendRequestdeleteBooks");
     }
   }
 );

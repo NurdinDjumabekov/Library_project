@@ -1,7 +1,7 @@
 .parent_comments
-    padding: 10px 20px
+    width: 100%
     .noComment
-        height: 60vh
+        height: 40vh
         display: flex
         justify-content: center
         align-items: center
@@ -16,8 +16,8 @@
         background: #FFFFFF
         box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25)
         border-radius: 10px
-        padding: 10px 20px
-        margin-bottom: 40px
+        margin: 30px 0px
+        padding: 30px 40px
         > div
             display: flex
             gap: 16px
@@ -32,19 +32,26 @@
                     border-radius: 50%
                     box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25)
             > div:nth-child(2)
+                // background: red
+                text-align: left
                 p
                     font-weight: 500
                     font-size: 28px
-                    line-height: 33px
+                    line-height: 30px
                     color: #2A2A2A
+                    text-align: left
                 span
                     display: block
                     font-weight: 500
                     font-size: 14px
-                    line-height: 16px
+                    line-height: 25px
                     color: #7C7C7C
                     margin-top: 5px
-        p
+                > div
+                    padding: 0 0 0 10px
+                    margin: -15px 0 0 -20px
+                    width: 240px
+        > p
             font-weight: 400
             font-size: 25px
             line-height: 125%

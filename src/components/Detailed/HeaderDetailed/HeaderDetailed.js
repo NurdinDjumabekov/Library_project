@@ -4,7 +4,7 @@ import book from "../../../assests/images/Detailed/info_book.png";
 import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
 
 const HeaderDetailed = ({ dataDetailedPage }) => {
-  console.log(dataDetailedPage);
+  // console.log(dataDetailedPage);
   return (
     <div className={styles.parent_deaderDetailed}>
       <div className="container">

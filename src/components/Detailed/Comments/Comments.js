@@ -1,41 +1,50 @@
 import React, { useEffect } from "react";
 import styles from "./Comments.module.css";
-import AddComments from "../AddComments/AddComments";
 import { useDispatch } from "react-redux";
-import { sendRequestComments } from "../../../store/reducers/sendRequestEveryBookSlice";
+// import { sendRequestComments } from "../../../store/reducers/sendRequestEveryBookSlice";
+import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
 
-const Comments = () => {
+const Comments = ({ dataDetailedPage }) => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(sendRequestComments());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(sendRequestComments());
+  // }, []);
+  // console.log(dataDetailedPage.reviews);
   return (
     <>
-      {/* <div className="container">
+      <div className="container">
         <div className={styles.parent_comments}>
-          {dataDetailedPage.lenght === 0 ? (
+          {dataDetailedPage?.reviews?.length === 0 ? (
             <div className={styles.noComment}>
-              <button>Комментарий пока что нет...</button>
+              <p>Комментарий пока что нет...</p>
             </div>
           ) : (
             <>
-              <AddComments />
-              <div key={dataDetailedPage.id}>
-                <div>
+              {dataDetailedPage?.reviews?.map((comment) => (
+                <div key={comment.id}>
                   <div>
-                    <img src={dataDetailedPage.url} alt="img" />
+                    <div>
+                      <img src={comment.profile.user_photo} alt="img" />
+                    </div>
+                    <div>
+                      <p>{comment.profile.username}</p>
+                      <span>{comment.created_date}</span>
+                      {/* <button>{comment.user_stars.value}</button> */}
+                      <div>
+                        <Rating_Star
+                          grade_star={comment.user_stars.value}
+                          grade={comment.user_stars.value}
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p>{dataDetailedPage.name}</p>
-                    <span>{dataDetailedPage.time}</span>
-                  </div>
+                  <p>{comment.text}</p>
                 </div>
-                <p>{dataDetailedPage.text}</p>
-              </div>
+              ))}
             </>
           )}
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
