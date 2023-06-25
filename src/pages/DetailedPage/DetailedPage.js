@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./DetailedPage.module.css";
 import HeaderDetailed from "../../components/Detailed/HeaderDetailed/HeaderDetailed";
 import Comments from "../../components/Detailed/Comments/Comments";
@@ -36,7 +36,7 @@ const DetailedPage = () => {
                 </div>
                 <div className={styles.comments_parent}>
                   <h3>Отзывы</h3>
-                  <AddComments dataDetailedPage={dataDetailedPage} />
+                  <AddComments id={id} dataDetailedPage={dataDetailedPage} />
                   <Comments dataDetailedPage={dataDetailedPage} />
                 </div>
               </div>

@@ -9,7 +9,7 @@ const Comments = ({ dataDetailedPage }) => {
   // useEffect(() => {
   //   dispatch(sendRequestComments());
   // }, []);
-  // console.log(dataDetailedPage.reviews);
+  console.log(dataDetailedPage.reviews);
   return (
     <>
       <div className="container">
@@ -24,16 +24,18 @@ const Comments = ({ dataDetailedPage }) => {
                 <div key={comment.id}>
                   <div>
                     <div>
-                      <img src={comment.profile.user_photo} alt="img" />
+                      <img src={comment?.user_photo} alt="img" />
                     </div>
                     <div>
-                      <p>{comment.profile.username}</p>
+                      <p>{comment.username}</p>
                       <span>{comment.created_date}</span>
                       {/* <button>{comment.user_stars.value}</button> */}
                       <div>
                         <Rating_Star
-                          grade_star={comment.user_stars.value}
-                          grade={comment.user_stars.value}
+                          grade_star={
+                            comment.user_stars ? comment.user_stars : 1
+                          }
+                          grade={comment.user_stars ? comment.user_stars : 1}
                         />
                       </div>
                     </div>

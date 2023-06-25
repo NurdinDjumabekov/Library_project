@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./AddComments.module.css";
 import { useDispatch } from "react-redux";
 import { sendRequestAddCommetns } from "../../../store/reducers/sendRequestEveryBookSlice";
+import {
+  changePreloader,
+  detailedData,
+} from "../../../store/reducers/sendRequestMainPageSlice";
 
-const AddComments = ({ dataDetailedPage }) => {
+const AddComments = ({ dataDetailedPage, id }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   useEffect(() => {
@@ -24,6 +28,8 @@ const AddComments = ({ dataDetailedPage }) => {
         id: dataDetailedPage.id,
       })
     );
+    dispatch(detailedData(id));
+    setAddComment(false);
   };
   return (
     <div className={styles.parent_addComments}>

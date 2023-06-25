@@ -17,9 +17,6 @@ export const requestSortBtn = createAsyncThunk(
       const { data } = await axios({
         method: "GET",
         url: "https://kitepkana1.pythonanywhere.com/genres/",
-        // headers: {
-        //   Authorization: `JWT ${localStorage.getItem("access")}`,
-        // },
       });
       dispatch(toTakeAllsortBtn(data));
       // console.log(data, "requestSortBtn");
@@ -28,24 +25,27 @@ export const requestSortBtn = createAsyncThunk(
     }
   }
 );
-
+const api = "https://kitepkana1.pythonanywhere.com/";
 export const requestAllData = createAsyncThunk(
-  "requestBestWorks",
+  "requestAllData",
   async (allData, { dispatch }) => {
+    console.log(allData, "544");
     try {
       const { data } = await axios({
         method: "GET",
-        url: `https://kitepkana1.pythonanywhere.com/books/`,
-        // headers: {
-        //   Authorization: `JWT ${localStorage.getItem("access")}`,
-        // },
+        // url: `https://kitepkana1.pythonanywhere.com/books/`,
+        url: `${
+          allData.stateInput
+            ? `${api}search_filter/?q=${allData.search}`
+            : `${api}books/`
+        }`,
       });
+      // ("https://kitepkana1.pythonanywhere.com/Чингиз");
       dispatch(toTakeAllData(data));
-      // console.log(allData);
-      // console.log(data, "ALLDATA");
+      console.log(allData);
       dispatch(changePreloader(false));
-    } catch {
-      console.log("error requestBestWorks");
+    } catch (error) {
+      console.log(error, "error requestAllData");
     }
   }
 );

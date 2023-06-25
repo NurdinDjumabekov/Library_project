@@ -72,9 +72,9 @@ export const sendRequestAddCommetns = createAsyncThunk(
           Authorization: `JWT ${localStorage.getItem("access")}`,
         },
         data: {
-          book: 1,
-          text: "info.input",
-          star: 2,
+          book: info.id,
+          text: info.input,
+          star: info.star,
         },
       });
       // console.log(info);

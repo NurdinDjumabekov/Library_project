@@ -19,6 +19,8 @@ const LibraryPage = () => {
   // console.log(allData, "allData");
   // console.log(dataFavotitesBook, "dataFavotitesBook");
   // console.log(data, "dataUSER");
+  const [stateInput, setStateInput] = useState(false);
+  // console.log(stateInput);
 
   useEffect(() => {
     dispatch(sendRequestAllDataUser("favorite"));
@@ -27,12 +29,10 @@ const LibraryPage = () => {
         search: search,
         sortBtn: sortBtn,
         filteredBtn: filteredBtn,
+        stateInput: stateInput,
       })
     );
-    // console.log("restart35as1d51as5d15as3d5asDASD5asd5AS");
-    // console.log("rdftyghukijlok;f");
-  }, [search, sortBtn, filteredBtn, stateBtn]);
-  // const arr = [];
+  }, [search, sortBtn, filteredBtn, stateBtn, stateInput]);
   const [arr, setArr] = useState([]);
   return (
     <>
@@ -41,7 +41,7 @@ const LibraryPage = () => {
       ) : (
         <div className={styles.library_parentBlock}>
           <div className="container">
-            <InputSearch />
+            <InputSearch setStateInput={setStateInput} />
             <div className={styles.library_childBlock}>
               <div className={styles.library_info}>
                 <Filtration />
