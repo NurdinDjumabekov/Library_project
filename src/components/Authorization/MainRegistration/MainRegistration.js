@@ -216,7 +216,7 @@ const MainRegistration = () => {
                 className={styles.label_emailError}
                 onClick={() => setSendError({ sendErrorEmail: false })}
               >
-                Некорректный Email !
+                Некорректный Email
               </label>
             )}
             <label className={styles.block_password_look}>

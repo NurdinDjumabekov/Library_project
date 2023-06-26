@@ -12,10 +12,8 @@ const InputSearch = ({ setStateInput }) => {
   useEffect(() => {
     if (search === "") {
       setStateInput(false);
-    } else {
-      setStateInput(true);
     }
-  }, [search]);
+  }, [search, setStateInput]);
   const searchBook = (e) => {
     e.preventDefault();
     dispatch(changeSearch(search));
@@ -28,6 +26,7 @@ const InputSearch = ({ setStateInput }) => {
           placeholder="Книга, жанры, автор"
           onChange={(e) => setSearch(e.target.value)}
           className={styles.inputSearch}
+          name="input"
         />
         <button type="submit">Поиск</button>
       </form>

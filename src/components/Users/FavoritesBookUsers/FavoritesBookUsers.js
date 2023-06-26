@@ -14,10 +14,10 @@ const FavoritesBookUsers = ({ dataFavotitesBook }) => {
     dispatch(deleteBooksFavorites(id));
     dispatch(sendRequestdeleteBooks(id));
   };
-  console.log(dataFavotitesBook);
+  // console.log(dataFavotitesBook);
   return (
     <div className={styles.parent_favoritesBook}>
-      {dataFavotitesBook.length !== 0 ? (
+      {dataFavotitesBook?.length !== 0 ? (
         <>
           {dataFavotitesBook?.map((book) => (
             <div key={book?.id}>

@@ -9,7 +9,7 @@ const Comments = ({ dataDetailedPage }) => {
   // useEffect(() => {
   //   dispatch(sendRequestComments());
   // }, []);
-  console.log(dataDetailedPage.reviews);
+  // console.log(dataDetailedPage.reviews);
   return (
     <>
       <div className="container">

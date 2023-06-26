@@ -17,7 +17,7 @@ const LogOut = () => {
 
   return (
     <div className={styles.parent_logOut}>
-      <button onClick={logOutAccount}>Выйти</button>
+      <button onClick={logOutAccount}>Выйти из аккаунта</button>
     </div>
   );
 };

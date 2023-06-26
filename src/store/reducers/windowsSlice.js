@@ -65,6 +65,40 @@ export const sendRequestOnToTakeTokens = createAsyncThunk(
     }
   }
 );
+export const changeDataUser = createAsyncThunk(
+  "changeDataUser",
+  async (info, { dispatch }) => {
+    try {
+      if (info.type === 1) {
+        await axios({
+          method: "PATCH",
+          url: "https://kitepkana1.pythonanywhere.com/auth/profile/",
+          data: {
+            username: info.change.name,
+          },
+          headers: {
+            Authorization: `JWT ${localStorage.getItem("access")}`,
+          },
+        });
+      }
+      if (info.type === 3) {
+        await axios({
+          method: "POST",
+          url: "https://kitepkana1.pythonanywhere.com/auth/users/set_email/",
+          data: {
+            current_password: info.change.password,
+            new_email: info.change.email,
+          },
+          headers: {
+            Authorization: `JWT ${localStorage.getItem("access")}`,
+          },
+        });
+      }
+    } catch (error) {
+      console.log(error, "error changeDataUser");
+    }
+  }
+);
 
 const windowsSlice = createSlice({
   name: "windowsSlice",

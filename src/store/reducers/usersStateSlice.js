@@ -25,8 +25,10 @@ export const sendRequestAllDataUser = createAsyncThunk(
       dispatch(toTakeDataFavotitesBook(data));
       // console.log(data, "rtyg");
       dispatch(changePreloader(false));
+      // console.log(state);
     } catch (error) {
       console.log(error, "error sendRequestAllDataUser");
+      dispatch(toTakeDataFavotitesBook([]));
       dispatch(changePreloader(false));
     }
   }

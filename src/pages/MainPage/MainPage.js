@@ -13,7 +13,6 @@ import {
   changePreloader,
   requestNovetlyWorks,
 } from "../../store/reducers/sendRequestMainPageSlice";
-import LogOut from "../../components/Authorization/LogOut/LogOut";
 const MainPage = () => {
   const { preloader } = useSelector((state) => state.sendRequestMainPageSlice);
   const dispatch = useDispatch();
@@ -30,7 +29,6 @@ const MainPage = () => {
       ) : (
         <div>
           <HeaderMain />
-          <LogOut />
           <Novelties />
           <ManasPart />
           <Recommendation />

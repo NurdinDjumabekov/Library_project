@@ -17,7 +17,10 @@ const SlidersMainPageInner = ({ slide }) => {
           <h2>{slide.title}</h2>
           <p>{slide.author_name}</p>
         </div>
-        <Rating_Star grade_star={3.5} grade={3.5} />
+        <Rating_Star
+          grade_star={slide?.middle_star}
+          grade={slide?.middle_star}
+        />
         <Link to={`/detailed/${slide.id}`}>
           <button>Читать</button>
         </Link>

@@ -33,11 +33,11 @@ const Sliders_writers = () => {
     <div className={styles.parent_writers}>
       <div className="container">
         <div className={styles.child_writers}>
+          <h3>Наши писатели</h3>
           <div className={styles.parent_sliderWriters}>
             <Slider className={styles.slider} {...settings}>
               {kyrgyzWriters?.map((slide) => (
                 <div key={slide.id}>
-                  <h3>{slide.fullname}</h3>
                   <div className={styles.child_sliderWriters}>
                     <div>
                       <img src={slide.image} alt="slide" />

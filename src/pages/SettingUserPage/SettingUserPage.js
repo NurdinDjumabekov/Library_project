@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./SettingUserPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import ChangeDataUser from "../../components/Users/ChangeDataUser/ChangeDataUser";
+import LogOut from "../../components/Authorization/LogOut/LogOut";
 
 const SettingUserPage = () => {
   const [user, setUser] = useState({
@@ -11,17 +12,26 @@ const SettingUserPage = () => {
   const [data, setData] = useState(
     JSON.parse(localStorage.getItem("dataUser"))
   );
-  const [password, setPassword] = useState(data.password);
+  const [password, setPassword] = useState();
+
+  // useEffect(() => {
+  //   setData(JSON.parse(localStorage.getItem("dataUser")));
+  //   setPassword(data?.password);
+  // }, [user]);
 
   // console.log(data);
 
   useEffect(() => {
-    const password = "nurdin___545454";
-    const arr = Array(password.length - 2).fill("*");
-    arr.unshift(...Array(8).fill("*"));
-    const result = [...arr, ...password.slice(-2)].join("");
-    setPassword(result);
+    setPassword(data?.password);
+    if (password) {
+      const password_1 = password;
+      const arr = Array(password_1.length - 2).fill("*");
+      arr.unshift(...Array(8).fill("*"));
+      const result = [...arr, ...password_1.slice(-2)].join("");
+      setPassword(result);
+    }
   }, []);
+  console.log(password);
 
   const dispatch = useDispatch();
   const userImg =
@@ -30,7 +40,7 @@ const SettingUserPage = () => {
     {
       id: 1,
       title: "Отображаемое имя",
-      content: data.username,
+      content: data?.username,
       btn: "Изменить",
     },
     {
@@ -42,7 +52,7 @@ const SettingUserPage = () => {
     {
       id: 3,
       title: "Электронная почта",
-      content: data.email,
+      content: data?.email,
       btn: "Изменить",
     },
     {
@@ -52,6 +62,7 @@ const SettingUserPage = () => {
       btn: "Изменить",
     },
   ];
+
   const changeStateUser = (type) => {
     setUser((info) => ({
       ...info,
@@ -67,21 +78,21 @@ const SettingUserPage = () => {
           <div className={styles.child_settingUser}>
             <div className={styles.nameUser_settingUser}>
               <div>
-                <img src={userImg} alt="userImg" />
+                <img src={data?.user_photo} alt="userImg" />
               </div>
               <div>
-                <span>{data.username}</span>
+                <span>{data?.username}</span>
               </div>
             </div>
             <div className={styles.infoUser_settingUser}>
-              {userInfo.map((info) => (
+              {userInfo?.map((info) => (
                 <div key={info.id}>
                   <div>
-                    <p>{info.title}</p>
-                    <h6>{info.content}</h6>
+                    <p>{info?.title}</p>
+                    <h6>{info?.content}</h6>
                   </div>
                   <button onClick={() => changeStateUser(info.id)}>
-                    {info.btn}
+                    {info?.btn}
                   </button>
                 </div>
               ))}
@@ -89,6 +100,7 @@ const SettingUserPage = () => {
             {user.windowsChange && (
               <ChangeDataUser setUser={setUser} user={user} />
             )}
+            <LogOut />
           </div>
         </div>
       </div>

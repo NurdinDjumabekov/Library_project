@@ -8,7 +8,7 @@ const Novelties = () => {
   const { dataNoveltyWork } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
-  // console.log(dataNoveltyWork, "dataNoveltyWork");
+  console.log(dataNoveltyWork, "dataNoveltyWork");
 
   const dispatch = useDispatch();
 

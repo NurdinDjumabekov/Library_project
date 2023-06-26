@@ -59,11 +59,17 @@
   height: 185px;
   border-radius: 10px;
   margin: 0px auto 15px;
+  overflow: hidden;
+  background: red;
 }
 .parent_ourWriters > div:nth-child(2) > div > div .inner_img_ourWriters img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .parent_ourWriters > div:nth-child(2) > div > div .inner_text_ourWriters {
   width: 150px;

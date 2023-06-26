@@ -29,20 +29,22 @@ const api = "https://kitepkana1.pythonanywhere.com/";
 export const requestAllData = createAsyncThunk(
   "requestAllData",
   async (allData, { dispatch }) => {
-    console.log(allData, "544");
+    setTimeout(() => {
+      allData.search = "";
+    }, 1000);
     try {
       const { data } = await axios({
         method: "GET",
-        // url: `https://kitepkana1.pythonanywhere.com/books/`,
         url: `${
           allData.stateInput
             ? `${api}search_filter/?q=${allData.search}`
             : `${api}books/`
         }`,
       });
-      // ("https://kitepkana1.pythonanywhere.com/Чингиз");
       dispatch(toTakeAllData(data));
-      console.log(allData);
+      // console.log(allData.search);
+      // ("https://kitepkana1.pythonanywhere.com/Чингиз");
+      // console.log(allData);
       dispatch(changePreloader(false));
     } catch (error) {
       console.log(error, "error requestAllData");

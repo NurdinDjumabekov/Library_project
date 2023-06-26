@@ -15,13 +15,14 @@ const LibraryPage = () => {
   const { preloader, allData, search, sortBtn, filteredBtn, stateBtn } =
     useSelector((state) => state.sendRequestLibraryPageSlice);
 
-  const { dataFavotitesBook } = useSelector((state) => state.usersStateSlice);
+  const { dataFavotitesBook, choiceUserBook } = useSelector(
+    (state) => state.usersStateSlice
+  );
   // console.log(allData, "allData");
   // console.log(dataFavotitesBook, "dataFavotitesBook");
   // console.log(data, "dataUSER");
   const [stateInput, setStateInput] = useState(false);
   // console.log(stateInput);
-
   useEffect(() => {
     dispatch(sendRequestAllDataUser("favorite"));
     dispatch(
@@ -32,7 +33,7 @@ const LibraryPage = () => {
         stateInput: stateInput,
       })
     );
-  }, [search, sortBtn, filteredBtn, stateBtn, stateInput]);
+  }, [search, sortBtn, choiceUserBook, filteredBtn, stateBtn, stateInput]);
   const [arr, setArr] = useState([]);
   return (
     <>

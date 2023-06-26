@@ -3,6 +3,23 @@
     background: #e2dddd
     .child_writers
         cursor: pointer
+        padding: 20px 0 0 0
+        h3
+            font-family: 'Roboto'
+            font-style: normal
+            font-weight: 500
+            font-size: 36px
+            line-height: 125.3%
+            color: #000000
+            text-align: center
+        h3::first-letter 
+            font-family: 'Pacifico'
+            font-style: normal
+            font-weight: 400
+            font-size: 60px
+            line-height: 125.3%
+            letter-spacing: 7px
+            color: #FF4004
         .header_text_writers
             display: flex
             align-items: flex-end
@@ -21,17 +38,19 @@
                 font-size: 60px
                 line-height: 125.3%
                 color: #000000
+            
         .parent_sliderWriters
-            margin: 80px 0
+            margin: 30px 0 80px 0
             background: #fff
-            padding: 50px 25px
+            // background: #e2dddd
+            padding: 50px 25px 20px
             border-radius: 15px
             box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25)
             h3
                 font-family: 'Roboto'
                 font-style: normal
                 font-weight: 500
-                font-size: 36px
+                font-size: 60px
                 line-height: 125.3%
                 color: #000000
                 text-align: center
@@ -53,16 +72,18 @@
                 align-items: center
                 margin: 0 auto
                 > div
-                    width: 300px
-                    height: 300px
+                    width: 350px
+                    height: 350px
                     border-radius: 10px
+                    overflow: hidden
                     img
                         width: 100%
                         height: 100%
                         border-radius: 10px
+                        object-fit: cover
+                        object-position: top
             .moreText_Slider
                 width: 580px
-                // background: red
                 div
                     margin-bottom: 8px
                 h4
@@ -104,7 +125,7 @@
             button
                 color: white
                 background: #FF4004
-                padding: 11px 31px
+                padding: 15px 45px
                 border: none
                 border-radius: 10px
                 cursor: pointer
