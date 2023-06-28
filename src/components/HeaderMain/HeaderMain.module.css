@@ -42,6 +42,7 @@
   border-radius: 50%;
   border: none;
   color: #7C7C7C;
+  cursor: pointer;
 }
 .parent_header .child_header .btn_slider .active_btn {
   background: #FF4004;
