@@ -6,6 +6,7 @@ const initialState = {
   infoEveryWriters: {},
   preloader: true,
   ifSendRequestError: true,
+  readerCurrentPage: 1,
 };
 export const sendFavotiteBookUsers = createAsyncThunk(
   "sendFavotiteBookUsers",
@@ -126,6 +127,9 @@ const sendRequestEveryBookSlice = createSlice({
     changeSendRequestError: (state, action) => {
       state.ifSendRequestError = action.payload;
     },
+    changeReaderCurrentPage: (state, action) => {
+      state.readerCurrentPage = action.payload;
+    },
   },
 });
 
@@ -134,5 +138,6 @@ export const {
   toTakeEveryWriters,
   changePreloader,
   changeSendRequestError,
+  changeReaderCurrentPage,
 } = sendRequestEveryBookSlice.actions;
 export default sendRequestEveryBookSlice.reducer;

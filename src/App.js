@@ -16,6 +16,7 @@ import { updateTokens } from "./store/reducers/usersStateSlice";
 import SettingUserPage from "./pages/SettingUserPage/SettingUserPage";
 import ActiveUserPage from "./pages/ActiveUserPage/ActiveUserPage";
 import DetailedWritersPage from "./pages/DetailedWritersPage/DetailedWritersPage";
+import ReaderPage from "./pages/ReaderPage/ReaderPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ function App() {
         <Route path="/profile" element={<UsersPage />} />
         <Route path="/detailed/:id" element={<DetailedPage />} />
         <Route path="/detailedwriter/:id" element={<DetailedWritersPage />} />
+        <Route path="/reader/:id" element={<ReaderPage/>}/>
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
