@@ -6,7 +6,7 @@ const initialState = {
   dataFavotitesBook: [],
   preloader: true,
   checkedUser: false,
-  dataEveryUser: [],
+  dataEveryUser: {}, // {}
   readingNowBookUser: [],
 };
 

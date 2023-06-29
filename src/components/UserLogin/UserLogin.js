@@ -30,6 +30,7 @@ const UserLogin = () => {
     }
     // console.log(localStorage.getItem("dataUser"));
   }, [preloader]);
+
   return (
     <div className={styles.parent_UserLogin}>
       {checkedUser ? (

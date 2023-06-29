@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { async } from "q";
 
 const initialState = {
   difficultPassword: {
@@ -9,7 +8,8 @@ const initialState = {
   },
   difficultPassword_text: "Слабый пароль",
   dataUsers: [],
-  preloader: false,
+  // preloader: false,
+  goodChangeData: false,
 };
 export const sendRequestEditUserPhoto = createAsyncThunk(
   "sendRequestEditUserPhoto",
@@ -101,8 +101,14 @@ export const changeDataUser = createAsyncThunk(
             Authorization: `JWT ${localStorage.getItem("access")}`,
           },
         });
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(false));
+        }, 2000);
       }
       if (info.type === 3) {
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(true));
+        }, 500);
         await axios({
           method: "POST",
           url: "https://kitepkana1.pythonanywhere.com/auth/users/set_email/",
@@ -114,9 +120,15 @@ export const changeDataUser = createAsyncThunk(
             Authorization: `JWT ${localStorage.getItem("access")}`,
           },
         });
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(false));
+        }, 2000);
       }
     } catch (error) {
       console.log(error, "error changeDataUser");
+      setTimeout(() => {
+        dispatch(goodChangeDataRd(false));
+      }, 2000);
     }
   }
 );
@@ -135,9 +147,12 @@ const windowsSlice = createSlice({
     toTakeDataUsersRd: (state, action) => {
       state.dataUsers = action.payload;
     },
-    changePreloader: (state, action) => {
-      state.preloader = action.payload;
+    goodChangeDataRd: (state, action) => {
+      state.goodChangeData = action.payload;
     },
+    // changePreloader: (state, action) => {
+    //   state.preloader = action.payload;
+    // },
   },
 });
 
@@ -145,6 +160,7 @@ export const {
   changeDifficultPassword,
   changeDifficultPassword_text,
   toTakeDataUsersRd,
+  goodChangeDataRd,
   changePreloader,
 } = windowsSlice.actions;
 export default windowsSlice.reducer;
