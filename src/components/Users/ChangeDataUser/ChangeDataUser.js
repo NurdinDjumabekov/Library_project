@@ -31,7 +31,6 @@ const ChangeDataUser = ({ setUser, user }) => {
     }));
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));
   };
-
   if (user.choiceData === 1) {
     return (
       <>

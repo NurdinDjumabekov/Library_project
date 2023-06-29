@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { async } from "q";
 
 const initialState = {
   difficultPassword: {
@@ -10,6 +11,26 @@ const initialState = {
   dataUsers: [],
   preloader: false,
 };
+export const sendRequestEditUserPhoto = createAsyncThunk(
+  "sendRequestEditUserPhoto",
+  async (img, { dispatch }) => {
+    console.log(img);
+    const formData = new FormData();
+    formData.append("user_photo", img);
+    try {
+      await axios({
+        method: "PATCH",
+        url: "https://kitepkana1.pythonanywhere.com/auth/profile/",
+        data: formData,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+    } catch (error) {
+      console.log(error, "sendRequestEditUserPhoto");
+    }
+  }
+);
 
 ///////////////////////////////////////////////////////
 export const toTakeDataUsers = createAsyncThunk(

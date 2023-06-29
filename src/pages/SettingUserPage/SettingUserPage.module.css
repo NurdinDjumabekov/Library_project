@@ -21,16 +21,41 @@
           align-items: center;
   gap: 40px;
 }
-.parent_settingUser .child_settingUser .nameUser_settingUser div:nth-child(1) {
+.parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   background: gray;
+  position: relative;
 }
-.parent_settingUser .child_settingUser .nameUser_settingUser div:nth-child(1) img {
+.parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: block;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+.parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > button > img {
+  width: 100%;
+  height: 100%;
+}
+.parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > button .input_addPhoto {
+  width: 0;
+  height: 0;
 }
 .parent_settingUser .child_settingUser .nameUser_settingUser div:nth-child(2) span {
   font-family: "Roboto";

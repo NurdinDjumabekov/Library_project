@@ -93,7 +93,7 @@ const AddComments = ({ dataDetailedPage, id }) => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Поделитесь впечатлениями о книге"
               ></textarea>
-              <button type="submit">Отправить</button>
+              <button type="submit">Добавить</button>
             </form>
           )}
         </div>

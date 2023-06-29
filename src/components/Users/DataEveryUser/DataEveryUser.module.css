@@ -18,6 +18,10 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .parent_veryUser p {
   font-family: "Roboto";

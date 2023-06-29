@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./SettingUserPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import ChangeDataUser from "../../components/Users/ChangeDataUser/ChangeDataUser";
 import LogOut from "../../components/Authorization/LogOut/LogOut";
+import editImg from "../../assests/images/Setting/edit_photo.svg";
+import { sendRequestEditUserPhoto } from "../../store/reducers/windowsSlice";
 
 const SettingUserPage = () => {
   const [user, setUser] = useState({
     choiceData: 0,
     windowsChange: false,
   });
+  const [newPhoto, setNewPhoto] = useState(null);
   const [data, setData] = useState(
     JSON.parse(localStorage.getItem("dataUser"))
   );
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState("***");
+  // console.log(password);
 
   // useEffect(() => {
   //   setData(JSON.parse(localStorage.getItem("dataUser")));
@@ -20,18 +24,27 @@ const SettingUserPage = () => {
   // }, [user]);
 
   // console.log(data);
+  const convertPassword = (info) => {
+    const startInfo = info.slice(0, info.length - 2);
+    const endInfo = info.slice(info.length - 2);
+    // console.log(startInfo);
+    // console.log(endInfo);
+    const result =
+      startInfo
+        .split("")
+        .map((i) => {
+          return (i = "*");
+        })
+        .join()
+        .replace(/,/g, "") + endInfo;
+    // console.log(result);
+    setPassword(result);
+  };
 
   useEffect(() => {
-    setPassword(data?.password);
-    if (password) {
-      const password_1 = password;
-      const arr = Array(password_1.length - 2).fill("*");
-      arr.unshift(...Array(8).fill("*"));
-      const result = [...arr, ...password_1.slice(-2)].join("");
-      setPassword(result);
-    }
+    convertPassword(data?.password);
   }, []);
-  console.log(password);
+  // console.log(password);
 
   const dispatch = useDispatch();
   const userImg =
@@ -70,6 +83,15 @@ const SettingUserPage = () => {
       choiceData: type,
     }));
   };
+  const inputRef = useRef(null);
+  const openImages = () => {
+    inputRef.current.click();
+  };
+
+  const handlePhotoChange = (e) => {
+    const image = e.target.files[0];
+    dispatch(sendRequestEditUserPhoto(image));
+  };
   return (
     <>
       <div className={styles.parent_settingUser}>
@@ -79,6 +101,15 @@ const SettingUserPage = () => {
             <div className={styles.nameUser_settingUser}>
               <div>
                 <img src={data?.user_photo} alt="userImg" />
+                <button onClick={() => openImages()}>
+                  <input
+                    ref={inputRef}
+                    className={styles.input_addPhoto}
+                    type="file"
+                    onChange={handlePhotoChange}
+                  />
+                  <img src={editImg} alt="edit" />
+                </button>
               </div>
               <div>
                 <span>{data?.username}</span>

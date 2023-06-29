@@ -22,6 +22,7 @@ const LibraryPage = () => {
   // console.log(dataFavotitesBook, "dataFavotitesBook");
   // console.log(data, "dataUSER");
   const [stateInput, setStateInput] = useState(false);
+  const [arr, setArr] = useState([]);
   // console.log(stateInput);
   useEffect(() => {
     dispatch(sendRequestAllDataUser("favorite"));
@@ -33,8 +34,7 @@ const LibraryPage = () => {
         stateInput: stateInput,
       })
     );
-  }, [search, sortBtn, choiceUserBook, filteredBtn, stateBtn, stateInput]);
-  const [arr, setArr] = useState([]);
+  }, [search, sortBtn, choiceUserBook, filteredBtn, stateBtn, stateInput, arr]);
   return (
     <>
       {preloader ? (
@@ -58,18 +58,6 @@ const LibraryPage = () => {
                           )
                         ) {
                           arr.push(book.id);
-                          // setArr([...arr, book.id]);
-
-                          // setArr((prev) => [...prev, book.id]);
-                          return (
-                            <InfoEveryBook
-                              fakeId={book.id}
-                              book={book}
-                              key={book.id}
-                              arr={arr}
-                              setArr={setArr}
-                            />
-                          );
                         }
                         return (
                           <InfoEveryBook
