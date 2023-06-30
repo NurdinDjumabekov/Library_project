@@ -53,8 +53,14 @@ const ChangeDataUser = ({ setUser, user, setFake }) => {
           email: change.email,
         })
       );
+    } else if (type === 4) {
+      dispatch(
+        changeFakeData({
+          type: 4,
+          password: change.new_password,
+        })
+      );
     }
-
     ///////////////////////
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));
   };
@@ -129,7 +135,6 @@ const ChangeDataUser = ({ setUser, user, setFake }) => {
                     email: e.target.value,
                   }))
                 }
-                onSubmit={() => sendRequest(user.choiceData)}
                 placeholder="Джумабеков Нурдин"
                 required
               />

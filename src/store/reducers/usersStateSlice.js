@@ -8,6 +8,7 @@ const initialState = {
   checkedUser: false,
   dataEveryUser: {}, // {}
   readingNowBookUser: [],
+  singlePassword: "",
   stateFake: {
     img: "",
     name: "",
@@ -52,7 +53,8 @@ export const sendRequestDataEveryUser = createAsyncThunk(
       });
       localStorage.setItem("dataUser", JSON.stringify(data));
       dispatch(toTakeDataEveryUser(data));
-      console.log(data);
+      dispatch(toTakePassword(data.password));
+      // console.log(data);
     } catch (error) {
       console.log(error, "error sendRequestDataEveryUser");
       // localStorage.removeItem("access");
@@ -137,6 +139,28 @@ const usersStateSlice = createSlice({
     changeReadingNowBookUser: (state, action) => {
       state.readingNowBookUser = action.payload;
     },
+    toTakePassword: (state, action) => {
+      state.singlePassword = action.payload;
+      const startInfo = state.singlePassword?.slice(
+        0,
+        state.singlePassword?.length - 2
+      );
+      const endInfo = state.singlePassword?.slice(
+        state.singlePassword?.length - 2
+      );
+      // console.log(startInfo);
+      // console.log(endInfo);
+      const result =
+        startInfo
+          ?.split("")
+          .map((i) => {
+            return (i = "*");
+          })
+          ?.join()
+          ?.replace(/,/g, "") + endInfo;
+      state.singlePassword = result;
+      // console.log(result);
+    },
     deleteBooksFavorites: (state, action) => {
       return {
         ...state,
@@ -182,6 +206,7 @@ export const {
   changeCheckedUser,
   toTakeDataEveryUser,
   changeReadingNowBookUser,
+  toTakePassword,
   deleteBooksFavorites,
   changeFakeData,
 } = usersStateSlice.actions;

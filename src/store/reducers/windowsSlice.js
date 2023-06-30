@@ -104,8 +104,7 @@ export const changeDataUser = createAsyncThunk(
         setTimeout(() => {
           dispatch(goodChangeDataRd(false));
         }, 2000);
-      }
-      if (info.type === 3) {
+      } else if (info.type === 3) {
         setTimeout(() => {
           dispatch(goodChangeDataRd(true));
         }, 500);
@@ -115,6 +114,25 @@ export const changeDataUser = createAsyncThunk(
           data: {
             current_password: info.change.password,
             new_email: info.change.email,
+          },
+          headers: {
+            Authorization: `JWT ${localStorage.getItem("access")}`,
+          },
+        });
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(false));
+        }, 2000);
+      } else if (info.type === 4) {
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(true));
+        }, 500);
+        await axios({
+          method: "POST",
+          url: "https://kitepkana1.pythonanywhere.com/auth/users/set_password/",
+          data: {
+            new_password: info.change.new_password,
+            re_new_password: info.change.repeatNew_password,
+            current_password: info.change.password,
           },
           headers: {
             Authorization: `JWT ${localStorage.getItem("access")}`,

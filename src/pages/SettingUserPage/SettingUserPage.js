@@ -11,18 +11,13 @@ import {
 } from "../../store/reducers/usersStateSlice";
 
 const SettingUserPage = () => {
-  const { dataEveryUser } = useSelector((state) => state.usersStateSlice);
   const { goodChangeData } = useSelector((state) => state.windowsSlice);
-  const { stateFake } = useSelector((state) => state.usersStateSlice);
+  const { dataEveryUser, stateFake, singlePassword } = useSelector(
+    (state) => state.usersStateSlice
+  );
   // console.log(stateFake);
 
   const dispatch = useDispatch();
-  const [fake, setFake] = useState({
-    name: "",
-    email: "",
-    password: "",
-    img: "",
-  });
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({
     choiceData: 0,
@@ -31,26 +26,29 @@ const SettingUserPage = () => {
 
   useEffect(() => {
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));
-  }, [user, fake]);
+  }, [user, stateFake]);
   // console.log(password);
   // console.log(dataEveryUser);
-  const convertPassword = (info) => {
-    console.log(info);
-    // const startInfo = info?.slice(0, info?.length - 2);
-    // const endInfo = info?.slice(info?.length - 2);
-    // console.log(startInfo);
-    // console.log(endInfo);
-    // const result =
-    //   startInfo
-    //     ?.split("")
-    //     .map((i) => {
-    //       return (i = "*");
-    //     })
-    //     ?.join()
-    //     ?.replace(/,/g, "") + endInfo;
-    // // console.log(result);
-    // setPassword(result);
-  };
+  // const convertPassword = (info) => {
+  //   // console.log(info);
+  //   const startInfo = info?.slice(0, info?.length - 2);
+  //   const endInfo = info?.slice(info?.length - 2);
+  //   // console.log(startInfo);
+  //   // console.log(endInfo);
+  //   const result =
+  //     startInfo
+  //       ?.split("")
+  //       .map((i) => {
+  //         return (i = "*");
+  //       })
+  //       ?.join()
+  //       ?.replace(/,/g, "") + endInfo;
+  //   // console.log(result);
+  //   setPassword(result);
+  // };
+  // useEffect(() => {
+  //   convertPassword(dataEveryUser?.password);
+  // }, []);
 
   const userInfo = [
     {
@@ -75,7 +73,7 @@ const SettingUserPage = () => {
     {
       id: 4,
       title: "Пароль",
-      content: dataEveryUser?.password,
+      content: stateFake?.password === "" ? singlePassword : stateFake.password,
       btn: "Изменить",
     },
   ];
@@ -94,10 +92,6 @@ const SettingUserPage = () => {
   };
   const handlePhotoChange = (e) => {
     dispatch(sendRequestEditUserPhoto(e.target.files[0]));
-    // setFake((info) => ({
-    //   ...info,
-    //   img: URL.createObjectURL(e.target.files[0]),
-    // }));
     dispatch(
       changeFakeData({
         img: URL.createObjectURL(e.target.files[0]),
@@ -170,8 +164,8 @@ const SettingUserPage = () => {
                     fill="#06A503"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M15.9987 1.33398C7.89852 1.33398 1.33203 7.90047 1.33203 16.0007C1.33203 24.1008 7.89852 30.6673 15.9987 30.6673C24.0989 30.6673 30.6654 24.1008 30.6654 16.0007C30.6654 7.90047 24.0989 1.33398 15.9987 1.33398ZM3.9987 16.0007C3.9987 9.37323 9.37128 4.00065 15.9987 4.00065C22.6261 4.00065 27.9987 9.37323 27.9987 16.0007C27.9987 22.6281 22.6261 28.0006 15.9987 28.0006C9.37128 28.0006 3.9987 22.6281 3.9987 16.0007Z"
                     fill="#06A503"
                   />
