@@ -5,9 +5,17 @@ import ChangeDataUser from "../../components/Users/ChangeDataUser/ChangeDataUser
 import LogOut from "../../components/Authorization/LogOut/LogOut";
 import editImg from "../../assests/images/Setting/edit_photo.svg";
 import { sendRequestEditUserPhoto } from "../../store/reducers/windowsSlice";
-import { sendRequestDataEveryUser } from "../../store/reducers/usersStateSlice";
+import {
+  changeFakeData,
+  sendRequestDataEveryUser,
+} from "../../store/reducers/usersStateSlice";
 
 const SettingUserPage = () => {
+  const { dataEveryUser } = useSelector((state) => state.usersStateSlice);
+  const { goodChangeData } = useSelector((state) => state.windowsSlice);
+  const { stateFake } = useSelector((state) => state.usersStateSlice);
+  // console.log(stateFake);
+
   const dispatch = useDispatch();
   const [fake, setFake] = useState({
     name: "",
@@ -21,15 +29,11 @@ const SettingUserPage = () => {
     windowsChange: false,
   });
 
-  const { dataEveryUser } = useSelector((state) => state.usersStateSlice);
-  const { goodChangeData } = useSelector((state) => state.windowsSlice);
-
   useEffect(() => {
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));
   }, [user, fake]);
   // console.log(password);
   // console.log(dataEveryUser);
-
   const convertPassword = (info) => {
     console.log(info);
     // const startInfo = info?.slice(0, info?.length - 2);
@@ -52,7 +56,8 @@ const SettingUserPage = () => {
     {
       id: 1,
       title: "Отображаемое имя",
-      content: fake.name === "" ? dataEveryUser?.username : fake.name,
+      content:
+        stateFake?.name === "" ? dataEveryUser?.username : stateFake.name,
       btn: "Изменить",
     },
     {
@@ -64,7 +69,7 @@ const SettingUserPage = () => {
     {
       id: 3,
       title: "Электронная почта",
-      content: fake.email === "" ? dataEveryUser?.email : fake.email,
+      content: stateFake.email === "" ? dataEveryUser?.email : stateFake.email,
       btn: "Изменить",
     },
     {
@@ -87,13 +92,18 @@ const SettingUserPage = () => {
   const openImages = () => {
     inputRef.current.click();
   };
-
   const handlePhotoChange = (e) => {
     dispatch(sendRequestEditUserPhoto(e.target.files[0]));
-    setFake((info) => ({
-      ...info,
-      img: URL.createObjectURL(e.target.files[0]),
-    }));
+    // setFake((info) => ({
+    //   ...info,
+    //   img: URL.createObjectURL(e.target.files[0]),
+    // }));
+    dispatch(
+      changeFakeData({
+        img: URL.createObjectURL(e.target.files[0]),
+        type: 4,
+      })
+    );
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));
   };
   return (
@@ -105,7 +115,11 @@ const SettingUserPage = () => {
             <div className={styles.nameUser_settingUser}>
               <div>
                 <img
-                  src={fake.img === "" ? dataEveryUser?.user_photo : fake.img}
+                  src={
+                    stateFake.img === ""
+                      ? dataEveryUser?.user_photo
+                      : stateFake.img
+                  }
                   alt="*"
                 />
                 <button onClick={() => openImages()}>
@@ -120,7 +134,9 @@ const SettingUserPage = () => {
               </div>
               <div>
                 <span>
-                  {fake.name === "" ? dataEveryUser?.username : fake.name}
+                  {stateFake?.name === ""
+                    ? dataEveryUser?.username
+                    : stateFake?.name}
                 </span>
               </div>
             </div>
@@ -138,7 +154,7 @@ const SettingUserPage = () => {
               ))}
             </div>
             {user.windowsChange && (
-              <ChangeDataUser setUser={setUser} user={user} setFake={setFake} />
+              <ChangeDataUser setUser={setUser} user={user} />
             )}
             {goodChangeData && (
               <div className={styles.goodChange}>

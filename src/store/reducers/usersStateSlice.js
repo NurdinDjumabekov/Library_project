@@ -8,6 +8,12 @@ const initialState = {
   checkedUser: false,
   dataEveryUser: {}, // {}
   readingNowBookUser: [],
+  stateFake: {
+    img: "",
+    name: "",
+    password: "",
+    email: "",
+  },
 };
 
 export const sendRequestAllDataUser = createAsyncThunk(
@@ -46,6 +52,7 @@ export const sendRequestDataEveryUser = createAsyncThunk(
       });
       localStorage.setItem("dataUser", JSON.stringify(data));
       dispatch(toTakeDataEveryUser(data));
+      console.log(data);
     } catch (error) {
       console.log(error, "error sendRequestDataEveryUser");
       // localStorage.removeItem("access");
@@ -138,6 +145,33 @@ const usersStateSlice = createSlice({
         ),
       };
     },
+    changeFakeData: (state, action) => {
+      if (action.payload.type === 1) {
+        return {
+          ...state,
+          stateFake: {
+            ...state.stateFake,
+            name: action.payload.name,
+          },
+        };
+      } else if (action.payload.type === 3) {
+        return {
+          ...state,
+          stateFake: {
+            ...state.stateFake,
+            email: action.payload.email,
+          },
+        };
+      } else if (action.payload.type === 4) {
+        return {
+          ...state,
+          stateFake: {
+            ...state.stateFake,
+            img: action.payload.img,
+          },
+        };
+      }
+    },
   },
 });
 
@@ -149,5 +183,6 @@ export const {
   toTakeDataEveryUser,
   changeReadingNowBookUser,
   deleteBooksFavorites,
+  changeFakeData,
 } = usersStateSlice.actions;
 export default usersStateSlice.reducer;

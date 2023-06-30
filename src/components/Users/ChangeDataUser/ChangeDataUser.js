@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./ChangeDataUser.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { changeDataUser } from "../../../store/reducers/windowsSlice";
-import { sendRequestDataEveryUser } from "../../../store/reducers/usersStateSlice";
+import {
+  changeFakeData,
+  sendRequestDataEveryUser,
+} from "../../../store/reducers/usersStateSlice";
 // import { changeDataUser } from "../../helpers/helpers";
 
 const ChangeDataUser = ({ setUser, user, setFake }) => {
@@ -31,11 +34,27 @@ const ChangeDataUser = ({ setUser, user, setFake }) => {
       windowsChange: false,
     }));
     ////////////////////////
-    setFake((info) => ({
-      ...info,
-      name: change.name,
-      email: change.email,
-    }));
+    // setFake((info) => ({
+    //   ...info,
+    //   name: change.name,
+    //   email: change.email,
+    // }));
+    if (type === 1) {
+      dispatch(
+        changeFakeData({
+          type: 1,
+          name: change.name,
+        })
+      );
+    } else if (type === 3) {
+      dispatch(
+        changeFakeData({
+          type: 3,
+          email: change.email,
+        })
+      );
+    }
+
     ///////////////////////
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));
   };

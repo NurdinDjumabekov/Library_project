@@ -31,22 +31,41 @@ const UserLogin = () => {
     // console.log(localStorage.getItem("dataUser"));
   }, [preloader]);
 
+  const { stateFake } = useSelector((state) => state.usersStateSlice);
+  // console.log(stateFake?.img);
+
   return (
     <div className={styles.parent_UserLogin}>
       {checkedUser ? (
         <>
           {data ? (
             <div>
-              <p>{data?.username}</p>
+              <p>{stateFake?.name === "" ? data?.username : stateFake?.name}</p>
               <div>
-                <img src={data?.user_photo} alt="user" />
+                <img
+                  src={
+                    stateFake?.img === "" ? data?.user_photo : stateFake?.img
+                  }
+                  alt="user"
+                />
               </div>
             </div>
           ) : (
             <div>
-              <p>{dataEveryUser?.username}</p>
+              <p>
+                {stateFake?.name === ""
+                  ? dataEveryUser?.username
+                  : stateFake?.name}
+              </p>
               <div>
-                <img src={dataEveryUser?.user_photo} alt="user" />
+                <img
+                  src={
+                    stateFake?.img === ""
+                      ? dataEveryUser?.user_photo
+                      : stateFake?.img
+                  }
+                  alt="user"
+                />
               </div>
             </div>
           )}
