@@ -8,7 +8,7 @@ import {
 } from "../../../store/reducers/usersStateSlice";
 // import { changeDataUser } from "../../helpers/helpers";
 
-const ChangeDataUser = ({ setUser, user, setFake }) => {
+const ChangeDataUser = ({ setUser, user }) => {
   const dispatch = useDispatch();
   const [change, setChange] = useState({
     password: "",
@@ -33,12 +33,11 @@ const ChangeDataUser = ({ setUser, user, setFake }) => {
       ...info,
       windowsChange: false,
     }));
-    ////////////////////////
-    // setFake((info) => ({
-    //   ...info,
-    //   name: change.name,
-    //   email: change.email,
-    // }));
+    // 1 - name
+    // 2 - язык
+    // 3 - email
+    // 4 - password
+    // 5 - img
     if (type === 1) {
       dispatch(
         changeFakeData({
@@ -64,7 +63,6 @@ const ChangeDataUser = ({ setUser, user, setFake }) => {
     ///////////////////////
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));
   };
-  useEffect(() => {}, []);
   if (user.choiceData === 1) {
     return (
       <>

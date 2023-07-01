@@ -95,7 +95,7 @@ const SettingUserPage = () => {
     dispatch(
       changeFakeData({
         img: URL.createObjectURL(e.target.files[0]),
-        type: 4,
+        type: 5,
       })
     );
     dispatch(sendRequestDataEveryUser(localStorage.getItem("access")));

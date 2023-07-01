@@ -8,7 +8,7 @@ const initialState = {
   },
   difficultPassword_text: "Слабый пароль",
   dataUsers: [],
-  // preloader: false,
+  preloader: false,
   goodChangeData: false,
 };
 export const sendRequestEditUserPhoto = createAsyncThunk(
@@ -150,7 +150,39 @@ export const changeDataUser = createAsyncThunk(
     }
   }
 );
+export const repeatSendSMSActivation = createAsyncThunk(
+  "repeatSendSMSActivation",
+  async (info, { dispatch }) => {
+    try {
+      await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/users/resend_activation/",
+        data: {
+          email: localStorage.getItem("temporaryEmail"),
+        },
+      });
+    } catch (error) {
+      console.log(error, "error repeatSendSMSActivation");
+    }
+  }
+);
 
+export const sendRequestAcResetCode = createAsyncThunk(
+  "sendRequestAcResetCode",
+  async (info, { dispatch }) => {
+    try {
+      await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/users/resend_activation/",
+        data: {
+          email: localStorage.getItem("temporaryEmail"),
+        },
+      });
+    } catch (error) {
+      console.log(error, "error sendRequestAcResetCode");
+    }
+  }
+);
 const windowsSlice = createSlice({
   name: "windowsSlice",
   initialState,
@@ -168,9 +200,9 @@ const windowsSlice = createSlice({
     goodChangeDataRd: (state, action) => {
       state.goodChangeData = action.payload;
     },
-    // changePreloader: (state, action) => {
-    //   state.preloader = action.payload;
-    // },
+    changePreloader: (state, action) => {
+      state.preloader = action.payload;
+    },
   },
 });
 

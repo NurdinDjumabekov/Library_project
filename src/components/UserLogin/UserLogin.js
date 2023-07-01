@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./UserLogin.module.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   changeCheckedUser,
   sendRequestDataEveryUser,
@@ -36,8 +36,9 @@ const UserLogin = () => {
 
   return (
     <div className={styles.parent_UserLogin}>
+      {console.log(checkedUser, "checkedUser")}
       {checkedUser ? (
-        <>
+        <NavLink to={"/profile"}>
           {data ? (
             <div>
               <p>{stateFake?.name === "" ? data?.username : stateFake?.name}</p>
@@ -69,7 +70,7 @@ const UserLogin = () => {
               </div>
             </div>
           )}
-        </>
+        </NavLink>
       ) : (
         <button onClick={addBtnLogin}>Вход</button>
       )}

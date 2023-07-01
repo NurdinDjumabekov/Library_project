@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import changePassword from "../../helpers/changePassword";
 
 const initialState = {
   choiceUserBook: "favorite",
@@ -140,26 +141,7 @@ const usersStateSlice = createSlice({
       state.readingNowBookUser = action.payload;
     },
     toTakePassword: (state, action) => {
-      state.singlePassword = action.payload;
-      const startInfo = state.singlePassword?.slice(
-        0,
-        state.singlePassword?.length - 2
-      );
-      const endInfo = state.singlePassword?.slice(
-        state.singlePassword?.length - 2
-      );
-      // console.log(startInfo);
-      // console.log(endInfo);
-      const result =
-        startInfo
-          ?.split("")
-          .map((i) => {
-            return (i = "*");
-          })
-          ?.join()
-          ?.replace(/,/g, "") + endInfo;
-      state.singlePassword = result;
-      // console.log(result);
+      state.singlePassword = changePassword(action.payload);
     },
     deleteBooksFavorites: (state, action) => {
       return {
@@ -170,30 +152,45 @@ const usersStateSlice = createSlice({
       };
     },
     changeFakeData: (state, action) => {
-      if (action.payload.type === 1) {
-        return {
-          ...state,
-          stateFake: {
-            ...state.stateFake,
-            name: action.payload.name,
-          },
-        };
-      } else if (action.payload.type === 3) {
-        return {
-          ...state,
-          stateFake: {
-            ...state.stateFake,
-            email: action.payload.email,
-          },
-        };
-      } else if (action.payload.type === 4) {
-        return {
-          ...state,
-          stateFake: {
-            ...state.stateFake,
-            img: action.payload.img,
-          },
-        };
+      switch (action.payload.type) {
+        case 1:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              name: action.payload.name,
+            },
+          };
+          break;
+        case 3:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              email: action.payload.email,
+            },
+          };
+          break;
+        case 4:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              password: changePassword(action.payload.password),
+            },
+          };
+          break;
+        case 5:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              img: action.payload.img,
+            },
+          };
+          break;
+        default:
+          break;
       }
     },
   },
