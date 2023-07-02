@@ -3,6 +3,12 @@
   top: 20px;
   right: 25px;
 }
+@media screen and (max-width: 520px) {
+  .parent_addFavorite {
+    top: 12px;
+    right: -8px;
+  }
+}
 .parent_addFavorite button {
   background-color: transparent;
   border: none;

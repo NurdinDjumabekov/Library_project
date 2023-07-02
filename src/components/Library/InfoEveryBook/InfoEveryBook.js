@@ -4,6 +4,7 @@ import star from "../../../assests/images/Sliders/Star_grade.svg";
 import { NavLink } from "react-router-dom";
 import AddBookFavorite from "../../AddBookFavorite/AddBookFavorite";
 import { useSelector } from "react-redux";
+import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
 
 const InfoEveryBook = ({ book, arr, setArr }) => {
   const [numRating, setNumRating] = useState(0);
@@ -14,7 +15,7 @@ const InfoEveryBook = ({ book, arr, setArr }) => {
       prev % 1 === 0 ? prev.toString() + "." + "0" : prev
     );
   }, [book]);
-  // console.log(book);
+  console.log(book);
   // console.log(dataFavotitesBook, "dataFavotitesBook6666");
   return (
     <section>
@@ -29,18 +30,16 @@ const InfoEveryBook = ({ book, arr, setArr }) => {
                 <h4>«{book?.title}»</h4>
                 <h5>{book?.author_name}</h5>
                 <div>
-                  <img src={star} alt="star" />
-                  <span>{numRating}</span>
+                  {/* <img src={star} alt="star" />
+                  <span>{numRating}</span> */}
+                  <Rating_Star
+                    grade_star={book?.middle_star}
+                    grade={book?.middle_star}
+                  />
                 </div>
               </div>
             </div>
-            <p>
-              Данная книга раскрывает Вам, уважаемый читатель, пошаговые
-              действия достижения успеха. Поможет понять и осознать, что именно
-              для Вас является успехом. Поможет обрести здоровье, любовь,
-              финансовую независимость и прочее факторы успешных людей. Советую
-              Вам прочесть ее несколько раз,или сделать так.
-            </p>
+            <p>{book?.summary}</p>
           </div>
         </div>
       </NavLink>

@@ -8,11 +8,17 @@ section .parent_infoBook {
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  background: #FFFFFF;
+  background: #fff;
   -webkit-box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
           box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
   border-radius: 12px;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 400px) {
+  section .parent_infoBook {
+    padding: 10px;
+    gap: 10px;
+  }
 }
 section .parent_infoBook .imgBlock_infoBook {
   width: 112px;
@@ -27,6 +33,11 @@ section .parent_infoBook .imgBlock_infoBook img {
 section .parent_infoBook .textInfoBlock_infoBook {
   width: 85%;
 }
+@media screen and (max-width: 550px) {
+  section .parent_infoBook .textInfoBlock_infoBook {
+    width: 50%;
+  }
+}
 section .parent_infoBook .textInfoBlock_infoBook > div {
   width: 100%;
   display: -webkit-box;
@@ -36,17 +47,54 @@ section .parent_infoBook .textInfoBlock_infoBook > div {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner {
+  width: 100%;
+}
 section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h4 {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
   color: #262626;
+  width: 80%;
+  height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 800px) {
+  section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h4 {
+    font-weight: 400;
+    margin: 10px 0 0 0;
+  }
+}
+@media screen and (max-width: 800px) and (max-width: 450px) {
+  section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h4 {
+    width: 90%;
+  }
 }
 section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h5 {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   color: #FF4004;
+  width: 80%;
+  height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 800px) {
+  section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h5 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #7C7C7C;
+    margin: 10px 0 0 0;
+    white-space: nowrap;
+  }
+}
+@media screen and (max-width: 800px) and (max-width: 450px) {
+  section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h5 {
+    width: 100%;
+  }
 }
 section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div {
   display: -webkit-box;
@@ -56,7 +104,22 @@ section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_i
       -ms-flex-align: center;
           align-items: center;
   gap: 5px;
+  padding: 0;
+}
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div > div {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  gap: 4px;
   margin: 10px 0;
+}
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div > div svg {
+  width: 17px;
+  height: 17px;
+}
+section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div > div p {
+  color: #FFC700;
+  font-size: 15px;
 }
 section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner > div span {
   font-weight: 400;
@@ -68,13 +131,23 @@ section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_i
   width: 24px;
   height: 24px;
 }
-section .parent_infoBook .textInfoBlock_infoBook p {
+section .parent_infoBook .textInfoBlock_infoBook > p {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   color: #262626;
-  width: 700px;
+  max-width: 700px;
   height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+@media screen and (max-width: 800px) {
+  section .parent_infoBook .textInfoBlock_infoBook > p {
+    height: 60px;
+  }
+}
+@media screen and (max-width: 800px) and (max-width: 460px) {
+  section .parent_infoBook .textInfoBlock_infoBook > p {
+    display: none;
+  }
 }

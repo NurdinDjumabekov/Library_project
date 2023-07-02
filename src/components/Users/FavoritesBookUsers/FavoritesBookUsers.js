@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./FavoritesBookUsers.module.css";
 import { NavLink } from "react-router-dom";
-import star from "../../../assests/images/Sliders/Star_grade.svg";
 import { useDispatch } from "react-redux";
 import {
   deleteBooksFavorites,
   sendRequestdeleteBooks,
 } from "../../../store/reducers/usersStateSlice";
+import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
 
 const FavoritesBookUsers = ({ dataFavotitesBook }) => {
   const dispatch = useDispatch();
@@ -15,6 +15,25 @@ const FavoritesBookUsers = ({ dataFavotitesBook }) => {
     dispatch(sendRequestdeleteBooks(id));
   };
   // console.log(dataFavotitesBook);
+  //////////////////////////////////////////////////////
+  const [slidesToShow, setSlidesToShow] = useState(37);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 600) {
+        setSlidesToShow(25);
+      } else {
+        setSlidesToShow(37);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [slidesToShow]);
+  //////////////////////////////////////////////////////
+
   return (
     <div className={styles.parent_favoritesBook}>
       {dataFavotitesBook?.length !== 0 ? (
@@ -30,16 +49,11 @@ const FavoritesBookUsers = ({ dataFavotitesBook }) => {
                     <h4>«{book?.title}»</h4>
                     <h5>{book?.author_name}</h5>
                     <div>
-                      <div>
-                        <img src={star} alt="star" />
-                      </div>
-                      <span>
-                        {book?.middle_star % 1 === 0
-                          ? book?.middle_star.toString() + "." + "0"
-                          : book?.middle_star}
-                      </span>
+                      <Rating_Star
+                        grade_star={book?.middle_star}
+                        grade={book?.middle_star}
+                      />
                     </div>
-
                     <p>{book?.summary}</p>
                   </div>
                 </div>
@@ -47,7 +61,7 @@ const FavoritesBookUsers = ({ dataFavotitesBook }) => {
               <div className={styles.changeBtnAction_active}>
                 <button onClick={() => deleteBooks(book?.id)}>
                   <svg
-                    width="37"
+                    width={slidesToShow}
                     height="34"
                     viewBox="0 0 37 34"
                     fill="none"

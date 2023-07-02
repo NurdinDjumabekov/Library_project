@@ -29,6 +29,23 @@ const AddBookFavorite = ({ id, arr, setArr }) => {
       setData([...data, id]);
     }
   };
+
+  const [slidesToShow, setSlidesToShow] = useState(37);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 600) {
+        setSlidesToShow(25);
+      } else {
+        setSlidesToShow(37);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [slidesToShow]);
   return (
     <div className={styles.parent_addFavorite}>
       {/* {console.log(data)} */}
@@ -36,7 +53,7 @@ const AddBookFavorite = ({ id, arr, setArr }) => {
         <>
           <button onClick={() => sendRequestFavoriteBook("DELETE")}>
             <svg
-              width="37"
+              width={slidesToShow}
               height="34"
               viewBox="0 0 37 34"
               fill="none"
@@ -74,7 +91,7 @@ const AddBookFavorite = ({ id, arr, setArr }) => {
       ) : (
         <button onClick={() => sendRequestFavoriteBook("POST")}>
           <svg
-            width="37"
+            width={slidesToShow}
             height="34"
             viewBox="0 0 37 34"
             fill="none"

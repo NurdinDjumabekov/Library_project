@@ -1,18 +1,9 @@
 import React from "react";
+import styles from "./NoData.module.css";
 
 const NoData = () => {
-  const style = {
-    width: "100%",
-    height: "350px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "#7C7C7C",
-    fontSize: "60px",
-    // background: "red",
-  };
   return (
-    <div style={style}>
+    <div className={styles.parent_noData}>
       <p>Нет результатов</p>
     </div>
   );
