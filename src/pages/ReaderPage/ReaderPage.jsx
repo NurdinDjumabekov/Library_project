@@ -16,10 +16,11 @@ const ReaderPage = () => {
   const { dataDetailedPage, ifSendRequestError, preloader } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
+
   const { id } = useParams();
   useEffect(() => {
     dispatch(detailedData(id));
-  }, []);
+  }, [ id ]);
 
 
     //   useEffect(() => {
@@ -34,9 +35,7 @@ const ReaderPage = () => {
         {true ? (
           <div className={styles.parentReader}>
             <HeaderDetailed dataDetailedPage={dataDetailedPage}/>
-            <div className="container">
-              <Reader />
-            </div>
+            <Reader id={id}/>
           </div>
         ) : (
           <NoAuth/>

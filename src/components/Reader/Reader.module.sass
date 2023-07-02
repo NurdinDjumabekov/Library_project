@@ -1,16 +1,62 @@
-
-.bookText
-  font-weight: 400
-  font-size: 24px
-  line-height: 48px
-  letter-spacing: 0.11em
-  color: black
-  text-align: left
-  margin-top: 40px
-  
-.paginationContainer
-  z-index: 1
+.readerParent
+  width: 100%
   position: relative
+  display: flex
+  justify-content: center
+  overflow-x: hidden
+  .bookText
+    font-weight: 400
+    font-size: 24px
+    line-height: 48px
+    letter-spacing: 0.11em
+    color: black
+    text-align: left
+    white-space: pre-wrap
+    margin: 0 auto
+    margin-top: 40px
+  .textOptionsParent
+    position: absolute
+    right: -422px
+    top: 50px
+    display: flex
+    align-items: start
+    transition: 250ms
+    .settingImg
+      background-color: #000000
+      border-radius: 10px 0 0 10px
+      box-shadow: 0 0 50px #777777
+      cursor: pointer
+      padding: 5px
+      transition: 250ms
+    .textOptions
+      font-size: 32px
+      background-color: white
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
+      padding: 96px 50px
+      gap: 20px
+      box-shadow: 0 0 50px #777777
+      border-radius: 0 0 0 10px
+      color: #2a2a2a
+      transition: 250ms
+      select
+        width: 150px
+        height: 35px
+        font-size: 24px
+        font-weight: 400
+        border-radius: 10px
+      input
+        width: 300px
+      button
+        padding: 10px 30px
+        background-color: #ffffff00
+        border: none
+        cursor: pointer
+        box-shadow: 0 0 10px #53535359
+        border-radius: 10px
+.paginationContainer
   margin-top: 60px
   margin-bottom: 75px
   display: flex
@@ -37,12 +83,5 @@
     color: white
     padding: 5px 10px
     border-radius: 10px
-
-.documentPDF
-  margin-top: -80px
-  margin-bottom: -110px
-  .pagePDF
-    display: flex
-    justify-content: center
-    .annotationLayer
-      display: none
+    
+  
