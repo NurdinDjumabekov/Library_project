@@ -1,6 +1,11 @@
 .parent_novelties {
   padding: 60px 0px;
 }
+@media screen and (max-width: 900px) {
+  .parent_novelties {
+    padding: 150px 0px 60px 0;
+  }
+}
 .parent_novelties .child_novelties .mainText_novelties {
   text-align: center;
   display: -webkit-box;
@@ -19,6 +24,16 @@
   line-height: 125.3%;
   color: #000000;
 }
+@media screen and (max-width: 900px) {
+  .parent_novelties .child_novelties .mainText_novelties h2 {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 600px) {
+  .parent_novelties .child_novelties .mainText_novelties h2 {
+    font-size: 25px;
+  }
+}
 .parent_novelties .child_novelties .mainText_novelties h2::first-letter {
   font-family: "Pacifico";
   font-style: normal;
@@ -27,4 +42,11 @@
   line-height: 125.3%;
   letter-spacing: 15px;
   color: #FF4004;
+}
+@media screen and (max-width: 900px) {
+  .parent_novelties .child_novelties .mainText_novelties h2::first-letter {
+    font-size: 50px;
+    letter-spacing: 7px;
+    @med;
+  }
 }

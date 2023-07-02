@@ -1,9 +1,43 @@
 .slider {
-  padding: 10px 100px;
-  width: 100%;
+  padding: 10px;
+  max-width: 100%;
+}
+@media screen and (max-width: 1200px) {
+  .slider {
+    padding: 10px 0px;
+  }
 }
 .slider > div {
-  width: 120%;
-  margin-left: -5%;
+  max-width: 100%;
   padding: 20px 0;
+}
+.slider > div > div {
+  padding: 50px 0;
+  width: 100%;
+}
+.slider > div > div > div > div {
+  width: 100%;
+  margin: 0px 5px;
+}
+@media screen and (max-width: 1030px) {
+  .slider > div > div > div > div {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1030px) {
+  .slider > div > div > div > div > div {
+    margin: 2px;
+    width: 250px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1030px) and (max-width: 600px) {
+  .slider > div > div > div > div > div {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .slider > div > div > div > div > div > div {
+    margin: 0 20px;
+  }
 }

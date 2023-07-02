@@ -1,10 +1,20 @@
 .container {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+}
+@media screen and (max-width: 1240px) {
+  .container {
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 0px;
+  }
 }
 .standart_headers {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
 }

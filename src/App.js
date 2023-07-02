@@ -8,7 +8,6 @@ import { LoginPage } from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ReadingNow from "./pages/ReadingNow/ReadingNow";
 import UsersPage from "./pages/UsersPage/UsersPage";
-import AboutSite from "./pages/AboutSite/AboutSite";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -27,12 +26,10 @@ function App() {
     // Если есть сохраненное время начала таймера и время не истекло
     if (startTimestamp && currentTime - startTimestamp < intervalTime) {
       const remainingTime = intervalTime - (currentTime - startTimestamp);
-
       const interval = setInterval(() => {
         dispatch(updateTokens());
         console.log("Функция срабатывает каждые 9 минут");
       }, remainingTime);
-
       return () => {
         clearInterval(interval);
       };
@@ -62,7 +59,6 @@ function App() {
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
-      {/* <Route path="/aboutsite" element={<AboutSite />} /> */}
       <Route path="/setting_users" element={<SettingUserPage />} />
       <Route path="/registration_active" element={<ActiveUserPage />} />
       <Route path="*" element={<NotFound />} />

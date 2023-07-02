@@ -15,7 +15,7 @@ const DetailedWritersPage = () => {
   useEffect(() => {
     dispatch(sendRequestDetailedWriters(id));
   }, []);
-  console.log(infoEveryWriters);
+  // console.log(infoEveryWriters);
   return (
     <>
       {preloader ? (

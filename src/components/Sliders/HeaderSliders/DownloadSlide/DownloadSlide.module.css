@@ -43,11 +43,21 @@
 .parent_download .child_imgs_download > div:nth-child(1) {
   margin-right: -50px;
 }
+@media screen and (max-width: 1110px) {
+  .parent_download .child_imgs_download > div:nth-child(1) {
+    display: none;
+  }
+}
 .parent_download .child_imgs_download > div:nth-child(2) {
   z-index: 1;
 }
 .parent_download .child_imgs_download > div:nth-child(3) {
   margin-left: -50px;
+}
+@media screen and (max-width: 1110px) {
+  .parent_download .child_imgs_download > div:nth-child(3) {
+    display: none;
+  }
 }
 .parent_download .child_text_download p {
   font-family: "Roboto";

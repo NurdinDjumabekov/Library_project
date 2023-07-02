@@ -1,5 +1,5 @@
 .parent_theBest
-    padding: 50px 0px
+    padding: 50px 0px 0px 0px
     .child_theBest
         .mainText_theBest
             text-align: center
@@ -11,6 +11,12 @@
                 font-size: 60px
                 line-height: 125.3%
                 color: #000000
+                @media screen and ( max-width: 1000px )
+                    font-size: 35px
+                    @media screen and ( max-width: 600px )
+                        font-size: 25px
+                        @media screen and ( max-width: 400px )
+                            font-size: 20px
             h2::first-letter
                 font-family: 'Pacifico'
                 font-style: normal
@@ -19,5 +25,12 @@
                 line-height: 125.3%
                 letter-spacing: 10px
                 color: #FF4004
+                @media screen and ( max-width: 1000px )
+                    font-size: 65px 
+                    @media screen and ( max-width: 600px )
+                        font-size: 45px
+                        @media screen and ( max-width: 400px )
+                            font-size: 30px
+                    
 
 

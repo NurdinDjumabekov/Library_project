@@ -21,13 +21,13 @@ const MainPage = () => {
     window.scrollTo(0, 0);
     dispatch(requestNovetlyWorks());
     dispatch(changePreloader(false));
-  }, []);
+  }, []); 
   return (
     <>
       {preloader ? (
         <Preloader />
       ) : (
-        <div>
+        <div className={styles.inner_wrapper}>
           <HeaderMain />
           <Novelties />
           <ManasPart />

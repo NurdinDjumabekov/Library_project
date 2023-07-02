@@ -5,7 +5,7 @@ import NavMenu from "../../NavMenu/NavMenu";
 
 const Layout = () => {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <NavMenu />
       <Outlet />
       <Footer />

@@ -30,10 +30,15 @@ const ManasPart = () => {
             <div>
               <img src={manas_book} alt="manas_book" />
             </div>
-            <p>
-              Начните изучать и читать с легендарного , самого большого в мире
-              эпоса - “<span>МАНАС</span>”
-            </p>
+            <div>
+              <p>
+                Начните изучать и читать с легендарного , самого большого в мире
+                эпоса - “<span>МАНАС</span>”
+              </p>
+              <button>
+                <NavLink to={"/"}>Подробнее</NavLink>
+              </button>
+            </div>
           </div>
           <button>
             <NavLink to={"/"}>Подробнее</NavLink>

@@ -31,21 +31,20 @@ export const sendRequestEditUserPhoto = createAsyncThunk(
     }
   }
 );
-
 ///////////////////////////////////////////////////////
-export const toTakeDataUsers = createAsyncThunk(
-  "toTakeDataUsers",
-  async (dataUsers, { dispatch }) => {
-    try {
-      const { data } = await axios.get(
-        "https://648719b3beba6297278fed86.mockapi.io/aizh"
-      );
-      dispatch(toTakeDataUsersRd(data));
-    } catch {
-      console.log("error toTakeDataUsers");
-    }
-  }
-);
+// export const toTakeDataUsers = createAsyncThunk(
+//   "toTakeDataUsers",
+//   async (dataUsers, { dispatch }) => {
+//     try {
+//       const { data } = await axios.get(
+//         "https://648719b3beba6297278fed86.mockapi.io/aizh"
+//       );
+//       dispatch(toTakeDataUsersRd(data));
+//     } catch {
+//       console.log("error toTakeDataUsers");
+//     }
+//   }
+// );
 ///////////////////////////////////////////////////////
 
 export const repeatSendRequestMessageEmail = createAsyncThunk(
@@ -166,7 +165,6 @@ export const repeatSendSMSActivation = createAsyncThunk(
     }
   }
 );
-
 export const sendRequestAcResetCode = createAsyncThunk(
   "sendRequestAcResetCode",
   async (info, { dispatch }) => {
@@ -180,6 +178,22 @@ export const sendRequestAcResetCode = createAsyncThunk(
       });
     } catch (error) {
       console.log(error, "error sendRequestAcResetCode");
+    }
+  }
+);
+export const resetPassword = createAsyncThunk(
+  "resetPassword",
+  async (info, { dispatch }) => {
+    try {
+      await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/users/password_recovery/",
+        data: {
+          email: info.email,
+        },
+      });
+    } catch (error) {
+      console.log(error, "error resetPassword");
     }
   }
 );

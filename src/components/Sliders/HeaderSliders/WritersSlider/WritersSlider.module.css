@@ -86,6 +86,8 @@
   line-height: 17px;
   color: #232323;
   margin-bottom: 5px;
+  overflow: hidden;
+  max-height: 35px;
 }
 .parent_ourWriters > div:nth-child(2) > div > div .inner_text_ourWriters p {
   font-family: "Roboto";

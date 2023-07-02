@@ -1,6 +1,8 @@
 .parent_writers
     padding: 10px 0px
     background: #e2dddd
+    > div
+        width: 100%
     .child_writers
         cursor: pointer
         padding: 20px 0 0 0
@@ -12,6 +14,8 @@
             line-height: 125.3%
             color: #000000
             text-align: center
+            @media screen and ( max-width: 600px )
+                font-size: 25px
         h3::first-letter 
             font-family: 'Pacifico'
             font-style: normal
@@ -20,6 +24,8 @@
             line-height: 125.3%
             letter-spacing: 7px
             color: #FF4004
+            @media screen and ( max-width: 600px )
+                font-size: 45px
         .header_text_writers
             display: flex
             align-items: flex-end
@@ -43,27 +49,26 @@
             margin: 30px 0 80px 0
             background: #fff
             // background: #e2dddd
-            padding: 50px 25px 20px
+            padding: 50px 25px 50px
             border-radius: 15px
             box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.25)
-            h3
-                font-family: 'Roboto'
-                font-style: normal
-                font-weight: 500
-                font-size: 60px
-                line-height: 125.3%
-                color: #000000
-                text-align: center
-                margin-bottom: 50px
-            h3::first-letter 
-                font-family: 'Pacifico'
-                font-style: normal
-                font-weight: 400
-                font-size: 60px
-                line-height: 125.3%
-                letter-spacing: 7px
-                color: #FF4004
-                // margin-right: 8px
+            @media screen and ( max-width: 900px )
+                padding: 30px 10px
+                @media screen and ( max-width: 500px )
+                    width: 90%
+                    margin: 30px auto 
+                    padding: 20px 15px 10px
+            // > div
+            //     background: green
+            //     padding: 0
+            //     > div
+            //         background: blue
+            //         padding: 0
+            //         margin: 0
+            //         > div
+            //             margin: 0
+            //             > div
+            //                 margin: 0
             .child_sliderWriters
                 width: 75%
                 margin: 10px
@@ -71,62 +76,106 @@
                 gap: 30px
                 align-items: center
                 margin: 0 auto
-                > div
+                @media screen and ( max-width: 1200px )
+                    width: 100%
+                .img_writers
                     width: 350px
                     height: 350px
                     border-radius: 10px
                     overflow: hidden
+                    @media screen and ( max-width: 850px )
+                        width: 350px
+                        height: 250px
+                        @media screen and ( max-width: 600px )
+                            display: none
                     img
                         width: 100%
                         height: 100%
                         border-radius: 10px
                         object-fit: cover
                         object-position: top
-            .moreText_Slider
-                width: 580px
-                div
-                    margin-bottom: 8px
-                h4
-                    font-weight: 500
-                    font-size: 20px
-                    line-height: 125.3%
-                    color: #000000
-                    display: inline
-                    margin-right: 8px
-                p
-                    width: 380px
-                    font-weight: 400
-                    font-size: 18px
-                    line-height: 27px
-                    color: #000000
-                    // height: 150px
-                    display: inline
-                div:nth-child(1)
-                    height: 85px
-                    overflow: hidden 
-                    text-overflow: ellipsis
-                    // white-space: nowrap
-                div:nth-child(2)
-                    height: 110px
-                    overflow: hidden 
-                    text-overflow: ellipsis
-                    // white-space: nowrap
-                div:nth-child(3)
-                    height: 80px
-                    overflow: hidden 
-                    text-overflow: ellipsis
-                    // white-space: nowrap
-                    span
+                > div
+                    width: 580px
+                    h2
                         color: #000
+                        font-family: Roboto
+                        font-size: 24px
+                        font-weight: 500
+                        line-height: 30px
+                        letter-spacing: 0em
+                        text-align: left
+                        margin: 0 0 20px 0
+                        @media screen and ( max-width: 850px )
+                            font-size: 18px
+                            margin: 0 0 10px 0
+                            @media screen and ( max-width: 750px )
+                                font-size: 12px
+                    .moreText_Slider
+                        // background: gray
+                        width: 100%
+                        height: 100%
+                        div
+                            margin-bottom: 8px
+                        h4
+                            font-weight: 500
+                            font-size: 20px
+                            line-height: 125.3%
+                            color: #000000
+                            display: inline
+                            margin-right: 8px
+                            @media screen and ( max-width: 850px )
+                                font-size: 15px
+                                @media screen and ( max-width: 750px )
+                                    font-size: 10px
+                        p
+                            width: 380px
+                            font-weight: 400
+                            font-size: 18px
+                            line-height: 27px
+                            color: #000000
+                            display: inline
+                            @media screen and ( max-width: 850px )
+                                font-size: 15px
+                                @media screen and ( max-width: 750px )
+                                    font-size: 10px
+                        div:nth-child(1)
+                            max-height: 85px
+                            overflow: hidden 
+                            text-overflow: ellipsis
+                            // white-space: nowrap
+                        div:nth-child(2)
+                            max-height: 110px
+                            overflow: hidden 
+                            text-overflow: ellipsis
+                            // white-space: nowrap
+                        div:nth-child(3)
+                            max-height: 80px
+                            overflow: hidden 
+                            text-overflow: ellipsis
+                            // white-space: nowrap
+                            span
+                                color: #000
+                                @media screen and ( max-width: 750px )
+                                        font-size: 12px
+                        a
+                            button
+                                color: white
+                                background: #FF4004
+                                padding: 10px 65px
+                                border: none
+                                border-radius: 10px
+                                cursor: pointer
+                                font-weight: 400
+                                font-size: 23px
+                                line-height: 32px
+                                margin: 20px 0 0 0
+                                @media screen and ( max-width: 900px )
+                                    padding: 5px 20px
+                                    font-size: 18px
+                                    margin: 10px 0 0 0 
+                                    @media screen and ( max-width: 750px )
+                                        font-size: 12px
+                                        padding: 2px 10px
+                                    
 
-        .block_for_btnSlider
-            text-align: right
-            padding: 10px 140px
-            button
-                color: white
-                background: #FF4004
-                padding: 15px 45px
-                border: none
-                border-radius: 10px
-                cursor: pointer
 

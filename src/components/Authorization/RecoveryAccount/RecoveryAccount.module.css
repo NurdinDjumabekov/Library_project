@@ -38,11 +38,11 @@
           justify-content: center;
   z-index: 0;
 }
-.parentBlock_recovery form p {
+.parentBlock_recovery form .text_recovery {
   text-align: left;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 44px;
+  font-size: 15px;
+  line-height: 14px;
   color: #2A2A2A;
 }
 .parentBlock_recovery form button {
@@ -58,4 +58,5 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  margin: 15px 0 0 0;
 }

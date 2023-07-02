@@ -36,7 +36,7 @@ const UserLogin = () => {
 
   return (
     <div className={styles.parent_UserLogin}>
-      {console.log(checkedUser, "checkedUser")}
+      {/* {console.log(checkedUser, "checkedUser")} */}
       {checkedUser ? (
         <NavLink to={"/profile"}>
           {data ? (
