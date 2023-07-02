@@ -24,7 +24,7 @@ const MainRegistration = () => {
     lookBtnEye: false,
     lookBtnEyeRepeat: false,
   });
-  console.log(disable.lookBtnEyeRepeat, "lookBtnEyeRepeat");
+  // console.log(disable.lookBtnEyeRepeat, "lookBtnEyeRepeat");
   const [sendError, setSendError] = useState({
     sendErrorEmail: false,
     sendErrorPassword: false,
@@ -53,7 +53,6 @@ const MainRegistration = () => {
     } else if (password.passwordMain.length !== 0) {
       setPasswordHave({ level: true });
       setDisable((info) => ({ ...info, lookBtnEye: true }));
-
       if (
         password.passwordMain.length >= 8 &&
         numRegExp.test(password.passwordMain) &&
@@ -108,7 +107,7 @@ const MainRegistration = () => {
           re_password: password.passwordRepeat,
         },
       });
-      console.log(data, "sendRequestRegistration");
+      // console.log(data, "sendRequestRegistration");
       navigate("/registration_active");
       localStorage.setItem("temporaryEmail", email);
       localStorage.setItem("temporaryPassword", password.passwordMain);
@@ -117,7 +116,6 @@ const MainRegistration = () => {
       }, 1500);
     } catch (error) {
       dispatch(changePreloader(false));
-
       if (
         error.response.data.email &&
         error.response.data.email[0] === "user with this email already exists."
@@ -133,33 +131,33 @@ const MainRegistration = () => {
   const regExpCheckFN = (e) => {
     e.preventDefault();
     if (gmailRegExp_1.test(email)) {
-      console.log(email);
+      // console.log(email);
       if (
         password.passwordMain.length >= 8 &&
         symboltRegExp.test(password.passwordMain) &&
         numRegExp.test(password.passwordMain) &&
         textRegExp.test(password.passwordMain)
       ) {
-        console.log(password.passwordMain);
+        // console.log(password.passwordMain);
         if (password.passwordMain === password.passwordRepeat) {
           console.log("Пароли похожи");
           sendRequestRegistration();
         } else {
-          console.log("Пароли не похожи");
+          // console.log("Пароли не похожи");
           setSendError({ sendErrorPassword_repeat: true });
           setTimeout(() => {
             setSendError({ sendErrorPassword_repeat: false });
           }, 2000);
         }
       } else {
-        console.log("password error!!");
+        // console.log("password error!!");
         setSendError({ sendErrorPassword: true });
         setTimeout(() => {
           setSendError({ sendErrorPassword: false });
         }, 2000);
       }
     } else {
-      console.log("некорректные данные");
+      // console.log("некорректные данные");
       setSendError({ sendErrorEmail: true });
       setTimeout(() => {
         setSendError({ sendErrorEmail: false });
@@ -189,14 +187,15 @@ const MainRegistration = () => {
   };
   useEffect(() => {
     document.body.addEventListener("click", removeLevelInfo);
+    dispatch(changePreloader(false));
   }, []);
-  useEffect(() => {
-    if (password.passwordMain === password.passwordRepeat) {
-      console.log("goooo");
-    } else if (password.passwordMain !== password.passwordRepeat) {
-      console.log("noooo");
-    }
-  }, [password.passwordRepeat]);
+  // useEffect(() => {
+  //   if (password.passwordMain === password.passwordRepeat) {
+  //     console.log("goooo");
+  //   } else if (password.passwordMain !== password.passwordRepeat) {
+  //     console.log("noooo");
+  //   }
+  // }, [password.passwordRepeat]);
   return (
     <>
       {preloader ? (
@@ -210,6 +209,7 @@ const MainRegistration = () => {
               placeholder="E-mail"
               required
               className={styles.registration_Email}
+              name="nn"
             />
             {sendError.sendErrorEmail && (
               <label
@@ -285,7 +285,10 @@ const MainRegistration = () => {
               <input
                 type="checkbox"
                 onClick={() =>
-                  setDisable({ checkOutBtn: !disable.checkOutBtn })
+                  setDisable((info) => ({
+                    ...info,
+                    checkOutBtn: !disable.checkOutBtn,
+                  }))
                 }
               />
               <label>

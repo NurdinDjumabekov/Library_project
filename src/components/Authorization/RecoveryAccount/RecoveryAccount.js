@@ -6,7 +6,8 @@ const RecoveryAccount = ({ setRestore }) => {
     email: "",
     password: "",
   });
-  console.log(data);
+
+  // console.log(data);
   return (
     <div className={styles.parentBlock_recovery}>
       <form action="">

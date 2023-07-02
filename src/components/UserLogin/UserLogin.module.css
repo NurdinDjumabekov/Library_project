@@ -14,7 +14,7 @@
   line-height: 125.3%;
   color: #7C7C7C;
 }
-.parent_UserLogin > div {
+.parent_UserLogin a > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,22 +25,32 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0 5px 0 0;
+  cursor: pointer;
 }
-.parent_UserLogin > div p {
+.parent_UserLogin a > div p {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 125%;
   color: #2A2A2A;
+  width: 110px;
+  height: 25px;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  text-align: right;
 }
-.parent_UserLogin > div > div {
+.parent_UserLogin a > div > div {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 1px solid black;
 }
-.parent_UserLogin > div > div img {
+.parent_UserLogin a > div > div img {
   width: 100%;
   height: 100%;
   border-radius: 50%;

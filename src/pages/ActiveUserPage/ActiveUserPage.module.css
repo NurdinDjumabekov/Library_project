@@ -137,7 +137,7 @@
 }
 .parent_login .child_login .child_login_left form {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .parent_login .child_login .child_login_left form input {
   text-align: center;
@@ -171,6 +171,23 @@
   background-color: #FF4004;
   border-radius: 8px;
   border: none;
+  cursor: pointer;
+}
+.parent_login .child_login .child_login_left form .error_notSMS {
+  color: red;
+  font-weight: 500;
+  font-size: 20px;
+}
+.parent_login .child_login .child_login_left .repeatSMS {
+  color: #7C7C7C;
+  font-size: 18px;
+}
+.parent_login .child_login .child_login_left .repeatSMS button {
+  color: #FF4004;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  margin: 0 0 0 5px;
   cursor: pointer;
 }
 .parent_login .child_login .child_login_right {

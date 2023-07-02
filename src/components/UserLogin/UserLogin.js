@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./UserLogin.module.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   changeCheckedUser,
   sendRequestDataEveryUser,
@@ -30,26 +30,47 @@ const UserLogin = () => {
     }
     // console.log(localStorage.getItem("dataUser"));
   }, [preloader]);
+
+  const { stateFake } = useSelector((state) => state.usersStateSlice);
+  // console.log(stateFake?.img);
+
   return (
     <div className={styles.parent_UserLogin}>
+      {console.log(checkedUser, "checkedUser")}
       {checkedUser ? (
-        <>
+        <NavLink to={"/profile"}>
           {data ? (
             <div>
-              <p>{data?.username}</p>
+              <p>{stateFake?.name === "" ? data?.username : stateFake?.name}</p>
               <div>
-                <img src={data?.user_photo} alt="user" />
+                <img
+                  src={
+                    stateFake?.img === "" ? data?.user_photo : stateFake?.img
+                  }
+                  alt="user"
+                />
               </div>
             </div>
           ) : (
             <div>
-              <p>{dataEveryUser?.username}</p>
+              <p>
+                {stateFake?.name === ""
+                  ? dataEveryUser?.username
+                  : stateFake?.name}
+              </p>
               <div>
-                <img src={dataEveryUser?.user_photo} alt="user" />
+                <img
+                  src={
+                    stateFake?.img === ""
+                      ? dataEveryUser?.user_photo
+                      : stateFake?.img
+                  }
+                  alt="user"
+                />
               </div>
             </div>
           )}
-        </>
+        </NavLink>
       ) : (
         <button onClick={addBtnLogin}>Вход</button>
       )}

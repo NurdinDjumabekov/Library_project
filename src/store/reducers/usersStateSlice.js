@@ -1,13 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import changePassword from "../../helpers/changePassword";
 
 const initialState = {
   choiceUserBook: "favorite",
   dataFavotitesBook: [],
   preloader: true,
   checkedUser: false,
-  dataEveryUser: [],
+  dataEveryUser: {}, // {}
   readingNowBookUser: [],
+  singlePassword: "",
+  stateFake: {
+    img: "",
+    name: "",
+    password: "",
+    email: "",
+  },
 };
 
 export const sendRequestAllDataUser = createAsyncThunk(
@@ -46,6 +54,8 @@ export const sendRequestDataEveryUser = createAsyncThunk(
       });
       localStorage.setItem("dataUser", JSON.stringify(data));
       dispatch(toTakeDataEveryUser(data));
+      dispatch(toTakePassword(data.password));
+      // console.log(data);
     } catch (error) {
       console.log(error, "error sendRequestDataEveryUser");
       // localStorage.removeItem("access");
@@ -130,6 +140,9 @@ const usersStateSlice = createSlice({
     changeReadingNowBookUser: (state, action) => {
       state.readingNowBookUser = action.payload;
     },
+    toTakePassword: (state, action) => {
+      state.singlePassword = changePassword(action.payload);
+    },
     deleteBooksFavorites: (state, action) => {
       return {
         ...state,
@@ -137,6 +150,48 @@ const usersStateSlice = createSlice({
           (item) => item.id !== action.payload
         ),
       };
+    },
+    changeFakeData: (state, action) => {
+      switch (action.payload.type) {
+        case 1:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              name: action.payload.name,
+            },
+          };
+          break;
+        case 3:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              email: action.payload.email,
+            },
+          };
+          break;
+        case 4:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              password: changePassword(action.payload.password),
+            },
+          };
+          break;
+        case 5:
+          return {
+            ...state,
+            stateFake: {
+              ...state.stateFake,
+              img: action.payload.img,
+            },
+          };
+          break;
+        default:
+          break;
+      }
     },
   },
 });
@@ -148,6 +203,8 @@ export const {
   changeCheckedUser,
   toTakeDataEveryUser,
   changeReadingNowBookUser,
+  toTakePassword,
   deleteBooksFavorites,
+  changeFakeData,
 } = usersStateSlice.actions;
 export default usersStateSlice.reducer;

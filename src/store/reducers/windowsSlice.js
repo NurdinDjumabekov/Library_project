@@ -9,7 +9,28 @@ const initialState = {
   difficultPassword_text: "Слабый пароль",
   dataUsers: [],
   preloader: false,
+  goodChangeData: false,
 };
+export const sendRequestEditUserPhoto = createAsyncThunk(
+  "sendRequestEditUserPhoto",
+  async (img, { dispatch }) => {
+    console.log(img);
+    const formData = new FormData();
+    formData.append("user_photo", img);
+    try {
+      await axios({
+        method: "PATCH",
+        url: "https://kitepkana1.pythonanywhere.com/auth/profile/",
+        data: formData,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+    } catch (error) {
+      console.log(error, "sendRequestEditUserPhoto");
+    }
+  }
+);
 
 ///////////////////////////////////////////////////////
 export const toTakeDataUsers = createAsyncThunk(
@@ -80,8 +101,13 @@ export const changeDataUser = createAsyncThunk(
             Authorization: `JWT ${localStorage.getItem("access")}`,
           },
         });
-      }
-      if (info.type === 3) {
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(false));
+        }, 2000);
+      } else if (info.type === 3) {
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(true));
+        }, 500);
         await axios({
           method: "POST",
           url: "https://kitepkana1.pythonanywhere.com/auth/users/set_email/",
@@ -93,13 +119,70 @@ export const changeDataUser = createAsyncThunk(
             Authorization: `JWT ${localStorage.getItem("access")}`,
           },
         });
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(false));
+        }, 2000);
+      } else if (info.type === 4) {
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(true));
+        }, 500);
+        await axios({
+          method: "POST",
+          url: "https://kitepkana1.pythonanywhere.com/auth/users/set_password/",
+          data: {
+            new_password: info.change.new_password,
+            re_new_password: info.change.repeatNew_password,
+            current_password: info.change.password,
+          },
+          headers: {
+            Authorization: `JWT ${localStorage.getItem("access")}`,
+          },
+        });
+        setTimeout(() => {
+          dispatch(goodChangeDataRd(false));
+        }, 2000);
       }
     } catch (error) {
       console.log(error, "error changeDataUser");
+      setTimeout(() => {
+        dispatch(goodChangeDataRd(false));
+      }, 2000);
+    }
+  }
+);
+export const repeatSendSMSActivation = createAsyncThunk(
+  "repeatSendSMSActivation",
+  async (info, { dispatch }) => {
+    try {
+      await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/users/resend_activation/",
+        data: {
+          email: localStorage.getItem("temporaryEmail"),
+        },
+      });
+    } catch (error) {
+      console.log(error, "error repeatSendSMSActivation");
     }
   }
 );
 
+export const sendRequestAcResetCode = createAsyncThunk(
+  "sendRequestAcResetCode",
+  async (info, { dispatch }) => {
+    try {
+      await axios({
+        method: "POST",
+        url: "https://kitepkana1.pythonanywhere.com/auth/users/resend_activation/",
+        data: {
+          email: localStorage.getItem("temporaryEmail"),
+        },
+      });
+    } catch (error) {
+      console.log(error, "error sendRequestAcResetCode");
+    }
+  }
+);
 const windowsSlice = createSlice({
   name: "windowsSlice",
   initialState,
@@ -114,6 +197,9 @@ const windowsSlice = createSlice({
     toTakeDataUsersRd: (state, action) => {
       state.dataUsers = action.payload;
     },
+    goodChangeDataRd: (state, action) => {
+      state.goodChangeData = action.payload;
+    },
     changePreloader: (state, action) => {
       state.preloader = action.payload;
     },
@@ -124,6 +210,7 @@ export const {
   changeDifficultPassword,
   changeDifficultPassword_text,
   toTakeDataUsersRd,
+  goodChangeDataRd,
   changePreloader,
 } = windowsSlice.actions;
 export default windowsSlice.reducer;

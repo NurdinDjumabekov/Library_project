@@ -54,10 +54,12 @@ const NavMenu = () => {
       <div className="container">
         <div className={styles.child_navMenu}>
           <div className={styles.mainLogo}>
-            <div>
-              <img src={navLogo} alt="navLogo" />
-            </div>
-            <h1>Muras</h1>
+            <NavLink to={"/"}>
+              <div>
+                <img src={navLogo} alt="navLogo" />
+              </div>
+              <h1>Muras</h1>
+            </NavLink>
           </div>
           <div className={styles.mainMenu}>
             <ul>

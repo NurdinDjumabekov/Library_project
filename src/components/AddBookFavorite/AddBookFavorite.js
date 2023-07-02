@@ -2,34 +2,37 @@ import React, { useEffect, useState } from "react";
 import styles from "./AddBookFavorite.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sendFavotiteBookUsers } from "../../store/reducers/sendRequestEveryBookSlice";
-import { sendRequestDataEveryUser } from "../../store/reducers/usersStateSlice";
+import {
+  sendRequestAllDataUser,
+  sendRequestDataEveryUser,
+} from "../../store/reducers/usersStateSlice";
 import { changeStateBtns } from "../../store/reducers/sendRequestLibraryPageSlice";
 
-const AddBookFavorite = ({ id, fakeId, arr, setArr }) => {
+const AddBookFavorite = ({ id, arr, setArr }) => {
+  const [data, setData] = useState(arr);
   const dispatch = useDispatch();
   const { stateBtn } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
   const [activeBtn, setActiveBtn] = useState(true);
-  // console.log(fakeId, "fakeId");
   // console.log(id, "id");
   const sendRequestFavoriteBook = (state) => {
+    dispatch(sendRequestAllDataUser("favorite"));
     setActiveBtn(!activeBtn);
     dispatch(changeStateBtns(!stateBtn));
     if (state === "DELETE") {
       dispatch(sendFavotiteBookUsers({ choice: "DELETE", id: id }));
-      setArr(arr.filter((item) => item === id));
-    } else if (state === "POST") {
+      const info = data.filter((i) => i !== id);
+      setData([...info]);
+    } else {
       dispatch(sendFavotiteBookUsers({ choice: "POST", id: id }));
-      arr.push(id);
-      setArr([...arr, id]);
+      setData([...data, id]);
     }
   };
-  // console.log(arr, "run555");
-
   return (
     <div className={styles.parent_addFavorite}>
-      {arr.includes(id) ? (
+      {/* {console.log(data)} */}
+      {data?.includes(id) ? (
         <>
           <button onClick={() => sendRequestFavoriteBook("DELETE")}>
             <svg
