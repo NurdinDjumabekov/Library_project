@@ -32,7 +32,6 @@ const UserLogin = () => {
   }, [preloader]);
 
   const { stateFake } = useSelector((state) => state.usersStateSlice);
-  // console.log(stateFake?.img);
 
   return (
     <div className={styles.parent_UserLogin}>

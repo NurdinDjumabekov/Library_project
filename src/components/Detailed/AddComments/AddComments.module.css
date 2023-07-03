@@ -1,3 +1,8 @@
+@media screen and (max-width: 650px) {
+  .parent_addComments > div {
+    padding: 0;
+  }
+}
 .parent_addComments .child_addComments {
   background: #fff;
   -webkit-box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
@@ -5,6 +10,18 @@
   border-radius: 10px;
   padding: 47px 94px;
   cursor: pointer;
+}
+@media screen and (max-width: 730px) {
+  .parent_addComments .child_addComments {
+    padding: 27px 40px;
+  }
+}
+@media screen and (max-width: 730px) and (max-width: 550px) {
+  .parent_addComments .child_addComments {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
 }
 .parent_addComments .child_addComments > div {
   display: -webkit-box;
@@ -16,6 +33,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+@media screen and (max-width: 1080px) {
+  .parent_addComments .child_addComments > div {
+    display: block;
+  }
 }
 .parent_addComments .child_addComments > div > div:nth-child(1) {
   max-width: 350px;
@@ -32,6 +54,12 @@
   height: 80px;
   border-radius: 50%;
   border: 1px solid black;
+}
+@media screen and (max-width: 500px) {
+  .parent_addComments .child_addComments > div > div:nth-child(1) > div:nth-child(1) {
+    width: 50px;
+    height: 50px;
+  }
 }
 .parent_addComments .child_addComments > div > div:nth-child(1) > div:nth-child(1) img {
   -o-object-fit: cover;
@@ -51,6 +79,17 @@
   color: #2A2A2A;
   text-align: left;
 }
+@media screen and (max-width: 550px) {
+  .parent_addComments .child_addComments > div > div:nth-child(1) > div:nth-child(2) p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+    height: 30px;
+    bottom: 0;
+    line-height: 30px;
+    font-size: 20px;
+  }
+}
 .parent_addComments .child_addComments > div > div:nth-child(1) > div:nth-child(2) span {
   font-family: "Roboto";
   font-style: normal;
@@ -58,6 +97,11 @@
   font-size: 14px;
   line-height: 1px;
   color: #7C7C7C;
+}
+@media screen and (max-width: 550px) {
+  .parent_addComments .child_addComments > div > div:nth-child(1) > div:nth-child(2) span {
+    display: none;
+  }
 }
 .parent_addComments .child_addComments > div div:nth-child(2) p {
   font-family: "Roboto";
@@ -68,6 +112,23 @@
   color: #2A2A2A;
   margin: 0 0 15px 0;
   text-align: center;
+}
+@media screen and (max-width: 1080px) {
+  .parent_addComments .child_addComments > div div:nth-child(2) p {
+    text-align: left;
+    margin: 5px 0;
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1080px) and (max-width: 650px) {
+  .parent_addComments .child_addComments > div div:nth-child(2) p {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1080px) and (max-width: 650px) and (max-width: 500px) {
+  .parent_addComments .child_addComments > div div:nth-child(2) p {
+    font-size: 20px;
+  }
 }
 .parent_addComments .child_addComments > div div:nth-child(2) > div {
   display: -webkit-box;
@@ -83,6 +144,10 @@
   border: none;
   cursor: pointer;
 }
+.parent_addComments .child_addComments > div div:nth-child(2) > div button > svg {
+  width: 25px;
+  height: 25px;
+}
 .parent_addComments .child_addComments form {
   margin: 30px 0 0 0;
   width: 100%;
@@ -95,6 +160,16 @@
   font-size: 30px;
   padding: 10px 10px;
   resize: none;
+}
+@media screen and (max-width: 700px) {
+  .parent_addComments .child_addComments form textarea {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 700px) and (max-width: 500px) {
+  .parent_addComments .child_addComments form textarea {
+    height: 150px;
+  }
 }
 .parent_addComments .child_addComments form textarea::-webkit-input-placeholder {
   font-size: 36px;
@@ -111,6 +186,23 @@
 .parent_addComments .child_addComments form textarea::placeholder {
   font-size: 36px;
 }
+@media screen and (max-width: 700px) {
+  .parent_addComments .child_addComments form textarea::-webkit-input-placeholder {
+    font-size: 20px;
+  }
+  .parent_addComments .child_addComments form textarea::-moz-placeholder {
+    font-size: 20px;
+  }
+  .parent_addComments .child_addComments form textarea:-ms-input-placeholder {
+    font-size: 20px;
+  }
+  .parent_addComments .child_addComments form textarea::-ms-input-placeholder {
+    font-size: 20px;
+  }
+  .parent_addComments .child_addComments form textarea::placeholder {
+    font-size: 20px;
+  }
+}
 .parent_addComments .child_addComments form > button {
   display: inline-block;
   margin: 20px 0 0 0;
@@ -124,6 +216,19 @@
   font-family: "Roboto";
   font-style: normal;
   cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .parent_addComments .child_addComments form > button {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 600px) and (max-width: 500px) {
+  .parent_addComments .child_addComments form > button {
+    font-size: 15px;
+    font-weight: 400;
+    padding: 5px 20px;
+  }
 }
 .parent_addComments .child_addComments:hover {
   background: #f8f7f7;

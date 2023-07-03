@@ -38,11 +38,6 @@ section .parent_infoBook .textInfoBlock_infoBook {
     width: 60%;
   }
 }
-@media screen and (max-width: 550px) and (max-width: 460px) {
-  section .parent_infoBook .textInfoBlock_infoBook {
-    padding: 30px 0 0 0;
-  }
-}
 section .parent_infoBook .textInfoBlock_infoBook > div {
   width: 100%;
   display: -webkit-box;
@@ -75,7 +70,7 @@ section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_i
 }
 @media screen and (max-width: 800px) and (max-width: 450px) {
   section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h4 {
-    width: 90%;
+    width: 80%;
   }
 }
 section .parent_infoBook .textInfoBlock_infoBook > div .textInfoBlock_infoBook_inner h5 {
@@ -155,5 +150,16 @@ section .parent_infoBook .textInfoBlock_infoBook > p {
 @media screen and (max-width: 800px) and (max-width: 460px) {
   section .parent_infoBook .textInfoBlock_infoBook > p {
     display: none;
+  }
+}
+section .add_likes {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+@media screen and (max-width: 450px) {
+  section .add_likes {
+    top: 8px;
+    right: 10px;
   }
 }

@@ -18,14 +18,12 @@ const Novelties = () => {
 
   return (
     <div className={styles.parent_novelties}>
-      {/* <div className="container"> */}
       <div className={styles.child_novelties}>
         <div className={styles.mainText_novelties}>
           <h2>Новинки</h2>
         </div>
         <SlidersMainPage data={dataNoveltyWork} />
       </div>
-      {/* </div> */}
     </div>
   );
 };

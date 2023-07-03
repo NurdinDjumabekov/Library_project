@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SlidersMainPageInner.module.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Rating_Star from "../Rating_Star/Rating_Star";
 
 const SlidersMainPageInner = ({ slide }) => {
@@ -27,6 +27,10 @@ const SlidersMainPageInner = ({ slide }) => {
           <button>Читать</button>
         </Link>
       </section>
+      <NavLink
+        to={`/detailed/${slide.id}`}
+        className={styles.modile_version}
+      ></NavLink>
     </div>
   );
 };

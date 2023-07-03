@@ -17,19 +17,19 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
           </div>
           <ul className={styles.child_info_detailed}>
             <li>
-              <h3>Название книги</h3>
+              <h4>Название книги</h4>
               <span>{dataDetailedPage.title}</span>
             </li>
             <li>
-              <h3>Автор</h3>
+              <h4>Автор</h4>
               <span>{dataDetailedPage.author_name}</span>
             </li>
             <li>
-              <h3>Год публикации</h3>
+              <h4>Год публикации</h4>
               <span>1962</span>
             </li>
             <li>
-              <h3>Жанр</h3>
+              <h4>Жанр</h4>
               <>
                 {dataDetailedPage.genre?.map((i, index) => (
                   <span key={index}>{i.genre_name}</span>
@@ -37,7 +37,7 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
               </>
             </li>
             <li>
-              <h3>Рейтинг</h3>
+              <h4>Рейтинг</h4>
               <div className={styles.star_reting}>
                 <Rating_Star grade_star={2} grade={2.6} />
               </div>
@@ -56,15 +56,15 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
             <span>{dataDetailedPage.title}</span>
           </li>
           <li>
-            <h3>Автор: </h3>
+            <h4>Автор: </h4>
             <span>{dataDetailedPage.author_name}</span>
           </li>
           <li>
-            <h3>Год публикации: </h3>
+            <h4>Год публикации: </h4>
             <span>1962</span>
           </li>
           <li>
-            <h3>Жанр: </h3>
+            <h4>Жанр: </h4>
             <>
               {dataDetailedPage.genre?.map((i, index) => (
                 <span key={index}>{i.genre_name}</span>
@@ -72,7 +72,7 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
             </>
           </li>
           <li>
-            <h3>Рейтинг</h3>
+            <h4>Рейтинг</h4>
             <div className={styles.star_reting}>
               <Rating_Star grade_star={2} grade={2.6} />
             </div>

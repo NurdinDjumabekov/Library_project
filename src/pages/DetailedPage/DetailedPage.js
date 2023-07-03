@@ -35,7 +35,7 @@ const DetailedPage = () => {
                   <p>{dataDetailedPage?.summary}</p>
                 </div>
                 <div className={styles.comments_parent}>
-                  <h3>Отзывы</h3>
+                  <h5>Отзывы</h5>
                   <AddComments id={id} dataDetailedPage={dataDetailedPage} />
                   <Comments dataDetailedPage={dataDetailedPage} />
                 </div>

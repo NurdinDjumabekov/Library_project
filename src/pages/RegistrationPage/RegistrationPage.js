@@ -12,7 +12,7 @@ export const RegistrationPage = () => {
       <div className={styles.inner_login_right}>
         <img src={library} alt="" />
       </div>
-      <div className="container">
+      <div className="container_auth">
         <div className={styles.child_login}>
           <div className={styles.child_login_left}>
             <div className={styles.block_logo}>

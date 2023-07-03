@@ -11,7 +11,7 @@ const Comments = ({ dataDetailedPage }) => {
   // }, []);
   // console.log(dataDetailedPage.reviews);
   return (
-    <>
+    <div className={styles.wrapper_comment}>
       <div className="container">
         <div className={styles.parent_comments}>
           {dataDetailedPage?.reviews?.length === 0 ? (
@@ -47,7 +47,7 @@ const Comments = ({ dataDetailedPage }) => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

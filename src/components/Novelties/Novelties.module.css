@@ -6,6 +6,11 @@
     padding: 130px 0px 10px 0;
   }
 }
+@media screen and (max-width: 900px) and (max-width: 550px) {
+  .parent_novelties {
+    padding: 100px 0 10px 0;
+  }
+}
 .parent_novelties .child_novelties .mainText_novelties {
   text-align: center;
   display: -webkit-box;
