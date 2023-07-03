@@ -40,9 +40,6 @@ const ManasPart = () => {
               </button>
             </div>
           </div>
-          <button>
-            <NavLink to={"/"}>Подробнее</NavLink>
-          </button>
         </div>
         <div className={styles.child_manasPart_right}>
           <img src={manas_right} alt="manas_right" />

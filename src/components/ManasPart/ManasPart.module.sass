@@ -8,16 +8,28 @@
         color: #000
         text-align: center
         margin-bottom: 40px
-        @media screen and ( max-width: 900px )
-            font-size: 70px
+        @media screen and ( max-width: 1000px )
+            font-size: 40px
             @media screen and ( max-width: 600px )
-                font-size: 40px
-                letter-spacing: 4px
-
+                font-size: 30px
+                letter-spacing: 2px
+                @media screen and ( max-width: 450px )
+                    font-size: 25px
+                    letter-spacing: -1px
+                    font-weight: 500
     h4::first-letter
         color: #FF4004
         font-family: 'Pacifico'
         font-style: normal
+        @media screen and ( max-width: 1000px )
+            font-size: 60px
+            letter-spacing: 7px 
+            @media screen and ( max-width: 600px )
+                font-size: 40px
+                letter-spacing: 6px 
+                @media screen and ( max-width: 450px )
+                    font-size: 25px
+                    letter-spacing: 2px 
     .child_manasPart
         background-color: #E2E2E2
         display: flex
@@ -95,32 +107,34 @@
                             font-size: 20px
                             @media screen and ( max-width: 600px )
                                 font-size: 12px
+                // button
+                //     // display: none
+                //     @media screen and ( max-width: 800px )
+                //         display: block
+                //         border: none
+                //         background: #FF4004
+                //         padding: 10px 40px
+                //         border-radius: 10px
+                //         display: block
+                //         margin: 58px auto 0
+                //         @media screen and ( max-width: 600px )
+                //             margin: 45px 0 0 0
+                //             padding: 5px 20px
+                //             @media screen and ( max-width: 430px )
+                //                 margin: 30px 0 0 0
+                //                 padding: 5px 10px
+
+
                 button
-                    display: none
+                    background: #FF4004
+                    padding: 8px 50px
+                    border-radius: 10px
+                    display: block
+                    margin: 36px auto 0
+                    font-size: 26px
+                    font-weight: 400
+                    border: none
                     @media screen and ( max-width: 800px )
-                        display: block
-                        border: none
-                        background: #FF4004
-                        padding: 10px 40px
-                        border-radius: 10px
-                        display: block
-                        margin: 58px auto 0
-                        @media screen and ( max-width: 600px )
-                            margin: 45px 0 0 0
-                            padding: 5px 20px
-                            @media screen and ( max-width: 430px )
-                                margin: 30px 0 0 0
-                                padding: 5px 10px
-
-
-            > button
-                border: none
-                background: #FF4004
-                padding: 13px 82px
-                border-radius: 10px
-                display: block
-                margin: 43px auto 0
-                @media screen and ( max-width: 800px )
-                    display: none
+                        display: none
 
      

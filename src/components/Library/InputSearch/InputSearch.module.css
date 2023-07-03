@@ -25,7 +25,7 @@
   border: 2px solid #FF4004;
   width: 720px;
   height: 59px;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px 30px 30px 10px;
   padding: 0 20px;
   font-family: "Roboto";
   font-style: normal;
@@ -37,7 +37,7 @@
 }
 @media screen and (max-width: 1000px) {
   .parentBlock_search form input {
-    width: 500px;
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 1000px) and (max-width: 800px) {
@@ -50,15 +50,8 @@
     border: none;
   }
 }
-@media screen and (max-width: 1000px) and (max-width: 800px) and (max-width: 630px) {
-  .parentBlock_search form input {
-    width: 350px;
-  }
-}
-@media screen and (max-width: 1000px) and (max-width: 800px) and (max-width: 630px) and (max-width: 410px) {
-  .parentBlock_search form input {
-    width: 290px;
-  }
+.parentBlock_search form input:hover {
+  background: #e1dddd;
 }
 .parentBlock_search form .inputSearch:focus {
   border: 2px solid #FF4004;
@@ -76,13 +69,16 @@
   font-size: 28px;
   line-height: 125.3%;
   color: #FFFFFF;
-  height: 60px;
+  height: 59px;
   background-color: #FF4004;
   padding: 0px 34px;
   border-radius: 10px;
-  margin-left: -20px;
   border: none;
   cursor: pointer;
+}
+.parentBlock_search form button:nth-child(2) {
+  position: absolute;
+  right: 0;
 }
 @media screen and (max-width: 800px) {
   .parentBlock_search form button:nth-child(2) {

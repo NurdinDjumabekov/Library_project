@@ -19,9 +19,16 @@
   }
   .mobile_adaptaionBlock > .child_user_userBlock .parent_settingBlock {
     position: absolute;
-    right: -10px;
+    right: 10px;
     top: 120px;
   }
+}
+@media screen and (max-width: 700px) and (max-width: 380px) {
+  .mobile_adaptaionBlock > .child_user_userBlock .parent_settingBlock {
+    right: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
   .mobile_adaptaionBlock > .child_user_userBlock .parent_settingBlock > button {
     background-color: transparent;
     border: none;

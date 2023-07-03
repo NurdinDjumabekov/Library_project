@@ -11,6 +11,9 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
         <div className={styles.child_detailed}>
           <div className={styles.child_img_detailed}>
             <img src={dataDetailedPage.cover} alt="book" />
+            <div className={styles.child_img_detailed_mini}>
+              <img src={dataDetailedPage.cover} alt="book" />
+            </div>
           </div>
           <ul className={styles.child_info_detailed}>
             <li>
@@ -44,6 +47,38 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
             </li>
           </ul>
         </div>
+        {/* ///adaptation/////// */}
+        <ul className={styles.child_info_detailed_mini}>
+          <li>
+            <button>Читать</button>
+          </li>
+          <li>
+            <span>{dataDetailedPage.title}</span>
+          </li>
+          <li>
+            <h3>Автор: </h3>
+            <span>{dataDetailedPage.author_name}</span>
+          </li>
+          <li>
+            <h3>Год публикации: </h3>
+            <span>1962</span>
+          </li>
+          <li>
+            <h3>Жанр: </h3>
+            <>
+              {dataDetailedPage.genre?.map((i, index) => (
+                <span key={index}>{i.genre_name}</span>
+              ))}
+            </>
+          </li>
+          <li>
+            <h3>Рейтинг</h3>
+            <div className={styles.star_reting}>
+              <Rating_Star grade_star={2} grade={2.6} />
+            </div>
+          </li>
+        </ul>
+        {/* ///adaptation/////// */}
       </div>
     </div>
   );

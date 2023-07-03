@@ -10,7 +10,7 @@
           filter: drop-shadow(2px 2px 50px rgba(104, 104, 104, 0.25));
   border-radius: 10px;
   position: sticky;
-  top: 33%;
+  top: 15%;
   overflow: auto;
   height: 328px;
   scrollbar-width: thin;
@@ -40,6 +40,9 @@
 .parent_SortBtns .active_sort {
   color: white;
   background-color: #FF4004;
+}
+.parent_SortBtns button:hover {
+  background: #e4e0e0;
 }
 
 .parent_SortBtns::-webkit-scrollbar {

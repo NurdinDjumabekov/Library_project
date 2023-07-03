@@ -10,21 +10,46 @@
   text-align: center;
   margin-bottom: 40px;
 }
-@media screen and (max-width: 900px) {
-  .parent_manasPart h4 {
-    font-size: 70px;
-  }
-}
-@media screen and (max-width: 900px) and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .parent_manasPart h4 {
     font-size: 40px;
-    letter-spacing: 4px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 600px) {
+  .parent_manasPart h4 {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 600px) and (max-width: 450px) {
+  .parent_manasPart h4 {
+    font-size: 25px;
+    letter-spacing: -1px;
+    font-weight: 500;
   }
 }
 .parent_manasPart h4::first-letter {
   color: #FF4004;
   font-family: "Pacifico";
   font-style: normal;
+}
+@media screen and (max-width: 1000px) {
+  .parent_manasPart h4::first-letter {
+    font-size: 60px;
+    letter-spacing: 7px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 600px) {
+  .parent_manasPart h4::first-letter {
+    font-size: 40px;
+    letter-spacing: 6px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 600px) and (max-width: 450px) {
+  .parent_manasPart h4::first-letter {
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
 }
 .parent_manasPart .child_manasPart {
   background-color: #E2E2E2;
@@ -170,41 +195,17 @@
   }
 }
 .parent_manasPart .child_manasPart .child_manasPart_center > div button {
-  display: none;
-}
-@media screen and (max-width: 800px) {
-  .parent_manasPart .child_manasPart .child_manasPart_center > div button {
-    display: block;
-    border: none;
-    background: #FF4004;
-    padding: 10px 40px;
-    border-radius: 10px;
-    display: block;
-    margin: 58px auto 0;
-  }
-}
-@media screen and (max-width: 800px) and (max-width: 600px) {
-  .parent_manasPart .child_manasPart .child_manasPart_center > div button {
-    margin: 45px 0 0 0;
-    padding: 5px 20px;
-  }
-}
-@media screen and (max-width: 800px) and (max-width: 600px) and (max-width: 430px) {
-  .parent_manasPart .child_manasPart .child_manasPart_center > div button {
-    margin: 30px 0 0 0;
-    padding: 5px 10px;
-  }
-}
-.parent_manasPart .child_manasPart .child_manasPart_center > button {
-  border: none;
   background: #FF4004;
-  padding: 13px 82px;
+  padding: 8px 50px;
   border-radius: 10px;
   display: block;
-  margin: 43px auto 0;
+  margin: 36px auto 0;
+  font-size: 26px;
+  font-weight: 400;
+  border: none;
 }
 @media screen and (max-width: 800px) {
-  .parent_manasPart .child_manasPart .child_manasPart_center > button {
+  .parent_manasPart .child_manasPart .child_manasPart_center > div button {
     display: none;
   }
 }

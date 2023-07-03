@@ -5,8 +5,8 @@
 }
 @media screen and (max-width: 520px) {
   .parent_addFavorite {
-    top: 12px;
-    right: -8px;
+    top: 5px;
+    right: 0px;
   }
 }
 .parent_addFavorite button {

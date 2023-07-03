@@ -3,7 +3,7 @@
 }
 @media screen and (max-width: 500px) {
   .library_parentBlock {
-    padding: 100px 30px;
+    padding: 100px 10px;
   }
 }
 .library_parentBlock .library_childBlock {

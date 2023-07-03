@@ -35,7 +35,6 @@
 }
 @media screen and (max-width: 500px) {
   .parent_favoritesBook > div .child_favorites {
-    gap: 10px;
     padding: 10px;
   }
 }

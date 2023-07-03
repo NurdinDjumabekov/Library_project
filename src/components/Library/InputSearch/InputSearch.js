@@ -26,7 +26,7 @@ const InputSearch = ({ setStateInput }) => {
           name="input"
         />
         <button type="submit">Поиск</button>
-        <button>
+        <button type="submit">
           <svg
             width="21"
             height="21"

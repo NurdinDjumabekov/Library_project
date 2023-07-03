@@ -42,7 +42,7 @@ const Rating_Star = ({ grade_star, grade }) => {
             <path
               d="M16 0.5L19.5922 11.5557H31.2169L21.8123 18.3885L25.4046 29.4443L16 22.6115L6.59544 29.4443L10.1877 18.3885L0.783095 11.5557H12.4078L16 0.5Z"
               fill="#fff"
-              stroke="black"
+              stroke="#FFC700"
               strokeWidth="1.5"
             />
           </svg>

@@ -22,7 +22,7 @@
 .parent_sliderManas div:nth-child(1) {
   text-align: center;
 }
-.parent_sliderManas div:nth-child(1) h3 {
+.parent_sliderManas div:nth-child(1) h2 {
   display: block;
   font-family: "Roboto";
   font-style: normal;
@@ -32,7 +32,7 @@
   color: #000000;
   margin: 0px auto 15px;
 }
-.parent_sliderManas div:nth-child(1) h3 span {
+.parent_sliderManas div:nth-child(1) h2 span {
   color: #FF4004;
 }
 .parent_sliderManas .child_sliderManas {

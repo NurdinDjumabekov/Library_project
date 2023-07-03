@@ -9,9 +9,9 @@ const Filtration = () => {
 
   const filteredArr = [
     { id: 1, text: "Все", filt: "all" },
-    { id: 2, text: "Популярность", filt: "Популярность" },
-    { id: 3, text: "Новинка", filt: "Новинка" },
-    { id: 4, text: "Рейтинг", filt: "Рейтинг" },
+    // { id: 2, text: "Популярность", filt: "Популярность" },
+    { id: 3, text: "По новизне", filt: "Новинка" },
+    { id: 4, text: "По рейтингу", filt: "Рейтинг" },
   ];
 
   const changeStateFiltered = (id, filter) => {

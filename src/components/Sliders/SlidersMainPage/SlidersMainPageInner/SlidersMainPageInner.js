@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styles from "./SlidersMainPageInner.module.css";
-// import postImage from "../../../../assests/images/Sliders/book_slider.png";
 import { Link } from "react-router-dom";
 import Rating_Star from "../Rating_Star/Rating_Star";
 

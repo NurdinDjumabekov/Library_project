@@ -30,8 +30,6 @@ const InfoEveryBook = ({ book, arr, setArr }) => {
                 <h4>«{book?.title}»</h4>
                 <h5>{book?.author_name}</h5>
                 <div>
-                  {/* <img src={star} alt="star" />
-                  <span>{numRating}</span> */}
                   <Rating_Star
                     grade_star={book?.middle_star}
                     grade={book?.middle_star}

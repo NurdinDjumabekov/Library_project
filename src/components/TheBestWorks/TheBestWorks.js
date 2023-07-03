@@ -18,13 +18,11 @@ const TheBestWorks = () => {
   //   console.log(dataBestWork, "dataBestWork");
   return (
     <div className={styles.parent_theBest}>
-      <div className="container">
-        <div className={styles.child_theBest}>
-          <div className={styles.mainText_theBest}>
-            <h2>Лучшие произведения</h2>
-          </div>
-          <SlidersMainPage data={dataBestWork} />
+      <div className={styles.child_theBest}>
+        <div className={styles.mainText_theBest}>
+          <h2>Лучшие произведения</h2>
         </div>
+        <SlidersMainPage data={dataBestWork} />
       </div>
     </div>
   );

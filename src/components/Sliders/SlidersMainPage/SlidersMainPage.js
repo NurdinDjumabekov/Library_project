@@ -10,8 +10,10 @@ const SlidersMainPage = ({ data }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 1030 && window.innerWidth >= 780) {
-        setSlidesToShow(3);
+      if (window.innerWidth < 900 && window.innerWidth > 650) {
+        setSlidesToShow(2);
+      } else if (window.innerWidth <= 650) {
+        setSlidesToShow(2);
       } else {
         setSlidesToShow(2);
       }
@@ -33,7 +35,7 @@ const SlidersMainPage = ({ data }) => {
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 6000,
     pauseOnHover: true,
   };
 

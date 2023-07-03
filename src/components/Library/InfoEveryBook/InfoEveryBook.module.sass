@@ -25,7 +25,9 @@ section
         .textInfoBlock_infoBook
             width: 85%
             @media screen and ( max-width: 550px )
-                width: 50%
+                width: 60%
+                @media screen and ( max-width: 460px )
+                    padding: 30px 0 0 0 
             > div
                 width: 100%
                 // background: red
@@ -35,15 +37,16 @@ section
                     width: 100%
                     h4
                         font-weight: 600
-                        font-size: 16px
+                        font-size: 18px
                         line-height: 20px
                         color: #262626
-                        width: 80%
+                        width: 85%
                         // background: blue
                         height: 22px
                         overflow: hidden
                         white-space: nowrap
                         text-overflow: ellipsis
+                        margin: 2px 0px
                         @media screen and ( max-width: 800px )
                             font-weight: 400
                             margin: 10px 0 0 0

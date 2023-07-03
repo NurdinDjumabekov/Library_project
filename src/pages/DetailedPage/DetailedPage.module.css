@@ -20,6 +20,16 @@
   width: 85%;
   margin: 0 auto;
 }
+@media screen and (max-width: 850px) {
+  .parent_detailed .short_description p {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 500px) {
+  .parent_detailed .short_description p {
+    padding: 0 20px;
+  }
+}
 .parent_detailed .comments_parent h3 {
   font-weight: 600;
   font-size: 28px;
