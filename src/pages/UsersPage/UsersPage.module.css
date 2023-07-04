@@ -23,9 +23,15 @@
     top: 120px;
   }
 }
-@media screen and (max-width: 700px) and (max-width: 380px) {
+@media screen and (max-width: 700px) and (max-width: 500px) {
   .mobile_adaptaionBlock > .child_user_userBlock .parent_settingBlock {
-    right: 20px;
+    right: 40px;
+  }
+}
+@media screen and (max-width: 700px) and (max-width: 500px) and (max-width: 380px) {
+  .mobile_adaptaionBlock > .child_user_userBlock .parent_settingBlock {
+    right: 30px;
+    top: 100px;
   }
 }
 @media screen and (max-width: 700px) {
@@ -70,7 +76,7 @@
   width: 20%;
   padding-bottom: 100px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 760px) {
   .parent_userBlock .child_user_userBlock {
     display: none;
   }

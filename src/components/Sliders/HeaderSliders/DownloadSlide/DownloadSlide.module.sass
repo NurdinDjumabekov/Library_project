@@ -14,15 +14,18 @@
         display: flex
         justify-content: center
         align-items: center
+        @media screen and ( max-width: 600px )
+            display: none
+            
         > div:nth-child(1)
             margin-right: -50px
-            @media screen and ( max-width: 1110px )
+            @media screen and ( max-width: 1220px )
                 display: none
         > div:nth-child(2)
             z-index: 1
         > div:nth-child(3)
             margin-left: -50px
-            @media screen and ( max-width: 1110px )
+            @media screen and ( max-width: 1220px )
                 display: none
     .child_text_download
         p

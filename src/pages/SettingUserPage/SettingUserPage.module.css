@@ -8,9 +8,52 @@
   background: #C0C0C0;
   height: 135px;
 }
+@media screen and (max-width: 750px) {
+  .parent_settingUser > section {
+    background-color: #fff;
+  }
+}
+.parent_settingUser > section > a {
+  display: none;
+}
+@media screen and (max-width: 750px) {
+  .parent_settingUser > section > a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 20px 0 0 50px;
+  }
+}
+@media screen and (max-width: 750px) and (max-width: 500px) {
+  .parent_settingUser > section > a {
+    padding: 25px 0 0 20px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .parent_settingUser > section > a p {
+    color: #000;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 400px;
+  }
+  .parent_settingUser > section > a svg {
+    width: 21px;
+    height: 21px;
+  }
+}
 .parent_settingUser .child_settingUser {
   position: relative;
   margin: -70px 0px 22px;
+}
+@media screen and (max-width: 500px) {
+  .parent_settingUser .child_settingUser {
+    padding: 0 20px;
+  }
 }
 .parent_settingUser .child_settingUser .nameUser_settingUser {
   display: -webkit-box;
@@ -21,12 +64,29 @@
           align-items: center;
   gap: 40px;
 }
+@media screen and (max-width: 680px) {
+  .parent_settingUser .child_settingUser .nameUser_settingUser {
+    gap: 15px;
+  }
+}
 .parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   background: gray;
   position: relative;
+}
+@media screen and (max-width: 750px) {
+  .parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) {
+    width: 120px;
+    height: 120px;
+  }
+}
+@media screen and (max-width: 750px) and (max-width: 450px) {
+  .parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) {
+    width: 100px;
+    height: 100px;
+  }
 }
 .parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > img {
   width: 100%;
@@ -49,6 +109,18 @@
   bottom: 0;
   cursor: pointer;
 }
+@media screen and (max-width: 750px) {
+  .parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > button {
+    width: 35px;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 750px) and (max-width: 450px) {
+  .parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > button {
+    width: 25px;
+    height: 25px;
+  }
+}
 .parent_settingUser .child_settingUser .nameUser_settingUser > div:nth-child(1) > button > img {
   width: 100%;
   height: 100%;
@@ -65,12 +137,22 @@
   line-height: 125.3%;
   color: #000000;
 }
+@media screen and (max-width: 750px) {
+  .parent_settingUser .child_settingUser .nameUser_settingUser div:nth-child(2) span {
+    font-size: 25px;
+  }
+}
 .parent_settingUser .child_settingUser .infoUser_settingUser {
   margin: 20px 0 0 0;
   padding: 20px 30px;
   border-radius: 10px;
   -webkit-box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
           box-shadow: 2px 2px 50px rgba(104, 104, 104, 0.25);
+}
+@media screen and (max-width: 500px) {
+  .parent_settingUser .child_settingUser .infoUser_settingUser {
+    padding: 20px;
+  }
 }
 .parent_settingUser .child_settingUser .infoUser_settingUser > div {
   padding: 16px 0px;
@@ -102,6 +184,16 @@
   color: #2A2A2A;
   margin-top: 15px;
 }
+@media screen and (max-width: 750px) {
+  .parent_settingUser .child_settingUser .infoUser_settingUser > div > div h6 {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 750px) and (max-width: 600px) {
+  .parent_settingUser .child_settingUser .infoUser_settingUser > div > div h6 {
+    font-size: 18px;
+  }
+}
 .parent_settingUser .child_settingUser .infoUser_settingUser > div button {
   border: 3px solid #FF4004;
   border-radius: 10px;
@@ -114,6 +206,24 @@
   color: #FF4004;
   padding: 10px 100px;
   cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+  .parent_settingUser .child_settingUser .infoUser_settingUser > div button {
+    padding: 8px 40px;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 750px) {
+  .parent_settingUser .child_settingUser .infoUser_settingUser > div button {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 750px) and (max-width: 600px) {
+  .parent_settingUser .child_settingUser .infoUser_settingUser > div button {
+    padding: 3px 5px;
+    font-size: 12px;
+    border: 1px solid #FF4004;
+    border-radius: 5px;
+  }
 }
 .parent_settingUser .child_settingUser .infoUser_settingUser > div button:hover {
   background-color: #f8f6f6;

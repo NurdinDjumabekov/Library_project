@@ -14,6 +14,7 @@ const DetailedPage = () => {
   const { dataDetailedPage, ifSendRequestError, preloader } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
+  const { checkedUser } = useSelector((state) => state.usersStateSlice);
   const { id } = useParams();
   useEffect(() => {
     dispatch(detailedData(id));
@@ -26,24 +27,26 @@ const DetailedPage = () => {
         <Preloader />
       ) : (
         <>
-          {ifSendRequestError ? (
-            <div className={styles.parent_detailed}>
-              <HeaderDetailed dataDetailedPage={dataDetailedPage} />
-              <div className="container">
-                <div className={styles.short_description}>
-                  <h2>Краткое содержание </h2>
-                  <p>{dataDetailedPage?.summary}</p>
-                </div>
-                <div className={styles.comments_parent}>
-                  <h5>Отзывы</h5>
-                  <AddComments id={id} dataDetailedPage={dataDetailedPage} />
-                  <Comments dataDetailedPage={dataDetailedPage} />
+          <>
+            {ifSendRequestError || checkedUser ? (
+              <div className={styles.parent_detailed}>
+                <HeaderDetailed dataDetailedPage={dataDetailedPage} />
+                <div className="container">
+                  <div className={styles.short_description}>
+                    <h2>Краткое содержание </h2>
+                    <p>{dataDetailedPage?.summary}</p>
+                  </div>
+                  <div className={styles.comments_parent}>
+                    <h5>Отзывы</h5>
+                    <AddComments id={id} dataDetailedPage={dataDetailedPage} />
+                    <Comments dataDetailedPage={dataDetailedPage} />
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <NoAuth />
-          )}
+            ) : (
+              <NoAuth />
+            )}
+          </>
         </>
       )}
     </>

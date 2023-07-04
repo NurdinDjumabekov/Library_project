@@ -13,8 +13,11 @@
                 position: absolute
                 right: 10px
                 top: 120px  
-                @media screen and ( max-width: 380px )
-                    right: 20px
+                @media screen and ( max-width: 500px )
+                    right: 40px
+                    @media screen and ( max-width: 380px )
+                        right: 30px
+                        top: 100px
                 > button
                     background-color: transparent
                     border: none
@@ -37,9 +40,8 @@
             width: 100%
     .child_user_userBlock
         width: 20%
-        // background: red
         padding-bottom: 100px
-        @media screen and ( max-width: 700px )
+        @media screen and ( max-width: 760px )
             display: none
         .parent_settingBlock
             padding: 75px 0 40px 0

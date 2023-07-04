@@ -3,11 +3,9 @@ import styles from "./NavMenu.module.css";
 import navLogo from "../../assests/images/navMenu/navLogo.svg";
 import btn_nav from "../../assests/images/navMenu/nav_btn.svg";
 import { NavLink, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import UserLogin from "../UserLogin/UserLogin";
 
 const NavMenu = () => {
-  const dispatch = useDispatch();
   const [active, setActive] = useState(
     localStorage.getItem("statePage_main")
       ? +localStorage.getItem("statePage_main")
@@ -71,41 +69,47 @@ const NavMenu = () => {
   return (
     <>
       {menu ? (
-        <div className={styles.parent_navMenu}>
-          <div className="container">
-            <div className={styles.child_navMenu}>
-              <div className={styles.mainLogo}>
-                <NavLink to={"/"}>
-                  <div>
-                    <img src={navLogo} alt="navLogo" />
-                  </div>
-                  <h1>Muras</h1>
-                </NavLink>
-              </div>
-              <div className={styles.mainMenu_desktop}>
-                <ul>
-                  {pagesArr.map((item, index) => (
-                    <li key={index}>
-                      <NavLink
-                        to={item.to}
-                        onClick={() => clickMenu(index)}
-                        className={active === index && styles.activeNavMenu}
-                      >
-                        {item.page}
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div
-                className={styles.otherMenu_btn}
-                onClick={() => setMenu(false)}
-              >
-                <UserLogin />
+        <>
+          <div
+            className={styles.shadow_navMenu}
+            onClick={() => clickMenu(11)}
+          ></div>
+          <div className={styles.parent_navMenu}>
+            <div className="container">
+              <div className={styles.child_navMenu}>
+                <div className={styles.mainLogo}>
+                  <NavLink to={"/"}>
+                    <div>
+                      <img src={navLogo} alt="navLogo" />
+                    </div>
+                    <h1>Muras</h1>
+                  </NavLink>
+                </div>
+                <div className={styles.mainMenu_desktop}>
+                  <ul>
+                    {pagesArr.map((item, index) => (
+                      <li key={index}>
+                        <NavLink
+                          to={item.to}
+                          onClick={() => clickMenu(index)}
+                          className={active === index && styles.activeNavMenu}
+                        >
+                          {item.page}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div
+                  className={styles.otherMenu_btn}
+                  onClick={() => clickMenu(10)}
+                >
+                  <UserLogin />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       ) : (
         <div className={styles.menuNav_mobile}>
           <div className={styles.mainLogo}>

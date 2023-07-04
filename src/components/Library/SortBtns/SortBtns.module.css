@@ -41,9 +41,6 @@
   color: white;
   background-color: #FF4004;
 }
-.parent_SortBtns button:hover {
-  background: #e4e0e0;
-}
 
 .parent_SortBtns::-webkit-scrollbar {
   width: 0;

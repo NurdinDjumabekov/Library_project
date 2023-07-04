@@ -23,7 +23,9 @@ const UserLogin = () => {
   useEffect(() => {
     if (access) {
       dispatch(sendRequestDataEveryUser(access));
-      dispatch(changeCheckedUser(true));
+      setTimeout(() => {
+        dispatch(changeCheckedUser(true));
+      }, 500);
       setData(JSON.parse(localStorage.getItem("dataUser")));
     } else {
       dispatch(changeCheckedUser(false));

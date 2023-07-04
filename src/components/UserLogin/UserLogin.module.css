@@ -19,6 +19,11 @@
   line-height: 125.3%;
   color: #7C7C7C;
 }
+@media screen and (max-width: 500px) {
+  .parent_UserLogin > button {
+    font-size: 20px;
+  }
+}
 .parent_UserLogin a > div {
   display: -webkit-box;
   display: -ms-flexbox;

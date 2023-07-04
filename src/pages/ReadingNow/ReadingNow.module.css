@@ -17,9 +17,31 @@
   font-style: normal;
   font-weight: 500;
   font-size: 36px;
-  line-height: 125.3%;
+  line-height: 30px;
   color: #7C7C7C;
   padding: 0px 0px 40px 0px;
+}
+@media screen and (max-width: 500px) {
+  .child_reading div {
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .child_reading div {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 800px) {
+  .child_reading div {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 800px) and (max-width: 500px) {
+  .child_reading div {
+    font-size: 15px;
+    font-weight: 400;
+  }
 }
 .child_reading div p {
   display: block;
@@ -29,6 +51,11 @@
   font-size: 36px;
   line-height: 125.3%;
   color: #7C7C7C;
+}
+@media screen and (max-width: 1000px) {
+  .child_reading div p {
+    font-size: 25px;
+  }
 }
 .child_reading div span {
   color: #FF4004;
@@ -45,4 +72,9 @@
   border: none;
   background: transparent;
   cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  .child_reading div button {
+    font-size: 25px;
+  }
 }

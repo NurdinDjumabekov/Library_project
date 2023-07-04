@@ -10,22 +10,24 @@ const DetailedWritersPage = () => {
   const { infoEveryWriters, ifSendRequestError, preloader } = useSelector(
     (state) => state.sendRequestEveryBookSlice
   );
+  const { checkedUser } = useSelector((state) => state.usersStateSlice);
+
   const dispatch = useDispatch();
   const { id } = useParams();
   useEffect(() => {
     dispatch(sendRequestDetailedWriters(id));
   }, []);
-  // console.log(infoEveryWriters);
+  console.log(infoEveryWriters);
   return (
     <>
       {preloader ? (
         <Preloader />
       ) : (
         <>
-          {ifSendRequestError ? (
+          {ifSendRequestError || checkedUser ? (
             <div className={styles.parent_detailedWriters}>
               <div className={styles.header_detailedWriters}>
-                <h1>ЧЫНГЫЗ АЙТМАТОВ</h1>
+                <h1>{infoEveryWriters?.fullname}</h1>
                 <div className={styles.headerText_detailedWriters}>
                   <div>
                     <img src={infoEveryWriters?.image} alt="" />
@@ -59,9 +61,9 @@ const DetailedWritersPage = () => {
                 </div>
                 <div className="container">
                   <div className={styles.biography_detailedWriters}>
-                    <h3>Биография</h3>
+                    <h5>Биография</h5>
                     <p>{infoEveryWriters?.bio}</p>
-                    <h3>Литературная деятельность</h3>
+                    <h5>Литературная деятельность</h5>
                     <p>{infoEveryWriters?.literary_activity}</p>
                   </div>
                 </div>

@@ -9,6 +9,7 @@ import {
   changeFakeData,
   sendRequestDataEveryUser,
 } from "../../store/reducers/usersStateSlice";
+import { NavLink } from "react-router-dom";
 
 const SettingUserPage = () => {
   const { goodChangeData } = useSelector((state) => state.windowsSlice);
@@ -103,7 +104,25 @@ const SettingUserPage = () => {
   return (
     <>
       <div className={styles.parent_settingUser}>
-        <section></section>
+        <section>
+          <NavLink to={"/profile"}>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M21.6654 9.66732H5.3987L12.8654 2.20065L10.9987 0.333984L0.332031 11.0007L10.9987 21.6673L12.8654 19.8007L5.3987 12.334H21.6654V9.66732Z"
+                fill="#2A2A2A"
+              />
+            </svg>
+            <p>Информация об аккаунте</p>
+          </NavLink>
+        </section>
         <div className="container">
           <div className={styles.child_settingUser}>
             <div className={styles.nameUser_settingUser}>

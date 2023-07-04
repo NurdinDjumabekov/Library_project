@@ -21,8 +21,7 @@ function App() {
   useEffect(() => {
     const startTimestamp = localStorage.getItem("timerStartTimestamp");
     const currentTime = Date.now();
-    const intervalTime = 9 * 60 * 1000; // 9 минут в миллисекундах
-
+    const intervalTime = 18 * 60 * 1000; // 9 минут в миллисекундах
     // Если есть сохраненное время начала таймера и время не истекло
     if (startTimestamp && currentTime - startTimestamp < intervalTime) {
       const remainingTime = intervalTime - (currentTime - startTimestamp);

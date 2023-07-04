@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { changeCheckedUser } from "./usersStateSlice";
 
 const initialState = {
   difficultPassword: {
@@ -28,6 +29,7 @@ export const sendRequestEditUserPhoto = createAsyncThunk(
       });
     } catch (error) {
       console.log(error, "sendRequestEditUserPhoto");
+      dispatch(changeCheckedUser(false));
     }
   }
 );
@@ -192,6 +194,7 @@ export const resetPassword = createAsyncThunk(
           email: info.email,
         },
       });
+      dispatch(changeCheckedUser(true));
     } catch (error) {
       console.log(error, "error resetPassword");
     }

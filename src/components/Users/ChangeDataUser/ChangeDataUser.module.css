@@ -22,10 +22,21 @@
           box-shadow: 2px 2px 50px 0px rgba(104, 104, 104, 0.25);
   padding: 80px;
 }
+@media screen and (max-width: 750px) {
+  .parent_changeData {
+    padding: 20px;
+    width: 340px;
+  }
+}
 .parent_changeData > div {
   text-align: left;
   max-width: 400px;
   margin: 0 auto;
+}
+@media screen and (max-width: 750px) {
+  .parent_changeData > div {
+    width: 300px;
+  }
 }
 .parent_changeData > div h6 {
   color: #000;
@@ -36,6 +47,12 @@
   margin: 0 0 20px 0;
   text-align: center;
 }
+@media screen and (max-width: 750px) {
+  .parent_changeData > div h6 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
 .parent_changeData > div p {
   color: var(--unnamed, #7C7C7C);
   font-size: 18px;
@@ -43,8 +60,24 @@
   line-height: 125%;
   margin: 8px 0;
 }
+@media screen and (max-width: 750px) {
+  .parent_changeData > div p {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .parent_changeData > div > p {
+    padding: 0 0 0 15px;
+  }
+}
 .parent_changeData > div form {
   width: 100%;
+}
+@media screen and (max-width: 750px) {
+  .parent_changeData > div form {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 .parent_changeData > div form input {
   width: 100%;
@@ -57,6 +90,30 @@
   line-height: 125%;
   margin: 0 0 20px 0;
   padding: 0 15px;
+}
+@media screen and (max-width: 750px) {
+  .parent_changeData > div form input {
+    height: 35px;
+    border-radius: 7px;
+    margin: 0 0 10px 0;
+  }
+}
+@media screen and (max-width: 750px) {
+  .parent_changeData > div form input::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+  .parent_changeData > div form input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .parent_changeData > div form input:-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .parent_changeData > div form input::-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .parent_changeData > div form input::placeholder {
+    font-size: 16px;
+  }
 }
 .parent_changeData > div form > div {
   display: -webkit-box;
@@ -78,6 +135,11 @@
   line-height: 134%;
   cursor: pointer;
 }
+@media screen and (max-width: 750px) {
+  .parent_changeData > div form > div button:nth-child(2) {
+    padding: 5px 10px;
+  }
+}
 .parent_changeData > div form > div button:nth-child(1) {
   border-radius: 10px;
   border: none;
@@ -89,4 +151,9 @@
   font-weight: 600;
   line-height: 134%;
   cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+  .parent_changeData > div form > div button:nth-child(1) {
+    padding: 5px 10px;
+  }
 }
