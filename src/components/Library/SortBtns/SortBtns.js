@@ -8,27 +8,23 @@ import {
 
 const SortBtns = () => {
   const [sortState, setSortState] = useState(1);
-  const { allsortBtn } = useSelector(
+  const { allsortBtn, sortBtn } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
   // console.log(allsortBtn, "allsortBtn");
+  // console.log(sortBtn);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(requestSortBtn());
   }, []);
 
-  // const sortArr = [
-  //   { id: 1, text: "Все", sort: "all" },
-  //   { id: 2, text: "Драма" },
-  //   { id: 3, text: "Эпосы" },
-  //   { id: 4, text: "Роман" },
-  //   { id: 5, text: "Мифы" },
-  //   { id: 6, text: "Повесть" },
-  // ];
-
-  const changeSortBtnFn = (id) => {
+  const changeSortBtnFn = (id, extra_name) => {
     setSortState(id);
-    dispatch(changeSortBtn(id));
+    dispatch(
+      changeSortBtn(`
+    https://kitepkana1.pythonanywhere.com/search_filter/?genre__genre_name=${extra_name}
+    `)
+    );
   };
 
   return (
@@ -38,7 +34,7 @@ const SortBtns = () => {
           {allsortBtn?.map((choice) => (
             <button
               key={choice.id}
-              onClick={() => changeSortBtnFn(choice.id)}
+              onClick={() => changeSortBtnFn(choice.id, choice.extra_name)}
               className={choice.id === sortState ? styles.active_sort : ""}
             >
               {choice.genre_name}

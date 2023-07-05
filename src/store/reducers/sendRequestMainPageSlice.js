@@ -87,6 +87,7 @@ export const detailedData = createAsyncThunk(
       });
       dispatch(toTakeDataDetailedPage(data));
       dispatch(changePreloader(false));
+      dispatch(changeSendRequestError(true));
     } catch (error) {
       if (error.message.includes("Request failed with status code 401")) {
         dispatch(changeSendRequestError(false));

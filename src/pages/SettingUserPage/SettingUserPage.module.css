@@ -252,6 +252,12 @@
           align-items: center;
   gap: 15px;
 }
+@media screen and (max-width: 550px) {
+  .parent_settingUser .child_settingUser .goodChange {
+    width: 300px;
+    height: 150px;
+  }
+}
 .parent_settingUser .child_settingUser .goodChange p {
   font-family: "Roboto";
   font-style: normal;
@@ -259,4 +265,9 @@
   font-size: 22px;
   line-height: 25%;
   color: #000000;
+}
+@media screen and (max-width: 550px) {
+  .parent_settingUser .child_settingUser .goodChange p {
+    font-size: 18px;
+  }
 }

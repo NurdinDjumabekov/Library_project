@@ -3,7 +3,13 @@ import axios from "axios";
 
 const initialState = {
   allData: [],
-  allsortBtn: [],
+  allsortBtn: [
+    {
+      id: 10,
+      genre_name: "Все",
+      extra_name: "",
+    },
+  ],
   preloader: true,
   search: "",
   sortBtn: "",
@@ -19,31 +25,35 @@ export const requestSortBtn = createAsyncThunk(
         url: "https://kitepkana1.pythonanywhere.com/genres/",
       });
       dispatch(toTakeAllsortBtn(data));
-      // console.log(data, "requestSortBtn");
+      // console.log(data);
     } catch (error) {
       console.log(error, requestSortBtn);
     }
   }
 );
 const api = "https://kitepkana1.pythonanywhere.com/";
+
 export const requestAllData = createAsyncThunk(
   "requestAllData",
   async (allData, { dispatch }) => {
-    setTimeout(() => {
-      allData.search = "";
-    }, 1000);
+    // setTimeout(() => {
+    //   allData.search = "";
+    // }, 1000);
+    // console.log(allData.sortBtn);
     try {
       const { data } = await axios({
         method: "GET",
         url: `${
-          allData.stateInput
-            ? `${api}search_filter/?q=${allData.search}`
-            : `${api}books/`
+          allData.filteredBtn === "" && allData.sortBtn === ""
+            ? `${
+                allData.stateInput
+                  ? `${api}search_filter/?q=${allData.search}`
+                  : `${api}books/`
+              }`
+            : allData.filteredBtn || allData.sortBtn
         }`,
       });
       dispatch(toTakeAllData(data));
-      // console.log(allData.search);
-      // ("https://kitepkana1.pythonanywhere.com/Чингиз");
       // console.log(allData);
       dispatch(changePreloader(false));
     } catch (error) {
@@ -63,7 +73,11 @@ const sendRequestLibraryPageSlice = createSlice({
       state.allData = action.payload;
     },
     toTakeAllsortBtn: (state, action) => {
-      state.allsortBtn = action.payload;
+      return {
+        ...state,
+        allsortBtn: [...state.allsortBtn, ...action.payload],
+      };
+      // state.allsortBtn = action.payload;
       // console.log(state.allsortBtn);
     },
     changeSearch: (state, action) => {

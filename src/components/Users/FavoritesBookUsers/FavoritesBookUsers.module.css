@@ -186,9 +186,19 @@
   line-height: 125.3%;
   color: #7C7C7C;
 }
+@media screen and (max-width: 900px) {
+  .parent_favoritesBook .empty_block > div h2 {
+    font-size: 32px;
+  }
+}
 .parent_favoritesBook .empty_block > div p {
   font-weight: 500;
   font-size: 30px;
   line-height: 125.3%;
   color: #7C7C7C;
+}
+@media screen and (max-width: 900px) {
+  .parent_favoritesBook .empty_block > div p {
+    font-size: 25px;
+  }
 }

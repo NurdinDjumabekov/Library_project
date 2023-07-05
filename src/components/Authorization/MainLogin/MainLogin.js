@@ -46,10 +46,12 @@ const MainLogin = ({ setRestore }) => {
         // console.log(info, "data");
         localStorage.setItem("access", info.data.access);
         localStorage.setItem("refresh", info.data.refresh);
-        dispatch(changeCheckedUser(true));
-        if (info.data.access && info.data.refresh) {
-          navigate("/");
-        }
+        setTimeout(() => {
+          if (info.data.access && info.data.refresh) {
+            dispatch(changeCheckedUser(true));
+            navigate("/");
+          }
+        }, 300);
         setDate((info) => ({ ...info, login: "", password: "" }));
       } catch (error) {
         setWrong((info) => ({
@@ -92,13 +94,11 @@ const MainLogin = ({ setRestore }) => {
       }));
     }
   }, [data]);
-
   return (
     // <>
     //   {preloader ? (
     //     <Preloader />
     //   ) : (
-
     //   )}
     // </>
     <div className={styles.parentBlock_mainLogin}>

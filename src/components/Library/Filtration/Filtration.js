@@ -8,10 +8,17 @@ const Filtration = () => {
   const dispatch = useDispatch();
 
   const filteredArr = [
-    { id: 1, text: "Все", filt: "all" },
-    // { id: 2, text: "Популярность", filt: "Популярность" },
-    { id: 3, text: "По новизне", filt: "Новинка" },
-    { id: 4, text: "По рейтингу", filt: "Рейтинг" },
+    { id: 1, text: "Все", filt: "" },
+    {
+      id: 2,
+      text: "По новизне",
+      filt: "https://kitepkana1.pythonanywhere.com/search_filter/?ordering=-created_date",
+    },
+    {
+      id: 3,
+      text: "По рейтингу",
+      filt: "https://kitepkana1.pythonanywhere.com/search_filter/?ordering=-middle_star",
+    },
   ];
 
   const changeStateFiltered = (id, filter) => {

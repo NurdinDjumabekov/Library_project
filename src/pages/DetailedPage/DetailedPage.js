@@ -14,7 +14,6 @@ const DetailedPage = () => {
   const { dataDetailedPage, ifSendRequestError, preloader } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
-  const { checkedUser } = useSelector((state) => state.usersStateSlice);
   const { id } = useParams();
   useEffect(() => {
     dispatch(detailedData(id));
@@ -28,7 +27,7 @@ const DetailedPage = () => {
       ) : (
         <>
           <>
-            {ifSendRequestError || checkedUser ? (
+            {ifSendRequestError ? (
               <div className={styles.parent_detailed}>
                 <HeaderDetailed dataDetailedPage={dataDetailedPage} />
                 <div className="container">

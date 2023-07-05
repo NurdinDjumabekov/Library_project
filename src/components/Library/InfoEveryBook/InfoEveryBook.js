@@ -15,7 +15,7 @@ const InfoEveryBook = ({ book, arr, setArr }) => {
       prev % 1 === 0 ? prev.toString() + "." + "0" : prev
     );
   }, [book]);
-  console.log(book);
+  // console.log(book);
   // console.log(dataFavotitesBook, "dataFavotitesBook6666");
 
   const [slidesToShow, setSlidesToShow] = useState(37);
