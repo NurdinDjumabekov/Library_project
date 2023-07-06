@@ -22,10 +22,10 @@ const LibraryPage = () => {
   // console.log(dataFavotitesBook, "dataFavotitesBook");
   // console.log(data, "dataUSER");
   // console.log(filteredBtn, "filteredBtn");
+  // console.log(stateInput);
+  // console.log(sortBtn);
   const [stateInput, setStateInput] = useState(false);
   const [arr, setArr] = useState([]);
-  // console.log(stateInput);
-  console.log(sortBtn);
   useEffect(() => {
     dispatch(sendRequestAllDataUser("favorite"));
     dispatch(

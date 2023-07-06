@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./TheBestWorks.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import GradeRetingHeart from "../GradeRetingHeart/GradeRetingHeart";
 import SlidersMainPage from "../Sliders/SlidersMainPage/SlidersMainPage";
 import { requestBestWorks } from "../../store/reducers/sendRequestMainPageSlice";
 

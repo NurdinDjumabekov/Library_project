@@ -5,7 +5,7 @@ const initialState = {
   allData: [],
   allsortBtn: [
     {
-      id: 10,
+      id: -1,
       genre_name: "Все",
       extra_name: "",
     },
@@ -15,6 +15,9 @@ const initialState = {
   sortBtn: "",
   filteredBtn: "",
   stateBtn: false,
+  sortState: -1,
+  filterBookState: 1,
+  searchState: "",
 };
 export const requestSortBtn = createAsyncThunk(
   "requestSortBtn",
@@ -40,6 +43,7 @@ export const requestAllData = createAsyncThunk(
     //   allData.search = "";
     // }, 1000);
     // console.log(allData.sortBtn);
+    // dispatch(changePreloader(true));
     try {
       const { data } = await axios({
         method: "GET",
@@ -72,29 +76,46 @@ const sendRequestLibraryPageSlice = createSlice({
     toTakeAllData: (state, action) => {
       state.allData = action.payload;
     },
+    // toTakeAllsortBtn: (state, action) => {
+    //   return {
+    //     ...state,
+    //     allsortBtn: [...state.allsortBtn, ...action.payload],
+    //   };
+    //   // state.allsortBtn = action.payload;
+    //   // console.log(state.allsortBtn);
+    // },
     toTakeAllsortBtn: (state, action) => {
-      return {
-        ...state,
-        allsortBtn: [...state.allsortBtn, ...action.payload],
-      };
-      // state.allsortBtn = action.payload;
-      // console.log(state.allsortBtn);
+      state.allsortBtn = [
+        ...state.allsortBtn,
+        ...action.payload.filter((item) => {
+          return !state.allsortBtn.some(
+            (existingItem) => existingItem.id === item.id
+          );
+        }),
+      ];
     },
     changeSearch: (state, action) => {
       state.search = action.payload;
-      // console.log(state.search);
+      console.log(state.search);
     },
     changeSortBtn: (state, action) => {
       state.sortBtn = action.payload;
-      // console.log(state.sortBtn);
     },
     changeFilteredBtn: (state, action) => {
       state.filteredBtn = action.payload;
-      // console.log(state.filteredBtn);
     },
     changeStateBtns: (state, action) => {
       state.stateBtn = action.payload;
-      // console.log(state.filteredBtn);
+    },
+    //////////////для сброса состояния при нажатии на другой вид поиска(сортировки)/////////////////
+    changeSortState: (state, action) => {
+      state.sortState = action.payload;
+    },
+    changeFilterBookState: (state, action) => {
+      state.filterBookState = action.payload;
+    },
+    changeSearchState: (state, action) => {
+      state.searchState = action.payload;
     },
   },
 });
@@ -107,5 +128,8 @@ export const {
   changeSortBtn,
   changeSearch,
   changeStateBtns,
+  changeSortState,
+  changeFilterBookState,
+  changeSearchState,
 } = sendRequestLibraryPageSlice.actions;
 export default sendRequestLibraryPageSlice.reducer;

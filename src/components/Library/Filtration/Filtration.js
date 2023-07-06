@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import styles from "./Filtration.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFilteredBtn } from "../../../store/reducers/sendRequestLibraryPageSlice";
+import {
+  changeFilterBookState,
+  changeFilteredBtn,
+  changeSearchState,
+  changeSortBtn,
+  changeSortState,
+} from "../../../store/reducers/sendRequestLibraryPageSlice";
 
 const Filtration = () => {
-  const [filterBook, setFilterBook] = useState(1);
+  const { filterBookState } = useSelector(
+    (state) => state.sendRequestLibraryPageSlice
+  );
   const dispatch = useDispatch();
 
   const filteredArr = [
@@ -22,8 +30,13 @@ const Filtration = () => {
   ];
 
   const changeStateFiltered = (id, filter) => {
+    dispatch(changeFilterBookState(id));
     dispatch(changeFilteredBtn(filter));
-    setFilterBook(id);
+    ///////////сброс состояний///////////
+    dispatch(changeSortBtn(""));
+    dispatch(changeSortState(-1));
+    dispatch(changeSearchState(""));
+    ///////////сброс состояний///////////
   };
 
   return (
@@ -33,7 +46,9 @@ const Filtration = () => {
         <button
           key={filtered.id}
           onClick={() => changeStateFiltered(filtered.id, filtered.filt)}
-          className={filtered.id === filterBook ? styles.active_filtered : ""}
+          className={
+            filtered.id === filterBookState ? styles.active_filtered : ""
+          }
         >
           {filtered.text}
         </button>

@@ -29,9 +29,9 @@ const MainPage = () => {
       ) : (
         <div className={styles.inner_wrapper}>
           <HeaderMain />
-          <Novelties />
-          <ManasPart />
           <Recommendation />
+          <ManasPart />
+          <Novelties />
           <Sliders_writers />
           <TheBestWorks />
           <div className={styles.parent_downloadSlide}>

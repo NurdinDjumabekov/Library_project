@@ -5,6 +5,7 @@ import { sendRequestDetailedWriters } from "../../store/reducers/sendRequestEver
 import { useParams } from "react-router-dom";
 import Preloader from "../../components/Preloader/Preloader";
 import NoAuth from "../../components/NoAuth/NoAuth";
+import Slider_book_author from "../../components/Sliders/Slider_book_author/Slider_book_author";
 
 const DetailedWritersPage = () => {
   const { infoEveryWriters, ifSendRequestError, preloader } = useSelector(
@@ -61,6 +62,7 @@ const DetailedWritersPage = () => {
                 </div>
                 <div className="container">
                   <div className={styles.biography_detailedWriters}>
+                    <Slider_book_author data={infoEveryWriters?.author_books} />
                     <h5>Биография</h5>
                     <p>{infoEveryWriters?.bio}</p>
                     <h5>Литературная деятельность</h5>

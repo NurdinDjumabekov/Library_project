@@ -41,8 +41,12 @@
             height: 100%
             border-radius: 10px
     section
-        @media screen and ( max-width: 550px )
-            width: 100%
+        padding: 25px 0 0 0
+        @media screen and ( max-width: 1100px )
+            max-width: 80%
+            padding: 0px
+            @media screen and ( max-width: 900px )
+                max-width: 100%
         .postText 
             max-width: 244px
             @media screen and ( max-width: 1100px )
@@ -59,12 +63,14 @@
                 text-overflow: ellipsis
                 white-space: nowrap
                 margin: 10px 0 0 0 
-                max-width: 80%
+                max-width: 100%
                 @media screen and ( max-width: 1100px )
-                    margin: 20px 0 0 0
+                    margin: 10px 0 0 0
+                    max-width: 80%
                     @media screen and ( max-width: 900px )
                         font-size: 20px
                         width: 200px
+                        max-width: 80%
                         overflow: hidden 
                         text-overflow: ellipsis
                         white-space: nowrap
@@ -88,20 +94,26 @@
                 overflow: hidden 
                 text-overflow: ellipsis
                 white-space: nowrap
-                max-width: 70%
-                @media screen and ( max-width: 900px )
-                    display: none
+                max-width: 100%
+                margin: 10px 0 0 0
+                @media screen and ( max-width: 1100px )
+                    max-width: 80%
+                    @media screen and ( max-width: 900px )
+                        display: none
         .rating_Star
             display: flex
             justify-content: space-between
             width: 100%
+            // background: red
+            margin: 0px
             @media screen and ( max-width: 900px )
-                padding: 0 20px
+                padding: 0px
                 @media screen and ( max-width: 550px )
                     width: 100%
                     padding: 0 5px
                     margin: 5px 0
             > div
+                // height: 20px
                 @media screen and ( max-width: 900px )
                     margin: 0
                     justify-content: left
@@ -119,21 +131,20 @@
                 @media screen and ( max-width: 900px )
                     display: block
                     font-size: 14px
-                    width: 120px
+                    width: 100%
                     // background: red
                     overflow: hidden
                     height: 20px
                     white-space: nowrap
                     text-overflow: ellipsis
                     color: #656464
-                        
         a
             > button
                 display: block
-                margin: 40px auto 
+                margin: 20px auto 40px
                 padding: 7px 0
                 text-align: center
-                width: 200px
+                width: 244px
                 background: transparent
                 border-radius: 10px
                 border: 2px solid #FF4004
@@ -145,7 +156,8 @@
                 color: #FF4004
                 cursor: pointer
                 @media screen and ( max-width: 1100px )
-                    margin: 20px 0 0 0
+                    margin: 0px 0 10px 0
+                    width: 220px
                     @media screen and ( max-width: 900px )
                         display: none
     .modile_version

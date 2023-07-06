@@ -1,10 +1,5 @@
 .parent_recommendation {
-  padding: 80px 0px;
-}
-@media screen and (max-width: 550px) {
-  .parent_recommendation {
-    padding: 30px 0px 0 0;
-  }
+  padding: 100px 0px 20px 0px;
 }
 .parent_recommendation .child_recommendation .mainText_recommendation {
   text-align: center;
@@ -39,7 +34,7 @@
   .parent_recommendation .child_recommendation .mainText_recommendation h2 {
     font-size: 25px;
     letter-spacing: 0px;
-    font-weight: 500;
+    font-weight: 400;
   }
 }
 .parent_recommendation .child_recommendation .mainText_recommendation h2::first-letter {

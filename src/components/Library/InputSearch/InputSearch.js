@@ -1,29 +1,45 @@
 import React, { useEffect, useState } from "react";
 import styles from "./InputSearch.module.css";
-import { useDispatch } from "react-redux";
-import { changeSearch } from "../../../store/reducers/sendRequestLibraryPageSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeFilterBookState,
+  changeFilteredBtn,
+  changeSearch,
+  changeSearchState,
+  changeSortBtn,
+  changeSortState,
+} from "../../../store/reducers/sendRequestLibraryPageSlice";
 
 const InputSearch = ({ setStateInput }) => {
-  const [search, setSearch] = useState("");
+  const { searchState } = useSelector(
+    (state) => state.sendRequestLibraryPageSlice
+  );
   const dispatch = useDispatch();
   useEffect(() => {
-    if (search === "") {
+    if (searchState === "") {
       setStateInput(false);
     }
-  }, [search, setStateInput]);
+  }, [searchState, setStateInput]);
   const searchBook = (e) => {
     e.preventDefault();
-    dispatch(changeSearch(search));
+    dispatch(changeSearch(searchState));
     setStateInput(true);
+    ///////////сброс состояний///////////
+    dispatch(changeFilterBookState(1));
+    dispatch(changeSortState(-1));
+    dispatch(changeSortBtn(""));
+    dispatch(changeFilteredBtn(""));
+    ///////////сброс состояний///////////
   };
   return (
     <div className={styles.parentBlock_search}>
       <form action="" onSubmit={(e) => searchBook(e)}>
         <input
           placeholder="Книга, жанры, автор"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => dispatch(changeSearchState(e.target.value))}
           className={styles.inputSearch}
           name="input"
+          value={searchState}
         />
         <button type="submit">Поиск</button>
         <button type="submit">

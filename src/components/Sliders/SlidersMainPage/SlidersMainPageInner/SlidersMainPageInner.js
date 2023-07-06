@@ -20,17 +20,17 @@ const SlidersMainPageInner = ({ slide }) => {
             grade={slide?.middle_star}
           />
           {/* Для адавтивки */}
-          <p className={styles.content_adaptaion}>{slide.author_name}</p>
+          <p className={styles.content_adaptaion}>{slide?.author_name}</p>
           {/* Для адавтивки */}
         </div>
-        <Link to={`/detailed/${slide.id}`}>
+        <Link to={`/detailed/${slide?.id}`}>
           <button>Читать</button>
         </Link>
       </section>
-      <NavLink
-        to={`/detailed/${slide.id}`}
+      {/* <NavLink
+        to={`/detailed/${slide?.id}`}
         className={styles.modile_version}
-      ></NavLink>
+      ></NavLink> */}
     </div>
   );
 };

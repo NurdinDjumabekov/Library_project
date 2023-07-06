@@ -73,12 +73,13 @@
 @media screen and (max-width: 1350px) and (max-width: 900px) {
   .parent_manasPart .child_manasPart {
     padding: 20px;
-    gap: 20px;
+    gap: 10px;
   }
 }
 @media screen and (max-width: 1350px) and (max-width: 900px) and (max-width: 520px) {
   .parent_manasPart .child_manasPart {
     padding: 10px;
+    gap: 0;
   }
 }
 .parent_manasPart .child_manasPart .child_manasPart_left, .parent_manasPart .child_manasPart .child_manasPart_right {
@@ -129,26 +130,48 @@
           align-items: center;
   gap: 20px;
 }
+@media screen and (max-width: 900px) {
+  .parent_manasPart .child_manasPart .child_manasPart_center > div {
+    gap: 10px;
+  }
+}
 .parent_manasPart .child_manasPart .child_manasPart_center > div > div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 200px;
   height: 270px;
 }
 @media screen and (max-width: 900px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div > div {
-    width: 150px;
-    height: 220px;
+    width: 190px;
+    height: 250px;
   }
 }
-@media screen and (max-width: 900px) and (max-width: 530px) {
+@media screen and (max-width: 900px) and (max-width: 650px) {
+  .parent_manasPart .child_manasPart .child_manasPart_center > div > div {
+    width: 140px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 650px) and (max-width: 530px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div > div {
     width: 120px;
     height: 170px;
   }
 }
-@media screen and (max-width: 900px) and (max-width: 530px) and (max-width: 430px) {
+@media screen and (max-width: 900px) and (max-width: 650px) and (max-width: 530px) and (max-width: 430px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div > div {
     width: 100px;
-    height: 150px;
+    height: 135px;
   }
 }
 .parent_manasPart .child_manasPart .child_manasPart_center > div > div img {
@@ -170,9 +193,10 @@
 @media screen and (max-width: 900px) and (max-width: 800px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div p {
     font-size: 15px;
+    max-width: 150px;
   }
 }
-@media screen and (max-width: 900px) and (max-width: 800px) and (max-width: 600px) {
+@media screen and (max-width: 900px) and (max-width: 800px) and (max-width: 530px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div p {
     font-size: 12px;
   }
@@ -186,10 +210,10 @@
 }
 @media screen and (max-width: 900px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div p span {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
-@media screen and (max-width: 900px) and (max-width: 600px) {
+@media screen and (max-width: 900px) and (max-width: 530px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div p span {
     font-size: 12px;
   }
@@ -204,8 +228,16 @@
   font-weight: 400;
   border: none;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .parent_manasPart .child_manasPart .child_manasPart_center > div button {
-    display: none;
+    padding: 5px 20px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 10px;
+  }
+}
+@media screen and (max-width: 900px) and (max-width: 530px) {
+  .parent_manasPart .child_manasPart .child_manasPart_center > div button {
+    font-size: 12px;
   }
 }
