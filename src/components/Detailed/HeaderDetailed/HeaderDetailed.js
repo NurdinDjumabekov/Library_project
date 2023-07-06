@@ -2,8 +2,9 @@ import React from "react";
 import styles from "./HeaderDetailed.module.css";
 import book from "../../../assests/images/Detailed/info_book.png";
 import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
+import { Link } from "react-router-dom";
 
-const HeaderDetailed = ({ dataDetailedPage }) => {
+const HeaderDetailed = ({ dataDetailedPage, dontShowBtn }) => {
   // console.log(dataDetailedPage);
   return (
     <div className={styles.parent_deaderDetailed}>
@@ -43,14 +44,18 @@ const HeaderDetailed = ({ dataDetailedPage }) => {
               </div>
             </li>
             <li>
-              <button>Читать</button>
+              {dontShowBtn ? null : 
+                <Link to={`/read/${dataDetailedPage.id}`}><button>Читать</button></Link>        
+              }
             </li>
           </ul>
         </div>
         {/* ///adaptation/////// */}
         <ul className={styles.child_info_detailed_mini}>
           <li>
-            <button>Читать</button>
+            {dontShowBtn ? null : 
+              <Link to={`/read/${dataDetailedPage.id}`}><button>Читать</button></Link>        
+            }        
           </li>
           <li>
             <span>{dataDetailedPage.title}</span>

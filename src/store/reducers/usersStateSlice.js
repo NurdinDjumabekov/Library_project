@@ -9,6 +9,7 @@ const initialState = {
   checkedUser: false,
   dataEveryUser: {}, // {}
   readingNowBookUser: [],
+  finishedBookUser: [],
   singlePassword: "",
   stateFake: {
     img: "",
@@ -55,6 +56,8 @@ export const sendRequestDataEveryUser = createAsyncThunk(
       localStorage.setItem("dataUser", JSON.stringify(data));
       dispatch(toTakeDataEveryUser(data));
       dispatch(toTakePassword(data.password));
+      dispatch(changeReadingNowBookUser(data.reading))
+      dispatch(changeFinishedBookUser(data.finish))
       // console.log(data);
     } catch (error) {
       console.log(error, "error sendRequestDataEveryUser");
@@ -84,23 +87,23 @@ export const updateTokens = createAsyncThunk(
     }
   }
 );
-export const toTakeReadingNowBooks = createAsyncThunk(
-  "toTakeReadingNowBooks",
-  async (info, { dispatch }) => {
-    try {
-      const { data } = await axios({
-        method: "GET",
-        url: "https://kitepkana1.pythonanywhere.com/finish_bookmark/",
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("access")}`,
-        },
-      });
-      dispatch(changeReadingNowBookUser(data));
-    } catch (error) {
-      console.log(error, "error toTakeReadingNowBooks");
-    }
-  }
-);
+// export const toTakeReadingNowBooks = createAsyncThunk(
+//   "toTakeReadingNowBooks",
+//   async (info, { dispatch }) => {
+//     try {
+//       const { data } = await axios({
+//         method: "GET",
+//         url: "https://kitepkana1.pythonanywhere.com/finish_bookmark/",
+//         headers: {
+//           Authorization: `JWT ${localStorage.getItem("access")}`,
+//         },
+//       });
+//       dispatch(changeReadingNowBookUser(data));
+//     } catch (error) {
+//       console.log(error, "error toTakeReadingNowBooks");
+//     }
+//   }
+// );
 export const sendRequestdeleteBooks = createAsyncThunk(
   "sendRequestdeleteBooks",
   async (id, { dispatch }) => {
@@ -139,6 +142,9 @@ const usersStateSlice = createSlice({
     },
     changeReadingNowBookUser: (state, action) => {
       state.readingNowBookUser = action.payload;
+    },
+    changeFinishedBookUser: (state, action) => {
+      state.finishedBookUser = action.payload;
     },
     toTakePassword: (state, action) => {
       state.singlePassword = changePassword(action.payload);
@@ -203,6 +209,7 @@ export const {
   changeCheckedUser,
   toTakeDataEveryUser,
   changeReadingNowBookUser,
+  changeFinishedBookUser,
   toTakePassword,
   deleteBooksFavorites,
   changeFakeData,

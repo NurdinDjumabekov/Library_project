@@ -13,8 +13,8 @@ const SortUsersBook = () => {
 
   const favoriteBook = [
     { id: 1, text: "Избранное", dataApi: "favorite" },
-    { id: 2, text: "Читаю сейчас", dataApi: "finish_bookmark" },
-    { id: 3, text: "Прочитано", dataApi: "read_bookmark" },
+    { id: 2, text: "Читаю сейчас", dataApi: "read_bookmark" },
+    { id: 3, text: "Прочитано", dataApi: "finish_bookmark" },
   ];
 
   const sortFavoriteBook = (id, dataApi) => {

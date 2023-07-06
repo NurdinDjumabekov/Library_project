@@ -97,6 +97,14 @@
 .parent_deaderDetailed .child_detailed .child_info_detailed {
   width: 480px;
   padding: 20px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 31px;
 }
 .parent_deaderDetailed .child_detailed .child_info_detailed li {
   display: -webkit-box;
@@ -108,7 +116,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 20px;
 }
 .parent_deaderDetailed .child_detailed .child_info_detailed li > div > div {
   margin: 0;
