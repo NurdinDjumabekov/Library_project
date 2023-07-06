@@ -1,15 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Comments.module.css";
 import { useDispatch } from "react-redux";
 // import { sendRequestComments } from "../../../store/reducers/sendRequestEveryBookSlice";
 import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
 
 const Comments = ({ dataDetailedPage }) => {
-  const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(sendRequestComments());
-  // }, []);
-  // console.log(dataDetailedPage.reviews);
   return (
     <div className={styles.wrapper_comment}>
       <div className="container">

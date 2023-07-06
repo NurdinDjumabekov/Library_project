@@ -114,8 +114,8 @@ const SettingUserPage = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M21.6654 9.66732H5.3987L12.8654 2.20065L10.9987 0.333984L0.332031 11.0007L10.9987 21.6673L12.8654 19.8007L5.3987 12.334H21.6654V9.66732Z"
                 fill="#2A2A2A"
               />

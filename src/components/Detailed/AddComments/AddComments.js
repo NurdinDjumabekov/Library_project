@@ -16,7 +16,7 @@ const AddComments = ({ dataDetailedPage, id }) => {
   const [star, setStar] = useState(1);
   const starArr = [1, 2, 3, 4, 5];
   const [addComment, setAddComment] = useState(false);
-  // console.log(data);
+  console.log(data);
   // console.log(star);
   const [input, setInput] = useState("");
   const sendAddCommetns = (e) => {

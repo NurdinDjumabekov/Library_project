@@ -50,8 +50,8 @@ const MainLogin = ({ setRestore }) => {
         localStorage.setItem("refresh", info.data.refresh);
         setTimeout(() => {
           if (info.data.access && info.data.refresh) {
-            dispatch(changeCheckedUser(true));
             navigate("/");
+            dispatch(changeCheckedUser(true));
             dispatch(changePreloader(false));
           }
         }, 300);
