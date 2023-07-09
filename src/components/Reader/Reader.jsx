@@ -24,6 +24,7 @@ const Reader = ({ id }) => {
   const [marginPagesDisplayed, setMarginPagesDisplayed] = useState(3)
   const [nextLabel, setNextLabel] = useState("Вперед")
   const [prevLabel, setPrevLabel] = useState("Назад")
+  const [currentOptionMargin, setCurrentOptionMargin] = useState(-422)
   // const [a, setA] = useState(window.screen.width)
   // useEffect(() => {
   //   console.log(window.screen.width);
@@ -60,6 +61,14 @@ const Reader = ({ id }) => {
       setPageRangeDisplayed(1)
       setNextLabel(">")
       setPrevLabel("<")
+    }
+
+    if(window.screen.width <= 480 && window.screen.width > 430) {
+      setCurrentOptionMargin(-372)
+    } else if(window.screen.width <= 430) {
+      setCurrentOptionMargin(-272)
+    } else {
+      setCurrentOptionMargin(-422)
     }
 
   }
@@ -108,7 +117,7 @@ const Reader = ({ id }) => {
         <div className={styles.bookText} style={{fontFamily: fontFamaly, lineHeight: lineHeight+"px"}}>
           {bookTextInfo.results.length <= 0 ? "Ошибка при получении текста." : bookTextInfo.results[0].text}
         </div>
-        <div className={styles.textOptionsParent} style={{right: optionsOpened ? "0" : "-422px"}}>
+        <div className={styles.textOptionsParent} style={{right: optionsOpened ? "0" : currentOptionMargin+"px"}}>
           <div className={styles.settingImg} style={{boxShadow: optionsOpened ? "0 0 50px #7777778a" : "none"}} onClick={() => {
             setOptionsOpened(!optionsOpened)
           }}>
