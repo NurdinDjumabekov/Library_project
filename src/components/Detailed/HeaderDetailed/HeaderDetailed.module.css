@@ -171,6 +171,7 @@
   font-size: 26px;
   line-height: 125.3%;
   color: #FFFFFF;
+  cursor: pointer;
 }
 @media screen and (max-width: 1050px) {
   .parent_deaderDetailed .child_detailed .child_info_detailed li:last-child button {
@@ -203,14 +204,15 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.parent_deaderDetailed .child_info_detailed_mini li > button {
+.parent_deaderDetailed .child_info_detailed_mini li > a button {
   width: 100%;
   background-color: #FF3D00;
-  padding: 12px 0;
+  padding: 12px;
   border: none;
   border-radius: 10px;
   font-size: 20px;
   color: #fff;
+  cursor: pointer;
 }
 .parent_deaderDetailed .child_info_detailed_mini li h3 {
   font-family: "Roboto";

@@ -170,15 +170,16 @@
   line-height: 125.303%;
   cursor: pointer;
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .parent_favoritesBook > div .finishReadBtn button, .parent_favoritesBook > div .readingNowBtn button {
     display: none;
   }
 }
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 830px) {
   .parent_favoritesBook > div .finishReadBtn button, .parent_favoritesBook > div .readingNowBtn button {
-    width: 130px;
+    width: 110px;
     padding: 0;
+    font-size: 16px;
   }
 }
 .parent_favoritesBook > div .finishReadBtn button {

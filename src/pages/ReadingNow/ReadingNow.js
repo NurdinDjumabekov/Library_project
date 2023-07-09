@@ -29,15 +29,15 @@ const ReadingNow = () => {
   }, [ ])
   useEffect(() => {
     try {
-      if(readingNowBookUser.length <= 0) {
+      if(localStorage.getItem("lastBook") === null) {
         dispatch(detailedData(1));
       } else {
-        dispatch(detailedData(readingNowBookUser[0].id));
+        dispatch(detailedData(localStorage.getItem("lastBook")));
       }
     } catch (error) {
       console.log(error);
     }
-  }, [ readingNowBookUser ]);
+  }, [  ]);
   return (
   <>
     {ifSendRequestError ? (
@@ -46,10 +46,10 @@ const ReadingNow = () => {
         <Preloader/>
       ) : (
         <>
-        {readingNowBookUser.length > 0 ? (
+        {localStorage.getItem("lastBook") !== null ? (
           <div className={styles.parentReader}>
             <HeaderDetailed dataDetailedPage={dataDetailedPage} dontShowBtn={true}/>
-            <Reader id={readingNowBookUser[0].id}/>
+            <Reader id={localStorage.getItem("lastBook")}/>
           </div>
         ) : (
           <div className={styles.parent_reading}>

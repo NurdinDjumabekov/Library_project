@@ -69,6 +69,23 @@ export const sendRequestDataEveryUser = createAsyncThunk(
     }
   }
 );
+// export const deleteReadingNow = createAsyncThunk(
+//   "deleteReadingNow",
+//   async(info, {dispatch}) => {
+//     try {
+//       const data  = await axios.patch("https://kitepkana1.pythonanywhere.com/auth/profile/", {
+//         "finish": "empty"
+//       }, {
+//         headers: {
+//           Authorization: `JWT ${info}`,
+//         }
+//       })
+//       console.log(data);
+//     } catch {
+//       console.log("eror");
+//     }
+//   }
+// )
 export const updateTokens = createAsyncThunk(
   "updateTokens",
   async (info, { dispatch }) => {

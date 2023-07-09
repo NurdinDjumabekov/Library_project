@@ -16,6 +16,11 @@
     margin: 0 auto
     margin-top: 40px
     width: 1350px
+    min-height: 500px
+    @media screen and ( max-width: 1430px )
+      padding: 40px
+    @media screen and ( max-width: 480px )
+      font-size: 22px
   .textOptionsParent
     position: absolute
     right: -422px
@@ -23,10 +28,12 @@
     display: flex
     align-items: start
     transition: 250ms
+    
+      
     .settingImg
       background-color: #000000
       border-radius: 10px 0 0 10px
-      box-shadow: 0 0 50px #777777
+      box-shadow: 0 0 50px #7777772d
       cursor: pointer
       padding: 5px
       transition: 250ms
@@ -39,18 +46,25 @@
       flex-direction: column
       padding: 96px 50px
       gap: 20px
-      box-shadow: 0 0 50px #777777
+      box-shadow: 0 0 50px #7777772d
       border-radius: 0 0 0 10px
       color: #2a2a2a
       transition: 250ms
+      @media screen and ( max-width: 480px )
+        padding: 48px 25px
+      @media screen and ( max-width: 430px )
+        font-size: 22px
       select
         width: 150px
         height: 35px
         font-size: 24px
         font-weight: 400
         border-radius: 10px
+        
       input
         width: 300px
+        @media screen and ( max-width: 430px )
+          width: 150px
       button
         padding: 10px 30px
         background-color: #ffffff00
@@ -65,6 +79,10 @@
   justify-content: space-between
   align-items: center
   padding: 0 42px
+  @media screen and ( max-width: 970px )
+    padding: 0
+  @media screen and ( max-width: 500px )
+    padding: 0 20px
   .paginationPrev, .paginationNext 
     font-weight: 500
     font-size: 24px
@@ -74,12 +92,16 @@
     padding: 10px 26px
     border-radius: 10px
     cursor: pointer
+    @media screen and ( max-width: 760px )
+      font-size: 20px
   .paginationNum, .paginationBreak
     font-weight: 500
     font-size: 36px
     line-height: 45px
     color: black
     cursor: pointer
+    @media screen and ( max-width: 760px )
+      font-size: 28px
   .paginationActiveNum
     background-color: #FF4004
     color: white

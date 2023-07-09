@@ -20,6 +20,11 @@
           align-items: center;
   padding: 0 42px;
 }
+@media screen and (max-width: 970px) {
+  .paginationContainer {
+    padding: 0 0;
+  }
+}
 .paginationContainer .paginationPrev, .paginationContainer .paginationNext {
   font-weight: 500;
   font-size: 24px;
