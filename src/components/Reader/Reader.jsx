@@ -129,11 +129,12 @@ const Reader = ({ id }) => {
               setFontFamaly(e.target.value)
               localStorage.setItem("fontFamaly", e.target.value)
             }}>
-              <option value="monospace" style={{fontFamily: "monospace"}}>Monospace</option>
-              <option value="Roboto" style={{fontFamily: "Roboto"}}>Roboto</option>
-              <option value="cursive" style={{fontFamily: "cursive"}}>Cursive</option>
+              <option value="Roboto" style={{fontFamily: "Roboto, sans-serif"}}>Roboto</option>
+              <option value="monospace" style={{fontFamily: "monospace, sans-serif"}}>Monospace</option>
               <option value="serif" style={{fontFamily: "serif"}}>Serif</option>
-            </select>
+              <option value="'Ysabeau SC'" style={{fontFamily: "'Ysabeau SC', sans-serif"}}>Ysabeau SC</option>
+              <option value="'PT Mono'" style={{fontFamily: "'PT Mono', sans-serif"}}>PT Mono</option>
+            </select> 
             <span>Межстрочный отступ</span>
             <input type="range" min={40} max={90} value={lineHeight} onChange={(e) => {
               setLineHeight(e.target.value)
