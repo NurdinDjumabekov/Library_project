@@ -27,10 +27,10 @@ const SlidersMainPageInner = ({ slide }) => {
           <button>Читать</button>
         </Link>
       </section>
-      {/* <NavLink
+      <NavLink
         to={`/detailed/${slide?.id}`}
         className={styles.modile_version}
-      ></NavLink> */}
+      ></NavLink>
     </div>
   );
 };

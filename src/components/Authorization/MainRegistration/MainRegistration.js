@@ -140,7 +140,7 @@ const MainRegistration = () => {
       ) {
         // console.log(password.passwordMain);
         if (password.passwordMain === password.passwordRepeat) {
-          console.log("Пароли похожи");
+          // console.log("Пароли похожи");
           sendRequestRegistration();
         } else {
           // console.log("Пароли не похожи");
@@ -189,13 +189,6 @@ const MainRegistration = () => {
     document.body.addEventListener("click", removeLevelInfo);
     dispatch(changePreloader(false));
   }, []);
-  // useEffect(() => {
-  //   if (password.passwordMain === password.passwordRepeat) {
-  //     console.log("goooo");
-  //   } else if (password.passwordMain !== password.passwordRepeat) {
-  //     console.log("noooo");
-  //   }
-  // }, [password.passwordRepeat]);
   return (
     <>
       {preloader ? (
@@ -232,6 +225,7 @@ const MainRegistration = () => {
                 }
                 onClick={() => appearanceLevelInfo("passwordMain")}
               />
+
               {disable.lookBtnEye && (
                 <EyePassword
                   lookPassword={disable.lookPassword}
