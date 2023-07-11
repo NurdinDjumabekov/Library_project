@@ -4,8 +4,8 @@ import ReactPaginate from 'react-paginate';
 import Pagination from '../Pagination/Pagination';
 import { useDispatch, useSelector } from 'react-redux';
 import Preloader from '../Preloader/Preloader';
-import { changeReaderCurrentPage, sendRequestGetBookText } from '../../store/reducers/sendRequestEveryBookSlice';
-import settingImg from "../../assests/images/windows/arrow-shape-turn-left-light.svg"
+import { changeReaderCurrentPage, sendRequestGetBookLastPage, sendRequestGetBookText } from '../../store/reducers/sendRequestEveryBookSlice';
+import settingImg from "../../assests/images/readingNow/mdi_share.svg"
 
 const Reader = ({ id }) => {
   const dispatch = useDispatch()
@@ -24,7 +24,8 @@ const Reader = ({ id }) => {
   const [marginPagesDisplayed, setMarginPagesDisplayed] = useState(3)
   const [nextLabel, setNextLabel] = useState("Вперед")
   const [prevLabel, setPrevLabel] = useState("Назад")
-  const [currentOptionMargin, setCurrentOptionMargin] = useState(-422)
+  const [currentOptionMargin, setCurrentOptionMargin] = useState(-550)
+  // const [inputValue, setInputValue] = useState(48)
   // const [a, setA] = useState(window.screen.width)
   // useEffect(() => {
   //   console.log(window.screen.width);
@@ -63,18 +64,20 @@ const Reader = ({ id }) => {
       setPrevLabel("<")
     }
 
-    if(window.screen.width <= 480 && window.screen.width > 430) {
-      setCurrentOptionMargin(-372)
-    } else if(window.screen.width <= 430) {
-      setCurrentOptionMargin(-272)
+    if(window.screen.width <= 660 && window.screen.width > 570) {
+      setCurrentOptionMargin(-490)
+    } else if(window.screen.width <= 570 && window.screen.width > 380) {
+      setCurrentOptionMargin(-322)
+    } else if(window.screen.width <= 380) {
+      setCurrentOptionMargin(-281)
     } else {
-      setCurrentOptionMargin(-422)
+      setCurrentOptionMargin(-550)
     }
 
   }
   window.onresize = () => {
-    console.log(window.screen.width);
-    console.log(window.screen.height);
+    // console.log(window.screen.width);
+    // console.log(window.screen.height);
     checkWindowSize()
   }
   useEffect(() => {
@@ -93,19 +96,11 @@ const Reader = ({ id }) => {
     }
 
     checkWindowSize()
-
-    // if(localStorage.getItem("lastBookPage") !== null) {
-    //   dispatch(changeReaderCurrentPage(localStorage.getItem("lastBookPage")))
-    // }
   }, [])
-  useEffect(() => {
-    dispatch(sendRequestGetBookText({id: id, page: readerCurrentPage}))
-    localStorage.setItem("lastBook", id)
-    localStorage.setItem("lastBookPage", readerCurrentPage)
-    console.log(readerCurrentPage);
-  }, [ readerCurrentPage ])
 
-  
+  useEffect(() => {
+    localStorage.setItem("lastBook", id)
+  }, [ readerCurrentPage ])
 
   return (
     <>
@@ -118,10 +113,10 @@ const Reader = ({ id }) => {
           {bookTextInfo.results.length <= 0 ? "Ошибка при получении текста." : bookTextInfo.results[0].text}
         </div>
         <div className={styles.textOptionsParent} style={{right: optionsOpened ? "0" : currentOptionMargin+"px"}}>
-          <div className={styles.settingImg} style={{boxShadow: optionsOpened ? "0 0 50px #7777778a" : "none"}} onClick={() => {
+          <div className={styles.settingImg} onClick={() => {
             setOptionsOpened(!optionsOpened)
           }}>
-            <img src={settingImg} style={{transform: optionsOpened ? "scale(-1, 1)" : ""}} alt="404" />
+            <img src={settingImg} alt="404" />
           </div>
           <div className={styles.textOptions} style={{boxShadow: optionsOpened ? "0 0 50px #7777778a" : "none"}}>
             <label htmlFor='selectFont'>Настройка шрифта</label>
@@ -129,16 +124,15 @@ const Reader = ({ id }) => {
               setFontFamaly(e.target.value)
               localStorage.setItem("fontFamaly", e.target.value)
             }}>
-              <option value="Roboto" style={{fontFamily: "Roboto, sans-serif"}}>Roboto</option>
-              <option value="monospace" style={{fontFamily: "monospace, sans-serif"}}>Monospace</option>
-              <option value="serif" style={{fontFamily: "serif"}}>Serif</option>
-              <option value="'Ysabeau SC'" style={{fontFamily: "'Ysabeau SC', sans-serif"}}>Ysabeau SC</option>
-              <option value="'PT Mono'" style={{fontFamily: "'PT Mono', sans-serif"}}>PT Mono</option>
+              <option value="'Roboto'" style={{fontFamily: "'Roboto', sans-serif"}}>Roboto</option>
+              <option value="'Open Sans'" style={{fontFamily: "'Open Sans', sans-serif"}}>Open Sans</option>
+              <option value="'Raleway'" style={{fontFamily: "'Raleway', sans-serif"}}>Raleway</option>
             </select> 
             <span>Межстрочный отступ</span>
-            <input type="range" min={40} max={90} value={lineHeight} onChange={(e) => {
+            <input type="range" min={40} max={90} value={lineHeight} style={{backgroundSize: (lineHeight - 40) * 100 / (90 - 40) + '% 100%'}} onChange={(e) => {
               setLineHeight(e.target.value)
               localStorage.setItem("lineHeight", e.target.value)
+              // e.target.style.backgroundSize = (lineHeight - e.target.min) * 100 / (e.target.max - e.target.min) + '% 100%'
             }}/>
             <button onClick={() => {
               setFontFamaly("Roboto")
@@ -160,6 +154,7 @@ const Reader = ({ id }) => {
         marginPagesDisplayed={marginPagesDisplayed} 
         needScroll={true} 
         pageCount={bookTextInfo.count}
+        id={id}
       />
     </div>
     </>

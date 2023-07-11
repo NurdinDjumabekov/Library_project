@@ -6,7 +6,7 @@ const initialState = {
   infoEveryWriters: {},
   preloader: true,
   ifSendRequestError: true,
-  readerCurrentPage: 1,
+  readerCurrentPage: 0,
   bookTextInfo: {},
 
 };
@@ -128,12 +128,37 @@ export const sendRequestGetBookText = createAsyncThunk(
       });
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
+      console.log(data);
     } catch(error) {
       console.log(error);
       dispatch(changePreloader(false))
     }
   }
 )
+
+export const sendRequestGetBookLastPage = createAsyncThunk(
+  "sendRequestGetBookText",
+  async (id, {dispatch}) => {
+    dispatch(changePreloader(true))
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `https://kitepkana1.pythonanywhere.com/read/book/${id}/`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+      console.log(data);
+      dispatch(setBookTextInfo(data))
+      dispatch(changePreloader(false))
+      dispatch(changeReaderCurrentPage(data.current_page))
+    } catch(error) {
+      console.log(error);
+      dispatch(changePreloader(false))
+    }
+  }
+)
+
 
 const sendRequestEveryBookSlice = createSlice({
   name: "sendRequestEveryBookSlice",

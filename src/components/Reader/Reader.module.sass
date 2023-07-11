@@ -28,50 +28,105 @@
     display: flex
     align-items: start
     transition: 250ms
-    
-      
     .settingImg
-      background-color: #000000
       border-radius: 10px 0 0 10px
-      box-shadow: 0 0 50px #7777772d
       cursor: pointer
-      padding: 5px
       transition: 250ms
+      img
+        @media screen and ( max-width: 570px )
+          width: 40px
+          height: 40px
     .textOptions
-      font-size: 32px
+      font-size: 36px
       background-color: white
       display: flex
       justify-content: center
       align-items: center
       flex-direction: column
-      padding: 96px 50px
-      gap: 20px
+      padding: 45px 50px
+      gap: 40px
       box-shadow: 0 0 50px #7777772d
       border-radius: 0 0 0 10px
       color: #2a2a2a
       transition: 250ms
-      @media screen and ( max-width: 480px )
-        padding: 48px 25px
-      @media screen and ( max-width: 430px )
-        font-size: 22px
-      select
-        width: 160px
-        height: 35px
+      @media screen and ( max-width: 660px )
+        padding: 40px 20px
+      @media screen and ( max-width: 570px )
+        font-size: 28px
+      @media screen and ( max-width: 380px )
         font-size: 24px
+      select
+        width: 158px
+        height: 53px
+        font-size: 26px
+        line-height: 125%
         font-weight: 400
         border-radius: 10px
-        
-      input
-        width: 300px
-        @media screen and ( max-width: 430px )
-          width: 150px
+        padding: 10px 40px 10px 20px
+        appearance: none
+        text-align: left
+        background-image: url('../../assests/images/readingNow/caret-right-light.svg')
+        background-repeat: no-repeat
+        background-position-x: 90%
+        background-position-y: 50%
+        box-shadow: 2px 2px 50px 0px rgba(104, 104, 104, 0.25)
+        // border: 1px solid black
+        outline: 1px solid black
+        // transition: 500ms
+        @media screen and ( max-width: 570px )
+          width: 138px
+          height: 40px
+          font-size: 18px
+          padding: 10px 30px 10px 10px
+      select:focus
+        background-image: url("../../assests/images/readingNow/caret-down-light.svg")
+      input[type="range"]
+        width: 450px
+        height: 15px
+        color: #ff4500
+        appearance: none
+        background: rgba(217, 217, 217, 1)
+        border-radius: 10px
+        background-image: linear-gradient(#FF4004, #FF4004)
+        background-repeat: no-repeat
+        @media screen and ( max-width: 570px )
+          width: 190px
+      input[type="range"]::-ms-thumb
+        appearance: none
+        width: 25px
+        height: 25px
+        border-radius: 50%
+        background: #FF4004
+      input[type="range"]::-webkit-slider-thumb
+        appearance: none
+        width: 25px
+        height: 25px
+        border-radius: 50%
+        background: #FF4004
+      input[type="range"]::-moz-range-thumb
+        appearance: none
+        width: 25px
+        height: 25px
+        border-radius: 50%
+        background: #FF4004
+        // background-size: 10% 100%
+        // appearance: none
+        // background-image: linear-gradient(#ff4500, #ff4500)
       button
+        // width: 135px
+        // height: 44px
+        font-size: 18px
+        font-weight: 600
+        line-height: 134%
         padding: 10px 30px
         background-color: #ffffff00
         border: none
         cursor: pointer
-        box-shadow: 0 0 10px #53535359
         border-radius: 10px
+        background: #FF4004
+        color: #fff
+        @media screen and ( max-width: 470px )
+          font-size: 16px
 .paginationContainer
   margin-top: 60px
   margin-bottom: 75px

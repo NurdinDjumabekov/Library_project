@@ -160,8 +160,6 @@
   }
 }
 .parent_favoritesBook > div .finishReadBtn button, .parent_favoritesBook > div .readingNowBtn button {
-  width: 150px;
-  height: 50px;
   padding: 10px;
   border-radius: 10px;
   background: transparent;
@@ -187,8 +185,8 @@
   color: #06A503;
 }
 .parent_favoritesBook > div .readingNowBtn button {
-  border: 2px solid #036aa5;
-  color: #036aa5;
+  border: 2px solid rgb(255, 64, 4);
+  color: rgb(255, 64, 4);
 }
 .parent_favoritesBook > div .changeBtnAction_active {
   position: absolute;
