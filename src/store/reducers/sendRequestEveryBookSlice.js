@@ -128,8 +128,10 @@ export const sendRequestGetBookText = createAsyncThunk(
       });
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
+      dispatch(changeSendRequestError(true))
     } catch(error) {
       console.log(error);
+      dispatch(changeSendRequestError(false))
       dispatch(changePreloader(false))
     }
   }
@@ -151,8 +153,10 @@ export const sendRequestGetBookLastPage = createAsyncThunk(
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
       dispatch(changeReaderCurrentPage(data.current_page))
+      dispatch(changeSendRequestError(true))
     } catch(error) {
       console.log(error);
+      dispatch(changeSendRequestError(false))
       dispatch(changePreloader(false))
     }
   }

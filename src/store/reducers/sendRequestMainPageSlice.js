@@ -91,6 +91,8 @@ export const detailedData = createAsyncThunk(
     } catch (error) {
       if (error.message.includes("Request failed with status code 401")) {
         dispatch(changeSendRequestError(false));
+      } else {
+        dispatch(changeSendRequestError(true))
       }
       console.log("error detailedData", error);
       dispatch(changePreloader(false));

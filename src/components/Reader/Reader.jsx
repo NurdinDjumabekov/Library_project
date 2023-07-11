@@ -9,7 +9,7 @@ import settingImg from "../../assests/images/readingNow/mdi_share.svg"
 
 const Reader = ({ id }) => {
   const dispatch = useDispatch()
-  const { bookTextInfo, preloader, readerCurrentPage } = useSelector(
+  const { bookTextInfo, preloader, readerCurrentPage, ifSendRequestError } = useSelector(
     (state) => state.sendRequestEveryBookSlice
   )
   // useEffect(() => {
@@ -18,7 +18,6 @@ const Reader = ({ id }) => {
   // dispatch(getBookTextInfo(id, currentReaderPage))
   const [fontFamaly, setFontFamaly] = useState("")
   const [lineHeight, setLineHeight] = useState(48)
-  const [text, setText] = useState('')
   const [optionsOpened, setOptionsOpened] = useState(false)
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(5)
   const [marginPagesDisplayed, setMarginPagesDisplayed] = useState(3)
@@ -110,7 +109,8 @@ const Reader = ({ id }) => {
     (
       <div className={styles.readerParent}>
         <div className={styles.bookText} style={{fontFamily: fontFamaly, lineHeight: lineHeight+"px"}}>
-          {bookTextInfo.results.length <= 0 ? "Ошибка при получении текста." : bookTextInfo.results[0].text}
+          {/* {bookTextInfo.results.length <= 0 ? "Ошибка при получении текста." : bookTextInfo.results[0].text} */}
+          {ifSendRequestError ? (bookTextInfo.results.length <= 0 ? "Отсутствует текст." : bookTextInfo.results[0].text) : "Ошибка при выполнении запроса!"}
         </div>
         <div className={styles.textOptionsParent} style={{right: optionsOpened ? "0" : currentOptionMargin+"px"}}>
           <div className={styles.settingImg} onClick={() => {

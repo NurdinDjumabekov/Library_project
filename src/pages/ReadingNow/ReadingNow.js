@@ -21,7 +21,7 @@ const ReadingNow = () => {
   const { readingNowBookUser } = useSelector(
     (state) => state.usersStateSlice
   )
-  const userName = localStorage.getItem("dataUser")
+  const userName = JSON.parse(localStorage.getItem("dataUser"))
 
   // const { id } = useParams();
   useEffect(() => {
@@ -29,10 +29,10 @@ const ReadingNow = () => {
   }, [ ])
   useEffect(() => {
     try {
-      if(localStorage.getItem("lastBook") === null) {
-        dispatch(detailedData(1));
-      } else {
+      if(localStorage.getItem("lastBook") !== null) {
         dispatch(detailedData(localStorage.getItem("lastBook")));
+      } else {
+        dispatch(changePreloader(false))
       }
     } catch (error) {
       console.log(error);
@@ -40,7 +40,7 @@ const ReadingNow = () => {
   }, [  ]);
   return (
   <>
-    {ifSendRequestError ? (
+    {localStorage.getItem("access") !== null ? (
       <>
       {preloader ? (
         <Preloader/>
