@@ -150,6 +150,7 @@ const Reader = ({ id }) => {
         </div>
       </div>
     )}
+    
     <div className="container">
       <Pagination 
         styles={styles} 
