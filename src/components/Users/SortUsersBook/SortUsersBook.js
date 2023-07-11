@@ -5,11 +5,12 @@ import { changeChoiceUserBook } from "../../../store/reducers/usersStateSlice";
 
 const SortUsersBook = () => {
   const dispatch = useDispatch();
-  const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem("activeBtnSort"))
-      ? JSON.parse(localStorage.getItem("activeBtnSort"))
-      : 1
-  );
+  // const [favorites, setFavorites] = useState(
+    //   JSON.parse(localStorage.getItem("activeBtnSort"))
+    //     ? JSON.parse(localStorage.getItem("activeBtnSort"))
+    //     : 1
+    // );
+    const [favorites, setFavorites] = useState(1);
 
   const favoriteBook = [
     { id: 1, text: "Избранное", dataApi: "favorite" },

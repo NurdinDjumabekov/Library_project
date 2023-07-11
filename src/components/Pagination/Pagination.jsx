@@ -1,57 +1,63 @@
-import React, { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
-import { useDispatch, useSelector } from "react-redux";
-import { changeReaderCurrentPage } from "../../store/reducers/sendRequestEveryBookSlice";
+import React, { useEffect, useState } from 'react'
+import ReactPaginate from 'react-paginate';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeReaderCurrentPage, sendRequestGetBookLastPage, sendRequestGetBookText } from '../../store/reducers/sendRequestEveryBookSlice';
 
-const ReadBook = ({
-  styles,
-  nextLabel,
-  previousLabel,
-  pageRangeDisplayed,
-  marginPagesDisplayed,
-  needScroll,
-  pageCount,
-}) => {
-  const dispatch = useDispatch();
-  const [itemOffset, setItemOffset] = useState(0);
+const ReadBook = ({styles, nextLabel, previousLabel, pageRangeDisplayed, marginPagesDisplayed, needScroll, pageCount, id}) => {
+  const {readerCurrentPage} = useSelector(
+    (state) => state.sendRequestEveryBookSlice
+  )
+  const dispatch = useDispatch()
+  const [itemOffset, setItemOffset] = useState(Number(readerCurrentPage));
 
   useEffect(() => {
-    dispatch(changeReaderCurrentPage(itemOffset + 1));
-  }, [itemOffset]);
+    dispatch(sendRequestGetBookLastPage(id))
+  }, [])
 
   useEffect(() => {
-    console.log(itemOffset + 1);
-  }, [itemOffset]);
+    if(itemOffset !== 0 && itemOffset != Number(readerCurrentPage)) {
+      dispatch(changeReaderCurrentPage(itemOffset))
+      dispatch(sendRequestGetBookText({id: id, page: itemOffset}))
+      console.log(itemOffset);
+    }
+  }, [itemOffset])
+
+  useEffect(() => {
+    console.log(itemOffset);
+  }, [itemOffset])
 
   const handlePageClick = (event) => {
-    const newOffset = event.selected;
-    setItemOffset(newOffset);
-    if (needScroll) {
+    const newOffset = (event.selected)
+    setItemOffset(newOffset+1);
+    if(needScroll) {
       window.scrollTo({
         top: 500,
-        behavior: "smooth",
-      });
+        behavior: 'smooth'
+      })
     }
   };
 
-  return (
-    <ReactPaginate
-      breakLabel="..."
-      nextLabel={nextLabel}
-      onPageChange={handlePageClick}
-      pageRangeDisplayed={pageRangeDisplayed}
-      marginPagesDisplayed={marginPagesDisplayed}
-      pageCount={pageCount}
-      previousLabel={previousLabel}
-      renderOnZeroPageCount={null}
-      containerClassName={styles.paginationContainer}
-      pageLinkClassName={styles.paginationNum}
-      previousLinkClassName={styles.paginationPrev}
-      nextLinkClassName={styles.paginationNext}
-      activeLinkClassName={styles.paginationActiveNum}
-      breakLinkClassName={styles.paginationBreak}
-    />
-  );
-};
 
-export default ReadBook;
+  return ( 
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel={nextLabel}
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={pageRangeDisplayed}
+        marginPagesDisplayed={marginPagesDisplayed}
+        pageCount={pageCount}
+        previousLabel={previousLabel}
+        renderOnZeroPageCount={null}
+        containerClassName={styles.paginationContainer}
+        pageLinkClassName={styles.paginationNum}
+        previousLinkClassName={styles.paginationPrev}
+        nextLinkClassName={styles.paginationNext}
+        activeLinkClassName={styles.paginationActiveNum}
+        breakLinkClassName={styles.paginationBreak}
+        // initialPage={Number(readerCurrentPage)-1}
+        forcePage={Number(readerCurrentPage)-1}
+      />
+  );
+}
+
+export default ReadBook

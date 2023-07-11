@@ -44,18 +44,22 @@ const HeaderDetailed = ({ dataDetailedPage, dontShowBtn }) => {
               </div>
             </li>
             <li>
-              {dontShowBtn ? null : 
-                <Link to={`/read/${dataDetailedPage.id}`}><button>Читать</button></Link>        
-              }
+              {dontShowBtn ? null : (
+                <Link to={`/read/${dataDetailedPage.id}`}>
+                  <button>Читать</button>
+                </Link>
+              )}
             </li>
           </ul>
         </div>
         {/* ///adaptation/////// */}
         <ul className={styles.child_info_detailed_mini}>
           <li>
-            {dontShowBtn ? null : 
-              <Link to={`/read/${dataDetailedPage.id}`}><button>Читать</button></Link>        
-            }        
+            {dontShowBtn ? null : (
+              <Link to={`/read/${dataDetailedPage.id}`}>
+                <button>Читать</button>
+              </Link>
+            )}
           </li>
           <li>
             <span>{dataDetailedPage.title}</span>
