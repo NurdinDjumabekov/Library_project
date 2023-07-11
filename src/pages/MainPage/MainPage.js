@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./MainPage.module.css";
 import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import Recommendation from "../../components/Recommendation/Recommendation";
@@ -9,24 +9,29 @@ import TheBestWorks from "../../components/TheBestWorks/TheBestWorks";
 import DownloadSlide from "../../components/Sliders/HeaderSliders/DownloadSlide/DownloadSlide";
 import Preloader from "../../components/Preloader/Preloader";
 import { useDispatch, useSelector } from "react-redux";
-import { requestNovetlyWorks } from "../../store/reducers/sendRequestMainPageSlice";
+import {
+  changePreloader,
+  requestNovetlyWorks,
+} from "../../store/reducers/sendRequestMainPageSlice";
 const MainPage = () => {
   const { preloader } = useSelector((state) => state.sendRequestMainPageSlice);
   const dispatch = useDispatch();
   // console.log(preloader);
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(requestNovetlyWorks());
+    dispatch(changePreloader(false));
   }, []);
   return (
     <>
       {preloader ? (
         <Preloader />
       ) : (
-        <div>
+        <div className={styles.inner_wrapper}>
           <HeaderMain />
-          <Novelties />
-          <ManasPart />
           <Recommendation />
+          <ManasPart />
+          <Novelties />
           <Sliders_writers />
           <TheBestWorks />
           <div className={styles.parent_downloadSlide}>

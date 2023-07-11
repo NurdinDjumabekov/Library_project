@@ -6,9 +6,10 @@ const NotFound = () => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "black",
   };
   const stylesH1 = {
-    fontSize: "50px",
+    fontSize: "60px",
   };
   return (
     <div style={styles}>

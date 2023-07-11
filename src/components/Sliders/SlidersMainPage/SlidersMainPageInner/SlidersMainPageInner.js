@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SlidersMainPageInner.module.css";
-// import postImage from "../../../../assests/images/Sliders/book_slider.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Rating_Star from "../Rating_Star/Rating_Star";
 
 const SlidersMainPageInner = ({ slide }) => {
@@ -15,11 +14,23 @@ const SlidersMainPageInner = ({ slide }) => {
           <h2>{slide.title}</h2>
           <p>{slide.author_name}</p>
         </div>
-        <Rating_Star grade_star={slide.grade_star} grade={slide.grade} />
-        <button>
-          <Link to={"/"}>Читать</Link>
-        </button>
+        <div className={styles.rating_Star}>
+          <Rating_Star
+            grade_star={slide?.middle_star}
+            grade={slide?.middle_star}
+          />
+          {/* Для адавтивки */}
+          <p className={styles.content_adaptaion}>{slide?.author_name}</p>
+          {/* Для адавтивки */}
+        </div>
+        <Link to={`/detailed/${slide?.id}`}>
+          <button>Читать</button>
+        </Link>
       </section>
+      {/* <NavLink
+        to={`/detailed/${slide?.id}`}
+        className={styles.modile_version}
+      ></NavLink> */}
     </div>
   );
 };

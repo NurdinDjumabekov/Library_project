@@ -4,6 +4,11 @@
   display: flex;
   gap: 35px;
 }
+@media screen and (max-width: 900px) {
+  .parent_filtered {
+    display: none;
+  }
+}
 .parent_filtered h4 {
   font-weight: 600;
   font-size: 29.44px;

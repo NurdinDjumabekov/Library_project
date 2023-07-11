@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import styles from "./SortUsersBook.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFavoriteBooks } from "../../../store/reducers/usersStateSlice";
+import { changeChoiceUserBook } from "../../../store/reducers/usersStateSlice";
 
 const SortUsersBook = () => {
-  const { favoriteBooks } = useSelector((state) => state.usersStateSlice);
   const dispatch = useDispatch();
-  const [favorites, setFavorites] = useState(1);
-  //   console.log(favoriteBooks);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("activeBtnSort"))
+      ? JSON.parse(localStorage.getItem("activeBtnSort"))
+      : 1
+  );
 
   const favoriteBook = [
-    { id: 1, text: "Избранное", dataApi: "Избранное" },
-    { id: 2, text: "Читаю сейчас", dataApi: "Читаю сейчас" },
-    { id: 3, text: "Прочитано", dataApi: "Прочитано" },
+    { id: 1, text: "Избранное", dataApi: "favorite" },
+    { id: 2, text: "Читаю сейчас", dataApi: "finish_bookmark" },
+    { id: 3, text: "Прочитано", dataApi: "read_bookmark" },
   ];
 
   const sortFavoriteBook = (id, dataApi) => {
-    dispatch(changeFavoriteBooks(dataApi));
+    localStorage.setItem("activeBtnSort", id);
+    dispatch(changeChoiceUserBook(dataApi));
     setFavorites(id);
   };
 

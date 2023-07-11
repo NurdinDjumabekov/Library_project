@@ -5,13 +5,14 @@ import Slider from "react-slick";
 import styles from "./Sliders_writers.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { requestKyrgyzWriters } from "../../../store/reducers/sendRequestMainPageSlice";
+import { NavLink } from "react-router-dom";
 
 const Sliders_writers = () => {
   const dispatch = useDispatch();
   const { kyrgyzWriters } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
-  console.log(kyrgyzWriters, "kyrgyzWriters");
+  // console.log(kyrgyzWriters, "kyrgyzWriters");
 
   useEffect(() => {
     dispatch(requestKyrgyzWriters());
@@ -19,65 +20,62 @@ const Sliders_writers = () => {
 
   const settings = {
     dots: false,
-    arrows: true,
+    arrows: false,
     infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 7000,
     pauseOnHover: true,
   };
 
-  const url =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu75kQs-UENNytPqqV760OQOeoj-5BqEgqxw&usqp=CAU";
-
   return (
-    <div className={styles.parent_writers}>
-      <div className="container">
-        <div className={styles.child_writers}>
-          <div className={styles.parent_sliderWriters}>
-            <Slider className={styles.slider} {...settings}>
-              {kyrgyzWriters?.map((slide) => (
-                <div key={slide.id}>
-                  <h3>{slide.fullname}</h3>
-                  <div className={styles.child_sliderWriters}>
-                    <div>
-                      <img src={url} alt="slide" />
+    <div>
+      <h3>Наши писатели</h3>
+      <div className={styles.parent_writers}>
+        <div className="container">
+          <div className={styles.child_writers}>
+            <div className={styles.parent_sliderWriters}>
+              <Slider className={styles.slider} {...settings}>
+                {kyrgyzWriters?.map((slide) => (
+                  <div key={slide.id}>
+                    <div className={styles.child_sliderWriters}>
+                      <div className={styles.img_writers}>
+                        <img src={slide.image} alt="slide" />
+                      </div>
+                      <div>
+                        <h2>{slide?.fullname}</h2>
+                        <section className={styles.moreText_Slider}>
+                          <div>
+                            <h4>Краткая история: </h4>
+                            <p>{slide.short_story}</p>
+                          </div>
+                          <div>
+                            <h4>Награды: </h4>
+                            <p>{slide.awards}</p>
+                          </div>
+                          <div>
+                            <h4>Произведения: </h4>
+                            {/* <p>{slide.works[0].title}</p> */}
+                            {slide?.works?.map((item, index) => (
+                              <span key={index}>{item.title}</span>
+                            ))}
+                          </div>
+                          <NavLink to={`/detailedwriter/${slide.id}`}>
+                            <button>Подробнее</button>
+                          </NavLink>
+                        </section>
+                      </div>
                     </div>
-                    <section className={styles.moreText_Slider}>
-                      <div>
-                        <h4>Краткая история: </h4>
-                        <p>
-                          Родился 12 декабря 1928 г. в посёлке Шекер Таласской
-                          области Киргизской ССР в семье учительницы и
-                          партийного работника.
-                        </p>
-                      </div>
-                      <div>
-                        <h4>Награды: </h4>
-                        <p>
-                          Герой Социалистического Труда (1978), Герой Киргизской
-                          Республики (1997), народный писатель Киргизской ССР
-                          (1968), академик АН Киргизской ССР (1974), лауреат
-                          Ленинской (1963) и трёх Государственных премий СССР
-                          (1968, 1977, 1983).
-                        </p>
-                      </div>
-                      <div>
-                        <h4>Произведения: </h4>
-                        <p>
-                          Материнское поле ,Тополёк мой в красной косынке ,
-                          Лицом к лицу Верблюжий глаз , Белый пароход Пегий пёс.
-                        </p>
-                      </div>
-                    </section>
+                    <div className={styles.block_for_btnSlider}>
+                      {/* <NavLink to={`/detailedwriter/${slide.id}`}>
+                      <button>Подробнее</button>
+                    </NavLink> */}
+                    </div>
                   </div>
-                  <div className={styles.block_for_btnSlider}>
-                    <button>Подробнее</button>
-                  </div>
-                </div>
-              ))}
-            </Slider>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
       </div>

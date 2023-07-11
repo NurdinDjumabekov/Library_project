@@ -31,9 +31,9 @@ const ManasPartSlider = () => {
   return (
     <div className={styles.parent_sliderManas}>
       <div>
-        <h3>
-          Эпос <span>МАНАС</span>
-        </h3>
+        <h2>
+          Эпос <span>Манас</span>
+        </h2>
       </div>
       <div className={styles.child_sliderManas}>
         <div>

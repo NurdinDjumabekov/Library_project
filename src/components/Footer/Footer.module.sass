@@ -1,12 +1,19 @@
 .parent_footer
     background: #8D8D8D
-    padding: 80px 0 80px 0
+    padding: 80px 0px
     margin-top: 10px
+    @media screen and ( max-width: 500px )
+        padding: 50px 0
+        
     .child_footer
+        @media screen and ( max-width: 670px )
+            padding: 0px 20px
         > div:nth-child(1)
             display: flex
             gap: 5px
             margin-bottom: 15px
+            @media screen and ( max-width: 670px )
+                margin: 0
             a
                 font-family: 'Roboto'
                 font-style: normal
@@ -14,10 +21,23 @@
                 font-size: 24px
                 line-height: 125.3%
                 color: #FFFFFF
+                @media screen and ( max-width: 830px )
+                    font-size: 18px
+                    @media screen and ( max-width: 450px )
+                        font-size: 16px
             .vertical_line
                 height: 25px
                 width: 3px
                 background: #fff
+        .decktop
+            @media screen and ( max-width: 670px )
+                display: none
+        .mobile
+            display: none
+            @media screen and ( max-width: 670px )
+                display: block
+                margin-bottom: 15px
+
         > div:nth-child(2)
             span
                 font-family: 'Roboto'
@@ -26,34 +46,3 @@
                 font-size: 20px
                 line-height: 125.3%
                 color: #FFFFFF
-    // .child_footer
-    //     display: flex
-    //     justify-content: space-between
-        // h6
-        //     font-weight: 500
-        //     font-size: 36px
-        //     line-height: 125.3%
-        //     margin-bottom: 30px
-        // .footer_thanks
-        //     width: 350px
-        //     h6
-        //         width: 280px
-        //     p
-        //         font-weight: 300
-        //         font-size: 18px
-        //         line-height: 125.3%
-        // .footer_aboutUs
-        //     ul
-        //         li
-        //             margin-bottom: 20px
-        //             a
-        //                 font-weight: 400
-        //                 font-size: 18px
-        //                 line-height: 125.3%
-        //                 color: #fff            
-                
-        // .footer_socialMedia
-        //     ul
-        //         display: flex
-        //         gap: 20px
-              

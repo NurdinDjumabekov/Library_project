@@ -1,26 +1,42 @@
 import React, { useState } from "react";
 import styles from "./Filtration.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeStateForFiltered } from "../../../store/reducers/sendRequestLibraryPageSlice";
+import {
+  changeFilterBookState,
+  changeFilteredBtn,
+  changeSearchState,
+  changeSortBtn,
+  changeSortState,
+} from "../../../store/reducers/sendRequestLibraryPageSlice";
 
 const Filtration = () => {
-  const [filterBook, setFilterBook] = useState(1);
-  const dispatch = useDispatch();
-  const { stateForFiltered } = useSelector(
+  const { filterBookState } = useSelector(
     (state) => state.sendRequestLibraryPageSlice
   );
-  //   console.log(stateForFiltered);
+  const dispatch = useDispatch();
 
   const filteredArr = [
-    { id: 1, text: "Все", filt: "all" },
-    { id: 2, text: "Популярность", filt: "Популярность" },
-    { id: 3, text: "Новинка", filt: "Новинка" },
-    { id: 4, text: "Рейтинг", filt: "Рейтинг" },
+    { id: 1, text: "Все", filt: "" },
+    {
+      id: 2,
+      text: "По новизне",
+      filt: "https://kitepkana1.pythonanywhere.com/search_filter/?ordering=-created_date",
+    },
+    {
+      id: 3,
+      text: "По рейтингу",
+      filt: "https://kitepkana1.pythonanywhere.com/search_filter/?ordering=-middle_star",
+    },
   ];
 
   const changeStateFiltered = (id, filter) => {
-    dispatch(changeStateForFiltered(filter));
-    setFilterBook(id);
+    dispatch(changeFilterBookState(id));
+    dispatch(changeFilteredBtn(filter));
+    ///////////сброс состояний///////////
+    dispatch(changeSortBtn(""));
+    dispatch(changeSortState(-1));
+    dispatch(changeSearchState(""));
+    ///////////сброс состояний///////////
   };
 
   return (
@@ -29,8 +45,10 @@ const Filtration = () => {
       {filteredArr.map((filtered) => (
         <button
           key={filtered.id}
-          onClick={() => changeStateFiltered(filtered.id, filterBook.filt)}
-          className={filtered.id === filterBook ? styles.active_filtered : ""}
+          onClick={() => changeStateFiltered(filtered.id, filtered.filt)}
+          className={
+            filtered.id === filterBookState ? styles.active_filtered : ""
+          }
         >
           {filtered.text}
         </button>

@@ -8,28 +8,58 @@ import { LoginPage } from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ReadingNow from "./pages/ReadingNow/ReadingNow";
 import UsersPage from "./pages/UsersPage/UsersPage";
-import AboutSite from "./pages/AboutSite/AboutSite";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
-import ReaderPage from "./pages/ReaderPage/ReaderPage";
-import SettingsUsersPage from "./pages/SettingsUsersPage/SettingsUsersPage";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateTokens } from "./store/reducers/usersStateSlice";
+import SettingUserPage from "./pages/SettingUserPage/SettingUserPage";
+import ActiveUserPage from "./pages/ActiveUserPage/ActiveUserPage";
+import DetailedWritersPage from "./pages/DetailedWritersPage/DetailedWritersPage";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const startTimestamp = localStorage.getItem("timerStartTimestamp");
+    const currentTime = Date.now();
+    const intervalTime = 9 * 60 * 1000; // 9 минут в миллисекундах
+    // Если есть сохраненное время начала таймера и время не истекло
+    if (startTimestamp && currentTime - startTimestamp < intervalTime) {
+      const remainingTime = intervalTime - (currentTime - startTimestamp);
+      const interval = setInterval(() => {
+        dispatch(updateTokens());
+        console.log("Функция срабатывает каждые 9 минут");
+      }, remainingTime);
+      return () => {
+        clearInterval(interval);
+      };
+    } else {
+      // Если время истекло или таймер не был ранее запущен, запускаем новый таймер
+      localStorage.setItem("timerStartTimestamp", currentTime.toString());
+
+      const interval = setInterval(() => {
+        dispatch(updateTokens());
+        console.log("Функция срабатывает каждые 9 минут");
+      }, intervalTime);
+
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, []);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/reading_now" element={<ReadingNow />} />
-        <Route path="/profile">
-          <Route index element={<UsersPage/>}/>
-          <Route path="edit" element={<SettingsUsersPage/>}/>
-        </Route>
-        <Route path="/detailed" element={<DetailedPage />} />
-        <Route path="/reader" element={<ReaderPage/>}/>
+        <Route path="/profile" element={<UsersPage />} />
+        <Route path="/detailed/:id" element={<DetailedPage />} />
+        <Route path="/detailedwriter/:id" element={<DetailedWritersPage />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registration" element={<RegistrationPage />} />
-      <Route path="/aboutsite" element={<AboutSite />} />
+      <Route path="/setting_users" element={<SettingUserPage />} />
+      <Route path="/registration_active" element={<ActiveUserPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

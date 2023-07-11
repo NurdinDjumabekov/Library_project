@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./TheBestWorksSlider.module.css";
-import { requestKyrgyzWriters } from "../../../../store/reducers/sendRequestMainPageSlice";
+import { requestBestWorks } from "../../../../store/reducers/sendRequestMainPageSlice";
 
 const TheBestWorksSlider = () => {
   const { dataBestWork } = useSelector(
     (state) => state.sendRequestMainPageSlice
   );
-  //   console.log(dataBestWork, "dataBestWork");
+  // console.log(dataBestWork, "dataBestWork");
   const data = [...dataBestWork];
-  data.length = 3;
+  data.reverse().length = 3;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(requestKyrgyzWriters());
+    dispatch(requestBestWorks());
   }, []);
 
   //////////////////////////////////////////
@@ -55,7 +55,7 @@ const TheBestWorksSlider = () => {
           {data?.map((book) => (
             <div key={book.id}>
               <div className={styles.inner_img_ourWriters}>
-                <img src={book.url} alt="book" />
+                <img src={book.cover} alt="book" />
               </div>
             </div>
           ))}

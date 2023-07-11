@@ -1,29 +1,58 @@
 .child_reading
-    padding: 100px 0 80px
+    padding: 100px 0 0 0
+    height: 76vh
     display: flex
-    justify-content: space-between
+    justify-content: center
     align-items: center
-    div:nth-child(1)
+    div
+        @media screen and ( max-width: 500px )
+            padding: 0 20px
+        h1
+        display: block
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 500
+        font-size: 36px
+        line-height: 30px
+        color: #7C7C7C
+        padding: 0px 0px 40px 0px
+        @media screen and ( max-width: 1000px )
+            font-size: 25px
+            @media screen and ( max-width: 800px )
+                font-size: 18px
+                text-align: center
+                @media screen and ( max-width: 500px )
+                    font-size: 15px
+                    font-weight: 400
         p
+            display: block
             font-family: 'Roboto'
             font-style: normal
             font-weight: 500
             font-size: 36px
             line-height: 125.3%
-            color: #2A2A2A
-            width: 520px
-        > div
-            text-align: right
-            button
-                background: #E73700
-                font-family: 'Roboto'
-                font-style: normal
-                font-weight: 500
-                font-size: 18px
-                line-height: 125.3%
-                text-align: center
-                color: #FFFFFF
-                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)
-                border-radius: 10px
-                padding: 6px 25px
-                border: none
+            color: #7C7C7C
+            @media screen and ( max-width: 1000px )
+                font-size: 25px
+        span
+            color: #FF4004
+            // font-size: 36px
+            font-family: "Pacifico"
+            font-weight: 500
+            // @media screen and ( max-width: 1000px )
+            //     font-size: 25px
+        button
+            font-family: 'Roboto'
+            font-style: normal
+            font-weight: 500
+            font-size: 36px
+            line-height: 125.3%
+            color: #FF4004
+            border: none
+            background: transparent
+            cursor: pointer
+            @media screen and ( max-width: 1000px )
+                font-size: 25px
+
+            
+            

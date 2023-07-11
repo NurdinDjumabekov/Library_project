@@ -1,39 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SortBtns.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSortBtn } from "../../../store/reducers/sendRequestLibraryPageSlice";
+import {
+  changeFilterBookState,
+  changeFilteredBtn,
+  changeSearchState,
+  changeSortBtn,
+  changeSortState,
+  requestSortBtn,
+} from "../../../store/reducers/sendRequestLibraryPageSlice";
 
 const SortBtns = () => {
-  const [sortState, setSortState] = useState(1);
-  const { sortBtn } = useSelector((state) => state.sendRequestLibraryPageSlice);
+  const { sortState, allsortBtn } = useSelector(
+    (state) => state.sendRequestLibraryPageSlice
+  );
+  // console.log(allsortBtn, "allsortBtn");
   const dispatch = useDispatch();
-  //   console.log(sortBtn, "sortBtn");
+  useEffect(() => {
+    dispatch(requestSortBtn());
+  }, []);
 
-  const sortArr = [
-    { id: 1, text: "Все", sort: "all" },
-    { id: 2, text: "Драма", sort: "Драма" },
-    { id: 3, text: "Эпосы", sort: "Эпосы" },
-    { id: 4, text: "Роман", sort: "Роман" },
-    { id: 5, text: "Мифы", sort: "Мифы" },
-    { id: 6, text: "Повесть", sort: "Повесть" },
-  ];
-
-  const changeSortBtnFn = (id, sort) => {
-    setSortState(id);
-    dispatch(changeSortBtn(sort));
+  const changeSortBtnFn = (id, extra_name) => {
+    dispatch(changeFilteredBtn(""));
+    dispatch(changeSortState(id));
+    ///////////сброс состояний///////////
+    dispatch(changeFilterBookState(1));
+    dispatch(changeSearchState(""));
+    dispatch(changeSearchState(""));
+    ///////////сброс состояний///////////
+    dispatch(
+      changeSortBtn(`
+    https://kitepkana1.pythonanywhere.com/search_filter/?genre__genre_name=${extra_name}
+    `)
+    );
   };
 
   return (
     <div className={styles.parent_SortBtns}>
-      {sortArr.map((choice) => (
-        <button
-          key={choice.id}
-          onClick={() => changeSortBtnFn(choice.id, choice.sort)}
-          className={choice.id === sortState ? styles.active_sort : ""}
-        >
-          {choice.text}
-        </button>
-      ))}
+      {allsortBtn?.length !== 0 ? (
+        <>
+          {allsortBtn?.map((choice) => (
+            <button
+              key={choice.id}
+              onClick={() => changeSortBtnFn(choice.id, choice.extra_name)}
+              className={choice.id === sortState ? styles.active_sort : ""}
+            >
+              {choice.genre_name}
+            </button>
+          ))}
+        </>
+      ) : (
+        <button className={styles.active_sort}>Все</button>
+      )}
     </div>
   );
 };

@@ -50,11 +50,7 @@ const DownloadSlide = () => {
         <p>
           <span>Нажмите здесь</span>, чтобы перейти на мобильную версию сайта.
         </p>
-        <button onClick={() => startScroll(3800)}>
-          {/* <a onClick={() => startScroll(3800)} href=""> */}
-          Скачать
-          {/* </a> */}
-        </button>
+        <button onClick={() => startScroll(3800)}>Скачать</button>
       </div>
     </div>
   );

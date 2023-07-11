@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./DataEveryUser.module.css";
+import { useSelector } from "react-redux";
 
 const DataEveryUser = () => {
-  const imgUrl =
-    "https://w7.pngwing.com/pngs/627/693/png-transparent-computer-icons-user-user-icon.png";
+  const [data, seData] = useState({});
+  useEffect(() => {
+    seData(JSON.parse(localStorage.getItem("dataUser")));
+  }, []);
+  // console.log(data, "data");
+  const { stateFake } = useSelector((state) => state.usersStateSlice);
+  // console.log(stateFake?.img);
+
   return (
     <div className={styles.parent_veryUser}>
-      <h5>
-        Привет <span>Нурдин</span>
-      </h5>
       <div>
-        <img src={imgUrl} alt="Картинка" />
+        <img
+          src={stateFake?.img === "" ? data?.user_photo : stateFake?.img}
+          alt="Картинка"
+        />
       </div>
-      <p>Asanov Asan</p>
-      <span>asanovasan@gmail.com</span>
+      <p>{stateFake?.name === "" ? data?.username : stateFake?.name}</p>
+      <span>{stateFake?.email === "" ? data?.email : stateFake?.email}</span>
     </div>
   );
 };

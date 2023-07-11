@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./MainLogin.module.css";
 import EyePassword from "../EyePassword/EyePassword";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { changeCheckedUser } from "../../../store/reducers/usersStateSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Preloader from "../../Preloader/Preloader";
+import { changePreloader } from "../../../store/reducers/sendRequestMainPageSlice";
 
 const MainLogin = ({ setRestore }) => {
+  const { preloader } = useSelector((state) => state.sendRequestMainPageSlice);
   const [data, setDate] = useState({
     login: "",
     password: "",
@@ -15,17 +21,20 @@ const MainLogin = ({ setRestore }) => {
     lookPassword: false,
     lookBtnEye: false,
   });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const gmailRegExp = /^[A-Za-z0-9_\-\.\-]+\@[gmail]+\.com$/;
 
-  const sendDataLgin = async (e) => {
+  const sendDataLogin = async (e) => {
     e.preventDefault();
+    dispatch(changePreloader(true));
     if (gmailRegExp.test(data.login)) {
       setWrong((info) => ({
         ...info,
         errorlogin: false,
       }));
-      // setDate((info) => ({ ...info, login: "", password: "" }));
+
       // console.log(wrong.errorlogin);
       try {
         const info = await axios({
@@ -36,12 +45,31 @@ const MainLogin = ({ setRestore }) => {
             password: data.password,
           },
         });
-        console.log(info);
-      } catch {
-        console.log(
-          "error - https://kitepkana1.pythonanywhere.com/auth/jwt/create/"
-        );
+        // console.log(info, "data");
+        localStorage.setItem("access", info.data.access);
+        localStorage.setItem("refresh", info.data.refresh);
+        setTimeout(() => {
+          if (info.data.access && info.data.refresh) {
+            navigate("/");
+            dispatch(changeCheckedUser(true));
+            dispatch(changePreloader(false));
+          }
+        }, 300);
+        setDate((info) => ({ ...info, login: "", password: "" }));
+      } catch (error) {
+        dispatch(changePreloader(true));
+        setWrong((info) => ({
+          ...info,
+          errorlogin_password: true,
+        }));
+        console.log(error, "auth/jwt/create/");
       }
+      setTimeout(() => {
+        setWrong((info) => ({
+          ...info,
+          errorlogin_password: false,
+        }));
+      }, 1500);
     } else {
       setWrong((info) => ({
         ...info,
@@ -58,6 +86,8 @@ const MainLogin = ({ setRestore }) => {
   };
 
   useEffect(() => {
+    dispatch(changePreloader(false));
+
     if (data.password.length > 0) {
       setWrong((info) => ({
         ...info,
@@ -71,52 +101,64 @@ const MainLogin = ({ setRestore }) => {
     }
   }, [data]);
   return (
-    <div className={styles.parentBlock_mainLogin}>
-      <form action="" onSubmit={sendDataLgin} className={styles.form_login}>
-        <label className={styles.login_block}>
-          <input
-            className={styles.input_email}
-            placeholder="E-mail "
-            required
-            // type="email"
-            value={data.login}
-            onChange={(e) =>
-              setDate((info) => ({ ...info, login: e.target.value }))
-            }
-          />
-        </label>
-        {wrong.errorlogin && (
-          <label className={styles.wrongEmail}>Неверный Email!</label>
-        )}
-        <label className={styles.password_block}>
-          <input
-            className={styles.input_password}
-            type={wrong.disable ? "text" : "password"}
-            required
-            placeholder="Пароль"
-            value={data.password}
-            onChange={(e) =>
-              setDate((info) => ({ ...info, password: e.target.value }))
-            }
-          />
-          {wrong.lookBtnEye && (
-            <EyePassword
-              lookPassword={wrong.disable}
-              setDisable={setWrong}
-              type={"password_loginPage"}
-            />
-          )}
-        </label>
-        {wrong.errorlogin_password && (
-          <label className={styles.errorlogin_password}>
-            Неправильный пароль!
-          </label>
-        )}
-        <button type="submit">Войти</button>
-      </form>
-      <span>Вы забыли пароль?</span>
-      <button onClick={() => setRestore(true)}>Восстановить</button>
-    </div>
+    <>
+      {preloader ? (
+        <Preloader />
+      ) : (
+        <div className={styles.parentBlock_mainLogin}>
+          <form
+            action=""
+            onSubmit={sendDataLogin}
+            className={styles.form_login}
+          >
+            <label className={styles.login_block}>
+              <input
+                className={styles.input_email}
+                placeholder="E-mail "
+                required
+                name="email"
+                // type="email"
+                value={data.login}
+                onChange={(e) =>
+                  setDate((info) => ({ ...info, login: e.target.value }))
+                }
+              />
+            </label>
+            {wrong.errorlogin && (
+              <label className={styles.wrongEmail}>Неверный Email!</label>
+            )}
+            <label className={styles.password_block}>
+              <input
+                className={styles.input_password}
+                type={wrong.disable ? "text" : "password"}
+                required
+                placeholder="Пароль"
+                value={data.password}
+                name="password"
+                onChange={(e) =>
+                  setDate((info) => ({ ...info, password: e.target.value }))
+                }
+              />
+              {wrong.lookBtnEye && (
+                <EyePassword
+                  lookPassword={wrong.disable}
+                  setDisable={setWrong}
+                  type={"password_loginPage"}
+                />
+              )}
+            </label>
+            {wrong.errorlogin_password && (
+              <label className={styles.errorlogin_password}>
+                Неправильный логин или пароль
+              </label>
+            )}
+            <button type="submit">Войти</button>
+          </form>
+          <span>Вы забыли пароль?</span>
+          <button onClick={() => setRestore(true)}>Восстановить</button>
+        </div>
+      )}
+    </>
   );
 };
 

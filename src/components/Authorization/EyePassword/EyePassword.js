@@ -66,6 +66,78 @@ const EyePassword = ({ lookPassword, setDisable, type }) => {
         )}
       </label>
     );
+  } else if (type === "setting_changeEmail") {
+    return (
+      <label className={styles.parent_eyeBtn}>
+        {lookPassword ? (
+          <div
+            onClick={() =>
+              setDisable((info) => ({ ...info, disable_password: false }))
+            }
+          >
+            <img src={eye_on} alt="eye" />
+          </div>
+        ) : (
+          <div
+            onClick={() =>
+              setDisable((info) => ({ ...info, disable_password: true }))
+            }
+          >
+            <img src={eye_off} alt="eye" />
+          </div>
+        )}
+      </label>
+    );
+  } else if (type === "setting_changeNewPassword") {
+    return (
+      <label className={styles.parent_eyeBtn}>
+        {lookPassword ? (
+          <div
+            onClick={() =>
+              setDisable((info) => ({ ...info, disable_passwordRepeat: false }))
+            }
+          >
+            <img src={eye_on} alt="eye" />
+          </div>
+        ) : (
+          <div
+            onClick={() =>
+              setDisable((info) => ({ ...info, disable_passwordRepeat: true }))
+            }
+          >
+            <img src={eye_off} alt="eye" />
+          </div>
+        )}
+      </label>
+    );
+  } else if (type === "setting_changeNewPassword_repreat") {
+    return (
+      <label className={styles.parent_eyeBtn}>
+        {lookPassword ? (
+          <div
+            onClick={() =>
+              setDisable((info) => ({
+                ...info,
+                disable_passwordNewRepeat: false,
+              }))
+            }
+          >
+            <img src={eye_on} alt="eye" />
+          </div>
+        ) : (
+          <div
+            onClick={() =>
+              setDisable((info) => ({
+                ...info,
+                disable_passwordNewRepeat: true,
+              }))
+            }
+          >
+            <img src={eye_off} alt="eye" />
+          </div>
+        )}
+      </label>
+    );
   }
 };
 
