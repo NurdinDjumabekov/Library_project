@@ -148,6 +148,46 @@
     display: none;
   }
 }
+.parent_favoritesBook > div .finishReadBtn, .parent_favoritesBook > div .readingNowBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+@media screen and (max-width: 400px) {
+  .parent_favoritesBook > div .finishReadBtn, .parent_favoritesBook > div .readingNowBtn {
+    top: 10px;
+    right: 15px;
+  }
+}
+.parent_favoritesBook > div .finishReadBtn button, .parent_favoritesBook > div .readingNowBtn button {
+  padding: 10px;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 125.303%;
+  cursor: pointer;
+}
+@media screen and (max-width: 580px) {
+  .parent_favoritesBook > div .finishReadBtn button, .parent_favoritesBook > div .readingNowBtn button {
+    display: none;
+  }
+}
+@media screen and (max-width: 830px) {
+  .parent_favoritesBook > div .finishReadBtn button, .parent_favoritesBook > div .readingNowBtn button {
+    width: 110px;
+    padding: 0;
+    font-size: 16px;
+  }
+}
+.parent_favoritesBook > div .finishReadBtn button {
+  border: 2px solid #06A503;
+  color: #06A503;
+}
+.parent_favoritesBook > div .readingNowBtn button {
+  border: 2px solid rgb(255, 64, 4);
+  color: rgb(255, 64, 4);
+}
 .parent_favoritesBook > div .changeBtnAction_active {
   position: absolute;
   top: 20px;

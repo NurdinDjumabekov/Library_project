@@ -3,13 +3,12 @@ import axios from "axios";
 
 const initialState = {
   commentsData: [],
-<<<<<<< HEAD
-  readerCurrentPage: 1
-=======
   infoEveryWriters: {},
   preloader: true,
   ifSendRequestError: true,
->>>>>>> e11371622d86a9c56cc9905c8d6f9d6c076e23e6
+  readerCurrentPage: 0,
+  bookTextInfo: {},
+
 };
 export const sendFavotiteBookUsers = createAsyncThunk(
   "sendFavotiteBookUsers",
@@ -114,6 +113,53 @@ export const sendRequestDetailedWriters = createAsyncThunk(
     }
   }
 );
+
+export const sendRequestGetBookText = createAsyncThunk(
+  "sendRequestGetBookText",
+  async (info, {dispatch}) => {
+    dispatch(changePreloader(true))
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `https://kitepkana1.pythonanywhere.com/read/book/${info.id}/?page=${info.page}`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+      dispatch(setBookTextInfo(data))
+      dispatch(changePreloader(false))
+      console.log(data);
+    } catch(error) {
+      console.log(error);
+      dispatch(changePreloader(false))
+    }
+  }
+)
+
+export const sendRequestGetBookLastPage = createAsyncThunk(
+  "sendRequestGetBookText",
+  async (id, {dispatch}) => {
+    dispatch(changePreloader(true))
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `https://kitepkana1.pythonanywhere.com/read/book/${id}/`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+      console.log(data);
+      dispatch(setBookTextInfo(data))
+      dispatch(changePreloader(false))
+      dispatch(changeReaderCurrentPage(data.current_page))
+    } catch(error) {
+      console.log(error);
+      dispatch(changePreloader(false))
+    }
+  }
+)
+
+
 const sendRequestEveryBookSlice = createSlice({
   name: "sendRequestEveryBookSlice",
   initialState,
@@ -121,15 +167,6 @@ const sendRequestEveryBookSlice = createSlice({
     toTakeCommets: (state, action) => {
       state.commentsData = action.payload;
     },
-<<<<<<< HEAD
-    changeReaderCurrentPage: (state, action) => {
-      state.readerCurrentPage = action.payload
-    }
-  },
-});
-
-export const { changeCommentsData, changeReaderCurrentPage } = sendRequestEveryBookSlice.actions;
-=======
     toTakeEveryWriters: (state, action) => {
       state.infoEveryWriters = action.payload;
     },
@@ -139,6 +176,12 @@ export const { changeCommentsData, changeReaderCurrentPage } = sendRequestEveryB
     changeSendRequestError: (state, action) => {
       state.ifSendRequestError = action.payload;
     },
+    changeReaderCurrentPage: (state, action) => {
+      state.readerCurrentPage = action.payload;
+    },
+    setBookTextInfo: (state, action) => {
+      state.bookTextInfo = action.payload;
+    },
   },
 });
 
@@ -147,6 +190,7 @@ export const {
   toTakeEveryWriters,
   changePreloader,
   changeSendRequestError,
+  changeReaderCurrentPage,
+  setBookTextInfo,
 } = sendRequestEveryBookSlice.actions;
->>>>>>> e11371622d86a9c56cc9905c8d6f9d6c076e23e6
 export default sendRequestEveryBookSlice.reducer;

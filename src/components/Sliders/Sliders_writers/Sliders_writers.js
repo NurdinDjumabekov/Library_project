@@ -58,7 +58,7 @@ const Sliders_writers = () => {
                             <h4>Произведения: </h4>
                             {/* <p>{slide.works[0].title}</p> */}
                             {slide?.works?.map((item, index) => (
-                              <span key={index}>{item.title}</span>
+                              <span key={index}>{item.title}, </span>
                             ))}
                           </div>
                           <NavLink to={`/detailedwriter/${slide.id}`}>

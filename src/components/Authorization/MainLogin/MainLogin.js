@@ -57,7 +57,7 @@ const MainLogin = ({ setRestore }) => {
         }, 300);
         setDate((info) => ({ ...info, login: "", password: "" }));
       } catch (error) {
-        dispatch(changePreloader(true));
+        dispatch(changePreloader(false));
         setWrong((info) => ({
           ...info,
           errorlogin_password: true,

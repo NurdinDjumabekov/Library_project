@@ -58,11 +58,13 @@
         .child_info_detailed
             width: 480px
             padding: 20px 0 0 0
+            display: flex
+            flex-direction: column
+            gap: 31px
             li
                 display: flex
                 justify-content: space-between
                 align-items: center
-                margin-bottom: 20px
                 > div
                     // background: red
                     > div
@@ -112,6 +114,7 @@
                     font-size: 26px
                     line-height: 125.3%
                     color: #FFFFFF
+                    cursor: pointer
                     @media screen and ( max-width: 1050px )
                         padding: 8px 90px
                         @media screen and ( max-width: 880px )
@@ -128,14 +131,16 @@
             gap: 10px
             margin: 15px 0px
             align-items: center
-            > button
-                width: 100%
-                background-color: #FF3D00
-                padding: 12px 0
-                border: none
-                border-radius: 10px
-                font-size: 20px
-                color: #fff
+            > a
+                button
+                    width: 100%
+                    background-color: #FF3D00
+                    padding: 12px
+                    border: none
+                    border-radius: 10px
+                    font-size: 20px
+                    color: #fff
+                    cursor: pointer
             h3
                 font-family: 'Roboto'
                 font-style: normal
