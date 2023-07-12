@@ -13,7 +13,7 @@ import settingImg from "../../assests/images/readingNow/mdi_share.svg";
 
 const Reader = ({ id }) => {
   const dispatch = useDispatch();
-  const { bookTextInfo, preloader, readerCurrentPage, ifSendRequestError } =
+  const { bookTextInfo, preloader, readerCurrentPage, bookRequestError } =
     useSelector((state) => state.sendRequestEveryBookSlice);
   // useEffect(() => {
   //   dispatch(getBookTextInfo(id))
@@ -119,10 +119,10 @@ const Reader = ({ id }) => {
             style={{ fontFamily: fontFamaly, lineHeight: lineHeight + "px" }}
           >
             {/* {bookTextInfo.results.length <= 0 ? "Ошибка при получении текста." : bookTextInfo.results[0].text} */}
-            {ifSendRequestError
-              ? bookTextInfo?.results.length <= 0
+            {!bookRequestError
+              ? (bookTextInfo?.results.length <= 0
                 ? "Отсутствует текст."
-                : bookTextInfo?.results[0].text
+                : bookTextInfo?.results[0].text)
               : "Ошибка при выполнении запроса!"}
           </div>
           <div

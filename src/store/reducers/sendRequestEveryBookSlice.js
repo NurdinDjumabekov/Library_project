@@ -8,6 +8,7 @@ const initialState = {
   ifSendRequestError: false,
   readerCurrentPage: 0,
   bookTextInfo: {},
+  bookRequestError: true
 
 };
 export const sendFavotiteBookUsers = createAsyncThunk(
@@ -128,10 +129,10 @@ export const sendRequestGetBookText = createAsyncThunk(
       });
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
-      dispatch(changeSendRequestError(true))
+      dispatch(changeBookRequestError(false))
     } catch(error) {
       console.log(error);
-      dispatch(changeSendRequestError(false))
+      dispatch(changeBookRequestError(true))
       dispatch(changePreloader(false))
     }
   }
@@ -150,10 +151,10 @@ export const sendRequestGetManasText = createAsyncThunk(
       });
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
-      dispatch(changeSendRequestError(true))
+      dispatch(changeBookRequestError(false))
     } catch(error) {
       console.log(error);
-      dispatch(changeSendRequestError(false))
+      dispatch(changeBookRequestError(true))
       dispatch(changePreloader(false))
     }
   }
@@ -175,10 +176,10 @@ export const sendRequestGetBookLastPage = createAsyncThunk(
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
       dispatch(changeReaderCurrentPage(data?.current_page))
-      dispatch(changeSendRequestError(true))
+      dispatch(changeBookRequestError(false))
     } catch(error) {
       console.log(error);
-      dispatch(changeSendRequestError(false))
+      dispatch(changeBookRequestError(true))
       dispatch(changePreloader(false))
     }
   }
@@ -199,10 +200,10 @@ export const sendRequestGetManasLastPage = createAsyncThunk(
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
       dispatch(changeReaderCurrentPage(data.current_page))
-      dispatch(changeSendRequestError(true))
+      dispatch(changeBookRequestError(false))
     } catch(error) {
       console.log(error);
-      dispatch(changeSendRequestError(false))
+      dispatch(changeBookRequestError(true))
       dispatch(changePreloader(false))
     }
   }
@@ -231,6 +232,10 @@ const sendRequestEveryBookSlice = createSlice({
     setBookTextInfo: (state, action) => {
       state.bookTextInfo = action.payload;
     },
+    changeBookRequestError: (state, action) => {
+      state.bookRequestError = action.payload;
+    },
+    
   },
 });
 
@@ -241,5 +246,6 @@ export const {
   changeSendRequestError,
   changeReaderCurrentPage,
   setBookTextInfo,
+  changeBookRequestError,
 } = sendRequestEveryBookSlice.actions;
 export default sendRequestEveryBookSlice.reducer;
