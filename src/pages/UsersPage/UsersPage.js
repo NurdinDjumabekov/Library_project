@@ -4,7 +4,11 @@ import SortUsersBook from "../../components/Users/SortUsersBook/SortUsersBook";
 import FavoritesBookUsers from "../../components/Users/FavoritesBookUsers/FavoritesBookUsers";
 import DataEveryUser from "../../components/Users/DataEveryUser/DataEveryUser";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteReadingNow, sendRequestAllDataUser, sendRequestDataEveryUser } from "../../store/reducers/usersStateSlice";
+import {
+  deleteReadingNow,
+  sendRequestAllDataUser,
+  sendRequestDataEveryUser,
+} from "../../store/reducers/usersStateSlice";
 import Preloader from "../../components/Preloader/Preloader";
 import NoAuth from "../../components/NoAuth/NoAuth";
 import { useNavigate } from "react-router-dom";

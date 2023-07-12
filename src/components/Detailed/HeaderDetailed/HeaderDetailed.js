@@ -3,6 +3,7 @@ import styles from "./HeaderDetailed.module.css";
 import book from "../../../assests/images/Detailed/info_book.png";
 import Rating_Star from "../../Sliders/SlidersMainPage/Rating_Star/Rating_Star";
 import { Link } from "react-router-dom";
+import DetailedPage from "../../../pages/DetailedPage/DetailedPage";
 
 const HeaderDetailed = ({ dataDetailedPage, dontShowBtn }) => {
   // console.log(dataDetailedPage);
@@ -27,7 +28,7 @@ const HeaderDetailed = ({ dataDetailedPage, dontShowBtn }) => {
             </li>
             <li>
               <h4>Год публикации</h4>
-              <span>1962</span>
+              <span>{dataDetailedPage?.publication_year}</span>
             </li>
             <li>
               <h4>Жанр</h4>
@@ -40,7 +41,10 @@ const HeaderDetailed = ({ dataDetailedPage, dontShowBtn }) => {
             <li>
               <h4>Рейтинг</h4>
               <div className={styles.star_reting}>
-                <Rating_Star grade_star={2} grade={2.6} />
+                <Rating_Star
+                  grade_star={dataDetailedPage?.middle_star}
+                  grade={dataDetailedPage?.middle_star}
+                />
               </div>
             </li>
             <li>

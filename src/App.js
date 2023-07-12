@@ -19,34 +19,34 @@ import ReaderPage from "./pages/ReaderPage/ReaderPage";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    const startTimestamp = localStorage.getItem("timerStartTimestamp");
-    const currentTime = Date.now();
-    const intervalTime = 9 * 60 * 1000; // 9 минут в миллисекундах
-    // Если есть сохраненное время начала таймера и время не истекло
-    if (startTimestamp && currentTime - startTimestamp < intervalTime) {
-      const remainingTime = intervalTime - (currentTime - startTimestamp);
-      const interval = setInterval(() => {
-        dispatch(updateTokens());
-        console.log("Функция срабатывает каждые 9 минут");
-      }, remainingTime);
-      return () => {
-        clearInterval(interval);
-      };
-    } else {
-      // Если время истекло или таймер не был ранее запущен, запускаем новый таймер
-      localStorage.setItem("timerStartTimestamp", currentTime.toString());
+  // useEffect(() => {
+  //   const startTimestamp = localStorage.getItem("timerStartTimestamp");
+  //   const currentTime = Date.now();
+  //   const intervalTime = 9 * 60 * 1000; // 9 минут в миллисекундах
+  //   // Если есть сохраненное время начала таймера и время не истекло
+  //   if (startTimestamp && currentTime - startTimestamp < intervalTime) {
+  //     const remainingTime = intervalTime - (currentTime - startTimestamp);
+  //     const interval = setInterval(() => {
+  //       dispatch(updateTokens());
+  //       console.log("Функция срабатывает каждые 9 минут");
+  //     }, remainingTime);
+  //     return () => {
+  //       clearInterval(interval);
+  //     };
+  //   } else {
+  //     // Если время истекло или таймер не был ранее запущен, запускаем новый таймер
+  //     localStorage.setItem("timerStartTimestamp", currentTime.toString());
 
-      const interval = setInterval(() => {
-        dispatch(updateTokens());
-        console.log("Функция срабатывает каждые 9 минут");
-      }, intervalTime);
+  //     const interval = setInterval(() => {
+  //       dispatch(updateTokens());
+  //       console.log("Функция срабатывает каждые 9 минут");
+  //     }, intervalTime);
 
-      return () => {
-        clearInterval(interval);
-      };
-    }
-  }, []);
+  //     return () => {
+  //       clearInterval(interval);
+  //     };
+  //   }
+  // }, []);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
