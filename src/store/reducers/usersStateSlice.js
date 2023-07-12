@@ -57,8 +57,8 @@ export const sendRequestDataEveryUser = createAsyncThunk(
       localStorage.setItem("dataUser", JSON.stringify(data));
       dispatch(toTakeDataEveryUser(data));
       dispatch(toTakePassword(data.password));
-      dispatch(changeReadingNowBookUser(data.reading))
-      dispatch(changeFinishedBookUser(data.finish))
+      dispatch(changeReadingNowBookUser(data.reading));
+      dispatch(changeFinishedBookUser(data.finish));
       // console.log(data);
     } catch (error) {
       console.log(error, "error sendRequestDataEveryUser");
@@ -168,7 +168,7 @@ const usersStateSlice = createSlice({
       state.singlePassword = changePassword(action.payload);
     },
     changeActiveSortBtn: (state, action) => {
-      state.activeSortBtn = action.payload
+      state.activeSortBtn = action.payload;
     },
     deleteBooksFavorites: (state, action) => {
       return {

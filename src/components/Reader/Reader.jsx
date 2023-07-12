@@ -120,9 +120,9 @@ const Reader = ({ id }) => {
           >
             {/* {bookTextInfo.results.length <= 0 ? "Ошибка при получении текста." : bookTextInfo.results[0].text} */}
             {ifSendRequestError
-              ? bookTextInfo.results.length <= 0
+              ? bookTextInfo?.results.length <= 0
                 ? "Отсутствует текст."
-                : bookTextInfo.results[0].text
+                : bookTextInfo?.results[0].text
               : "Ошибка при выполнении запроса!"}
           </div>
           <div
