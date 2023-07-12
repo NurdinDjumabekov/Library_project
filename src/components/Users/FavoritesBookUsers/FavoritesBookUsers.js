@@ -69,7 +69,7 @@ const FavoritesBookUsers = ({ dataFavotitesBook, userBookChoice }) => {
                 )}
                 {choiceUserBook === "read_bookmark" ? (
                   <div className={styles.readingNowBtn}>
-                    <button>В процессе</button>
+                    <button>Читаю сейчас</button>
                   </div>
                 ) : (
                   null
