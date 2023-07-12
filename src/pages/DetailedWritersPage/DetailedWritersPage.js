@@ -60,9 +60,9 @@ const DetailedWritersPage = () => {
                     </div>
                   </div>
                 </div>
+                <Slider_book_author data={infoEveryWriters?.author_books} />
                 <div className="container">
                   <div className={styles.biography_detailedWriters}>
-                    <Slider_book_author data={infoEveryWriters?.author_books} />
                     <h5>Биография</h5>
                     <p>{infoEveryWriters?.bio}</p>
                     <h5>Литературная деятельность</h5>

@@ -182,7 +182,7 @@ const ChangeDataUser = ({ setUser, user }) => {
                     email: e.target.value,
                   }))
                 }
-                placeholder="Джумабеков Нурдин"
+                placeholder="E-mail "
                 required
               />
               <p>Введите пароль</p>

@@ -19,7 +19,7 @@ const DetailedPage = () => {
     dispatch(detailedData(id));
   }, []);
 
-  console.log(dataDetailedPage, "dataDetailedPage");
+  // console.log(dataDetailedPage, "dataDetailedPage");
   return (
     <>
       {preloader ? (

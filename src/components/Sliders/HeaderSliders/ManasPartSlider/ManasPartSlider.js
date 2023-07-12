@@ -46,7 +46,7 @@ const ManasPartSlider = () => {
         </div>
       </div>
       <div className={styles.btn_more}>
-        <button onClick={() => startScroll(1200)} disabled={disabledBtn}>
+        <button onClick={() => startScroll(1340)} disabled={disabledBtn}>
           Подробнее
         </button>
       </div>
