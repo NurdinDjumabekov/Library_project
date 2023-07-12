@@ -36,7 +36,7 @@ const ManasPart = () => {
                 эпоса - “<span>МАНАС</span>”
               </p>
               <button>
-                <NavLink to={"/"}>Подробнее</NavLink>
+                <NavLink to={"/detailed/7"}>Подробнее</NavLink>
               </button>
             </div>
           </div>

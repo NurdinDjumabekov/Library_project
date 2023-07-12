@@ -63,6 +63,8 @@ function App() {
       <Route path="/registration" element={<RegistrationPage />} />
       <Route path="/setting_users" element={<SettingUserPage />} />
       <Route path="/registration_active" element={<ActiveUserPage />} />
+      <Route path="/about" element={<ActiveUserPage />} />
+
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
