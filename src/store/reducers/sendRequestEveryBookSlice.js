@@ -171,10 +171,10 @@ export const sendRequestGetBookLastPage = createAsyncThunk(
           Authorization: `JWT ${localStorage.getItem("access")}`,
         },
       });
-      console.log(data);
+      // console.log(data);
       dispatch(setBookTextInfo(data))
       dispatch(changePreloader(false))
-      dispatch(changeReaderCurrentPage(data.current_page))
+      dispatch(changeReaderCurrentPage(data?.current_page))
       dispatch(changeSendRequestError(true))
     } catch(error) {
       console.log(error);
