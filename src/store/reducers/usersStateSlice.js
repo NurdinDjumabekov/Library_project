@@ -11,6 +11,7 @@ const initialState = {
   readingNowBookUser: [],
   finishedBookUser: [],
   singlePassword: "",
+  activeSortBtn: 1,
   stateFake: {
     img: "",
     name: "",
@@ -166,6 +167,9 @@ const usersStateSlice = createSlice({
     toTakePassword: (state, action) => {
       state.singlePassword = changePassword(action.payload);
     },
+    changeActiveSortBtn: (state, action) => {
+      state.activeSortBtn = action.payload
+    },
     deleteBooksFavorites: (state, action) => {
       return {
         ...state,
@@ -230,5 +234,6 @@ export const {
   toTakePassword,
   deleteBooksFavorites,
   changeFakeData,
+  changeActiveSortBtn,
 } = usersStateSlice.actions;
 export default usersStateSlice.reducer;

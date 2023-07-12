@@ -5,7 +5,7 @@ const initialState = {
   commentsData: [],
   infoEveryWriters: {},
   preloader: true,
-  ifSendRequestError: true,
+  ifSendRequestError: false,
   readerCurrentPage: 0,
   bookTextInfo: {},
 
@@ -136,6 +136,28 @@ export const sendRequestGetBookText = createAsyncThunk(
     }
   }
 )
+export const sendRequestGetManasText = createAsyncThunk(
+  "sendRequestGetManasText",
+  async (page, {dispatch}) => {
+    dispatch(changePreloader(true))
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `https://kitepkana1.pythonanywhere.com/read/book/manas/?page=${page}`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+      dispatch(setBookTextInfo(data))
+      dispatch(changePreloader(false))
+      dispatch(changeSendRequestError(true))
+    } catch(error) {
+      console.log(error);
+      dispatch(changeSendRequestError(false))
+      dispatch(changePreloader(false))
+    }
+  }
+)
 
 export const sendRequestGetBookLastPage = createAsyncThunk(
   "sendRequestGetBookText",
@@ -145,6 +167,30 @@ export const sendRequestGetBookLastPage = createAsyncThunk(
       const { data } = await axios({
         method: "GET",
         url: `https://kitepkana1.pythonanywhere.com/read/book/${id}/`,
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      });
+      console.log(data);
+      dispatch(setBookTextInfo(data))
+      dispatch(changePreloader(false))
+      dispatch(changeReaderCurrentPage(data.current_page))
+      dispatch(changeSendRequestError(true))
+    } catch(error) {
+      console.log(error);
+      dispatch(changeSendRequestError(false))
+      dispatch(changePreloader(false))
+    }
+  }
+)
+export const sendRequestGetManasLastPage = createAsyncThunk(
+  "sendRequestGetManasPage",
+  async (id, {dispatch}) => {
+    dispatch(changePreloader(true))
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `https://kitepkana1.pythonanywhere.com/read/book/manas/`,
         headers: {
           Authorization: `JWT ${localStorage.getItem("access")}`,
         },

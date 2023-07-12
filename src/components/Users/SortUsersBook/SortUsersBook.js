@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import styles from "./SortUsersBook.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeChoiceUserBook } from "../../../store/reducers/usersStateSlice";
+import { changeChoiceUserBook, changeActiveSortBtn } from "../../../store/reducers/usersStateSlice";
 
 const SortUsersBook = () => {
   const dispatch = useDispatch();
   // const [favorites, setFavorites] = useState(
-    //   JSON.parse(localStorage.getItem("activeBtnSort"))
-    //     ? JSON.parse(localStorage.getItem("activeBtnSort"))
-    //     : 1
-    // );
-    const [favorites, setFavorites] = useState(1);
+  //     JSON.parse(localStorage.getItem("activeBtnSort"))
+  //       ? JSON.parse(localStorage.getItem("activeBtnSort"))
+  //       : 1
+  //   );
+    const {activeSortBtn} = useSelector(
+      (state) => state.usersStateSlice
+    )
 
   const favoriteBook = [
     { id: 1, text: "Избранное", dataApi: "favorite" },
@@ -19,9 +21,10 @@ const SortUsersBook = () => {
   ];
 
   const sortFavoriteBook = (id, dataApi) => {
-    localStorage.setItem("activeBtnSort", id);
+    // localStorage.setItem("activeBtnSort", id);
+    dispatch(changeActiveSortBtn(id))
     dispatch(changeChoiceUserBook(dataApi));
-    setFavorites(id);
+    // setFavorites(id);
   };
 
   return (
@@ -30,7 +33,7 @@ const SortUsersBook = () => {
         <button
           key={item.id}
           onClick={() => sortFavoriteBook(item.id, item.dataApi)}
-          className={item.id === favorites ? styles.active_usersBook : ""}
+          className={item.id === activeSortBtn ? styles.active_usersBook : ""}
         >
           {item.text}
         </button>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeReaderCurrentPage, sendRequestGetBookLastPage, sendRequestGetBookText } from '../../store/reducers/sendRequestEveryBookSlice';
+import { changeReaderCurrentPage, sendRequestGetBookLastPage, sendRequestGetBookText, sendRequestGetManasLastPage, sendRequestGetManasText } from '../../store/reducers/sendRequestEveryBookSlice';
 
 const ReadBook = ({styles, nextLabel, previousLabel, pageRangeDisplayed, marginPagesDisplayed, needScroll, pageCount, id}) => {
   const {readerCurrentPage} = useSelector(
@@ -11,13 +11,22 @@ const ReadBook = ({styles, nextLabel, previousLabel, pageRangeDisplayed, marginP
   const [itemOffset, setItemOffset] = useState(Number(readerCurrentPage));
 
   useEffect(() => {
-    dispatch(sendRequestGetBookLastPage(id))
+    if(Number(id) === 7) {
+      dispatch(sendRequestGetManasLastPage())
+    } else {
+      dispatch(sendRequestGetBookLastPage(id))
+    }
   }, [])
 
   useEffect(() => {
-    if(itemOffset !== 0 && itemOffset != Number(readerCurrentPage)) {
+    if(itemOffset !== 0 && itemOffset !== Number(readerCurrentPage)) {
       dispatch(changeReaderCurrentPage(itemOffset))
-      dispatch(sendRequestGetBookText({id: id, page: itemOffset}))
+      console.log(id);
+      if(Number(id) === 7) {
+        dispatch(sendRequestGetManasText(itemOffset))
+      } else {
+        dispatch(sendRequestGetBookText({id: id, page: itemOffset}))
+      }
       console.log(itemOffset);
     }
   }, [itemOffset])

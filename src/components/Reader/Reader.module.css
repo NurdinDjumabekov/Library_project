@@ -30,7 +30,7 @@
 }
 @media screen and (max-width: 480px) {
   .readerParent .bookText {
-    font-size: 22px;
+    font-size: 17px;
   }
 }
 .readerParent .textOptionsParent {
@@ -125,6 +125,13 @@
     font-size: 18px;
     padding: 10px 30px 10px 10px;
   }
+}
+.readerParent .textOptionsParent .textOptions select option {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 20px 15px;
+  height: 190px;
 }
 .readerParent .textOptionsParent .textOptions select:focus {
   background-image: url("../../assests/images/readingNow/caret-down-light.svg");
@@ -227,6 +234,12 @@
     font-size: 20px;
   }
 }
+@media screen and (max-width: 500px) {
+  .paginationContainer .paginationPrev, .paginationContainer .paginationNext {
+    font-size: 18px;
+    padding: 7px 16px;
+  }
+}
 .paginationContainer .paginationNum, .paginationContainer .paginationBreak {
   font-weight: 500;
   font-size: 36px;
@@ -237,6 +250,11 @@
 @media screen and (max-width: 760px) {
   .paginationContainer .paginationNum, .paginationContainer .paginationBreak {
     font-size: 28px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .paginationContainer .paginationNum, .paginationContainer .paginationBreak {
+    font-size: 22px;
   }
 }
 .paginationContainer .paginationActiveNum {

@@ -55,9 +55,14 @@ const Reader = ({ id }) => {
       setNextLabel(">")
       setPrevLabel("<")
       setMarginPagesDisplayed(2)
-      setPageRangeDisplayed(1)
+      setPageRangeDisplayed(2)
+    } else if(window.screen.width <= 630 && window.screen.width > 560){
+      setMarginPagesDisplayed(2)
+      setPageRangeDisplayed(2)
+      setNextLabel(">")
+      setPrevLabel("<")
     } else {
-      setMarginPagesDisplayed(1)
+      setMarginPagesDisplayed(2)
       setPageRangeDisplayed(1)
       setNextLabel(">")
       setPrevLabel("<")
@@ -95,6 +100,8 @@ const Reader = ({ id }) => {
     }
 
     checkWindowSize()
+
+
   }, [])
 
   useEffect(() => {
@@ -112,7 +119,9 @@ const Reader = ({ id }) => {
           {/* {bookTextInfo.results.length <= 0 ? "Ошибка при получении текста." : bookTextInfo.results[0].text} */}
           {ifSendRequestError ? (bookTextInfo.results.length <= 0 ? "Отсутствует текст." : bookTextInfo.results[0].text) : "Ошибка при выполнении запроса!"}
         </div>
-        <div className={styles.textOptionsParent} style={{right: optionsOpened ? "0" : currentOptionMargin+"px"}}>
+        <div className={styles.textOptionsParent} style={{right: optionsOpened ? "0" : currentOptionMargin+"px"}} onClick={(e) => {
+          console.dir(e.target);
+        }}>
           <div className={styles.settingImg} onClick={() => {
             setOptionsOpened(!optionsOpened)
           }}>
